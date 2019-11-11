@@ -36,9 +36,14 @@ import is2.parser.Parser;
 import is2.tag.Tagger;
 
 /**
- * Creates dependency parses
+ * Annotates text with dependency parses for each sentence in the input text
+ * Requires the following annotations: sentences, tokens, lemmas, morphology, and POS (see DependencyParseAnnotatorTAE.xml)
+ * 
+ * Dependency parsing is done using the DependencyParser interface. 
+ * To add a new dependency parser, make sure to implement the DependencyParser interface.
+ * 
  * @author zweiss
- *
+ * 
  */
 public class DependencyParseAnnotator extends JCasAnnotator_ImplBase {
 
@@ -183,6 +188,12 @@ public class DependencyParseAnnotator extends JCasAnnotator_ImplBase {
 	}
 
 
+	/**
+	 * Implements the DependencyParser interface as a wrapper for the Mate dependency parser 
+	 * which is part of the Mate tools (https://www.ims.uni-stuttgart.de/forschung/ressourcen/werkzeuge/matetools.en.html) 
+	 * @author zweiss
+	 *
+	 */
 	private class MateDependencyParser implements DependencyParser {
 
 		private Parser mateDependencyParser;
