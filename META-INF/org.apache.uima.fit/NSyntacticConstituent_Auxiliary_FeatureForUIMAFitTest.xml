@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>Number of Syntactic Constituents: Copula</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of copulas in the text. 
+    <name>Number of Syntactic Constituents: Auxiliary</name>
+    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of auxiliaries in the text. 
 
-A copula is the relation between the complement of a copular verb and the copular verb.
-	"Giovanni è un uomo onesto" cop(uomo, è)
- 
+An auxiliary of a clause is a non-main verb of the clause, e.g., a modal auxiliary, or a form of "be", "do" or "have" in a periphrastic tense
+	
+
+"quella che ha fatto" aux(fatto, ha)
+"era convinto di dover vivere" aux(vivere, dover) 
 
 AAE dependency:
 	SentenceAnnotator.xml
@@ -63,23 +64,21 @@ RS      Relative clauses
       <nameValuePair>
         <name>constituentType</name>
         <value>
-          <string>cop</string>
+          <string>aux</string>
         </value>
       </nameValuePair>
       <nameValuePair>
         <name>tregexPatternsIT</name>
         <value>
           <array>
-            <string>cop</string>
+            <string>aux</string>
             </array>
         </value>
       </nameValuePair>
-    </configurationParameterSettings>
+    <nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>44442</integer></value></nameValuePair></configurationParameterSettings>
     <typeSystemDescription>
-      <imports>
-        <import location="../type_system/feature_type/NSyntacticConstituentType.xml"/>
-      </imports>
-    </typeSystemDescription>
+      
+    <imports><import location="../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml"/></imports></typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>

@@ -171,7 +171,7 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 
 			// build parse tree based on POS and token list
 			String tree = parser.parse(sentTokens, sentPOS);
-
+			System.out.println(tree);
 			//populate the CAS
 			ParseTree annotation = new ParseTree(aJCas);
 			annotation.setBegin(sentStart);

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
@@ -74,12 +73,10 @@ RS      Relative clauses
             </array>
         </value>
       </nameValuePair>
-    </configurationParameterSettings>
+    <nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>44442</integer></value></nameValuePair></configurationParameterSettings>
     <typeSystemDescription>
-      <imports>
-        <import location="../type_system/feature_type/NSyntacticConstituentType.xml"/>
-      </imports>
-    </typeSystemDescription>
+      
+    <imports><import location="../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml"/></imports></typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>

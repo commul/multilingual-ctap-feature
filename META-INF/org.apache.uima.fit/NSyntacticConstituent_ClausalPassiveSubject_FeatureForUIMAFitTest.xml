@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>Number of Syntactic Constituents: Copula</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of copulas in the text. 
+    <name>Number of Syntactic Constituents: Clausal Passive Subject</name>
+    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of clausal passive subjects in the text. 
 
-A copula is the relation between the complement of a copular verb and the copular verb.
-	"Giovanni è un uomo onesto" cop(uomo, è)
- 
+A clausal passive subject is a clausal syntactic subject of a passive clause. In the example below, "that she lied" is the subject.
+	
+	"Che mentisse era sospettato da tutti" csubjpass(sospettato, mentisse): Tint ha dato 'nsubjpass(sospettato-4, mentisse-2)'
 
 AAE dependency:
 	SentenceAnnotator.xml
@@ -63,23 +62,21 @@ RS      Relative clauses
       <nameValuePair>
         <name>constituentType</name>
         <value>
-          <string>cop</string>
+          <string>csubjpass</string>
         </value>
       </nameValuePair>
       <nameValuePair>
         <name>tregexPatternsIT</name>
         <value>
           <array>
-            <string>cop</string>
+            <string>csubjpass</string>
             </array>
         </value>
       </nameValuePair>
-    </configurationParameterSettings>
+    <nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>44442</integer></value></nameValuePair></configurationParameterSettings>
     <typeSystemDescription>
-      <imports>
-        <import location="../type_system/feature_type/NSyntacticConstituentType.xml"/>
-      </imports>
-    </typeSystemDescription>
+      
+    <imports><import location="../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml"/></imports></typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
