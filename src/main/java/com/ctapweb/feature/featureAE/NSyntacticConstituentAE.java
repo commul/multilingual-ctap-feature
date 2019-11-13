@@ -129,7 +129,10 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 					//patternListNotTregex.add(Pattern.compile("\n"+pattern));
 					//patternListNotTregex.add(Pattern.compile("[^a-zA-Z:]"+pattern+"[^a-zA-Z:]"));
 					//patternListNotTregex.add(Pattern.compile("(^|[^a-zA-Z])"+pattern+"([^a-zA-Z]|$)"));
-					patternListNotTregex.add(Pattern.compile("[^a-zA-Z]"+pattern+"[^a-zA-Z]"));
+					
+					//patternListNotTregex.add(Pattern.compile("[^a-zA-Z]"+pattern.replace(":", "\\\\:")+"[^a-zA-Z]"));
+					patternListNotTregex.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));
+					
 					//patternListNotTregex.add(Pattern.compile(pattern));
 				}
 			}
@@ -180,8 +183,8 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 							
 							Matcher matcher = pattern.matcher(parseTree.getParseTree());
 							while(matcher.find()) {
-								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
-								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
+								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
+								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
 								//System.out.println(matcher.group());
 								//System.out.println(matcher.toString());
 								
@@ -206,8 +209,8 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 
 							Matcher matcher = pattern.matcher(parseTree.getParseTree());
 							while(matcher.find()) {								
-								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
-								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
+								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
+								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
 								//System.out.println(matcher.group());
 								//System.out.println(matcher.toString());
 								

@@ -115,7 +115,7 @@ RS      Relative clauses
 				<value>
 					<array>
 						<!-- https://universaldependencies.org/u/overview/complex-syntax.html#subordination -->
-						<string>(csubj|xcomp|ccomp|advcl|acl)</string>
+						<string>(csubj|csubjpass|ccomp|xcomp|advcl|acl:[a-z]+|vmod|rcmod|nomc)</string>
 					</array>
 				</value>
 			</nameValuePair>

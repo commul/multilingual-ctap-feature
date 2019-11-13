@@ -298,10 +298,10 @@ public class NSyntacticConstituentFeatureTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
-	 * Checks that the number of dependent clauses in META-INF/cani.txt is 27.0, with the precision of 0.0000001.
+	 * Checks that the number of dependent clauses in META-INF/cani.txt is 23.0, with the precision of 0.0000001.
 	 */	
 	/*
 	@Test
@@ -316,7 +316,7 @@ public class NSyntacticConstituentFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(27.0, annot.getValue(), 0.0000001);
+				assertEquals(23.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -585,27 +585,6 @@ public class NSyntacticConstituentFeatureTest {
 		}
 	}
 	*/
-	
-	/*
-	 * Checks that the number of noun phrases in META-INF/cani.txt is 74.0, with the precision of 0.0000001.
-	 */	
-	
-	@Test
-	public void NSyntacticConstituentNPTest() throws Exception {
-	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NP_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NP_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
-		XMLInputSource xmlInputSource = new XMLInputSource(f);
-		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
-		
-		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
-		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
-	
-		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 44442){
-				assertEquals(74.0, annot.getValue(), 0.0000001);
-			}
-		}
-	}
 	
 	
 	/*

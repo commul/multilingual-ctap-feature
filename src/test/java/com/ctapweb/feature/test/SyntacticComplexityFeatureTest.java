@@ -72,7 +72,6 @@ public class SyntacticComplexityFeatureTest {
 		XMLInputSource xmlInputSourceNSyntConstS = new XMLInputSource(fNSyntConstS);
 		AnalysisEngineDescription aedNSyntConstS = pars.parseAnalysisEngineDescription(xmlInputSourceNSyntConstS);
 		
-		
 		paramsHashMap = new HashMap <String, ArrayList <String>> ();		
 		ArrayList dynamicStringArray = new ArrayList(2);
 		String[] names = {"integer", "44442"};
@@ -88,4 +87,26 @@ public class SyntacticComplexityFeatureTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
 	
 	}
+	
+	/*
+	 * Checks that the number of coordinations per sentence in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void SyntacticComplexityCoordinationsPerSentenceFeatureTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Attributive_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Attributive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
 }

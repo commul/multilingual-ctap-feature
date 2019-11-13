@@ -26,13 +26,6 @@
         <multiValued>true</multiValued>
         <mandatory>true</mandatory>
       </configurationParameter>
-      <configurationParameter>
-        <name>tregexPatternsIT</name>
-        <description>Patterns of the constituents in regex format (Italian)</description>
-        <type>String</type>
-        <multiValued>true</multiValued>
-        <mandatory>true</mandatory>
-      </configurationParameter>
     <configurationParameter>
         <name>constituentType</name>
         <description>One of the following: 
@@ -77,15 +70,6 @@ VC      Verb cluster
           </array>
         </value>
       </nameValuePair>
-      <nameValuePair>
-        <name>tregexPatternsIT</name>
-        <value>
-          <array>
-            <!-- <string>(dobj|iobj|npadvmod|nsubj|nsubjpass|pobj|tmod)</string> -->
-            <string>(nsubj|nsubjpass|dobj|iobj|pobj|nmod|npadvmod|tmod|appos|attr)</string>
-          </array>
-        </value>
-      </nameValuePair>
     </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
@@ -104,7 +88,6 @@ VC      Verb cluster
         </outputs>
             <languagesSupported>
                 <language>DE</language>
-                <language>IT</language>
                 <!-- add new language here -->
             </languagesSupported>
       </capability>
