@@ -67,8 +67,9 @@ public class TintReadableStringTransformer {
 	 */
 	public LabeledScoredTreeNode textToTree(String annotation){
     	LabeledScoredTreeNode labeledScoredTreeNode = new LabeledScoredTreeNode();
+    	
     	//Take only the syntactic analysis out of the Tint READABLE output
-    	String substring = annotation.substring(annotation.lastIndexOf("Dependency Parse (enhanced plus plus dependencies):") + 52);
+    	//String substring = annotation.substring(annotation.lastIndexOf("Dependency Parse (enhanced plus plus dependencies):") + 52);
 		
 		indexToStringHashMap = new HashMap <Integer, String> (); // Will contain word indexes (as keys) and the corresponding word strings (as values)
 		childToParentIndexHashMap = new HashMap <Integer, Integer> (); // Will contain child syntactic element indexes (as keys) and their parents indexes (as values)
@@ -77,7 +78,7 @@ public class TintReadableStringTransformer {
 		
 		// Pattern that finds the 5 elements of the Tint READABLE format string: det(distinzioni-3, le-2)
 		Pattern pattern = Pattern.compile("([^\\(]+)\\(([^\\-]+)\\-([0-9]+), ([^\\-]+)\\-([0-9]+)\\)\n");
-        Matcher matcher = pattern.matcher(substring);
+        Matcher matcher = pattern.matcher(annotation);
         // check all occurences
         while (matcher.find()) {
         	String syntRel = matcher.group(1);

@@ -114,7 +114,8 @@ RS      Relative clauses
 				<name>tregexPatternsIT</name>
 				<value>
 					<array>
-						<string>(rcmod|advcl|ccomp|csubj|csubjpass|xcomp|acl:relcl)</string>
+						<!-- https://universaldependencies.org/u/overview/complex-syntax.html#subordination -->
+						<string>(csubj|xcomp|ccomp|advcl|acl)</string>
 					</array>
 				</value>
 			</nameValuePair>

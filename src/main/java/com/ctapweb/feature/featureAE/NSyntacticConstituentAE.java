@@ -127,7 +127,9 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 					patternList.add(TregexPattern.compile(pattern));
 				}else{
 					//patternListNotTregex.add(Pattern.compile("\n"+pattern));
-					patternListNotTregex.add(Pattern.compile("[^a-zA-Z:]"+pattern+"[^a-zA-Z:]"));
+					//patternListNotTregex.add(Pattern.compile("[^a-zA-Z:]"+pattern+"[^a-zA-Z:]"));
+					//patternListNotTregex.add(Pattern.compile("(^|[^a-zA-Z])"+pattern+"([^a-zA-Z]|$)"));
+					patternListNotTregex.add(Pattern.compile("[^a-zA-Z]"+pattern+"[^a-zA-Z]"));
 					//patternListNotTregex.add(Pattern.compile(pattern));
 				}
 			}
@@ -178,10 +180,16 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 							
 							Matcher matcher = pattern.matcher(parseTree.getParseTree());
 							while(matcher.find()) {
+								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
+								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
+								//System.out.println(matcher.group());
+								//System.out.println(matcher.toString());
+								
 								//matcher.getMatch().pennPrint();  // debugging
 								//logger.trace(LogMarker.UIMA_MARKER, " ", "not tregex pattern matched line 173"); // debugging
 
 								occurrence++;
+								//System.out.println(occurrence);
 								//logger.trace(LogMarker.UIMA_MARKER, "occurrence not tregex: ", Integer.toString(occurrence)); // debugging
 
 							}
@@ -197,12 +205,18 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 							//logger.trace(LogMarker.UIMA_MARKER, "pattern: ", pattern); // debugging
 
 							Matcher matcher = pattern.matcher(parseTree.getParseTree());
-							while(matcher.find()) {
+							while(matcher.find()) {								
+								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
+								logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
+								//System.out.println(matcher.group());
+								//System.out.println(matcher.toString());
+								
 								//matcher.getMatch().pennPrint();  // debugging
 								//logger.trace(LogMarker.UIMA_MARKER, " ", "not tregex pattern matched line 193"); // debugging
 								//logger.warn(LogMarker.UIMA_MARKER, "not tregex pattern matched line 193");
 
 								occurrence++;
+								//System.out.println(occurrence);
 								//logger.trace(LogMarker.UIMA_MARKER, "occurrence not tregex: ", Integer.toString(occurrence)); // debugging
 
 							}

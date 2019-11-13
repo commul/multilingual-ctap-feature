@@ -15,6 +15,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -181,6 +183,7 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 
 			// build parse tree based on POS and token list
 			String tree = parser.parse(sentTokens, sentPOS);
+			System.out.println("tree:");
 			System.out.println(tree);
 			//populate the CAS
 			ParseTree annotation = new ParseTree(aJCas);
@@ -331,7 +334,11 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 
 	}
 	
-	// TODO please comment 
+	/*
+	 * Tint parser produces Universal Dependency trees (UD). UD dependencies contain relations between words and don’t contain intermediate tags between different syntactic structures like the Stanford dependencies.
+	 * The Tint dependency parser (http://tint.fbk.eu/parsing.html) is based on the Neural Network Stanford Dependency Parser described here: https://nlp.stanford.edu/software/nndep.shtml
+- about the Universal Dependencies: https://universaldependencies.org/ , http://universaldependencies.org/docsv1/u/dep/index.html
+	 */
 	private class TintParser extends ConstituencyParser {
 
 		private TintPipeline pipelineTint;
@@ -341,7 +348,7 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 		private LabeledScoredTreeNode reconstructedTree;
 		private String treeStr;
 
-		public TintParser() {			
+		public TintParser() {	    	
 			pipelineTint = new TintPipeline();
 			// Load the default properties
 			// see https://github.com/dhfbk/tint/blob/master/tint-runner/src/main/resources/default-config.properties
@@ -372,19 +379,42 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 
 			//System.out.println(sb.toString());
 			String textItalian = sb.toString();
-			treeStr = "(0 (root))";
-			
+			//treeStr = "(0 (root))";
+			treeStr = "";
 			try{			
 				stream = new ByteArrayInputStream(textItalian.getBytes(StandardCharsets.UTF_8));
 				baos = new ByteArrayOutputStream();
 				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-				//logger.warn(LogMarker.UIMA_MARKER, "baos.toString(): "+baos.toString());
-				textToTree = new TintReadableStringTransformer();
-				reconstructedTree = textToTree.textToTree(baos.toString());
-				treeStr = textToTree.treeToStringSyntRel(reconstructedTree);
-				//logger.warn(LogMarker.UIMA_MARKER, "treeStr: "+treeStr);
-				
+				String substring;
+				substring = baos.toString().replaceAll("(\\[Text=.+\\]|Tokens:|Sentence.+\n|Document Date:.+\n)", "");
+				substring = substring.replaceAll("(?m)^[ \t]*\r?\n", "");
+				String[] result = substring.split("Dependency Parse \\(enhanced plus plus dependencies\\):");
+				for (int i=0; i < result.length; i++){
+					String trimmedResult = result[i].trim();
+					if(trimmedResult.startsWith("root(ROOT-")){
+						String[] lines = trimmedResult.split("\r?\n");
+						String lastLine = lines[lines.length-1];
+						String joinedSyntAn;
+						
+						if(!lastLine.matches("^[^(]+\\(.+\\-\\d+, .+\\-\\d+\\)$")){  // If the last line is the text of the sentence nmod:di(scia-35, devastazioni-37)
+							StringBuilder strb = new StringBuilder();
+							for(int a=0; a<(lines.length-1); a++){
+								strb.append(lines[a]);
+								strb.append("\n");
+							}
+							joinedSyntAn = strb.toString().trim();
+							
+						}else{							
+							
+							joinedSyntAn = String.join("\n", lines);
+						}			    		
+			    		textToTree = new TintReadableStringTransformer();
+						reconstructedTree = textToTree.textToTree(joinedSyntAn);
+						treeStr += textToTree.treeToStringSyntRel(reconstructedTree)+"\n";
+					}
+				}
 				return treeStr;
+				
 			}
 			catch (IOException e){
 				logger.warn(e);
@@ -407,18 +437,44 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 
 			//System.out.println(sb.toString());
 			String textItalian = sb.toString();
-			treeStr = "(0 (root))";
-			
+			//treeStr = "(0 (root))";
+			treeStr = "";
 			try{			
 				stream = new ByteArrayInputStream(textItalian.getBytes(StandardCharsets.UTF_8));
 				baos = new ByteArrayOutputStream();
 				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-				//logger.warn(LogMarker.UIMA_MARKER, "baos.toString(): "+baos.toString());
-				textToTree = new TintReadableStringTransformer();
-				reconstructedTree = textToTree.textToTree(baos.toString());
-				treeStr = textToTree.treeToStringSyntRel(reconstructedTree);
-				//logger.warn(LogMarker.UIMA_MARKER, "treeStr: "+treeStr);
+				String substring;
+				substring = baos.toString().replaceAll("(\\[Text=.+\\]|Tokens:|Sentence.+\n|Document Date:.+\n)", "");
+				substring = substring.replaceAll("(?m)^[ \t]*\r?\n", "");
+				String[] result = substring.split("Dependency Parse \\(enhanced plus plus dependencies\\):");
+				for (int i=0; i < result.length; i++){
+					String trimmedResult = result[i].trim();
+					if(trimmedResult.startsWith("root(ROOT-")){
+						String[] lines = trimmedResult.split("\r?\n");
+						String lastLine = lines[lines.length-1];
+						String joinedSyntAn;
+						
+						if(!lastLine.matches("^[^(]+\\(.+\\-\\d+, .+\\-\\d+\\)$")){  // If the last line is the text of the sentence nmod:di(scia-35, devastazioni-37)
+							StringBuilder strb = new StringBuilder();
+							for(int a=0; a<(lines.length-1); a++){
+								strb.append(lines[a]);
+								strb.append("\n");
+							}
+							joinedSyntAn = strb.toString().trim();
+							
+						}else{							
+							
+							joinedSyntAn = String.join("\n", lines);
+						}
+			    		
+			    		textToTree = new TintReadableStringTransformer();
+						reconstructedTree = textToTree.textToTree(joinedSyntAn);
+						treeStr += textToTree.treeToStringSyntRel(reconstructedTree)+"\n";
+					}
+				}
+				 
 				return treeStr;
+				
 			}
 			catch (IOException e){
 				logger.warn(e);

@@ -81,7 +81,8 @@ VC      Verb cluster
         <name>tregexPatternsIT</name>
         <value>
           <array>
-            <string>(dobj|iobj|npadvmod|nsubj|nsubjpass|pobj|tmod)</string>
+            <!-- <string>(dobj|iobj|npadvmod|nsubj|nsubjpass|pobj|tmod)</string> -->
+            <string>(nsubj|nsubjpass|dobj|iobj|pobj|nmod|npadvmod|tmod|appos|attr)</string>
           </array>
         </value>
       </nameValuePair>

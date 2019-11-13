@@ -103,8 +103,9 @@ public class NSyntacticConstituentFeatureTest {
 	
 	
 	/*
-	 * Checks that the number of attributes in META-INF/cani.txt is 0.0, with the precision of 0.001.
+	 * Checks that the number of attributes in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentAttributiveFeatureTest() throws Exception {
 	
@@ -121,10 +122,12 @@ public class NSyntacticConstituentFeatureTest {
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of auxiliary verbs in META-INF/cani.txt is 15.0, with the precision of 0.001.
+	 * Checks that the number of auxiliary verbs in META-INF/cani.txt is 15.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentAuxiliaryFeatureTest() throws Exception {
 	
@@ -141,10 +144,12 @@ public class NSyntacticConstituentFeatureTest {
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of passive auxiliaries in META-INF/cani.txt is 1.0, with the precision of 0.001.
+	 * Checks that the number of passive auxiliaries in META-INF/cani.txt is 2.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentAuxiliaryPassiveTest() throws Exception {
 	
@@ -157,15 +162,16 @@ public class NSyntacticConstituentFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(1.0, annot.getValue(), 0.0000001);
+				assertEquals(2.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
-	
+	*/
 	
 	/*
-	 * Checks that the number of cases in META-INF/cani.txt is 0.0, with the precision of 25.0.
+	 * Checks that the number of cases in META-INF/cani.txt is 29.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentCaseTest() throws Exception {
 	
@@ -178,14 +184,16 @@ public class NSyntacticConstituentFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(25.0, annot.getValue(), 0.0000001);
+				assertEquals(29.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of clausal complements in META-INF/cani.txt is 3.0, with the precision of 0.001.
+	 * Checks that the number of clausal complements in META-INF/cani.txt is 3.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentClausalComplementTest() throws Exception {
 	
@@ -202,10 +210,12 @@ public class NSyntacticConstituentFeatureTest {
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of clausal passive subjects in META-INF/cani.txt is 0.0, with the precision of 0.001.
-	 */	
+	 * Checks that the number of clausal passive subjects in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */
+	/*
 	@Test
 	public void NSyntacticConstituentClausalPassiveSubjectTest() throws Exception {
 	
@@ -222,10 +232,12 @@ public class NSyntacticConstituentFeatureTest {
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of clausal subjects in META-INF/cani.txt is 0.0, with the precision of 0.001.
+	 * Checks that the number of clausal subjects in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentClausalSubjectTest() throws Exception {
 	
@@ -242,10 +254,12 @@ public class NSyntacticConstituentFeatureTest {
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of coordinations in META-INF/cani.txt is 11.0, with the precision of 0.001.
+	 * Checks that the number of coordinations in META-INF/cani.txt is 12.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentCoordinationTest() throws Exception {
 	
@@ -258,15 +272,16 @@ public class NSyntacticConstituentFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(11.0, annot.getValue(), 0.0000001);
+				assertEquals(12.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
-	
+	*/
 	
 	/*
-	 * Checks that the number of copulae in META-INF/cani.txt is 4.0, with the precision of 0.001.
-	 */	
+	 * Checks that the number of copulae in META-INF/cani.txt is 5.0, with the precision of 0.0000001.
+	 */
+	/*
 	@Test
 	public void NSyntacticConstituentCopulaTest() throws Exception {
 	
@@ -279,14 +294,16 @@ public class NSyntacticConstituentFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(4.0, annot.getValue(), 0.0000001);
+				assertEquals(5.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
+	*/
 	
 	/*
-	 * Checks that the number of dependent clauses in META-INF/cani.txt is 19.0, with the precision of 0.001.
+	 * Checks that the number of dependent clauses in META-INF/cani.txt is 27.0, with the precision of 0.0000001.
 	 */	
+	/*
 	@Test
 	public void NSyntacticConstituentDCTest() throws Exception {
 	
@@ -299,8 +316,604 @@ public class NSyntacticConstituentFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
+				assertEquals(27.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of direct objects in META-INF/cani.txt is 20.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentDirectObjectTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DirectObject_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_DirectObject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(20.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of discourse elements in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentDiscourseElementTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DiscourseElement_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_DiscourseElement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of expletive elements in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentExpletiveTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Expletive_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Expletive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(1.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of indirect objects in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentIndirectObjectTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_IndirectObject_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_IndirectObject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(1.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of emarkers in META-INF/cani.txt is 9.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentMarkerTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Marker_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Marker_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(9.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of multi word expressions in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentMultiWordExpressionTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_MultiWordExpression_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_MultiWordExpression_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of negation modifiers in META-INF/cani.txt is 2.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNegationModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NegationModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NegationModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(2.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of nominal modifiers in META-INF/cani.txt is 33.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNominalModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NominalModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(33.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of nominal subjects in META-INF/cani.txt is 19.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNominalSubjectTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalSubject_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NominalSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
 				assertEquals(19.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
+	*/
+	
+	/*
+	 * Checks that the number of passive nominal subjects in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNominalSubjectPassiveTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalSubjectPassive_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NominalSubjectPassive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(1.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of noun compounds in META-INF/cani.txt is 3.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNounCompoundModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NounCompoundModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NounCompoundModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(3.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of noun phrases as adverbial modifiers in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNounPhraseAsAdverbialModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NounPhraseAsAdverbialModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NounPhraseAsAdverbialModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of noun phrases in META-INF/cani.txt is 74.0, with the precision of 0.0000001.
+	 */	
+	
+	@Test
+	public void NSyntacticConstituentNPTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NP_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NP_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(74.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	
+	
+	/*
+	 * Checks that the number of noun phrases in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNumberTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Number_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Number_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of numeric modifiers in META-INF/cani.txt is 4.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentNumericModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NumericModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_NumericModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(4.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of open clausal complements in META-INF/cani.txt is 6.0, with the precision of 0.0000001.
+	 */
+	/*
+	@Test
+	public void NSyntacticConstituentOpenClausalComplementTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_OpenClausalCompliment_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_OpenClausalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(6.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of parataxis complements in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentParataxisTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Parataxis_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Parataxis_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of phrasal verb particles in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentPhrasalVerbParticleTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PhrasalVerbParticle_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_PhrasalVerbParticle_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of possession modifiers in META-INF/cani.txt is 8.0, with the precision of 0.0000001.
+	 */
+	/*
+	@Test
+	public void NSyntacticConstituentPossessionModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PossessionModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_PossessionModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(8.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of preconjuncts in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentPreconjunctTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Preconjunct_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Preconjunct_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of predeterminers in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentPredeterminerTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Predeterminer_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_Predeterminer_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(1.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of prepositional complements in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentPrepositionalComplementTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PrepositionalComplement_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_PrepositionalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of proper noun modifiers in META-INF/cani.txt is 2.0, with the precision of 0.0000001.
+	 */
+	/*
+	@Test
+	public void NSyntacticConstituentProperNounModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ProperNounModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_ProperNounModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(2.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of quantifier phrase modifiers in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void NSyntacticConstituentQuantifierPhraseModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_QuantifierPhraseModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_QuantifierPhraseModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of quantifier phrase modifiers in META-INF/cani.txt is 8.0, with the precision of 0.0000001.
+	 */
+	/*
+	@Test
+	public void NSyntacticConstituentRelativeClauseModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_RelativeClauseModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_RelativeClauseModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(8.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of sentences in META-INF/cani.txt is 14.0, with the precision of 0.0000001.
+	 * Tint splits some sentences into multiple sentences. In the text cani.txt, 2 sentences were split by colon ':' : the second and the 8th (that starts with "Scrive su Facebook:").
+	 */
+	/*
+	@Test
+	public void NSyntacticConstituentSentencesTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_S_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_S_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(14.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the number of temporal modifiers in META-INF/cani.txt is 0.0, with the precision of 0.001.
+	 */
+	/*
+	@Test
+	public void NSyntacticConstituentTemporalModifierTest() throws Exception {
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_TemporalModifier_Feature.xml", "./META-INF/org.apache.uima.fit/NSyntacticConstituent_TemporalModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedParseTree, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 44442){
+				assertEquals(0.0, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
 }
