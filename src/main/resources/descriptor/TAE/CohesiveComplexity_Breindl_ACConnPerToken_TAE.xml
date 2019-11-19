@@ -31,9 +31,9 @@
         <multiValued>false</multiValued>
         <mandatory>true</mandatory>
         <overrides>
-          <parameter>NConnectives_Breindl_AdversativeConcessive_Feature/aeID</parameter>
-          <parameter>NTokenFeature/aeID</parameter>
           <parameter>CohesiveComplexity_Breindl_ACPerToken_Feature/aeID</parameter>
+          <parameter>NTokenFeature/aeID</parameter>
+          <parameter>NConnectives_Breindl_AdversativeConcessive_Feature/aeID</parameter>
         </overrides>
       </configurationParameter>
     </configurationParameters>
@@ -49,7 +49,7 @@
       <fixedFlow>
         <node>SentenceAnnotator</node>
         <node>TokenAnnotator</node>
-        <node>nTokenFeature</node>
+        <node>NTokenFeature</node>
         <node>NConnectives_Breindl_AdversativeConcessive_Feature</node>
         <node>CohesiveComplexity_Breindl_ACPerToken_Feature</node>
       </fixedFlow>

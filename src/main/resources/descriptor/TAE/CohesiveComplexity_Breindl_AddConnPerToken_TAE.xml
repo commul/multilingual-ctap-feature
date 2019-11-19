@@ -49,7 +49,7 @@
       <fixedFlow>
         <node>SentenceAnnotator</node>
         <node>TokenAnnotator</node>
-        <node>nTokenFeature</node>
+        <node>NTokenFeature</node>
         <node>NConnectives_Breindl_Additive_Feature</node>
         <node>CohesiveComplexity_Breindl_AddPerToken_Feature</node>
       </fixedFlow>
