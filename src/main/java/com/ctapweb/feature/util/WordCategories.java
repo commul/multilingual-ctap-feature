@@ -12,13 +12,13 @@ public abstract class WordCategories {
 		protected String[] noun; 
 		protected String[] adjective; 
 		protected String[] adverb;
-		protected String[] article;
-		protected String[] auxiliary;
+		protected String[] article;  // TODO ISSUE currently only in Italian and not initialized for other implementations of WordCategories; to discuss: do we want this here or better in XML descriptor? 
+		protected String[] auxiliary;  // TODO ISSUE currently only in Italian and not initialized for other implementations of WordCategories; to discuss: do we want this here or better in XML descriptor?
 		protected String[] verb; 
 		protected String[] finVerb; 
 		protected String[] lexicalVerb; 
 		protected String[] pronouns;
-		
+		protected String[] punctuation;
 
 		public String[] getLexicalWords() {
 			return lexical;
@@ -62,10 +62,23 @@ public abstract class WordCategories {
 		public String[] getPronouns() {
 			return pronouns;
 		}
+		
+		public String[] getPunctuation() {
+			return punctuation;
+		}
 
 		public boolean isNoun(String tag) {
 			for (String nTag : noun) {
 				if (tag.equals(nTag)) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public boolean isPunctuation(String tag) {
+			for (String pTag : punctuation) {
+				if (tag.equals(pTag)) {
 					return true;
 				}
 			}

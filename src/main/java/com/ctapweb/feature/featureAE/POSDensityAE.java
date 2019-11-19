@@ -189,6 +189,9 @@ public class POSDensityAE extends JCasAnnotator_ImplBase {
 			Collections.addAll(tagList, posMapping.getAdverbs());
 			Collections.addAll(tagList, posMapping.getAdjectives());
 			break;
+		case "punctuation":
+			Collections.addAll(tagList, posMapping.getPunctuation());
+			break;
 		default:
 			//deal with space separated POS type list
 			String[] types = POSType.split("\\b");
