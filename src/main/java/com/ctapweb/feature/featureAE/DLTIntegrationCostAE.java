@@ -134,8 +134,8 @@ public class DLTIntegrationCostAE  extends JCasAnnotator_ImplBase {
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
 		logger.trace(LogMarker.UIMA_MARKER, 
 				new ProcessingDocumentMessage(aeType, aeName, aJCas.getDocumentText()));
-		int nFiniteVerbs = 0;  // denominator
-		int numerator = 0; 
+		double nFiniteVerbs = 0.0;  // denominator
+		double numerator = 0.0; 
 
 		// get annotation indexes and iterator
 		//iterate through all dependency trees (sentences).
@@ -148,7 +148,6 @@ public class DLTIntegrationCostAE  extends JCasAnnotator_ImplBase {
 		boolean[] wordAtIntexAddsToDIC;  // DIC = discourse integration cost
 		while(it.hasNext()) {
 			DependencyParse depParse = (DependencyParse) it.next();
-//			logger.trace(LogMarker.UIMA_MARKER, "Dependency parse: {}", depParse.getDependencyParse());  // debugging
 			//code requires a dependency tree object, so create a dependency tree from the parse string
 			DependencyTree depTree = DependencyTree.valueOf(depParse.getDependencyParse());
 			// Calculate DLT features
@@ -220,7 +219,7 @@ public class DLTIntegrationCostAE  extends JCasAnnotator_ImplBase {
 			icFeature = numerator / nFiniteVerbs;
 		}
 		
-		logger.trace(LogMarker.UIMA_MARKER, "Calculate DLT feature: {} for DLT configuration: {}: {} / {} = {}", dltCostCalculationConfig, featureType, numerator, nFiniteVerbs, icFeature);  
+		logger.trace(LogMarker.UIMA_MARKER, "Calculate DLT feature: {} for DLT configuration: {}: {} / {} = {}", featureType, dltCostCalculationConfig, numerator, nFiniteVerbs, icFeature);  
 
 		//output the feature type
 		DLTIntegrationCost annotation = new DLTIntegrationCost(aJCas);
