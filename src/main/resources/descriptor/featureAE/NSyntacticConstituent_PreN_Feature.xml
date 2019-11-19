@@ -65,8 +65,9 @@ RS      Relative clauses</description>
         <name>tregexPatternsDE</name>
         <value>
           <array>
-            <string>/^(AD(J[AD]|V)|CARD)$/ !&lt; /(^([gb]e|[vz]?er|ent|emp|hinter).+[nt]|iert)e[nrs]?$/ &gt;&gt; /^C?[NP]P/ !&lt; /end(e[nrs]?)?$/ $.. /^(N[NE])|(P(((D|I|W|REL)S)|RF|PER))$/</string>
-            <string>/^(AD(J[AD]|V)|CARD)$/ !&lt; /(^([gb]e|[vz]?er|ent|emp|hinter).+[nt]|iert)e[nrs]?$/ &gt;&gt; /^C?[NP]P/ !&lt; /end(e[nrs]?)?$/ &gt;&gt; (/^C?AP/ $.. /^(N[NE])|(P(((D|I|W|REL)S)|RF|PER))$/)</string>
+          <string>/^(AD(J[AD])|CARD|(C)?AP)$/ $.. /^(N[NE])|(P(((D|I|W|REL)S)|RF|PER))$/</string>
+            <!--<string>/^(AD(J[AD]|V)|CARD)$/ !&lt; /(^([gb]e|[vz]?er|ent|emp|hinter).+[nt]|iert)e[nrs]?$/ &gt;&gt; /^C?[NP]P/ !&lt; /end(e[nrs]?)?$/ $.. /^(N[NE])|(P(((D|I|W|REL)S)|RF|PER))$/</string> -->
+            <!--<string>/^(AD(J[AD]|V)|CARD)$/ !&lt; /(^([gb]e|[vz]?er|ent|emp|hinter).+[nt]|iert)e[nrs]?$/ &gt;&gt; /^C?[NP]P/ !&lt; /end(e[nrs]?)?$/ &gt;&gt; (/^C?AP/ $.. /^(N[NE])|(P(((D|I|W|REL)S)|RF|PER))$/)</string> -->
           </array>
         </value>
       </nameValuePair>
