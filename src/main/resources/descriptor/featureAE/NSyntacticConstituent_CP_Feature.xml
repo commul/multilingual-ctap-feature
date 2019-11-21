@@ -81,7 +81,7 @@ RS      Relative clauses
         <name>tregexPatternsDE</name>
         <value>
           <array>
-            <string>@CAP|CNP|CVP|CPP !> @CAP|CNP|CVP|CPP</string>
+            <string>@CAP|CNP|CVP|CPP !&gt; @CAP|CNP|CVP|CPP</string>
             </array>
         </value>
       </nameValuePair>

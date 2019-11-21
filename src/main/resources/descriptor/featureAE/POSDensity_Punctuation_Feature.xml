@@ -77,7 +77,7 @@
 			<nameValuePair>
 				<name>POSTypeDE</name>
 				<value>
-					<string>$, $. $(</string>
+					<string>punctuation</string>
 				</value>
 			</nameValuePair>
 			<nameValuePair>

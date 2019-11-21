@@ -36,8 +36,14 @@ public class GermanWordCategories extends WordCategories {
 		pronouns = new String[] {
 				"PDS","PDAT","PIS","PIAT","PIDAT","PPER","PPOSS","PPOSAT",
 				"PRELS","PRELAT","PRF", "PWS","PWSAT","PWAV","PAV"};
+		punctuation = new String[] {"$.","$,","$("};
 	}
 
+	@Override
+	public boolean isPunctuation(String tag) {
+		return tag.startsWith("$");
+	}
+	
 	@Override
 	public boolean isVerb(String tag) {
 		return tag.startsWith("V");

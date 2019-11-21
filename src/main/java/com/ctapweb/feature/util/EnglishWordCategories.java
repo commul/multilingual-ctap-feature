@@ -22,6 +22,7 @@ public class EnglishWordCategories extends WordCategories {
 				"EX","FW","LS","MD","POS","RP","SYM","TO","UH"
 		}; 
 		pronouns = new String[] {"PRP", "PRP$", "WP", "WP$"};
+		punctuation = new String[] {",", "\"", "(", ")", ".", ":", "``", "''"};  // TODO check if this is really the full PTB PoS tag repertoire for punctuation
 	}
 
 	public boolean isRelativePronoun(String form, String tag) {
