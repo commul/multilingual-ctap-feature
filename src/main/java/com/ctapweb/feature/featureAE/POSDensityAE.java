@@ -86,6 +86,7 @@ public class POSDensityAE extends JCasAnnotator_ImplBase {
 		//logger.trace(LogMarker.UIMA_MARKER, "The following POS density ("+PARAM_POS_TYPE + lCode.orElse(SupportedLanguages.DEFAULT)+") will be calculated for POSType "+POSType+": ");
 		for(String pos: posList) {
 			logger.trace(LogMarker.UIMA_MARKER, pos);
+			System.out.println(" pos of posList " + pos);
 		}
 
 		//get the parameter value of analysis id
@@ -117,10 +118,11 @@ public class POSDensityAE extends JCasAnnotator_ImplBase {
 		while(posIter.hasNext()) {
 			POS pos = (POS) posIter.next();
 			String tag = pos.getTag();
+			System.out.println(" tag: " + tag);
 			if(posList.contains(tag)) {
 				nPOSTypes++;
 				//logger.trace(LogMarker.UIMA_MARKER, "found a target tag: " + tag);
-				//System.out.println(pos.getCoveredText() + " tag: " + tag);
+				System.out.println(" tag in posList ");
 			}
 		}
 
