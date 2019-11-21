@@ -138,6 +138,10 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			try{
 				String treetaggerPath = getContext().getResourceFilePath("treetagger");
 				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath line 98: " + treetaggerPath));
+				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath);
+				/*
+				String treetaggerPath = getContext().getResourceFilePath("treetagger");
+				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath line 98: " + treetaggerPath));
 				
 				String fileSep = File.separator;
 				String newFilePath = treetaggerPath + fileSep + "bin" + fileSep + "tree-tagger";
@@ -146,8 +150,9 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 				fileObject.setReadable(true);
 				fileObject.setWritable(false);
 				fileObject.setExecutable(true);
+				*/
 
-			}catch(ResourceAccessException e){
+			}catch(Exception e){
 				logger.throwing(e);
 			}
 		}
@@ -185,14 +190,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			}
 			
 			String[] lemmas = new String[sentTokens.size()];
-			
-			if (lCode.equals("DE")){
-				//get lemmas
-				lemmas = lemmatizer.lemmatize(sentTokens);
-				
-			}else if (lCode.equals("IT")){
-				lemmas = lemmatizeItalian(sentTokens);
-			}
+			lemmas = lemmatizer.lemmatize(sentTokens);
 			
 			//populate the CAS
 			for(int i = 0; i < lemmas.length; i++) {  
@@ -208,6 +206,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 
 	}
 	
+	/*
 	private String[] lemmatizeItalian(List<Token> sentTokens){		
 		
 		ArrayList<String> ttResultArrayL = new ArrayList<String>();
@@ -253,8 +252,10 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
         String[] arrayResult = ttResultArrayL.toArray(new String[ttResultArrayL.size()]);
         
         return arrayResult;
+        
 	}
-
+	*/
+		
 	@Override
 	public void destroy() {
 		logger.trace(LogMarker.UIMA_MARKER, new DestroyingAEMessage(aeType, aeName));
@@ -308,6 +309,81 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 		public String[] lemmatize(SentenceData09 inputSentenceData) {
 			SentenceData09 lemmatizedSentence = mateLemmatizer.apply(inputSentenceData);
 			return lemmatizedSentence.plemmas;
+		}
+	}
+	
+	/**
+	 * Wrapper for use of Tree Tagger lemmatizer
+	 * 
+	 * @author nokinina
+	 */
+	private class TreeTaggerLemmatizer implements CTAPLemmatizer {
+		
+		//private Lemmatizer ttLemmatizer;
+		
+		private TreeTaggerWrapper tt;
+		
+		public TreeTaggerLemmatizer(String treetaggerPath) throws IOException {
+//			is2.lemmatizer.Options optsLemmatizer = new is2.lemmatizer.Options(new String[]{"-model", modelInFile}); 
+//			mateLemmatizer = new Lemmatizer(optsLemmatizer);
+			//ttLemmatizer = new Lemmatizer(modelInFile);
+			
+			
+			String fileSep = File.separator;
+			String newFilePath = treetaggerPath + fileSep + "bin" + fileSep + "tree-tagger";
+			File fileObject = new File(newFilePath);				
+			// Change permission as below.
+			fileObject.setReadable(true);
+			fileObject.setWritable(false);
+			fileObject.setExecutable(true);
+			
+			//String treetaggerPath = getContext().getResourceFilePath("treetagger");
+			//logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath: " + treetaggerPath));
+			System.setProperty("treetagger.home", treetaggerPath);
+			tt = new TreeTaggerWrapper();
+			
+			//String fileSep = File.separator;
+			String italianUtf8FilePath = treetaggerPath + fileSep + "italian-utf8.par:utf8";
+			tt.setModel(italianUtf8FilePath);
+            
+            
+		}
+		
+		@Override
+		public String[] lemmatize(List<Token> sentTokens) {
+			ArrayList<String> ttResultArrayL = new ArrayList<String>();
+	        try {
+	        	
+	        	TokenHandler tokenHandler = new TokenHandler<String>() {
+	                public void token(String token, String pos, String lemma) {
+	                    ttResultArrayL.add(lemma);
+	                }
+	            };
+	            
+	            tt.setHandler(tokenHandler);
+	            String[] sentTokensToTreeTag = new String[sentTokens.size()];
+	            int tokNumber = 0;
+	            for (Token tok : sentTokens){
+	            	//logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "tok line 189: " + tok.getCoveredText()));
+	            	System.out.println("tok line 189: " + tok.getCoveredText());
+	            	sentTokensToTreeTag[tokNumber] = tok.getCoveredText();
+	            	tokNumber += 1;
+	            }
+
+	            tt.process(asList(sentTokensToTreeTag));
+	            tt.destroy();
+	            
+	        }
+	        catch (TreeTaggerException e){
+	        	logger.throwing(e);
+	        }
+	        catch (IOException e){
+	        	logger.throwing(e);
+	        }
+	        
+	        String[] arrayResult = ttResultArrayL.toArray(new String[ttResultArrayL.size()]);
+	        
+	        return arrayResult;
 		}
 	}
 }

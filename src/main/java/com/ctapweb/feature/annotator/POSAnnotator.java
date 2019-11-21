@@ -59,7 +59,6 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 		logger.trace(LogMarker.UIMA_MARKER, new InitializingAEMessage(aeType, aeName));
 		super.initialize(aContext);
 
-//		String tokenModelFilePath = null;
 		String POSModelFilePath = null;
 		// define the model to be loaded based on the mandatory LanguageCode config parameter
 		String lCode = "";

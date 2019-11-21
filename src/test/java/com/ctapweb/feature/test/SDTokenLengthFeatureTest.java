@@ -97,6 +97,7 @@ public class SDTokenLengthFeatureTest {
 	/*
 	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 1.1677977497340455, with the precision of 0.001.
 	 */
+	
 	@Test
 	public void SDTokenLengthInSyllableFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/SDTokenLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/SDTokenLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "8585");
@@ -111,4 +112,5 @@ public class SDTokenLengthFeatureTest {
 			}	
 		}
 	}
+	
 }

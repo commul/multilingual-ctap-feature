@@ -1,0 +1,886 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ctapweb:ctap-feature:jar:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.systemPath' for com.googlecode.mate-tools:anna:jar should not point at files within the project directory, ${basedir}/lib/anna-3.61.jar will be unresolvable by dependent projects @ com.ctapweb:ctap-feature:[unknown-version], /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/pom.xml, line 80, column 25
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Text Feature Extraction Module for CTAP 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ ctap-feature ---
+[INFO] Deleting /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ctap-feature ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 599 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ ctap-feature ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 127 source files to /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes
+[INFO] /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/src/main/java/com/ctapweb/feature/annotator/LemmaAnnotator.java: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/src/main/java/com/ctapweb/feature/annotator/LemmaAnnotator.java uses unchecked or unsafe operations.
+[INFO] /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/src/main/java/com/ctapweb/feature/annotator/LemmaAnnotator.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ctap-feature ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ ctap-feature ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 24 source files to /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/test-classes
+[INFO] /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/src/test/java/com/ctapweb/feature/test/SyntacticComplexityFeatureTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/src/test/java/com/ctapweb/feature/test/SyntacticComplexityFeatureTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ ctap-feature ---
+[INFO] Surefire report directory: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.ctapweb.feature.test.SDTokenLengthFeatureTest
+09:34:43.550 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:43.552 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:43.568 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:43.573 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initializing ANNOTATOR <Token Annotator>...
+ 09:34:43.573 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Loading language model TokenModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-token.bin...
+ 09:34:44.233 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initialization completed ANNOTATOR <Token Annotator>.
+ 09:34:44.235 [main] TRACE com.ctapweb.feature.annotator.SyllableAnnotator - Initializing ANNOTATOR <Syllable Annotator>...
+ 09:34:44.235 [main] TRACE com.ctapweb.feature.annotator.SyllableAnnotator - Selecting annotation resource for Syllable Annotator for language: IT...
+ 09:34:44.237 [main] TRACE com.ctapweb.feature.annotator.SyllableAnnotator - Initialization completed ANNOTATOR <Syllable Annotator>.
+ 09:34:44.244 [main] TRACE com.ctapweb.feature.annotator.LetterAnnotator - Initializing ANNOTATOR <Letter Annotator>...
+ 09:34:44.244 [main] TRACE com.ctapweb.feature.annotator.LetterAnnotator - Initialization completed ANNOTATOR <Letter Annotator>.
+ 09:34:44.249 [main] TRACE com.ctapweb.feature.featureAE.SDTokenLengthAE - Initializing FEATURE_EXTRACTOR <SDTokenLength Feature Extractor>...
+ 09:34:44.249 [main] TRACE com.ctapweb.feature.featureAE.SDTokenLengthAE - Initialization completed FEATURE_EXTRACTOR <SDTokenLength Feature Extractor>.
+ 09:34:44.261 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:44.265 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Processing document with ANNOTATOR <Token Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:44.286 [main] TRACE com.ctapweb.feature.annotator.SyllableAnnotator - Processing document with ANNOTATOR <Syllable Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ syllable: LA
+syllable: DON
+syllable: NA
+syllable: che
+syllable: sal
+syllable: vò
+syllable: cen
+syllable: to
+syllable: ca
+syllable: ni
+syllable: pre
+syllable: ga
+syllable: Le
+syllable: pom
+syllable: pe
+syllable: ac
+syllable: qua
+syllable: del
+syllable: su
+syllable: o
+syllable: ap
+syllable: par
+syllable: ta
+syllable: men
+syllable: to
+syllable: non
+syllable: fun
+syllable: zio
+syllable: na
+syllable: no
+syllable: più
+syllable: i
+syllable: mo
+syllable: to
+syllable: ri
+syllable: e
+syllable: let
+syllable: tri
+syllable: ci
+syllable: so
+syllable: no
+syllable: bru
+syllable: cia
+syllable: ti
+syllable: e
+syllable: let
+syllable: tri
+syllable: ci
+syllable: tà
+syllable: è
+syllable: ko
+syllable: i
+syllable: car
+syllable: to
+syllable: ni
+syllable: gal
+syllable: leg
+syllable: gia
+syllable: no
+syllable: nel
+syllable: su
+syllable: o
+syllable: ap
+syllable: par
+syllable: ta
+syllable: men
+syllable: to
+syllable: men
+syllable: tre
+syllable: lei
+syllable: e
+syllable: il
+syllable: fra
+syllable: tel
+syllable: lo
+syllable: cer
+syllable: ca
+syllable: no
+syllable: di
+syllable: a
+syllable: iu
+syllable: ta
+syllable: re
+syllable: gli
+syllable: a
+syllable: ni
+syllable: ma
+syllable: li
+syllable: ma
+syllable: la
+syllable: ti
+syllable: u
+syllable: ra
+syllable: ga
+syllable: no
+syllable: Do
+syllable: rian
+syllable: che
+syllable: ha
+syllable: col
+syllable: pi
+syllable: to
+syllable: du
+syllable: ra
+syllable: men
+syllable: te
+syllable: le
+syllable: Ba
+syllable: ha
+syllable: mas
+syllable: fa
+syllable: cen
+syllable: do
+syllable: al
+syllable: me
+syllable: no
+syllable: cin
+syllable: que
+syllable: vit
+syllable: ti
+syllable: me
+syllable: e
+syllable: co
+syllable: strin
+syllable: gen
+syllable: do
+syllable: al
+syllable: la
+syllable: fu
+syllable: ga
+syllable: mi
+syllable: lio
+syllable: ni
+syllable: di
+syllable: per
+syllable: so
+syllable: ne
+syllable: fi
+syllable: nal
+syllable: men
+syllable: te
+syllable: si
+syllable: sta
+syllable: pian
+syllable: pia
+syllable: no
+syllable: spo
+syllable: stan
+syllable: do
+syllable: ma
+syllable: ha
+syllable: la
+syllable: scia
+syllable: to
+syllable: per
+syllable: stra
+syllable: da
+syllable: u
+syllable: na
+syllable: sci
+syllable: a
+syllable: di
+syllable: de
+syllable: va
+syllable: sta
+syllable: zio
+syllable: ni
+syllable: Io
+syllable: pre
+syllable: go
+syllable: per
+syllable: le
+syllable: al
+syllable: tre
+syllable: i
+syllable: so
+syllable: le
+syllable: che
+syllable: han
+syllable: no
+syllable: dan
+syllable: ni
+syllable: i
+syllable: nim
+syllable: ma
+syllable: gi
+syllable: na
+syllable: bi
+syllable: li
+syllable: Non
+syllable: ve
+syllable: do
+syllable: co
+syllable: me
+syllable: nes
+syllable: sun
+syllable: ca
+syllable: ne
+syllable: o
+syllable: es
+syllable: se
+syllable: re
+syllable: vi
+syllable: ven
+syllable: te
+syllable: pos
+syllable: sa
+syllable: so
+syllable: prav
+syllable: vi
+syllable: ve
+syllable: re
+syllable: lì
+syllable: fuo
+syllable: ri
+syllable: Ho
+syllable: il
+syllable: cuo
+syllable: re
+syllable: spez
+syllable: za
+syllable: to
+syllable: A
+syllable: par
+syllable: la
+syllable: re
+syllable: è
+syllable: Chel
+syllable: la
+syllable: Phil
+syllable: lip
+syllable: am
+syllable: bien
+syllable: ta
+syllable: li
+syllable: sta
+syllable: e
+syllable: a
+syllable: man
+syllable: te
+syllable: de
+syllable: gli
+syllable: a
+syllable: ni
+syllable: ma
+syllable: li
+syllable: che
+syllable: ha
+syllable: de
+syllable: ci
+syllable: so
+syllable: di
+syllable: met
+syllable: te
+syllable: re
+syllable: a
+syllable: di
+syllable: spo
+syllable: si
+syllable: zio
+syllable: ne
+syllable: il
+syllable: su
+syllable: o
+syllable: ap
+syllable: par
+syllable: ta
+syllable: men
+syllable: to
+syllable: a
+syllable: Nas
+syllable: sau
+syllable: Ba
+syllable: ha
+syllable: mas
+syllable: per
+syllable: o
+syllable: spi
+syllable: ta
+syllable: re
+syllable: qua
+syllable: si
+syllable: 100
+syllable: ca
+syllable: ni
+syllable: ran
+syllable: da
+syllable: gi
+syllable: (no
+syllable: van
+syllable: ta
+syllable: set
+syllable: te
+syllable: in
+syllable: tut
+syllable: to
+syllable: nel
+syllable: su
+syllable: o
+syllable: ap
+syllable: par
+syllable: ta
+syllable: men
+syllable: to
+syllable: in
+syllable: mo
+syllable: do
+syllable: da
+syllable: pro
+syllable: teg
+syllable: ger
+syllable: li
+syllable: dal
+syllable: la
+syllable: fu
+syllable: ria
+syllable: de
+syllable: va
+syllable: stan
+syllable: te
+syllable: di
+syllable: Do
+syllable: rian
+syllable: Mol
+syllable: ti
+syllable: di
+syllable: lo
+syllable: ro
+syllable: so
+syllable: no
+syllable: ma
+syllable: la
+syllable: ti
+syllable: e
+syllable: spa
+syllable: ven
+syllable: ta
+syllable: ti
+syllable: dal
+syllable: le
+syllable: in
+syllable: tem
+syllable: pe
+syllable: rie
+syllable: Scri
+syllable: ve
+syllable: su
+syllable: Fa
+syllable: ce
+syllable: bo
+syllable: ok
+syllable: 97
+syllable: ca
+syllable: ni
+syllable: so
+syllable: no
+syllable: den
+syllable: tro
+syllable: ca
+syllable: sa
+syllable: mi
+syllable: a
+syllable: e
+syllable: 79
+syllable: di
+syllable: lo
+syllable: ro
+syllable: so
+syllable: no
+syllable: nel
+syllable: la
+syllable: mi
+syllable: a
+syllable: ca
+syllable: me
+syllable: ra
+syllable: da
+syllable: let
+syllable: to
+syllable: prin
+syllable: ci
+syllable: pa
+syllable: le
+syllable: È
+syllable: sta
+syllable: to
+syllable: ter
+syllable: ri
+syllable: bi
+syllable: le
+syllable: quel
+syllable: lo
+syllable: che
+syllable: ho
+syllable: do
+syllable: vu
+syllable: to
+syllable: fa
+syllable: re
+syllable: la
+syllable: scor
+syllable: sa
+syllable: not
+syllable: te
+syllable: ho
+syllable: pu
+syllable: li
+syllable: to
+syllable: e
+syllable: scre
+syllable: men
+syllable: ti
+syllable: sen
+syllable: za
+syllable: so
+syllable: sta
+syllable: ma
+syllable: al
+syllable: me
+syllable: no
+syllable: ri
+syllable: spet
+syllable: ta
+syllable: no
+syllable: il
+syllable: mi
+syllable: o
+syllable: let
+syllable: to
+syllable: e
+syllable: nes
+syllable: su
+syllable: no
+syllable: ha
+syllable: o
+syllable: sa
+syllable: to
+syllable: sal
+syllable: tar
+syllable: ci
+syllable: so
+syllable: pra
+syllable: Ab
+syllable: bia
+syllable: mo
+syllable: bar
+syllable: ri
+syllable: ca
+syllable: to
+syllable: il
+syllable: ri
+syllable: fu
+syllable: gio
+syllable: e
+syllable: nes
+syllable: su
+syllable: no
+syllable: è
+syllable: fuo
+syllable: ri
+syllable: nel
+syllable: la
+syllable: tem
+syllable: pe
+syllable: sta
+syllable: la
+syllable: mu
+syllable: si
+syllable: ca
+syllable: sta
+syllable: suo
+syllable: nan
+syllable: do
+syllable: in
+syllable: tut
+syllable: te
+syllable: le
+syllable: di
+syllable: re
+syllable: zio
+syllable: ni
+syllable: del
+syllable: la
+syllable: ca
+syllable: sa
+syllable: e
+syllable: l’a
+syllable: ria
+syllable: con
+syllable: di
+syllable: zio
+syllable: na
+syllable: ta
+syllable: sta
+syllable: rin
+syllable: fre
+syllable: scan
+syllable: do
+syllable: tut
+syllable: ti
+syllable: So
+syllable: no
+syllable: ri
+syllable: u
+syllable: sci
+syllable: ta
+syllable: a
+syllable: sal
+syllable: va
+syllable: re
+syllable: i
+syllable: me
+syllable: no
+syllable: for
+syllable: tu
+syllable: na
+syllable: ti
+syllable: ed
+syllable: ap
+syllable: prez
+syllable: zo
+syllable: che
+syllable: al
+syllable: cu
+syllable: ni
+syllable: di
+syllable: voi
+syllable: ci
+syllable: stia
+syllable: no
+syllable: do
+syllable: nan
+syllable: do
+syllable: qual
+syllable: co
+syllable: sa
+syllable: Ne
+syllable: a
+syllable: ve
+syllable: vo
+syllable: dav
+syllable: ve
+syllable: ro
+syllable: bi
+syllable: so
+syllable: gno
+syllable: so
+syllable: prat
+syllable: tut
+syllable: to
+syllable: per
+syllable: quei
+syllable: ca
+syllable: ni
+syllable: spa
+syllable: ven
+syllable: ta
+syllable: ti
+syllable: che
+syllable: han
+syllable: no
+syllable: bi
+syllable: so
+syllable: gno
+syllable: di
+syllable: cu
+syllable: re
+syllable: quin
+syllable: di
+syllable: gra
+syllable: zie
+09:34:44.930 [main] TRACE com.ctapweb.feature.annotator.LetterAnnotator - Processing document with ANNOTATOR <Letter Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:44.938 [main] TRACE com.ctapweb.feature.featureAE.SDTokenLengthAE - Processing document with FEATURE_EXTRACTOR <SDTokenLength Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:45.045 [main] INFO  com.ctapweb.feature.featureAE.SDTokenLengthAE - Feature value 2.973243104638609 calculated from AE 8585 populated into CAS.
+ 09:34:45.048 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:45.048 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ 09:34:45.048 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destorying AE: ANNOTATOR <Token Annotator>...
+ 09:34:45.048 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destroying AE completed: ANNOTATOR <Token Annotator>.
+ 09:34:45.049 [main] TRACE com.ctapweb.feature.annotator.SyllableAnnotator - Destorying AE: ANNOTATOR <Syllable Annotator>...
+ 09:34:45.049 [main] TRACE com.ctapweb.feature.annotator.SyllableAnnotator - Destroying AE completed: ANNOTATOR <Syllable Annotator>.
+ 09:34:45.049 [main] TRACE com.ctapweb.feature.annotator.LetterAnnotator - Destorying AE: ANNOTATOR <Letter Annotator>...
+ 09:34:45.049 [main] TRACE com.ctapweb.feature.annotator.LetterAnnotator - Destroying AE completed: ANNOTATOR <Letter Annotator>.
+ 09:34:45.049 [main] TRACE com.ctapweb.feature.featureAE.SDTokenLengthAE - Destorying AE: FEATURE_EXTRACTOR <SDTokenLength Feature Extractor>...
+ 09:34:45.049 [main] TRACE com.ctapweb.feature.featureAE.SDTokenLengthAE - Destroying AE completed: FEATURE_EXTRACTOR <SDTokenLength Feature Extractor>.
+ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.445 sec - in com.ctapweb.feature.test.SDTokenLengthFeatureTest
+Running com.ctapweb.feature.test.TTRFeatureTest
+in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+09:34:45.188 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:45.188 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:45.190 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:45.192 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initializing ANNOTATOR <Token Annotator>...
+ 09:34:45.192 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Loading language model TokenModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-token.bin...
+ 09:34:46.379 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initialization completed ANNOTATOR <Token Annotator>.
+ 09:34:46.382 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initializing ANNOTATOR <Token Type Annotator>...
+ 09:34:46.382 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initialization completed ANNOTATOR <Token Type Annotator>.
+ 09:34:46.384 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initializing FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:46.384 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initialization completed FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:46.386 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initializing FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:46.386 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initialization completed FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:46.388 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initializing FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:46.388 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initialization completed FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ 09:34:46.395 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:46.396 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Processing document with ANNOTATOR <Token Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:46.405 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Processing document with ANNOTATOR <Token Type Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:46.412 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Processing document with FEATURE_EXTRACTOR <NToken Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:46.413 [main] INFO  com.ctapweb.feature.featureAE.NTokenAE - Feature value 264.0 calculated from AE 123 populated into CAS.
+ 09:34:46.414 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Processing document with FEATURE_EXTRACTOR <NTokenType Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:46.415 [main] INFO  com.ctapweb.feature.featureAE.NTokenTypeAE - Feature value 181.0 calculated from AE 123 populated into CAS.
+ 09:34:46.415 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Processing document with FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:46.416 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - nType = 181.0, nToken = 264.0 
+ 09:34:46.416 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - TTR calculated with formula (CTTR): 7.877013931995327 
+ 09:34:46.416 [main] INFO  com.ctapweb.feature.featureAE.TypeTokenRatioAE - Feature value 7.877013931995327 calculated from AE 3456 populated into CAS.
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destorying AE: ANNOTATOR <Token Annotator>...
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destroying AE completed: ANNOTATOR <Token Annotator>.
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destorying AE: ANNOTATOR <Token Type Annotator>...
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destroying AE completed: ANNOTATOR <Token Type Annotator>.
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destorying AE: FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destroying AE completed: FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destorying AE: FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:46.417 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destroying AE completed: FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:46.418 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destorying AE: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:46.418 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destroying AE completed: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+09:34:46.542 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:46.542 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:46.544 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:46.545 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initializing ANNOTATOR <Token Annotator>...
+ 09:34:46.545 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Loading language model TokenModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-token.bin...
+ 09:34:47.157 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initialization completed ANNOTATOR <Token Annotator>.
+ 09:34:47.158 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initializing ANNOTATOR <Token Type Annotator>...
+ 09:34:47.158 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initialization completed ANNOTATOR <Token Type Annotator>.
+ 09:34:47.158 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initializing FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:47.158 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initialization completed FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:47.159 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initializing FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:47.159 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initialization completed FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:47.160 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initializing FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:47.160 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initialization completed FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ 09:34:47.169 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.170 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Processing document with ANNOTATOR <Token Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.176 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Processing document with ANNOTATOR <Token Type Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.179 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Processing document with FEATURE_EXTRACTOR <NToken Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.180 [main] INFO  com.ctapweb.feature.featureAE.NTokenAE - Feature value 264.0 calculated from AE 123 populated into CAS.
+ 09:34:47.181 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Processing document with FEATURE_EXTRACTOR <NTokenType Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.181 [main] INFO  com.ctapweb.feature.featureAE.NTokenTypeAE - Feature value 181.0 calculated from AE 123 populated into CAS.
+ 09:34:47.182 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Processing document with FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.182 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - nType = 181.0, nToken = 264.0 
+ 09:34:47.182 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - TTR calculated with formula (RTTR): 11.139779933629612 
+ 09:34:47.182 [main] INFO  com.ctapweb.feature.featureAE.TypeTokenRatioAE - Feature value 11.139779933629612 calculated from AE 3456 populated into CAS.
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destorying AE: ANNOTATOR <Token Annotator>...
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destroying AE completed: ANNOTATOR <Token Annotator>.
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destorying AE: ANNOTATOR <Token Type Annotator>...
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destroying AE completed: ANNOTATOR <Token Type Annotator>.
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destorying AE: FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destroying AE completed: FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destorying AE: FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destroying AE completed: FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destorying AE: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:47.183 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destroying AE completed: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+09:34:47.271 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:47.271 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:47.273 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:47.274 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initializing ANNOTATOR <Token Annotator>...
+ 09:34:47.274 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Loading language model TokenModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-token.bin...
+ 09:34:47.840 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initialization completed ANNOTATOR <Token Annotator>.
+ 09:34:47.841 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initializing ANNOTATOR <Token Type Annotator>...
+ 09:34:47.841 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initialization completed ANNOTATOR <Token Type Annotator>.
+ 09:34:47.842 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initializing FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:47.842 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initialization completed FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:47.842 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initializing FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:47.842 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initialization completed FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:47.843 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initializing FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:47.843 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initialization completed FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ 09:34:47.848 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.849 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Processing document with ANNOTATOR <Token Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.853 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Processing document with ANNOTATOR <Token Type Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.855 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Processing document with FEATURE_EXTRACTOR <NToken Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.855 [main] INFO  com.ctapweb.feature.featureAE.NTokenAE - Feature value 264.0 calculated from AE 123 populated into CAS.
+ 09:34:47.855 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Processing document with FEATURE_EXTRACTOR <NTokenType Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.856 [main] INFO  com.ctapweb.feature.featureAE.NTokenTypeAE - Feature value 181.0 calculated from AE 123 populated into CAS.
+ 09:34:47.856 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Processing document with FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:47.856 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - nType = 181.0, nToken = 264.0 
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - TTR calculated with formula (LogTTR): 0.932307116708166 
+ 09:34:47.857 [main] INFO  com.ctapweb.feature.featureAE.TypeTokenRatioAE - Feature value 0.932307116708166 calculated from AE 3456 populated into CAS.
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destorying AE: ANNOTATOR <Token Annotator>...
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destroying AE completed: ANNOTATOR <Token Annotator>.
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destorying AE: ANNOTATOR <Token Type Annotator>...
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destroying AE completed: ANNOTATOR <Token Type Annotator>.
+ 09:34:47.857 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destorying AE: FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:47.858 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destroying AE completed: FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:47.858 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destorying AE: FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:47.858 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destroying AE completed: FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:47.858 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destorying AE: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:47.858 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destroying AE completed: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+09:34:48.264 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:48.264 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:48.265 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:48.267 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initializing ANNOTATOR <Token Annotator>...
+ 09:34:48.267 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Loading language model TokenModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-token.bin...
+ 09:34:48.805 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initialization completed ANNOTATOR <Token Annotator>.
+ 09:34:48.806 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initializing ANNOTATOR <Token Type Annotator>...
+ 09:34:48.806 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initialization completed ANNOTATOR <Token Type Annotator>.
+ 09:34:48.806 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initializing FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:48.807 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initialization completed FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:48.807 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initializing FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:48.807 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initialization completed FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:48.808 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initializing FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:48.808 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initialization completed FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ 09:34:48.814 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:48.815 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Processing document with ANNOTATOR <Token Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:48.818 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Processing document with ANNOTATOR <Token Type Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:48.820 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Processing document with FEATURE_EXTRACTOR <NToken Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:48.821 [main] INFO  com.ctapweb.feature.featureAE.NTokenAE - Feature value 264.0 calculated from AE 123 populated into CAS.
+ 09:34:48.821 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Processing document with FEATURE_EXTRACTOR <NTokenType Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:48.822 [main] INFO  com.ctapweb.feature.featureAE.NTokenTypeAE - Feature value 181.0 calculated from AE 123 populated into CAS.
+ 09:34:48.822 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Processing document with FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:48.823 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - nType = 181.0, nToken = 264.0 
+ 09:34:48.823 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - TTR calculated with formula (TTR): 0.6856060606060606 
+ 09:34:48.823 [main] INFO  com.ctapweb.feature.featureAE.TypeTokenRatioAE - Feature value 0.6856060606060606 calculated from AE 3456 populated into CAS.
+ 09:34:48.823 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:48.823 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ 09:34:48.823 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destorying AE: ANNOTATOR <Token Annotator>...
+ 09:34:48.823 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destroying AE completed: ANNOTATOR <Token Annotator>.
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destorying AE: ANNOTATOR <Token Type Annotator>...
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destroying AE completed: ANNOTATOR <Token Type Annotator>.
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destorying AE: FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destroying AE completed: FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destorying AE: FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destroying AE completed: FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destorying AE: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:48.824 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destroying AE completed: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID
+09:34:48.903 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:48.904 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:48.905 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:48.906 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initializing ANNOTATOR <Token Annotator>...
+ 09:34:48.907 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Loading language model TokenModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-token.bin...
+ 09:34:49.739 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Initialization completed ANNOTATOR <Token Annotator>.
+ 09:34:49.740 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initializing ANNOTATOR <Token Type Annotator>...
+ 09:34:49.740 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Initialization completed ANNOTATOR <Token Type Annotator>.
+ 09:34:49.741 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initializing FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:49.741 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Initialization completed FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:49.742 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initializing FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:49.742 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Initialization completed FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:49.743 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initializing FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:49.743 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Initialization completed FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ 09:34:49.751 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.752 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Processing document with ANNOTATOR <Token Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.758 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Processing document with ANNOTATOR <Token Type Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.760 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Processing document with FEATURE_EXTRACTOR <NToken Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.760 [main] INFO  com.ctapweb.feature.featureAE.NTokenAE - Feature value 264.0 calculated from AE 123 populated into CAS.
+ 09:34:49.761 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Processing document with FEATURE_EXTRACTOR <NTokenType Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.761 [main] INFO  com.ctapweb.feature.featureAE.NTokenTypeAE - Feature value 181.0 calculated from AE 123 populated into CAS.
+ 09:34:49.761 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Processing document with FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - nType = 181.0, nToken = 264.0 
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - TTR calculated with formula (Uber): 71.59682883562529 
+ 09:34:49.762 [main] INFO  com.ctapweb.feature.featureAE.TypeTokenRatioAE - Feature value 71.59682883562529 calculated from AE 3456 populated into CAS.
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destorying AE: ANNOTATOR <Token Annotator>...
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.annotator.TokenAnnotator - Destroying AE completed: ANNOTATOR <Token Annotator>.
+ 09:34:49.762 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destorying AE: ANNOTATOR <Token Type Annotator>...
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.annotator.TokenTypeAnnotator - Destroying AE completed: ANNOTATOR <Token Type Annotator>.
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destorying AE: FEATURE_EXTRACTOR <NToken Feature Extractor>...
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.featureAE.NTokenAE - Destroying AE completed: FEATURE_EXTRACTOR <NToken Feature Extractor>.
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destorying AE: FEATURE_EXTRACTOR <NTokenType Feature Extractor>...
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.featureAE.NTokenTypeAE - Destroying AE completed: FEATURE_EXTRACTOR <NTokenType Feature Extractor>.
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destorying AE: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>...
+ 09:34:49.763 [main] TRACE com.ctapweb.feature.featureAE.TypeTokenRatioAE - Destroying AE completed: FEATURE_EXTRACTOR <Type Token Ratio Feature Extractor>.
+ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.69 sec - in com.ctapweb.feature.test.TTRFeatureTest
+Running com.ctapweb.annotator.test.SentenceAnnotatorTest
+null
+09:34:49.779 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initializing ANNOTATOR <Sentence Annotator>...
+ languageSpecificResourceKey: SentenceSegmenterModelIT
+modelFilePath: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin
+09:34:49.779 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Loading language model SentenceSegmenterModelIT from path /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/classes/model/it-sent.bin...
+ 09:34:49.780 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Initialization completed ANNOTATOR <Sentence Annotator>.
+ 09:34:49.787 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Processing document with ANNOTATOR <Sentence Annotator>: LA DONNA che salvò cento cani prega. Le pompe dell...
+ 09:34:49.787 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destorying AE: ANNOTATOR <Sentence Annotator>...
+ 09:34:49.788 [main] TRACE com.ctapweb.feature.annotator.SentenceAnnotator - Destroying AE completed: ANNOTATOR <Sentence Annotator>.
+ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in com.ctapweb.annotator.test.SentenceAnnotatorTest
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ ctap-feature ---
+[INFO] Building jar: /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/ctap-feature-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ ctap-feature ---
+[INFO] Installing /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/target/ctap-feature-1.0.0-SNAPSHOT.jar to /home/nadiushka/.m2/repository/com/ctapweb/ctap-feature/1.0.0-SNAPSHOT/ctap-feature-1.0.0-SNAPSHOT.jar
+[INFO] Installing /home/nadiushka/ctap/recent-ctap-docker/2/ctap/ctap-feature/pom.xml to /home/nadiushka/.m2/repository/com/ctapweb/ctap-feature/1.0.0-SNAPSHOT/ctap-feature-1.0.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 42.728 s
+[INFO] Finished at: 2019-11-20T09:35:18+01:00
+[INFO] Final Memory: 38M/345M
+[INFO] ------------------------------------------------------------------------

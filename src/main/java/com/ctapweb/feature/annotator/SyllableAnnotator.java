@@ -3,9 +3,11 @@
  */
 package com.ctapweb.feature.annotator;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,6 +20,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 
+import com.ctapweb.feature.annotator.LemmaAnnotator.CTAPLemmatizer;
 import com.ctapweb.feature.logging.LogMarker;
 import com.ctapweb.feature.logging.message.AEType;
 import com.ctapweb.feature.logging.message.DestroyAECompleteMessage;
@@ -30,6 +33,8 @@ import com.ctapweb.feature.type.Syllable;
 import com.ctapweb.feature.type.Token;
 import com.ctapweb.feature.util.SupportedLanguages;
 
+import is2.lemmatizer.Lemmatizer;
+
 
 /**
  * Annotates text with syllables for each token in the input text
@@ -41,33 +46,19 @@ import com.ctapweb.feature.util.SupportedLanguages;
  * @author xiaobin
  * 
  * zweiss 20/12/18 : added new syllable structures
- * Nadezda Okinina 16/09/19 : added the function for Italian annotateSyllablesItalian()
+ * Nadezda Okinina 16/09/19, 19/11/19 : added the annotator for Italian, added the SyllableAnnotator wrapper
  */
 public class SyllableAnnotator extends JCasAnnotator_ImplBase {
 
 	private JCas aJCas;
-	private Token token;
-	private String syllablePattern;
-	private boolean considerSilentE;
+	private Token token;	
 	private String lCode;
-	private String V;
-	private String C;
-	private Pattern yup1;
-	private Pattern yup2;
-	private Pattern yup3;
-	private Pattern yup4;
-	//private ArrayList<String> arrayListOfWordsEndingInCiaGia;
-	private String regexListOfWordsEndingInCiaGia;
-	//private ArrayList<String> arrayListOfWordsWithUi;
-	private String regexListOfWordsWithUi;
+	private CTAPSyllableAnnotator syllableAnnotator;	
 	
 	private static final String PARAM_LANGUAGE_CODE = "LanguageCode";
-
 	private static final Logger logger = LogManager.getLogger();
-
 	private static final AEType aeType = AEType.ANNOTATOR;
-	private static final String aeName = "Syllable Annotator";
-	
+	private static final String aeName = "Syllable Annotator";	
 
 	@Override
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
@@ -88,26 +79,73 @@ public class SyllableAnnotator extends JCasAnnotator_ImplBase {
 		logger.trace(LogMarker.UIMA_MARKER, new SelectingLanguageSpecificResource(aeName, lCode));
 		switch (lCode) {
 		case SupportedLanguages.GERMAN:
-			syllablePattern = SyllablePatterns.GERMAN;
-			considerSilentE = false;
+			syllableAnnotator = new GermanSyllableAnnotator();
 			break;
 		case SupportedLanguages.ENGLISH:
-			syllablePattern = SyllablePatterns.ENGLISH;
-			considerSilentE = true;
+			syllableAnnotator = new EnglishSyllableAnnotator();
 			break;
 		case SupportedLanguages.ITALIAN:
-			// TODO Please use SyllablePatterns (by zweiss):
-			// This implementation for Italian does not follow the provided implementation logic
-			// for the addition of new languages. In its current state, it could not be included in the
-			// multi-lingual version of CTAP.  
-			//
-			// The provided logic assumes that you can extract syllables using a single regex pattern
-			// If this is not the case, we need to establish a SyllableAnnotator wrapper.
-			// The initialize method should only initialize the required variables, and not include elaborate language-specific code 
-			// No language specific code should be entered into the process method. 
-			// No helper methods should be required outside of the language specific Lemmatizer.
+			syllableAnnotator = new ItalianSyllableAnnotator();
+			break;
+			// add new language here
+		default:   // TODO reconsider default
+			syllableAnnotator = new EnglishSyllableAnnotator();
+			break;
+		}
+		logger.trace(LogMarker.UIMA_MARKER, new InitializeAECompleteMessage(aeType, aeName));
+	}	
+
+	/* (non-Javadoc)
+	 * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+	 */
+	@Override
+	public void process(JCas aJCas) throws AnalysisEngineProcessException {
+		logger.trace(LogMarker.UIMA_MARKER, 
+				new ProcessingDocumentMessage(aeType, aeName, aJCas.getDocumentText()));
+
+		this.aJCas = aJCas;
+
+		// get annotation indexes and iterator
+		Iterator it = aJCas.getAnnotationIndex(Token.type).iterator();
+		syllableAnnotator.annotateSyllables(it);
+	}
+	
+	/**
+	 * Wrapper for syllable annotators
+	 * @author nokinina
+	 */
+	interface CTAPSyllableAnnotator {
+		/*
+		 * Takes as argument an iterator over tokens, because in some languages (like Italian) syllables may be distributed over two tokens:
+		 * syllable margins do not correspond to token margins.
+		 * Example: dell'acqua consists of 2 tokens: dell' and acqua and of 3 syllables: del-l'ac-qua
+		 */
+		abstract void annotateSyllables(Iterator it);
+	}
+
+	/**
+	 * Wrapper for annotating Italian syllables
+	 * @author nokinina
+	 */
+	private class ItalianSyllableAnnotator implements CTAPSyllableAnnotator {
+		private String regexListOfWordsEndingInCiaGia;
+		private String regexListOfWordsWithUi;
+		private String V;
+		private String C;
+		private Pattern yup1;
+		private Pattern yup2;
+		private Pattern yup3;
+		private Pattern yup4;
 			
-			//syllablePattern = SyllablePatterns.ITALIAN;
+		
+		public ItalianSyllableAnnotator() {
+			V = "[aeiouàèéìòùáíóú]";
+			C = "[b-df-hj-np-tv-z\'’]";
+			yup1 = Pattern.compile("("+V+"*"+C+"+"+V+"+)("+C+V+")");
+			yup2 = Pattern.compile("("+V+"*"+C+"+"+V+"+"+C+")("+C+")");
+			yup3 = Pattern.compile("("+V+")([iìí][uùúeèé]?[aàáoòóuùúiìí])");
+			yup4 = Pattern.compile("[^=]+");
+			
 			/*
 			arrayListOfWordsEndingInCiaGia = new ArrayList<>(Arrays.asList( "macia", "lucia", "malacia","eutocia","farmacia",
 					"distocia",	"alopecia","ossitocia","mascalcia","miomalacia","parafarmacia","osteomalacia",
@@ -141,6 +179,7 @@ public class SyllableAnnotator extends JCasAnnotator_ImplBase {
 					"u(lorrag|terorrag)|" +
 					"s(ternalg|plenalg|iderurg|eborrag|ciatalg|cenopeg|teatopig|plenorrag|trateg|acralg|inerg)" +
 					")[iìí][ae]$";
+			
 			/*
 			arrayListOfWordsWithUi = new ArrayList<>(Arrays.asList("lui","cui","luigi","suidi","pruina",
 					"druida","costui","altrui","pituita","intuito","visnuita","pattuito","gratuito",
@@ -149,7 +188,6 @@ public class SyllableAnnotator extends JCasAnnotator_ImplBase {
 					"superfluido","diluibilità","semigratuito","ricostituito","microcircuito",
 					"gratuitamente","fortuitamente","cortocircuito","contribuimento"));
 			*/
-			
 			regexListOfWordsWithUi = "^(altrui|c(ui|ostui|otestui|ircuito|ostruit[aeio]|ostituit[aeio]|ontiguità|ortocircuito|ontribuimento)|"+
 					"d(ruida|estituit[aeio]|iluibilit[aà])|"+
 					"f(ortuit([aeio]|amente)|luidica)|"+
@@ -164,274 +202,271 @@ public class SyllableAnnotator extends JCasAnnotator_ImplBase {
 					"toluidina|"+
 					"visnuita"+
 					")$";
-			
-			considerSilentE = false;
-			V = "[aeiouàèéìòùáíóú]";
-			C = "[b-df-hj-np-tv-z\'’]";
-			yup1 = Pattern.compile("("+V+"*"+C+"+"+V+"+)("+C+V+")");
-			yup2 = Pattern.compile("("+V+"*"+C+"+"+V+"+"+C+")("+C+")");
-			yup3 = Pattern.compile("("+V+")([iìí][uùúeèé]?[aàáoòóuùúiìí])");
-			yup4 = Pattern.compile("[^=]+");
-			break;
-			// add new language here
-		default:   // TODO reconsider default
-			syllablePattern = SyllablePatterns.DEFAULT;
-			considerSilentE = true;
-			break;
 		}
-		logger.trace(LogMarker.UIMA_MARKER, new InitializeAECompleteMessage(aeType, aeName));
-	}	
-
-	/* (non-Javadoc)
-	 * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
-	 */
-	@Override
-	public void process(JCas aJCas) throws AnalysisEngineProcessException {
-		logger.trace(LogMarker.UIMA_MARKER, 
-				new ProcessingDocumentMessage(aeType, aeName, aJCas.getDocumentText()));
-
-		this.aJCas = aJCas;
-
-		//logger.info("lCode: " + lCode);
-
-
-		// get annotation indexes and iterator
-		Iterator it = aJCas.getAnnotationIndex(Token.type).iterator();
-		StringBuilder tokenStringBuilder = new StringBuilder();
-		int tokenGetbegin = -1;
 		
-		//annotate syllables for each token 
-		while(it.hasNext()) {			
-			//get the token
-			token = (Token)it.next();
-			String tokenStr = token.getCoveredText().toLowerCase();
-
-			//annotate syllables
-			//solution from http://stackoverflow.com/questions/33425070/how-to-calculate-syllables-in-text-with-regex-and-java
-			if (considerSilentE && tokenStr.charAt(tokenStr.length()-1) == 'e') {
-				if (silente(tokenStr)){  //silent e, so don't annotate.  
-					String newToken= tokenStr.substring(0, tokenStr.length()-1); //deal with the rest of word
-					annotateSyllables(newToken);
-				} else {
-					//not silent e, annotate it as a syllable
-					Syllable annotation = new Syllable(aJCas);
-					annotation.setBegin(token.getBegin());
-					annotation.setEnd(token.getEnd());
-					annotation.addToIndexes();
-					//logger.info("syllable: " + annotation.getBegin() + ", " + annotation.getEnd() + " "  + annotation.getCoveredText());
-				}
-			} else {
-				if(lCode.equals(SupportedLanguages.ITALIAN)){
-					if(Pattern.compile("l'$").matcher(tokenStr).find()){
-						tokenStringBuilder.append(tokenStr);
-						tokenGetbegin = token.getBegin();
-						//System.out.println("tokenGetbegin line 200: " + tokenGetbegin);
-					}else{
-						tokenStringBuilder.append(tokenStr);
-						annotateSyllablesItalian(tokenStringBuilder.toString(), tokenGetbegin);
-						tokenStringBuilder.setLength(0);
-						tokenGetbegin = -1;
-					}
+		@Override
+		public void annotateSyllables(Iterator it) {
+			StringBuilder tokenStringBuilder = new StringBuilder();
+			int tokenGetbegin = -1;
+			String tokenStr;
+			
+			//annotate syllables for each token 
+			while(it.hasNext()) {			
+				//get the token
+				token = (Token)it.next();
+				tokenStr = token.getCoveredText().toLowerCase();
+				//annotate syllables
+				// if a token ends with l', it is not a separate tonic word and has to be analyzed together with the following word
+				if(Pattern.compile("l'$").matcher(tokenStr).find()){ 
+					tokenStringBuilder.append(tokenStr);
+					tokenGetbegin = token.getBegin();
 				}else{
-					annotateSyllables(tokenStr);
+					tokenStringBuilder.append(tokenStr);
+					annotateSyllablesItalian(tokenStringBuilder.toString(), tokenGetbegin);
+					tokenStringBuilder.setLength(0);
+					tokenGetbegin = -1;
+				}
+			}			
+		}
+		
+		/**
+		 * Annotates the Italian syllables in the Italian token string. 
+		 * 
+		 * Based on the code of Lingua::IT:Hyphenate written by Aldo Calpini and found on https://it.comp.programmare.narkive.com/TExPlcuC/programma-di-sillabazione
+		 * First '=' sign is inserted between syllables with the help of different rules based on regular expressions, then the syllables are registered.
+		 * Nadezda Okinina added some extra rules to this code
+		 * Italian syllabation depends on the accent and accent is not marked in writing.
+		 * For that reason in many cases word lists should be used in order to divide words and word groups into syllables correctly.
+		 * Some such lists were used, but they are not exhaustive.
+		 * The division into syllables is correct in most cases, but not in every single case. There may be some mistakes.
+		 * 
+		 * if a word ends with an l followed by an apostrophe, it can’t be a tonic entity of its own and has to be analysed together with the following word.
+		 * Example: dall’alto: dal-lal-to In such cases the hyphen is removed.
+		 * 
+		 * In certain cases allows for variation with accents. (Accents are compulsory in Italian only in certain cases (città).)
+		 
+		 * Single vowels: aeiouyàèòùìéáíóúÁÉÍÓÚÀÈÌÒÙ
+		 * 
+		 * Dittonghi:
+		 * ià, iè, iò, iù :	piàtto, fièno, fiòre, fiùme
+		 * uà, uè, uì, uò :	guàsto, guèrra, guìda, fuòri
+		 * ài, àu :	dirài, càusa
+		 * èi, èu :	nèi, nèutro
+		 * òi :	vòi
+		 * 
+		 * Trittonghi:
+		 * iài :	soffiài
+		 * ièi :	mièi
+		 * uài :	guài
+		 * uòi :	buòi
+		 * iuò :	aiuòla
+		 *  
+		 * Numbers written as digits are counted as 1 syllable.
+		 * 
+		 * @param tokenStr the string to be split into syllables, may contain more than 1 token (a noun and its article, for example)
+		 * @param tokenGetbegin the index of the start of the current token compared to the current string (which may contain the previous token: an article, for example)
+		 * @return void
+		 */
+		private void annotateSyllablesItalian(String tokenStr, int tokenGetbegin) {
+			String str = tokenStr.toLowerCase();
+			int offset = 0;
+			// If the word is composed of 2 words with a hyphen, split it into separate words
+			if (Pattern.compile("\\p{Pd}").matcher(str).find()){
+				String[] parts = str.split("\\p{Pd}");
+				for(String part : parts){
+					annotateSyllablesItalianWord(part, offset, tokenGetbegin);
+					offset += part.length()+1;
+				}
+			}else{
+				annotateSyllablesItalianWord(str, offset, tokenGetbegin);
+			}
+		}
+		
+		/*
+		 * @param str the string to be split into syllables. May be a part of a token (in case of compound words written with a hyphen)
+		 * @param offset the index of the start of the current string compared to the start of the current token (in case of a second word of a compound written with a hyphen will be different from zero)
+		 * @param tokenGetbegin the index of the start of the current token compared to the current string (which may contain the previous token: an article, for example)
+		 * @return void
+		 */
+		private void annotateSyllablesItalianWord(String str, int offset, int tokenGetbegin) {
+			// If the word is part of the list of words ending with -cia / -gia with accentuated -i-, we separate the final -a as a separate syllable
+			if (str.matches(regexListOfWordsEndingInCiaGia)){
+				str = str.replaceAll("([aàá])$", "=$1");
+			}else if( str.matches(regexListOfWordsWithUi)){
+				str = str.replaceAll("([uùú])([iìí])", "$1=$2");
+			}
+
+			str = str.replaceAll("("+V+")([bcfgptv][lr])", "$1=$2");		
+			str = str.replaceAll("("+V+")([cg]h)", "$1=$2");		
+			str = str.replaceAll("("+V+")(gn)", "$1=$2");		
+			str = str.replaceAll("("+C+")\\1", "$1=$1");		
+			str = str.replaceAll("(s"+C+")", "=$1");			
+
+			Matcher m = yup1.matcher(str);
+
+			while (m.find()) {
+				str = str.replaceAll("("+V+"*"+C+"+"+V+"+)("+C+V+")", "$1=$2");
+				m = yup1.matcher(str);
+			}			
+			
+			m = yup2.matcher(str);
+
+			while (m.find()) {
+				str = str.replaceAll("("+V+"*"+C+"+"+V+"+"+C+")("+C+")", "$1=$2");
+				m = yup2.matcher(str);
+			}
+
+			str = str.replaceAll("^("+V+"+"+C+")("+C+")", "$1=$2");		
+			str = str.replaceAll("^("+V+"+)("+C+V+")", "$1=$2");			
+			str = str.replaceAll("^=", "");
+			str = str.replaceAll("=$", "");
+			str = str.replaceAll("=+", "=");
+
+			// Short 2 syllable word starting with consonants and ending with ua, ue, uo  (suo, mia ecc.) Non sono sicura di questa regola!!!
+			if(!str.equals("quo") || !str.equals("quò") || !str.equals("quó")){
+				str = str.replaceAll("^("+C+"+)([uùúiìí])([aàáeèéoòó])$", "$1$2=$3");
+			}
+
+			// Prefixes bi-, tri-, ri- ecc.
+			str = str.replaceAll("^(b[iìí]|r[eèéiiìí]|tr[iìí]|c[oòó]|[aàá]nt[eèéiìí]|c[oòó]n=?tr[aàáoòó]|[iìí]=?p[oòó]|m[eèé]=?t[aàá]|m[iìíaàá]=?cro|[tf]r[aàá]|d[eèé]|str[aàá]|s[oòó]t=?t[oòó]|s[oòó][pv]=?r[aàá]|s[eèé]=?m[iìí]|[eèé]=?m[iìí]|r[eèé]t=?ro|pr[oòó]|[iìí]n=?fr[aàá]|v[iìí]=?c[eèé])("+V+")", "$1=$2");
+
+			//La finale dei verbi in ire
+			str = str.replaceAll("[^gqc](" + V + ")([iìí]=?r[eèé]|[iìí]=?r=?s[iìí])$", "$1=$2");
+			
+			// Words that finish with -logia, -plegia and -fagia - scientific words - have the accent on i di logia -> lo-gi-a
+			str = str.replaceAll("((lo|fa|ple|al=?ler)=?g[iìí])([aàá])$", "$1=$3");		
+			
+			// Words that finish with -ismo, -ista  on i -> i-smo, i-sta
+			str = str.replaceAll("([iìí])(sm[oòó]|st[aàá]|t[iìí]=?c[oòóaàá]|b[iìí]=?l[eèéiìí])$", "$1=$2");		
+					
+			// Vocaboli con il maggior numero di vocali consecutive
+			/*
+							ghiaiaiuolo
+							cuoiaiuolo
+							cuoiaio
+							stuoiaio
+							ghiaiaio
+							troiaio
+			 */			
+			
+			m = yup3.matcher(str);
+
+			while (m.find()) {
+				str = str.replaceAll("("+V+")([iìí][uùúeèé]?[aàáoòóuùúiìí])", "$1=$2");
+				m = yup3.matcher(str);
+			}
+
+			// aiu _> a=iu (aiuola)
+			str = str.replaceAll("([aàá])([iìí][uùú])", "$1=$2");
+
+			str = str.replaceAll("([aàáeèéo])([aàáeèéoòó])", "$1=$2");
+			str = str.replaceAll("([iìí])([iìí])", "$1=$2");
+
+			yup4 = Pattern.compile("[^=]+");
+			m = yup4.matcher(str);
+			
+			if (tokenGetbegin == -1){
+				tokenGetbegin = token.getBegin();
+			}
+			
+			
+			int numberOfEquals = -1;
+			while (m.find()) {
+				numberOfEquals += 1;
+				//finds a syllable
+				Syllable annotation = new Syllable(aJCas);
+				
+				annotation.setBegin(m.start() + offset - numberOfEquals + tokenGetbegin);
+				annotation.setEnd(m.end() + offset - numberOfEquals + tokenGetbegin);
+				
+				//If the syllable is not one consonant or punctuation
+				if(!annotation.getCoveredText().matches("^[b-df-hj-np-tv-z]$") && !annotation.getCoveredText().matches("^\\p{Punct}$")){
+					annotation.addToIndexes();			
+					//logger.info("syllable: " + annotation.getBegin() + ", " + annotation.getEnd() + " \'"  + annotation.getCoveredText()+"\'");
 				}
 			}
-		}
-	}
-
-	/**
-	 * Annotates the syllables in the token string. 
-	 * 
-	 * @param tokenStr the token string to be annotated
-	 * @return
-	 */
-	private void annotateSyllables(String tokenStr) {
-		Pattern splitter = Pattern.compile(syllablePattern);
-		Matcher m = splitter.matcher(tokenStr);
-
-		while (m.find()) {
-			//finds a syllable
-			Syllable annotation = new Syllable(aJCas);
-			annotation.setBegin(m.start() + token.getBegin());
-			annotation.setEnd(m.end() + token.getBegin());
-			annotation.addToIndexes();
-			//logger.info("syllable: " + annotation.getBegin() + ", " + annotation.getEnd() + " \'"  + annotation.getCoveredText()+"\'");
-		}
-	}
-
-	/**
-	 * Annotates the Italian syllables in the Italian token string. 
-	 * 
-	 * Based on the code of Lingua::IT:Hyphenate written by Aldo Calpini and found on https://it.comp.programmare.narkive.com/TExPlcuC/programma-di-sillabazione
-	 * First '=' sign is inserted between syllables with the help of different rules based on regular expressions, then the syllables are registered.
-	 * Nadezda Okinina added some extra rules to this code
-	 * Italian syllabation depends on the accent and accent is not marked in writing.
-	 * For that reason in many cases word lists should be used in order to divide words and word groups into syllables correctly.
-	 * Some such lists were used, but they are not exhaustive.
-	 * The division into syllables is correct in most cases, but not in every single case. There may be some mistakes.
-	 * 
-	 * if a word ends with double ll followed by an apostrophe, it can’t be a tonic entity of its own and has to be analysed together with the following word.
-	 * Example: dall’alto: dal-lal-to In such cases the hyphen is removed.
-	 * 
-	 * In certain cases allows for variation with accents. (Accents are compulsory in Italian only in certain cases (città).)
-	 
-	 * Single vowels: aeiouyàèòùìéáíóúÁÉÍÓÚÀÈÌÒÙ
-	 * 
-	 * Dittonghi:
-	 * ià, iè, iò, iù :	piàtto, fièno, fiòre, fiùme
-	 * uà, uè, uì, uò :	guàsto, guèrra, guìda, fuòri
-	 * ài, àu :	dirài, càusa
-	 * èi, èu :	nèi, nèutro
-	 * òi :	vòi
-	 * 
-	 * Trittonghi:
-	 * iài :	soffiài
-	 * ièi :	mièi
-	 * uài :	guài
-	 * uòi :	buòi
-	 * iuò :	aiuòla
-	 *  
-	 * Numbers written as digits are counted as 1 syllable
-	 * 
-	 * @param tokenStr the token string to be annotated
-	 * @return
-	 */
-	private void annotateSyllablesItalian(String tokenStr, int tokenGetbegin) {
-		String str = tokenStr.toLowerCase();
-		int offset = 0;
-		// If the word is composed of 2 words with a hyphen, split it into separate words
-		if (Pattern.compile("\\p{Pd}").matcher(str).find()){
-			String[] parts = str.split("\\p{Pd}");
-			for(String part : parts){
-				annotateSyllablesItalianWord(part, offset, tokenGetbegin);
-				offset += part.length()+1;
-			}
-		}else{
-			annotateSyllablesItalianWord(str, offset, tokenGetbegin);
 		}
 	}
 	
-	private void annotateSyllablesItalianWord(String str, int offset, int tokenGetbegin) {
-		//str = str.replaceAll("\\p{Punct}", ""); l'aria, nell'aria, un po'
-		//str = str.replaceAll("[^\\p{L}]", "l");
-		//System.out.println("function start: " + str);
+	private class GermanSyllableAnnotator implements CTAPSyllableAnnotator {
+		private String syllablePattern;
+		private boolean considerSilentE;
+		private Pattern splitter;
 		
-		// If the word is part of the list of words ending with -cia / -gia with accentuated -i-, we separate the final -a as a separate syllable
-		if (str.matches(regexListOfWordsEndingInCiaGia)){
-			str = str.replaceAll("([aàá])$", "=$1");
-		}else if( str.matches(regexListOfWordsWithUi)){
-			str = str.replaceAll("([uùú])([iìí])", "$1=$2");
+		public GermanSyllableAnnotator() {
+			syllablePattern = SyllablePatterns.GERMAN;
+			splitter = Pattern.compile(syllablePattern);
+			considerSilentE = false;
 		}
-
-		str = str.replaceAll("("+V+")([bcfgptv][lr])", "$1=$2");		
-		str = str.replaceAll("("+V+")([cg]h)", "$1=$2");		
-		str = str.replaceAll("("+V+")(gn)", "$1=$2");		
-		str = str.replaceAll("("+C+")\\1", "$1=$1");		
-		str = str.replaceAll("(s"+C+")", "=$1");
-		//logger.info("str 206: " + str);
-		//System.out.println("str 206: " + str);
 		
+		@Override
+		public void annotateSyllables(Iterator it) {
+			String tokenStr;
+			while(it.hasNext()) {			
+				//get the token
+				token = (Token)it.next();
+				tokenStr = token.getCoveredText().toLowerCase();
+				//annotate syllables
+				Matcher m = splitter.matcher(tokenStr);
 
-		Matcher m = yup1.matcher(str);
-
-		while (m.find()) {
-			str = str.replaceAll("("+V+"*"+C+"+"+V+"+)("+C+V+")", "$1=$2");
-			m = yup1.matcher(str);
+				while (m.find()) {
+					//finds a syllable
+					Syllable annotation = new Syllable(aJCas);
+					annotation.setBegin(m.start() + token.getBegin());
+					annotation.setEnd(m.end() + token.getBegin());
+					annotation.addToIndexes();
+					//logger.info("syllable: " + annotation.getBegin() + ", " + annotation.getEnd() + " \'"  + annotation.getCoveredText()+"\'");
+				}
+			}
 		}
-		//logger.info("str 215: " + str);
-		//System.out.println("str 215: " + str);
+	}
+	
+	private class EnglishSyllableAnnotator implements CTAPSyllableAnnotator {
+		private String syllablePattern;
+		private boolean considerSilentE;
 		
-		
-		m = yup2.matcher(str);
-
-		while (m.find()) {
-			str = str.replaceAll("("+V+"*"+C+"+"+V+"+"+C+")("+C+")", "$1=$2");
-			m = yup2.matcher(str);
+		public EnglishSyllableAnnotator() {
+			syllablePattern = SyllablePatterns.ENGLISH;
+			considerSilentE = true;
 		}
-		//logger.info("str 224: " + str);
-		//System.out.println("str 224: " + str);
-
-		str = str.replaceAll("^("+V+"+"+C+")("+C+")", "$1=$2");		
-		str = str.replaceAll("^("+V+"+)("+C+V+")", "$1=$2");			
-		str = str.replaceAll("^=", "");
-		str = str.replaceAll("=$", "");
-		str = str.replaceAll("=+", "=");
-
-		// Short 2 syllable word starting with consonants and ending with ua, ue, uo  (suo, mia ecc.) Non sono sicura di questa regola!!!
-		if(!str.equals("quo") || !str.equals("quò") || !str.equals("quó")){
-			str = str.replaceAll("^("+C+"+)([uùúiìí])([aàáeèéoòó])$", "$1$2=$3");
+		
+		@Override
+		public void annotateSyllables(Iterator it) {
+			Token token;
+			String tokenStr;
+			//annotate syllables for each token 
+			while(it.hasNext()) {			
+				//get the token
+				token = (Token)it.next();
+				tokenStr = token.getCoveredText().toLowerCase();
+				//annotate syllables
+				if (tokenStr.charAt(tokenStr.length()-1) == 'e' && silente(tokenStr)){
+					String newToken= tokenStr.substring(0, tokenStr.length()-1); //deal with the rest of word
+					annotateSyllablesEnglish(token, newToken);
+				}else{
+					annotateSyllablesEnglish(token, tokenStr);				
+				}
+			}			
 		}
-
-		// Prefixes bi-, tri-, ri- ecc.
-		str = str.replaceAll("^(b[iìí]|r[eèéiiìí]|tr[iìí]|c[oòó]|[aàá]nt[eèéiìí]|c[oòó]n=?tr[aàáoòó]|[iìí]=?p[oòó]|m[eèé]=?t[aàá]|m[iìíaàá]=?cro|[tf]r[aàá]|d[eèé]|str[aàá]|s[oòó]t=?t[oòó]|s[oòó][pv]=?r[aàá]|s[eèé]=?m[iìí]|[eèé]=?m[iìí]|r[eèé]t=?ro|pr[oòó]|[iìí]n=?fr[aàá]|v[iìí]=?c[eèé])("+V+")", "$1=$2");
-		//logger.info("str 187: " + str);
-		//System.out.println("str 187: " + str);
-		//La finale dei verbi in ire
-		str = str.replaceAll("[^gqc](" + V + ")([iìí]=?r[eèé]|[iìí]=?r=?s[iìí])$", "$1=$2");
 		
-		// Words that finish with -logia, -plegia and -fagia - scientific words - have the accent on i di logia -> lo-gi-a
-		str = str.replaceAll("((lo|fa|ple|al=?ler)=?g[iìí])([aàá])$", "$1=$3");		
-		
-		// Words that finish with -ismo, -ista  on i -> i-smo, i-sta
-		str = str.replaceAll("([iìí])(sm[oòó]|st[aàá]|t[iìí]=?c[oòóaàá]|b[iìí]=?l[eèéiìí])$", "$1=$2");		
-				
-		// Vocaboli con il maggior numero di vocali consecutive
-		/*
-						ghiaiaiuolo
-						cuoiaiuolo
-						cuoiaio
-						stuoiaio
-						ghiaiaio
-						troiaio
+		/**
+		 * Annotates the syllables in the token string. 
+		 * 
+		 * @param token the token to be annotated
+		 * @param tokenStr the token string to be annotated
+		 * @return
 		 */
-		//str = str.replaceAll("("+V+")(ia)(iuo|io)", "$1=$2=$3");
-		//str = str.replaceAll("("+V+")(iu?[aou])", "$1=$2");
-		
-		
-		m = yup3.matcher(str);
+		private void annotateSyllablesEnglish(Token token, String tokenStr){
+			Pattern splitter = Pattern.compile(syllablePattern);
+			Matcher m = splitter.matcher(tokenStr);
 
-		while (m.find()) {
-			str = str.replaceAll("("+V+")([iìí][uùúeèé]?[aàáoòóuùúiìí])", "$1=$2");
-			m = yup3.matcher(str);
-		}
-		//logger.info("str 199: " + str);
-		//System.out.println("str 199: " + str);
-		// aiu _> a=iu (aiuola)
-		str = str.replaceAll("([aàá])([iìí][uùú])", "$1=$2");
-
-		str = str.replaceAll("([aàáeèéo])([aàáeèéoòó])", "$1=$2");
-		str = str.replaceAll("([iìí])([iìí])", "$1=$2");
-
-		//logger.info("str end: " + str);
-		//System.out.println("str end: " + str);
-		//System.out.println("offset: " + offset);
-		yup4 = Pattern.compile("[^=]+");
-		m = yup4.matcher(str);
-		
-		//System.out.println("tokenGetbegin: " + tokenGetbegin);
-		
-		if (tokenGetbegin == -1){
-			tokenGetbegin = token.getBegin();
-		}
-		
-		//System.out.println("tokenGetbegin: " + tokenGetbegin);
-		
-		int numberOfEquals = -1;
-		while (m.find()) {
-			numberOfEquals += 1;
-			//finds a syllable
-			Syllable annotation = new Syllable(aJCas);
-			//annotation.setBegin(m.start() + offset - numberOfEquals + token.getBegin());
-			//annotation.setEnd(m.end() + offset - numberOfEquals + token.getBegin());
-			
-			annotation.setBegin(m.start() + offset - numberOfEquals + tokenGetbegin);
-			annotation.setEnd(m.end() + offset - numberOfEquals + tokenGetbegin);
-			
-			//If the syllable is not one consonant or punctuation
-			if(!annotation.getCoveredText().matches("^[b-df-hj-np-tv-z]$") && !annotation.getCoveredText().matches("^\\p{Punct}$")){
-				annotation.addToIndexes();			
+			while (m.find()) {
+				//finds a syllable
+				Syllable annotation = new Syllable(aJCas);
+				annotation.setBegin(m.start() + token.getBegin());
+				annotation.setEnd(m.end() + token.getBegin());
+				annotation.addToIndexes();
 				//logger.info("syllable: " + annotation.getBegin() + ", " + annotation.getEnd() + " \'"  + annotation.getCoveredText()+"\'");
-				//System.out.println("syllable: " + annotation.getCoveredText());
 			}
 		}
 	}

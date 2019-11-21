@@ -18,7 +18,7 @@ public abstract class WordCategories {
 		protected String[] finVerb; 
 		protected String[] lexicalVerb; 
 		protected String[] pronouns;
-		
+		protected String[] punctuation;
 
 		public String[] getLexicalWords() {
 			return lexical;
@@ -61,6 +61,10 @@ public abstract class WordCategories {
 		
 		public String[] getPronouns() {
 			return pronouns;
+		}
+		
+		public String[] getPunctuation() {
+			return punctuation;
 		}
 
 		public boolean isNoun(String tag) {
