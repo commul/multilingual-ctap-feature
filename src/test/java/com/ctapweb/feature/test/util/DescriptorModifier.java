@@ -60,7 +60,7 @@ public class DescriptorModifier {
 	        nameValuePairNode.appendChild(valueNode);
 	        Element stringNode = doc.createElement("string");
 	        valueNode.appendChild(stringNode);
-	        Text langTextNode = doc.createTextNode("IT");
+	        Text langTextNode = doc.createTextNode(languageCode);
 	        stringNode.appendChild(langTextNode);
 	        
 	        // Loop through all possible "analysisEngineMetaData" nodes: in reality only one

@@ -47,7 +47,7 @@
 			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
 			<outputsNewCASes>false</outputsNewCASes>
 		</operationalProperties>
-	<configurationParameterSettings><nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair></configurationParameterSettings></analysisEngineMetaData>
+	<configurationParameterSettings><nameValuePair><name>LanguageCode</name><value><string>DE</string></value></nameValuePair></configurationParameterSettings></analysisEngineMetaData>
 
 	<externalResourceDependencies>
 		<externalResourceDependency>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>Gulpease</name>
+    <description>The type for storing Gulpease results
+
+Extends: ComplexityFeatureBase.
+Dependency: 
+	Feature types: none
+	Linguistic types: NTokenType, NTokenTypeType, NSentenceType, NLetterType, NSyllableType</description>
+    <version>1.0</version>
+    <vendor>Nadezda Okinina</vendor>
+  <imports>
+    <import location="ComplexityFeatureBaseType.xml"/>
+    <import location="../feature_type/NTokenType.xml"/>
+    <import location="../feature_type/NSentenceType.xml"/>
+    <import location="../feature_type/NLetterType.xml"/>
+  </imports>
+  <types>
+    <typeDescription>
+      <name>com.ctapweb.feature.type.Gulpease</name>
+      <description>Gulpease</description>
+      <supertypeName>com.ctapweb.feature.type.ComplexityFeatureBase</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

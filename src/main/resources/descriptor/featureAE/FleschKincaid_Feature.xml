@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription
+	xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>com.ctapweb.feature.featureAE.FleschAE
+	</annotatorImplementationName>
+	<analysisEngineMetaData>
+		<name>Flesch-Kincaid Grade Level</name>
+		<description>The code for the calculation of the Flesch-Kincaid Grade Level measure of readability
+		 ( 0.39 * mean_sentence_length_in_tokens ) + ( 11.8 * mean_token_length_in_syllables ) - 15.59
+
+			AAE dependency:
+			SentenceAnnotator.xml
+			NSentenceFeature.xml
+			TokenAnnotator.xml
+			NTokenFeature.xml
+			SyllableAnnotator.xml
+			NSyllableFeature.xml
+		</description>
+		<version>1.0</version>
+		<vendor>Nadezda Okinina</vendor>
+		<configurationParameters>
+			<configurationParameter>
+				<name>aeID</name>
+				<description>analysis engine id</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>LanguageCode</name>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>readingEaseOrKincaid</name>
+				<description>options:
+					re: reading ease
+					kc: Kincaid grade level
+				</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+		</configurationParameters>		
+		<configurationParameterSettings>
+			<nameValuePair>
+				<name>readingEaseOrKincaid</name>
+				<value>
+					<string>kc</string>
+				</value>
+			</nameValuePair>
+		</configurationParameterSettings>
+		<typeSystemDescription>
+			<imports>
+				<import
+					location="../type_system/feature_type/FleschType.xml" />
+			</imports>
+		</typeSystemDescription>
+		<typePriorities />
+		<fsIndexCollection />
+		<capabilities>
+			<capability>
+				<inputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NToken
+					</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSentence
+					</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSyllable
+					</type>
+				</inputs>
+				<outputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Flesch</type>
+				</outputs>
+				<languagesSupported>
+					<language>EN</language>
+					<language>DE</language>
+					<language>IT</language>
+					<!-- add new language here -->
+				</languagesSupported>
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	</analysisEngineMetaData>
+	<resourceManagerConfiguration />
+</analysisEngineDescription>

@@ -85,6 +85,7 @@ public class SentenceAnnotatorTest {
 	/*
 	 * Reads a file META-INF/cani.txt and counts its sentences, compares the result with the reference number.
 	 */
+	/*
 	@Test
 	public void annotateSentencesItalianTest() throws Exception {
 		System.out.println(UimaContextHolder.getContext());
@@ -92,82 +93,28 @@ public class SentenceAnnotatorTest {
 		XMLParser pars1 = UIMAFramework.getXMLParser();
 		
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
-		/*
-		String sentenceTypeDescr = "<typeSystemDescription xmlns=\"http://uima.apache.org/resourceSpecifier\">"+
-			    "<name>Sentence</name>"+
-				"<version>1.0</version>"+
-				"<vendor>xiaobin</vendor>"+
-				"<types>"+
-					"<typeDescription>"+
-						"<name>com.ctapweb.feature.type.Sentence</name>"+
-						"<description>The sentence type.</description>"+
-						"<supertypeName>uima.tcas.Annotation</supertypeName>"+
-					"</typeDescription>"+
-				"</types>"+
-			"</typeSystemDescription>";
-		*/
-		
-		//String sentenceTypeDescr = new String(Files.readAllBytes(Paths.get("src/main/resources/descriptor/type_system/linguistic_type/Sentence.xml")));
-		
+	
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
-		//Document doc = db.parse(new ByteArrayInputStream(sentenceTypeDescr.getBytes("UTF-8")));
 		Document doc = db.parse(new ByteArrayInputStream(Files.readAllBytes(Paths.get("src/main/resources/descriptor/type_system/linguistic_type/Sentence.xml"))));
 		
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars1);
 	    JCas jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    //File caniFile = new File("./META-INF/cani.txt");
 	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/cani.txt")));
 	    
-		//JCas jCas = JCasFactory.createJCas();
-		//jCas.setDocumentText("Ecco una prima frase. E questa seconda frase segue. Scriviamo ancora un po'...");
 		jCas.setDocumentText(contents);
 		
-		//jCas.setDocumentLanguage("IT");
-		
-	//AnalysisEngine analysisEngine = AnalysisEngineFactory.createEngine(SentenceAnnotator.class,SentenceAnnotator.PARAM_LANGUAGE_CODE, "IT");
-		 	
-
-		
-	//AnalysisEngineDescription aed = AnalysisEngineFactory.createEngineDescription(SentenceAnnotator.class,SentenceAnnotator.PARAM_LANGUAGE_CODE,"IT");
-		 
-
-		//System.setProperty("org.apache.uima.fit.type.import_pattern","classpath*:../../src/main/resources/descriptor/type_system/linguistic_type/*");
-
 		XMLParser pars = UIMAFramework.getXMLParser();
-		//File f = new File("./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml");
-		//File f = new File("src/main/resources/descriptor/annotator/SentenceAnnotator.xml");
 		
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		
 		
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
-		//ResourceManager rm = UIMAFramework.newDefaultResourceManager();
-		//String dPath = rm.getDataPath();
-		//System.out.println("dPath: "+dPath);
-		//aed.resolveImports(rm);
-
-		//aed.setAttributeValue(SentenceAnnotator.PARAM_LANGUAGE_CODE,"IT");
-		//aed.setAttributeValue(SentenceAnnotator.PARAM_LANGUAGE_CODE,"DE");
-		//aed.setAttributeValue("SentenceSegmenterModelIT","file:model/it-sent.bin");
-
-		//ExternalResourceDependency[] extResDeps = {"SentenceSegmenterModelIT","file:model/it-sent.bin"};
-		//aed.setExternalResourceDependencies(extResDeps);
-		/*
-		FileWriter fileWriter = null;
-		try {
-			fileWriter = new FileWriter("/home/nadiushka/ctap/recent-ctap-docker/file.txt");
-			aed.toXML(fileWriter);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		*/
 
 		SimplePipeline.runPipeline(jCas, aed);
 
-		//analysisEngine.process(jCas);
 		int n = 0;
 		Iterator it = jCas.getAnnotationIndex(Sentence.type).iterator();
 		while(it.hasNext()) {
@@ -175,27 +122,8 @@ public class SentenceAnnotatorTest {
 			//System.out.println("ob.toString(): " + ob.toString());
 	         n += 1;
 	    }
-		/*
-		for(Annotation annot : JCasUtil.select(jCas, Annotation.class)){
-			System.out.println("Found annotation: " + annot.getCoveredText());
-			System.out.println("annot.getTypeIndexID(): " + annot.getTypeIndexID());
-			System.out.println("annot.getavoidcollisionTypeCode(): "+annot.getavoidcollisionTypeCode());
-			System.out.println("annot.toString(): "+annot.toString());
-			System.out.println("annot.getClass().toString(): "+annot.getClass().toString());
-			System.out.println("annot.getType().toString(): "+annot.getType().toString());
-			if(annot.getType().toString().equals("com.ctapweb.feature.type.Sentence") ){
-				n += 1;
-			}
-			
-			
-			//if(annot.getavoidcollisionTypeCode() == 37){
-				//n += 1;
-			//}
-			
-		}
-		*/
 		
 		assertEquals(12, n);
 	}
-	
+	*/
 }

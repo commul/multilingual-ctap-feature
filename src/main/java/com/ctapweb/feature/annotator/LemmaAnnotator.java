@@ -90,7 +90,17 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 		}
 
 		if (lCode.equals("DE")){  // TODO this should be a switch statement (by zweiss)
+			/*
+			try{
+				String treetaggerPath = getContext().getResourceFilePath("treetagger");
+				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("de", "treetaggerPath line 98: " + treetaggerPath));
+				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
 
+			}catch(Exception e){
+				logger.throwing(e);
+			}
+			*/
+			
 			//init lemmatizer
 			String languageSpecificResourceKey = LEMMA_RESOURCE_KEY+lCode;
 			try {
@@ -112,45 +122,13 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 					"file_io_error",
 					new Object[] {lemmaModelFilePath}, e);
 			}
+			
 		
 		}else if (lCode.equals("IT")){
-			// TODO Please use wrapper (by zweiss):
-			// This implementation for Italian does not follow the provided implementation logic
-			// for the addition of new languages. In its current state, it could not be included in the
-			// multilingual version of CTAP.  
-			//
-			// To change this, please extract all Italian specific lemmatization code into a corresponding 
-			// The initialize method should only initialize the required variables, and not include elaborate language-specific code
-			// Lemmatizer class implementing the CTAP lemmatizer interface and initialize the corresponding 
-			// lemmatizer here as done for German.
-			// No language specific code should be entered into the process method. 
-			// No helper methods should be required outside of the language specific Lemmatizer.
-
-
-			/* Give permissions to execute the treetagger program that is inside the war.
-			 * To avoid the following:
-			 * java.io.IOException: Cannot run program "/opt/tomcat/webapps/ctap-web-1.0.0-SNAPSHOT/WEB-INF/classes/treetagger/bin/tree-tagger": error=13, Permission denied
-	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[?:1.8.0_131]
-	at org.annolab.tt4j.TreeTaggerWrapper.getTaggerProcess(TreeTaggerWrapper.java:751) ~[org.annolab.tt4j-1.1.1.jar:?]
-	at org.annolab.tt4j.TreeTaggerWrapper.process(TreeTaggerWrapper.java:564) ~[org.annolab.tt4j-1.1.1.jar:?]
-	at com.ctapweb.feature.annotator.LemmaAnnotator.lemmatizeItalian(LemmaAnnotator.java:206)
-			 */
 			try{
 				String treetaggerPath = getContext().getResourceFilePath("treetagger");
 				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath line 98: " + treetaggerPath));
-				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath);
-				/*
-				String treetaggerPath = getContext().getResourceFilePath("treetagger");
-				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath line 98: " + treetaggerPath));
-				
-				String fileSep = File.separator;
-				String newFilePath = treetaggerPath + fileSep + "bin" + fileSep + "tree-tagger";
-				File fileObject = new File(newFilePath);				
-				// Change permission as below.
-				fileObject.setReadable(true);
-				fileObject.setWritable(false);
-				fileObject.setExecutable(true);
-				*/
+				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
 
 			}catch(Exception e){
 				logger.throwing(e);
@@ -197,6 +175,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 				Token token = sentTokens.get(i);
 				Lemma annotation = new Lemma(aJCas);
 				//logger.trace(LogMarker.UIMA_MARKER, "Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
+				//System.out.println("Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
 				annotation.setBegin(token.getBegin()); 
 				annotation.setEnd(token.getEnd());
 				annotation.setLemma(lemmas[i]);
@@ -268,9 +247,9 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	 */
 	private class TreeTaggerLemmatizer implements CTAPLemmatizer {		
 		private TreeTaggerWrapper tt;
-		private String italianUtf8FilePath;
+		private String utf8FilePath;
 		
-		public TreeTaggerLemmatizer(String treetaggerPath) throws IOException {
+		public TreeTaggerLemmatizer(String treetaggerPath, String lCode) throws IOException {
 			String fileSep = File.separator;
 			String newFilePath = treetaggerPath + fileSep + "bin" + fileSep + "tree-tagger";
 			File fileObject = new File(newFilePath);				
@@ -280,7 +259,16 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			fileObject.setExecutable(true);
 
 			System.setProperty("treetagger.home", treetaggerPath);
-			italianUtf8FilePath = treetaggerPath + fileSep + "italian-utf8.par:utf8";
+			
+			//System.out.println("treetaggerPath: " + treetaggerPath);
+			
+			if (lCode.equals("IT")){
+				utf8FilePath = treetaggerPath + fileSep + "lib" + fileSep + "italian-utf8.par:utf8";
+			}else if(lCode.equals("DE")){
+				utf8FilePath = treetaggerPath + fileSep + "lib" + fileSep + "german-utf8.par:utf8";
+			}
+			
+			//System.out.println("utf8FilePath: " + utf8FilePath);
 		}
 		
 		@Override
@@ -288,7 +276,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			ArrayList<String> ttResultArrayL = new ArrayList<String>();
 	        try {
 	        	tt = new TreeTaggerWrapper();
-	        	tt.setModel(italianUtf8FilePath);
+	        	tt.setModel(utf8FilePath);
 	        	TokenHandler tokenHandler = new TokenHandler<String>() {
 	                public void token(String token, String pos, String lemma) {
 	                    ttResultArrayL.add(lemma);

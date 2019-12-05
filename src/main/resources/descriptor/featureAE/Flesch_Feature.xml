@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription
+	xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>com.ctapweb.feature.featureAE.FleschAE
+	</annotatorImplementationName>
+	<analysisEngineMetaData>
+		<name>Flesch Reading Ease</name>
+		<description>The code for the calculation of the Flesch Reading Ease measure of readability
+		
+		206.835 - (84.6 * mean_token_length_in_syllables) - (1.015 * mean_sentence_length_in_tokens)
+		
+		Scores can be interpreted as shown in the table below:
+		
+		100.00–90.00 	5th grade 	Very easy to read. Easily understood by an average 11-year-old student.
+		90.0–80.0 	6th grade 	Easy to read. Conversational English for consumers.
+		80.0–70.0 	7th grade 	Fairly easy to read.
+		70.0–60.0 	8th and 9th grade 	Plain English. Easily understood by 13- to 15-year-old students.
+		60.0–50.0 	10th to 12th grade 	Fairly difficult to read.
+		50.0–30.0 	College 	Difficult to read.
+		30.0–0.0 	College graduate 	Very difficult to read. Best understood by university graduates. 
+
+			AAE dependency:
+			SentenceAnnotator.xml
+			NSentenceFeature.xml
+			TokenAnnotator.xml
+			NTokenFeature.xml
+			SyllableAnnotator.xml
+			NSyllableFeature.xml
+		</description>
+		<version>1.0</version>
+		<vendor>Nadezda Okinina</vendor>
+		<configurationParameters>
+			<configurationParameter>
+				<name>aeID</name>
+				<description>analysis engine id</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>LanguageCode</name>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>readingEaseOrKincaid</name>
+				<description>options:
+					re: reading ease
+					kc: Kincaid grade level
+				</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+		</configurationParameters>		
+		<configurationParameterSettings>
+			<nameValuePair>
+				<name>readingEaseOrKincaid</name>
+				<value>
+					<string>re</string>
+				</value>
+			</nameValuePair>
+		</configurationParameterSettings>
+		<typeSystemDescription>
+			<imports>
+				<import
+					location="../type_system/feature_type/FleschType.xml" />
+			</imports>
+		</typeSystemDescription>
+		<typePriorities />
+		<fsIndexCollection />
+		<capabilities>
+			<capability>
+				<inputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NToken
+					</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSentence
+					</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSyllable
+					</type>
+				</inputs>
+				<outputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Flesch</type>
+				</outputs>
+				<languagesSupported>
+					<language>EN</language>
+					<language>DE</language>
+					<language>IT</language>
+					<!-- add new language here -->
+				</languagesSupported>
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	</analysisEngineMetaData>
+	<resourceManagerConfiguration />
+</analysisEngineDescription>

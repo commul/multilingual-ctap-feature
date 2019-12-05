@@ -43,7 +43,7 @@ public class NSyntacticConstituentFeatureTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedParseTree, aed;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -100,7 +100,7 @@ public class NSyntacticConstituentFeatureTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
 	
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of attributes in META-INF/cani.txt is 0.0, with the precision of 0.0000001.

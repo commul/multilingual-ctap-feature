@@ -122,7 +122,7 @@
 					<string>B BN As Ap An APs APp APn</string>
 				</value>
 			</nameValuePair>
-		<nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>333</integer></value></nameValuePair></configurationParameterSettings>
+		<nameValuePair><name>LanguageCode</name><value><string>DE</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>333</integer></value></nameValuePair></configurationParameterSettings>
 
 		<typeSystemDescription>
 			

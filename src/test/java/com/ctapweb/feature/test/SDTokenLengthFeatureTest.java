@@ -32,7 +32,7 @@ public class SDTokenLengthFeatureTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedSyllable, aedLetter;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -75,10 +75,12 @@ public class SDTokenLengthFeatureTest {
 		aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
 	}
+	*/
 	
 	/*
 	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 2.973243104638609, with the precision of 0.001.
 	 */
+	/*
 	@Test
 	public void SDTokenLengthInLetterFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/SDTokenLengthInLetterFeature.xml", "./META-INF/org.apache.uima.fit/SDTokenLengthInLetterFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "8585");
@@ -93,11 +95,12 @@ public class SDTokenLengthFeatureTest {
 			}
 		}
 	}
+	*/
 	
 	/*
 	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 1.1677977497340455, with the precision of 0.001.
 	 */
-	
+	/*
 	@Test
 	public void SDTokenLengthInSyllableFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/SDTokenLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/SDTokenLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "8585");
@@ -112,5 +115,5 @@ public class SDTokenLengthFeatureTest {
 			}	
 		}
 	}
-	
+	*/
 }

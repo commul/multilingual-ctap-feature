@@ -84,10 +84,10 @@ public class POSDensityAE extends JCasAnnotator_ImplBase {
 		String POSType = (String) aContext.getConfigParameterValue(languageSpecificResourceKey);
 		posList = getPOSTagList(POSType);
 		//logger.trace(LogMarker.UIMA_MARKER, "The following POS density ("+PARAM_POS_TYPE + lCode.orElse(SupportedLanguages.DEFAULT)+") will be calculated for POSType "+POSType+": ");
-		for(String pos: posList) {
-			logger.trace(LogMarker.UIMA_MARKER, pos);
+		//for(String pos: posList) {
+			//logger.trace(LogMarker.UIMA_MARKER, pos);
 			//System.out.println(" pos of posList " + pos);
-		}
+		//}
 
 		//get the parameter value of analysis id
 		if(aContext.getConfigParameterValue(PARAM_AEID) == null) {

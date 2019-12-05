@@ -36,7 +36,7 @@ public class Word2OrMoreSyllablesFeatureTest {
 	AnalysisEngineDescription aedSent, aedToken, aedSyllable;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -89,6 +89,7 @@ public class Word2OrMoreSyllablesFeatureTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
 	
 	}
+	*/
 	
 	/*
 	 * Checks that the number of tokens with 2 or more syllables in META-INF/cani.txt is 170.0, with the precision of 0.0000001.

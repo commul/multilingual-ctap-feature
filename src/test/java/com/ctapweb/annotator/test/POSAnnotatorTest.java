@@ -33,7 +33,7 @@ import com.ctapweb.feature.type.POS;
 public class POSAnnotatorTest {
 	JCas jCas;
 
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -72,12 +72,12 @@ public class POSAnnotatorTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then POSAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	
+	*/
 	
 	/*
 	 * Tests that the number of POS tags in the text cani.txt is equal to 295
 	 */
-	
+	/*
 	@Test
 	public void annotatePOSNumberItalianTest() throws Exception {		
 		int n = 0;
@@ -89,7 +89,7 @@ public class POSAnnotatorTest {
 
 		assertEquals(295, n); 
 	}
-	
+	*/
 	
 	/*
 	 * Tests that the first word of the text cani.txt "La" is tagged as an article ("RD")
