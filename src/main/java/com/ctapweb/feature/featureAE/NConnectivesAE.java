@@ -174,12 +174,13 @@ public class NConnectivesAE extends JCasAnnotator_ImplBase {
 				}
 			}
 			//  Debugging 
-//			logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
-//			logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
-//			logger.trace(LogMarker.UIMA_MARKER, "Counting 1: non-multi connective: "+nOccurrence);
+			//logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
+			//logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
+			//logger.trace(LogMarker.UIMA_MARKER, "Counting 1: non-multi connective: "+nOccurrence);
 			return nOccurrence;
 		}
-
+		
+		boolean letsCountSingleWordConn = false;
 		// Complex case: we have multi word connectives
 		for (String multiConnective : listOfConnectives.lookup(connID)) {
 			// Multi-word connectives with long distance compounds are separated by "-"
@@ -226,18 +227,33 @@ public class NConnectivesAE extends JCasAnnotator_ImplBase {
 			if (foundFullMultiWordConnective && !countingScope.equals("SINGLE")) {
 				nOccurrence++;
 				// Debugging 
-//				logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
-//				logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
-//				logger.trace(LogMarker.UIMA_MARKER, "Counting 2: multi connective: "+nOccurrence);
+				//logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
+				//logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
+				//logger.trace(LogMarker.UIMA_MARKER, "Counting 2: multi connective: "+nOccurrence);
 			}
 			// if we have a single word connective (with multi word variants) and we are not excluding single word connectives, 
 			// increase the occurrence count
 			else if (!foundFullMultiWordConnective && !countingScope.equals("MULTI")) {
-				nOccurrence++;
+				letsCountSingleWordConn = true;
+				//The following 5 lines were commented by Nadia, because were erroneous: they counted several times the same 1-word connective that in theory has multi-word variants, but not in this text
+				//nOccurrence++;
 				// Debugging 
-//				logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
-//				logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
-//				logger.trace(LogMarker.UIMA_MARKER, "Counting 3: single connective: "+nOccurrence);
+				//logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
+				//logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
+				//logger.trace(LogMarker.UIMA_MARKER, "Counting 3: single connective: "+nOccurrence);
+			}
+		}
+		
+		// Loop added by Nadia for counting one-word connectives that have multi-word variants, but not in this text
+		if (letsCountSingleWordConn){
+			// if we are interested in single word connectives, count each occurrence
+			for (String token : tokenizedSentence) {
+				if(token.equals(connID)) {
+					nOccurrence++;
+					//logger.trace(LogMarker.UIMA_MARKER, "Found: "+connID);
+					//logger.trace(LogMarker.UIMA_MARKER, "In sentence: "+sentence);
+					//logger.trace(LogMarker.UIMA_MARKER, "Counting 4: single from multi connective: "+nOccurrence);
+				}
 			}
 		}
 
