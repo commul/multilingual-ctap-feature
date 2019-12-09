@@ -28,7 +28,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class NLetterFeatureTest {
+public class NLetterFeatureDeTest {
 	JCas jCas;
 	/*
 	@Before
@@ -51,22 +51,22 @@ public class NLetterFeatureTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		AnalysisEngineDescription aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		AnalysisEngineDescription aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", "./META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "IT");
+		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", "./META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceLetter = new XMLInputSource(fLetter);
 		AnalysisEngineDescription aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", "./META-INF/org.apache.uima.fit/NLetterFeatureForUIMAFitTest.xml", "IT", "777");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", "./META-INF/org.apache.uima.fit/NLetterFeatureForUIMAFitTest.xml", "DE", "777");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -76,7 +76,7 @@ public class NLetterFeatureTest {
 	*/
 	
 	/*
-	 * Checks that the number of letters in META-INF/cani.txt is 1317.0.
+	 * Checks that the number of letters in META-INF/de-test-text.txt is 1724.
 	 */
 	/*
 	@Test
@@ -84,7 +84,7 @@ public class NLetterFeatureTest {
 
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 777){
-				assertEquals(1317.0, annot.getValue(), 0.0000001);
+				assertEquals(1724.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
