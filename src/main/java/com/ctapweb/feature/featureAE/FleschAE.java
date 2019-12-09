@@ -26,12 +26,10 @@ import com.ctapweb.feature.logging.message.InitializingAEMessage;
 import com.ctapweb.feature.logging.message.PopulatedFeatureValueMessage;
 import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
 import com.ctapweb.feature.type.NToken;
-import com.ctapweb.feature.type.NTokenType;
-import com.ctapweb.feature.type.Sentence;
-import com.ctapweb.feature.type.Syllable;
+import com.ctapweb.feature.type.NSentence;
+import com.ctapweb.feature.type.NSyllable;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 import com.ctapweb.feature.type.Flesch;
-import com.ctapweb.feature.type.Letter;
 import com.ctapweb.feature.type.Token;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
@@ -125,7 +123,26 @@ public class FleschAE  extends JCasAnnotator_ImplBase {
 		double nSyllables = 0;
 		double nSentences = 0;
 		double nTokens = 0;
-
+		
+		Iterator itSyll = aJCas.getAllIndexedFS(NSyllable.class);
+		if(itSyll.hasNext()) {
+			NSyllable nSyll = (NSyllable)itSyll.next();
+			nSyllables = nSyll.getValue();
+		}
+		
+		Iterator itSent = aJCas.getAllIndexedFS(NSentence.class);
+		if(itSent.hasNext()) {
+			NSentence nSent = (NSentence)itSent.next();
+			nSentences = nSent.getValue();
+		}
+		
+		Iterator itTok = aJCas.getAllIndexedFS(NToken.class);
+		if(itTok.hasNext()) {
+			NToken nTok = (NToken)itTok.next();
+			nTokens = nTok.getValue();
+		}
+		
+		/*
 		for(ComplexityFeatureBase annot : JCasUtil.select(aJCas, ComplexityFeatureBase.class)){
 			if (annot.getType().getName().endsWith("NSyllable")){
 				nSyllables = annot.getValue();
@@ -135,7 +152,7 @@ public class FleschAE  extends JCasAnnotator_ImplBase {
 				nTokens = annot.getValue();
 			}
 		}
-
+		*/
 
 		double flesch = 0;		
 		switch (readingEaseOrKincaid){

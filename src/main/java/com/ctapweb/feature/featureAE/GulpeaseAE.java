@@ -1,21 +1,13 @@
 package com.ctapweb.feature.featureAE;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
-import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import java.util.Iterator;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
-import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.resource.ResourceInitializationException;
 
@@ -27,15 +19,10 @@ import com.ctapweb.feature.logging.message.InitializeAECompleteMessage;
 import com.ctapweb.feature.logging.message.InitializingAEMessage;
 import com.ctapweb.feature.logging.message.PopulatedFeatureValueMessage;
 import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
-import com.ctapweb.feature.type.NToken;
-import com.ctapweb.feature.type.Sentence;
-import com.ctapweb.feature.type.Syllable;
-import com.ctapweb.feature.type.ComplexityFeatureBase;
 import com.ctapweb.feature.type.Gulpease;
-import com.ctapweb.feature.type.Letter;
-import com.ctapweb.feature.type.Token;
-import org.apache.uima.fit.util.JCasUtil;
-import org.apache.uima.jcas.JCas;
+import com.ctapweb.feature.type.NToken;
+import com.ctapweb.feature.type.NSentence;
+import com.ctapweb.feature.type.NLetter;
 
 /**
  * 
@@ -98,8 +85,27 @@ public class GulpeaseAE  extends JCasAnnotator_ImplBase {
 		double nSentences = 0;
 		double nTokens = 0;
 		double nLetters = 0;
-		for(ComplexityFeatureBase annot : JCasUtil.select(aJCas, ComplexityFeatureBase.class)){
-			
+		
+		Iterator itLet = aJCas.getAllIndexedFS(NLetter.class);
+		if(itLet.hasNext()) {
+			NLetter nLet = (NLetter)itLet.next();
+			nLetters = nLet.getValue();
+		}
+		
+		Iterator itSent = aJCas.getAllIndexedFS(NSentence.class);
+		if(itSent.hasNext()) {
+			NSentence nSent = (NSentence)itSent.next();
+			nSentences = nSent.getValue();
+		}
+		
+		Iterator itTok = aJCas.getAllIndexedFS(NToken.class);
+		if(itTok.hasNext()) {
+			NToken nTok = (NToken)itTok.next();
+			nTokens = nTok.getValue();
+		}
+		
+		/*
+		for(ComplexityFeatureBase annot : JCasUtil.select(aJCas, ComplexityFeatureBase.class)){			
 			if (annot.getType().getName().endsWith("NLetter")){
 				nLetters = annot.getValue();
 			}else if (annot.getType().getName().endsWith("NSentence")){
@@ -107,9 +113,8 @@ public class GulpeaseAE  extends JCasAnnotator_ImplBase {
 			}else if (annot.getType().getName().endsWith("NToken")){
 				nTokens = annot.getValue();
 			}
-			
 		}
-		
+		*/
 		
 		double gulpease = 89 + ( ( 300 * nSentences - 10 * nLetters ) / nTokens);
 		//output the feature type
