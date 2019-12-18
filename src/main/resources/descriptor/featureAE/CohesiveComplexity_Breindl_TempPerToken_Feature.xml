@@ -6,8 +6,8 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.CohesiveComplexityAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Cohesive Complexity Feature: Breindl Temporal Connectives per Token</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the temporal connectives listed by Breindl per token.
+		<name>Cohesive Complexity Feature: Temporal Connectives per Token (Breindl for German)</name>
+		<description>Calculates the cohesive complexity of the text. This feature calculates the temporal connectives per token, listed by Breindl for German, by Nadezda Okinina for Italian.
 			Definition: # of temporal connectives / # of tokens
 
 			AAE dependency:
@@ -81,6 +81,7 @@
 			</outputs>
 			<languagesSupported>
 				<language>DE</language>
+				<language>IT</language>
 				<!-- add new language here -->
 			</languagesSupported>
 		</capability>

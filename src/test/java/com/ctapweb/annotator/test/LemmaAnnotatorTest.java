@@ -32,7 +32,7 @@ import org.w3c.dom.Document;
 public class LemmaAnnotatorTest {
 	
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -69,12 +69,12 @@ public class LemmaAnnotatorTest {
 		
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of lemmas in the file META-INF/cani.txt is 295.
 	 */
-	/*
+	
 	@Test
 	public void annotateLemmasItalianNumberLemmasTest() throws Exception {		
 		int n = 0;
@@ -85,12 +85,12 @@ public class LemmaAnnotatorTest {
 	      }		
 		assertEquals(295, n); 
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the fourth lemma in the file META-INF/cani.txt is "salvare".
 	 */
-	/*
+	
 	@Test
 	public void annotateLemmasItalianFourthLemmaTest() throws Exception {		
 		int n = 0;
@@ -104,7 +104,7 @@ public class LemmaAnnotatorTest {
 	      }
 
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the 6th lemma in the file META-INF/cani.txt is "cane".

@@ -6,7 +6,7 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.CohesiveComplexityAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Cohesive Complexity Feature: Breindl Multi- to Single-Word Connectives</name>
+		<name>Cohesive Complexity Feature: Multi- to Single-Word Connectives (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. This feature calculates the ratio of multi- to single-word connectives listed by Breindl.
 			Definition: # of multi-word connectives / # of single-word connectives
 

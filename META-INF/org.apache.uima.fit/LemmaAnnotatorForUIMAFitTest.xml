@@ -26,8 +26,8 @@
 		<capabilities>
 			<capability>
 				<inputs>
-					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Token</type>
 					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Sentence</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Token</type>
 				</inputs>
 				<outputs>
 					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Lemma</type>

@@ -60,6 +60,8 @@ import org.apache.uima.jcas.JCas;
  * 
  * ( 0.39 * mean_sentence_length_in_tokens ) + ( 11.8 * mean_token_length_in_syllables ) - 15.59
  * 
+ * Kincaid JP, Fishburne RP Jr, Rogers RL, Chissom BS (February 1975). "Derivation of new readability formulas (Automated Readability Index, Fog Count and Flesch Reading Ease Formula) for Navy enlisted personnel" (PDF). Research Branch Report 8-75, Millington, TN: Naval Technical Training, U. S. Naval Air Station, Memphis, TN.
+ * 
  */
 public class FleschAE  extends JCasAnnotator_ImplBase {
 	public static final String PARAM_AEID = "aeID";
@@ -123,6 +125,7 @@ public class FleschAE  extends JCasAnnotator_ImplBase {
 		double nSyllables = 0;
 		double nSentences = 0;
 		double nTokens = 0;
+		
 		
 		Iterator itSyll = aJCas.getAllIndexedFS(NSyllable.class);
 		if(itSyll.hasNext()) {

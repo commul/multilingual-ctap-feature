@@ -6,8 +6,8 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.NConnectivesAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Number of Connectives: Breindl Temporal Connectives</name>
-		<description>Calculates the number of temporal connectives listed by Breindl.
+		<name>Number of Connectives: Temporal Connectives (Breindl for German)</name>
+		<description>Calculates the number of temporal connectives listed by Breindl for German, by Nadezda Okinina for Italian.
 
 			AAE dependency:
 			SentenceAnnotator.xml
@@ -75,6 +75,7 @@
 				</outputs>
 				<languagesSupported>
 					<language>DE</language>
+					<language>IT</language>
 					<!-- add new language here -->
 				</languagesSupported>
 			</capability>
@@ -94,6 +95,14 @@
 			</interfaceName>
 			<optional>false</optional>
 		</externalResourceDependency>
+		<externalResourceDependency>
+			<key>lookUpListIT</key>
+			<description>a look up list is the list of connectives with which types of connectives are obtained.
+			</description>
+			<interfaceName>com.ctapweb.feature.util.LookUpListResource
+			</interfaceName>
+			<optional>false</optional>
+		</externalResourceDependency>
 	</externalResourceDependencies>
 	<resourceManagerConfiguration>
 		<externalResources>
@@ -107,11 +116,25 @@
 				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
 				</implementationName>
 			</externalResource>
+			<externalResource>
+				<name>It_temporalConnectives</name>
+				<description>temporal connectives listed by Nadezda Okinina
+				</description>
+				<fileResourceSpecifier>
+					<fileUrl>file:lists/Italian_connectives_temporal.txt</fileUrl>
+				</fileResourceSpecifier>
+				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
+				</implementationName>
+			</externalResource>
 		</externalResources>
 		<externalResourceBindings>
 			<externalResourceBinding>
 				<key>lookUpListDE</key>
 				<resourceName>Breindl_temporalConnectives</resourceName>
+			</externalResourceBinding>
+			<externalResourceBinding>
+				<key>lookUpListIT</key>
+				<resourceName>It_temporalConnectives</resourceName>
 			</externalResourceBinding>
 		</externalResourceBindings>
 	</resourceManagerConfiguration>

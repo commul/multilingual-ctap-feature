@@ -9,7 +9,9 @@
 		<name>Flesch-Kincaid Grade Level</name>
 		<description>The code for the calculation of the Flesch-Kincaid Grade Level measure of readability
 		 ( 0.39 * mean_sentence_length_in_tokens ) + ( 11.8 * mean_token_length_in_syllables ) - 15.59
-
+		
+		Bib. ref: Kincaid JP, Fishburne RP Jr, Rogers RL, Chissom BS (February 1975). "Derivation of new readability formulas (Automated Readability Index, Fog Count and Flesch Reading Ease Formula) for Navy enlisted personnel" (PDF). Research Branch Report 8-75, Millington, TN: Naval Technical Training, U. S. Naval Air Station, Memphis, TN.
+		
 			AAE dependency:
 			SentenceAnnotator.xml
 			NSentenceFeature.xml

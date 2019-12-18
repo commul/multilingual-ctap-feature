@@ -6,8 +6,8 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.CohesiveComplexityAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Cohesive Complexity Feature: Breindl Additive Connectives per Token</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the additive connectives listed by Breindl per token.
+		<name>Cohesive Complexity Feature: Additive Connectives per Token (Breindl for German)</name>
+		<description>Calculates the cohesive complexity of the text. This feature calculates the additive connectives per token, listed by Breindl for German, by Nadezda Okinina for Italian.
 			Definition: # of additive connectives / # of token
 
 			AAE dependency:
@@ -82,6 +82,7 @@
 			</outputs>
 			<languagesSupported>
 				<language>DE</language>
+				<language>IT</language>
 				<!-- add new language here -->
 			</languagesSupported>
 		</capability>

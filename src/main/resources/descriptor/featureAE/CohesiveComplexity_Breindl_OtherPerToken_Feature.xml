@@ -6,7 +6,7 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.CohesiveComplexityAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Cohesive Complexity Feature: Breindl Other Connectives per Token</name>
+		<name>Cohesive Complexity Feature: Other Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. This feature calculates the other connectives listed by Breindl per token.
 			Definition: # of other connectives / # of tokens
 

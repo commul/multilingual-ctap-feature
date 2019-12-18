@@ -20,9 +20,13 @@ import com.ctapweb.feature.logging.message.InitializingAEMessage;
 import com.ctapweb.feature.logging.message.PopulatedFeatureValueMessage;
 import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
 import com.ctapweb.feature.type.Gulpease;
+import com.ctapweb.feature.type.ComplexityFeatureBase;
+import org.apache.uima.fit.util.JCasUtil;
 import com.ctapweb.feature.type.NToken;
-import com.ctapweb.feature.type.NSentence;
 import com.ctapweb.feature.type.NLetter;
+import com.ctapweb.feature.type.NToken;
+import com.ctapweb.feature.type.NLetter;
+import com.ctapweb.feature.type.NSentence;
 
 /**
  * 

@@ -6,7 +6,7 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.CohesiveComplexityAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Cohesive Complexity Feature: Breindl Single-Word Connectives per Token</name>
+		<name>Cohesive Complexity Feature: Single-Word Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. This feature calculates the single-word connectives listed by Breindl per token.
 			Definition: # of single-word connectives / # of tokens
 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription
+	xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>com.ctapweb.feature.featureAE.LexicalPercentageAE
+	</annotatorImplementationName>
+	<analysisEngineMetaData>
+		<name>Lexical Sophistication: Percentage of Tokens Listed in the De Mauro Basic Dictionary</name>
+		<description>Calculates the percentage of tokens listed in the De Mauro basic dictionary.
+
+			AAE dependency:
+			SentenceAnnotator.xml
+			NSentenceFeature.xml
+			TokenAnnotator.xml
+			NTokenFeature.xml
+			LemmaAnnotator.xml			
+		</description>
+		<version>1.0</version>
+		<vendor>Nadezda Okinina</vendor>
+		<configurationParameters>
+			<configurationParameter>
+				<name>aeID</name>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>LanguageCode</name>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>false</mandatory>
+			</configurationParameter>
+        </configurationParameters>
+		<typeSystemDescription>
+			<imports>
+				<import location="../type_system/feature_type/LexicalPercentageType.xml" />
+			</imports>
+		</typeSystemDescription>
+		<typePriorities />
+		<fsIndexCollection />
+		<capabilities>
+			<capability>
+				<inputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Sentence</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSentence</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Token</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NToken</type>
+					<!-- <type allAnnotatorFeatures="true">com.ctapweb.feature.type.TokenType</type> -->
+					<!-- <type allAnnotatorFeatures="true">com.ctapweb.feature.type.NTokenType</type> -->
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Lemma</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NLemma</type>
+				</inputs>
+				<outputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.LexicalPercentage
+					</type>
+				</outputs>
+				<languagesSupported>
+					<language>IT</language>
+					<!-- add new language here -->
+				</languagesSupported>
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	</analysisEngineMetaData>
+	<externalResourceDependencies>
+		<externalResourceDependency>
+			<key>lookUpListIT</key>
+			<description>the look up list is the list of words from the De Mauro basic dictionary
+			</description>
+			<interfaceName>com.ctapweb.feature.util.LookUpListResource
+			</interfaceName>
+			<optional>false</optional>
+		</externalResourceDependency>
+	</externalResourceDependencies>
+	<resourceManagerConfiguration>
+		<externalResources>
+			<externalResource>
+				<name>DeMauro</name>
+				<description>De Mauro basic dictionary
+				</description>
+				<fileResourceSpecifier>
+					<fileUrl>file:lists/DeMauro.txt</fileUrl>
+				</fileResourceSpecifier>
+				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
+				</implementationName>
+			</externalResource>
+		</externalResources>
+		<externalResourceBindings>
+			<externalResourceBinding>
+				<key>lookUpListIT</key>
+				<resourceName>DeMauro</resourceName>
+			</externalResourceBinding>
+		</externalResourceBindings>
+	</resourceManagerConfiguration>
+</analysisEngineDescription>

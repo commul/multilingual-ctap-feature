@@ -4,8 +4,8 @@
 	<primitive>true</primitive>
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.CohesiveComplexityAE</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Cohesive Complexity Feature: Breindl Adversative and Concessive Connectives per Token</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the adversative and concessive connectives listed by Breindl per token.
+		<name>Cohesive Complexity Feature: Adversative and Concessive Connectives per Token (Breindl for German)</name>
+		<description>Calculates the cohesive complexity of the text. This feature calculates the adversative and concessive connectives per token, listed by Breindl for German, by Nadezda Okinina for Italian.
 			Definition: # of adversative and concessive connectives / # of token
 
 			AAE dependency:
@@ -75,7 +75,8 @@
 				<type allAnnotatorFeatures="true">com.ctapweb.feature.type.CohesiveComplexity</type>
 			</outputs>
 			<languagesSupported>
-				<language>de</language>
+				<language>DE</language>
+				<language>IT</language>
 				<!-- add new language here -->
 			</languagesSupported>
 		</capability>
