@@ -153,8 +153,8 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 		//iterate through all sentences
 		Iterator sentIter = aJCas.getAnnotationIndex(Sentence.type).iterator();
 		while (sentIter.hasNext()) {
-			logger.trace(LogMarker.UIMA_MARKER, "Sentence in lemma Annotator");  // debugging
-			System.out.println("Sentence in lemma Annotator");  // debugging
+			//logger.trace(LogMarker.UIMA_MARKER, "Sentence in lemma Annotator");  // debugging
+			//System.out.println("Sentence in lemma Annotator");  // debugging
 			
 			Sentence sent = (Sentence) sentIter.next();
 			int sentStart = sent.getBegin();
@@ -164,8 +164,8 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			//iterate through all tokens
 			Iterator tokenIter = aJCas.getAnnotationIndex(Token.type).iterator(false);
 			while(tokenIter.hasNext()) {
-				logger.trace(LogMarker.UIMA_MARKER, "Token in lemma Annotator");  // debugging
-				System.out.println("Token in lemma Annotator");  // debugging
+				//logger.trace(LogMarker.UIMA_MARKER, "Token in lemma Annotator");  // debugging
+				//System.out.println("Token in lemma Annotator");  // debugging
 				Token token = (Token) tokenIter.next();
 				if(token.getBegin() >= sentStart && token.getEnd() <= sentEnd) {
 					sentTokens.add(token);
@@ -179,8 +179,8 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			for(int i = 0; i < lemmas.length; i++) {  
 				Token token = sentTokens.get(i);
 				Lemma annotation = new Lemma(aJCas);
-				logger.trace(LogMarker.UIMA_MARKER, "Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
-				System.out.println("Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
+				//logger.trace(LogMarker.UIMA_MARKER, "Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
+				//System.out.println("Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
 				annotation.setBegin(token.getBegin()); 
 				annotation.setEnd(token.getEnd());
 				annotation.setLemma(lemmas[i]);
