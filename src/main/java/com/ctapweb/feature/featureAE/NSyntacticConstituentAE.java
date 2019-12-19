@@ -15,8 +15,10 @@ import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 
+import com.ctapweb.feature.featureAE.NConnectivesAE.CTAPConnectiveCounter;
 import com.ctapweb.feature.logging.LogMarker;
 import com.ctapweb.feature.logging.message.AEType;
 import com.ctapweb.feature.logging.message.DestroyAECompleteMessage;
@@ -27,6 +29,7 @@ import com.ctapweb.feature.logging.message.PopulatedFeatureValueMessage;
 import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
 import com.ctapweb.feature.type.NSyntacticConstituent;
 import com.ctapweb.feature.type.ParseTree;
+import com.ctapweb.feature.util.SupportedLanguages;
 
 import edu.stanford.nlp.trees.PennTreeReader;
 import edu.stanford.nlp.trees.Tree;
@@ -45,16 +48,18 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 	public static final String PARAM_AEID = "aeID";
 	public static final String PARAM_CONSTITUENT_TYPE = "constituentType";
 	public static final String PARAM_TREGEX_PATTERNS = "tregexPatterns";
-	
+
 	public static String lCode;
+
+	private CTAPSyntacticConstituentCounter syntacticConstituentCounter;
 
 	private int aeID;
 	private String constituentType;
 	private String[] tregexPatterns;
 
 	//Tregex
-	private List<TregexPattern> patternList;
-	private List<Pattern> patternListNotTregex;
+	//private List<TregexPattern> patternList;
+	//private List<Pattern> patternListNotTregex;
 
 	private static final Logger logger = LogManager.getLogger();
 
@@ -73,7 +78,7 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 		//String lCode = "";
 		if(aContext.getConfigParameterValue(PARAM_LANGUAGE_CODE) == null) { 
 			ResourceInitializationException e = new ResourceInitializationException("mandatory_value_missing", 
-			new Object[] {PARAM_LANGUAGE_CODE});
+					new Object[] {PARAM_LANGUAGE_CODE});
 			logger.throwing(e);
 			throw e;
 		} else {
@@ -110,31 +115,20 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 			throw e;
 		} else {
 			tregexPatterns = (String []) aContext.getConfigParameterValue(curTregExPattern);
-			StringBuilder sb = new StringBuilder();
-			for (String p : tregexPatterns) {
-				sb.append(p);
-				if (!lCode.equals("IT")){
-					sb.append(" ");
-				}
-			}
-			logger.trace(LogMarker.UIMA_MARKER, "Obtained the TregEx patterns: "+sb.toString().trim());
-			
-			//initialize tregex patterns
-			patternList = new ArrayList<>();
-			patternListNotTregex = new ArrayList<>();
-			for(String pattern: tregexPatterns) {
-				if (!lCode.equals("IT")){
-					patternList.add(TregexPattern.compile(pattern));
-				}else{
-					//patternListNotTregex.add(Pattern.compile("\n"+pattern));
-					//patternListNotTregex.add(Pattern.compile("[^a-zA-Z:]"+pattern+"[^a-zA-Z:]"));
-					//patternListNotTregex.add(Pattern.compile("(^|[^a-zA-Z])"+pattern+"([^a-zA-Z]|$)"));
-					
-					//patternListNotTregex.add(Pattern.compile("[^a-zA-Z]"+pattern.replace(":", "\\\\:")+"[^a-zA-Z]"));
-					patternListNotTregex.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));
-					
-					//patternListNotTregex.add(Pattern.compile(pattern));
-				}
+			switch (lCode) {
+			case SupportedLanguages.ENGLISH:
+				syntacticConstituentCounter = new EnglishSyntacticConstituentCounter();
+				break;
+			case SupportedLanguages.GERMAN:
+				syntacticConstituentCounter = new GermanSyntacticConstituentCounter();
+				break;
+			case SupportedLanguages.ITALIAN:
+				syntacticConstituentCounter = new ItalianSyntacticConstituentCounter();
+				break;
+				// add new language here
+			default:   // TODO reconsider default
+				syntacticConstituentCounter = new EnglishSyntacticConstituentCounter();
+				break;
 			}
 		}
 
@@ -142,7 +136,7 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 				constituentType, curTregExPattern);
 		logger.trace(LogMarker.UIMA_MARKER, new InitializeAECompleteMessage(aeType, aeName));
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
 	 */
@@ -150,104 +144,8 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
 		logger.trace(LogMarker.UIMA_MARKER, 
 				new ProcessingDocumentMessage(aeType, aeName, aJCas.getDocumentText()));
-		
-		//logger.trace(LogMarker.UIMA_MARKER, "BOUUUUUUUUUU line 141","");
-		
 
-		// get annotation indexes and iterator
-		//iterate through all parse trees (sentences).
-		Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
-
-		//count number of occurrences of the tree that matches the tregex patterns
-		int occurrence = 0;
-		while(it.hasNext()) {
-			
-			//logger.trace(LogMarker.UIMA_MARKER, "it.hasNext() line 151","");
-			
-			ParseTree parseTree = (ParseTree) it.next();
-			//logger.trace(LogMarker.UIMA_MARKER, "Parse tree: {}", parseTree.getParseTree()); // debugging
-
-			//the matcher requires a tree object, so create a tree object from the 
-			//parse tree string
-			TreeReader treeReader =  new PennTreeReader(new StringReader(parseTree.getParseTree()));
-			Tree tree;
-			try {
-				tree = treeReader.readTree();
-				if (tree == null) {
-					//logger.warn(LogMarker.UIMA_MARKER, "ParseTree could not be converted to Tree and is skipped line 165: "+parseTree.getParseTree().toString());
-					if (lCode.equals("IT")){
-						for(Pattern pattern: patternListNotTregex) {
-							//logger.trace(LogMarker.UIMA_MARKER, "pattern: ", pattern); // debugging
-							
-							//System.out.println("parseTree.getParseTree(): " + parseTree.getParseTree()); // does not work on my PC because of java.lang.OutOfMemoryError: GC overhead limit exceeded
-							
-							Matcher matcher = pattern.matcher(parseTree.getParseTree());
-							while(matcher.find()) {
-								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
-								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
-								//System.out.println(matcher.group());
-								//System.out.println(matcher.toString());
-								
-								//matcher.getMatch().pennPrint();  // debugging
-								//logger.trace(LogMarker.UIMA_MARKER, " ", "not tregex pattern matched line 173"); // debugging
-
-								occurrence++;
-								//System.out.println(occurrence);
-								//logger.trace(LogMarker.UIMA_MARKER, "occurrence not tregex: ", Integer.toString(occurrence)); // debugging
-
-							}
-						}
-					}
-				} else {
-					//logger.warn(LogMarker.UIMA_MARKER, "ParseTree not null line 182: "+parseTree.getParseTree().toString());
-					//logger.warn(LogMarker.UIMA_MARKER, "lCode: "+lCode);
-					if (lCode.equals("IT")){
-						//logger.warn(LogMarker.UIMA_MARKER, "language IT");
-						
-						for(Pattern pattern: patternListNotTregex) {
-							//logger.trace(LogMarker.UIMA_MARKER, "pattern: ", pattern); // debugging
-
-							Matcher matcher = pattern.matcher(parseTree.getParseTree());
-							while(matcher.find()) {								
-								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.toString());
-								//logger.trace(LogMarker.UIMA_MARKER, " matched: ", matcher.group());
-								//System.out.println(matcher.group());
-								//System.out.println(matcher.toString());
-								
-								//matcher.getMatch().pennPrint();  // debugging
-								//logger.trace(LogMarker.UIMA_MARKER, " ", "not tregex pattern matched line 193"); // debugging
-								//logger.warn(LogMarker.UIMA_MARKER, "not tregex pattern matched line 193");
-
-								occurrence++;
-								//System.out.println(occurrence);
-								//logger.trace(LogMarker.UIMA_MARKER, "occurrence not tregex: ", Integer.toString(occurrence)); // debugging
-
-							}
-						}
-					}
-					else{
-						//logger.warn(LogMarker.UIMA_MARKER, "language NOT IT");
-						//for each pattern create a matcher
-						for(TregexPattern pattern: patternList) {
-							//logger.trace(LogMarker.UIMA_MARKER, "pattern: ", pattern); // debugging
-
-							TregexMatcher matcher = pattern.matcher(tree);
-							while(matcher.find()) {
-								//matcher.getMatch().pennPrint();  // debugging
-								//logger.trace(LogMarker.UIMA_MARKER, "matcher.getMatch().toString(): ", "tregex pattern matched"); // debugging
-
-								occurrence++;
-								//logger.trace(LogMarker.UIMA_MARKER, "occurrence tregex: ", Integer.toString(occurrence)); // debugging
-
-							}
-						}
-					}
-				}
-				treeReader.close();
-			} catch (IOException e) {
-				logger.throwing(e);
-			}
-		}
+		int occurrence = syntacticConstituentCounter.countSyntacticConstituents(aJCas);
 
 		//output the feature type
 		NSyntacticConstituent annotation = new NSyntacticConstituent(aJCas);
@@ -260,6 +158,201 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 
 		logger.info(new PopulatedFeatureValueMessage(aeID, occurrence));
 	}
+
+	/**
+	 * Wrapper for syntactic constituent counters
+	 * @author nokinina
+	 */
+	interface CTAPSyntacticConstituentCounter {
+		/*
+		 * Takes as argument an iterator over sentences and an iterator over tokens
+		 */
+		abstract int countSyntacticConstituents(JCas aJCas);
+	}
+
+	/**
+	 * Counts Italian syntactic constituents
+	 * Implements the interface CTAPSyntacticConstituentCounter
+	 * @author nokinina
+	 */
+	private class ItalianSyntacticConstituentCounter implements CTAPSyntacticConstituentCounter {
+
+		private List<Pattern> patternListNotTregex;
+
+		public ItalianSyntacticConstituentCounter() {
+			//initialize regex patterns
+			patternListNotTregex = new ArrayList<>();
+			for(String pattern: tregexPatterns) {
+				patternListNotTregex.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));	
+			}
+		}
+
+		@Override
+		public int countSyntacticConstituents(JCas aJCas){
+			// get annotation indexes and iterator
+			//iterate through all parse trees (sentences).
+			Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
+			String previousMatch;
+			//count number of occurrences of the tree that matches the tregex patterns
+			int occurrence = 0;
+			while(it.hasNext()) {
+				previousMatch = "";
+				
+				ParseTree parseTree = (ParseTree) it.next();
+				for(Pattern pattern: patternListNotTregex) {
+					Matcher matcher = pattern.matcher(parseTree.getParseTree());
+					while(matcher.find()) {
+						if (!previousMatch.equals(matcher.group())){
+							occurrence++;
+						}
+					}
+				}
+			}
+			return occurrence;
+		}
+	}
+
+	/**
+	 * Counts German syntactic constituents
+	 * Implements the interface CTAPSyntacticConstituentCounter
+	 * @author nokinina
+	 */
+	private class GermanSyntacticConstituentCounter implements CTAPSyntacticConstituentCounter {
+		private List<TregexPattern> patternList;
+
+		public GermanSyntacticConstituentCounter() {
+			StringBuilder sb = new StringBuilder();
+			for (String p : tregexPatterns) {
+				sb.append(p);
+				sb.append(" ");	
+			}
+			logger.trace(LogMarker.UIMA_MARKER, "Obtained the TregEx patterns: "+sb.toString().trim());
+
+			//initialize tregex patterns
+			patternList = new ArrayList<>();
+			for(String pattern: tregexPatterns) {
+				patternList.add(TregexPattern.compile(pattern));
+			}
+		}
+
+		@Override
+		public int countSyntacticConstituents(JCas aJCas){
+			// get annotation indexes and iterator
+			//iterate through all parse trees (sentences).
+			Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
+			String previousMatch;
+			//count number of occurrences of the tree that matches the tregex patterns
+			int occurrence = 0;
+			while(it.hasNext()) {
+				ParseTree parseTree = (ParseTree) it.next();
+				//logger.trace(LogMarker.UIMA_MARKER, "Parse tree: {}", parseTree.getParseTree()); // debugging
+
+				//the matcher requires a tree object, so create a tree object from the 
+				//parse tree string
+				TreeReader treeReader =  new PennTreeReader(new StringReader(parseTree.getParseTree()));
+				Tree tree;
+				try {
+					tree = treeReader.readTree();
+					if (tree == null) {
+						logger.warn(LogMarker.UIMA_MARKER, "ParseTree could not be converted to Tree and is skipped line 165: "+parseTree.getParseTree().toString());
+
+					} else {
+						previousMatch = "";
+						
+						for(TregexPattern pattern: patternList) {
+							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " , pattern);
+							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " + pattern.toString()); // debugging
+							
+							TregexMatcher matcher = pattern.matcher(tree);
+							while(matcher.find()) {
+								matcher.getMatch().pennPrint();  // debugging
+								
+								if (!previousMatch.equals(matcher.getMatch().toString())){
+									//logger.trace(LogMarker.UIMA_MARKER, "matcher.getMatch().toString(): " + matcher.getMatch().toString()); // debugging
+									occurrence++;
+									previousMatch = matcher.getMatch().toString();
+									//logger.trace(LogMarker.UIMA_MARKER, "occurrence tregex: "+ Integer.toString(occurrence)); // debugging
+								}
+							}
+						}
+
+					}
+					treeReader.close();
+				} catch (IOException e) {
+					logger.throwing(e);
+				}
+			}
+			return occurrence;
+		}
+	}
+
+	/**
+	 * Counts English syntactic constituents
+	 * Implements the interface CTAPSyntacticConstituentCounter
+	 * @author nokinina
+	 */
+	private class EnglishSyntacticConstituentCounter implements CTAPSyntacticConstituentCounter {
+		private List<TregexPattern> patternList;
+
+		public EnglishSyntacticConstituentCounter() {
+			StringBuilder sb = new StringBuilder();
+			for (String p : tregexPatterns) {
+				sb.append(p);
+				sb.append(" ");	
+			}
+			logger.trace(LogMarker.UIMA_MARKER, "Obtained the TregEx patterns: "+sb.toString().trim());
+
+			//initialize tregex patterns
+			patternList = new ArrayList<>();
+			for(String pattern: tregexPatterns) {
+				patternList.add(TregexPattern.compile(pattern));
+			}
+		}
+
+		@Override
+		public int countSyntacticConstituents(JCas aJCas){
+			// get annotation indexes and iterator
+			//iterate through all parse trees (sentences).
+			Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
+			String previousMatch;
+			//count number of occurrences of the tree that matches the tregex patterns
+			int occurrence = 0;
+			while(it.hasNext()) {
+				ParseTree parseTree = (ParseTree) it.next();
+				//logger.trace(LogMarker.UIMA_MARKER, "Parse tree: {}", parseTree.getParseTree()); // debugging
+
+				//the matcher requires a tree object, so create a tree object from the 
+				//parse tree string
+				TreeReader treeReader =  new PennTreeReader(new StringReader(parseTree.getParseTree()));
+				Tree tree;
+				try {
+					tree = treeReader.readTree();
+					if (tree == null) {
+						logger.warn(LogMarker.UIMA_MARKER, "ParseTree could not be converted to Tree and is skipped line 165: "+parseTree.getParseTree().toString());
+					} else {
+						previousMatch = "";
+						//for each pattern create a matcher
+						for(TregexPattern pattern: patternList) {
+							//logger.trace(LogMarker.UIMA_MARKER, "pattern: ", pattern); // debugging
+
+							TregexMatcher matcher = pattern.matcher(tree);
+							while(matcher.find()) {
+								if (!previousMatch.equals(matcher.getMatch().toString())){
+									occurrence++;
+								}
+							}
+						}
+
+					}
+					treeReader.close();
+				} catch (IOException e) {
+					logger.throwing(e);
+				}
+			}
+			return occurrence;
+		}
+	}
+
 
 	@Override
 	public void destroy() {
