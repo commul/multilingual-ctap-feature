@@ -6,9 +6,11 @@ package com.ctapweb.feature.featureAE;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+//import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.uima.UimaContext;
@@ -177,13 +179,13 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 	 */
 	private class ItalianSyntacticConstituentCounter implements CTAPSyntacticConstituentCounter {
 
-		private List<Pattern> patternListNotTregex;
+		private List<Pattern> patternList;
 
 		public ItalianSyntacticConstituentCounter() {
 			//initialize regex patterns
-			patternListNotTregex = new ArrayList<>();
+			patternList = new ArrayList<>();
 			for(String pattern: tregexPatterns) {
-				patternListNotTregex.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));	
+				patternList.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));	
 			}
 		}
 
@@ -192,20 +194,44 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 			// get annotation indexes and iterator
 			//iterate through all parse trees (sentences).
 			Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
-			String previousMatch;
-			//count number of occurrences of the tree that matches the tregex patterns
+			String match;
+			String input;
+			//count number of occurrences of the tree that matches the regex patterns
 			int occurrence = 0;
 			while(it.hasNext()) {
-				previousMatch = "";
-				
-				ParseTree parseTree = (ParseTree) it.next();
-				for(Pattern pattern: patternListNotTregex) {
-					Matcher matcher = pattern.matcher(parseTree.getParseTree());
-					while(matcher.find()) {
-						if (!previousMatch.equals(matcher.group())){
-							occurrence++;
+				// Will contain all the subtrees in String format of this sentence's tree that matched patterns and the number of these subtrees' occurrences
+				HashMap <String, Integer> matchedStringsAndTheirOccurrencesInSentence = new HashMap<String, Integer>();
+				//Go through all the patterns and find matches in this tree				
+				ParseTree tree = (ParseTree) it.next();
+				//Go through all the patterns and find matches in this tree
+				for(Pattern pattern: patternList) {
+					//logger.trace(LogMarker.UIMA_MARKER, "pattern: " , pattern); // debugging
+					//logger.trace(LogMarker.UIMA_MARKER, "pattern: " + pattern.toString()); // debugging
+					Matcher matcher = pattern.matcher(tree.toString());
+					//One pattern can find different substrings of the sentence tree
+					while (matcher.find()) {
+						match = matcher.group();						
+						//Count how many times the same string occurs in this sentence tree
+						input = tree.toString();
+						int index = input.indexOf(match);
+						int count = 0;
+						while (index != -1) {
+							count++;
+							input = input.substring(index + 1);
+							index = input.indexOf(match);
+						}
+						
+						// Add the number of occurrences of the piece of tree matching the pattern to the HashMap.
+						// If another patter had already matched this piece of tree, it won't be added  to the HashMap again
+						if (!matchedStringsAndTheirOccurrencesInSentence.containsKey(match)){
+							matchedStringsAndTheirOccurrencesInSentence.put(match, count);
 						}
 					}
+				}
+				
+				// Go through all the pieces of this tree matched by patterns and add their occurrences to the general count
+				for (String key : matchedStringsAndTheirOccurrencesInSentence.keySet()){
+					occurrence += matchedStringsAndTheirOccurrencesInSentence.get(key);
 				}
 			}
 			return occurrence;
@@ -240,8 +266,9 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 			// get annotation indexes and iterator
 			//iterate through all parse trees (sentences).
 			Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
-			String previousMatch;
-			//count number of occurrences of the tree that matches the tregex patterns
+			String match;
+			String input;
+			//count number of occurrences of the trees that matche the tregex patterns
 			int occurrence = 0;
 			while(it.hasNext()) {
 				ParseTree parseTree = (ParseTree) it.next();
@@ -253,27 +280,42 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 				Tree tree;
 				try {
 					tree = treeReader.readTree();
+					
 					if (tree == null) {
 						logger.warn(LogMarker.UIMA_MARKER, "ParseTree could not be converted to Tree and is skipped line 165: "+parseTree.getParseTree().toString());
 
 					} else {
-						previousMatch = "";
-						
+						// Will contain all the subtrees in String format of this sentence's tree that matched patterns and the number of these subtrees' occurrences
+						HashMap <String, Integer> matchedStringsAndTheirOccurrencesInSentence = new HashMap<String, Integer>();
+						//Go through all the patterns and find matches in this tree
 						for(TregexPattern pattern: patternList) {
-							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " , pattern);
+							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " , pattern); // debugging
 							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " + pattern.toString()); // debugging
-							
 							TregexMatcher matcher = pattern.matcher(tree);
-							while(matcher.find()) {
-								matcher.getMatch().pennPrint();  // debugging
+							//One pattern can find different substrings of the sentence tree
+							while (matcher.find()) {
+								match = matcher.getMatch().toString();								
+								//Count how many times the same string occurs in this sentence tree
+								input = tree.toString();
+								int index = input.indexOf(match);
+								int count = 0;
+								while (index != -1) {
+									count++;
+									input = input.substring(index + 1);
+									index = input.indexOf(match);
+								}
 								
-								if (!previousMatch.equals(matcher.getMatch().toString())){
-									//logger.trace(LogMarker.UIMA_MARKER, "matcher.getMatch().toString(): " + matcher.getMatch().toString()); // debugging
-									occurrence++;
-									previousMatch = matcher.getMatch().toString();
-									//logger.trace(LogMarker.UIMA_MARKER, "occurrence tregex: "+ Integer.toString(occurrence)); // debugging
+								// Add the number of occurrences of the piece of tree matching the pattern to the HashMap.
+								// If another patter had already matched this piece of tree, it won't be added  to the HashMap again
+								if (!matchedStringsAndTheirOccurrencesInSentence.containsKey(match)){
+									matchedStringsAndTheirOccurrencesInSentence.put(match, count);
 								}
 							}
+						}
+						
+						// Go through all the pieces of this tree matched by patterns and add their occurrences to the general count
+						for (String key : matchedStringsAndTheirOccurrencesInSentence.keySet()){
+							occurrence += matchedStringsAndTheirOccurrencesInSentence.get(key);
 						}
 
 					}
@@ -314,8 +356,9 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 			// get annotation indexes and iterator
 			//iterate through all parse trees (sentences).
 			Iterator it = aJCas.getAnnotationIndex(ParseTree.type).iterator();
-			String previousMatch;
-			//count number of occurrences of the tree that matches the tregex patterns
+			String match;
+			String input;
+			//count number of occurrences of the trees that match the tregex patterns
 			int occurrence = 0;
 			while(it.hasNext()) {
 				ParseTree parseTree = (ParseTree) it.next();
@@ -327,20 +370,43 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 				Tree tree;
 				try {
 					tree = treeReader.readTree();
+					
 					if (tree == null) {
 						logger.warn(LogMarker.UIMA_MARKER, "ParseTree could not be converted to Tree and is skipped line 165: "+parseTree.getParseTree().toString());
-					} else {
-						previousMatch = "";
-						//for each pattern create a matcher
-						for(TregexPattern pattern: patternList) {
-							//logger.trace(LogMarker.UIMA_MARKER, "pattern: ", pattern); // debugging
 
+					} else {
+						// Will contain all the subtrees in String format of this sentence's tree that matched patterns and the number of these subtrees' occurrences
+						HashMap <String, Integer> matchedStringsAndTheirOccurrencesInSentence = new HashMap<String, Integer>();
+						//Go through all the patterns and find matches in this tree
+						for(TregexPattern pattern: patternList) {
+							boolean alreadyCounted = false;
+							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " , pattern); // debugging
+							//logger.trace(LogMarker.UIMA_MARKER, "pattern: " + pattern.toString()); // debugging
 							TregexMatcher matcher = pattern.matcher(tree);
-							while(matcher.find()) {
-								if (!previousMatch.equals(matcher.getMatch().toString())){
-									occurrence++;
+							//One pattern can find different substrings of the sentence tree
+							while (matcher.find()) {
+								match = matcher.getMatch().toString();								
+								//Count how many times the same string occurs in this sentence tree
+								input = tree.toString();
+								int index = input.indexOf(match);
+								int count = 0;
+								while (index != -1) {
+									count++;
+									input = input.substring(index + 1);
+									index = input.indexOf(match);
+								}
+								
+								// Add the number of occurrences of the piece of tree matching the pattern to the HashMap.
+								// If another patter had already matched this pice of tree, it won't be added  to the HashMap again
+								if (!matchedStringsAndTheirOccurrencesInSentence.containsKey(match)){
+									matchedStringsAndTheirOccurrencesInSentence.put(match, count);
 								}
 							}
+						}
+						
+						// Go through all the pieces of this tree matched by patterns and add their occurrences to the general count
+						for (String key : matchedStringsAndTheirOccurrencesInSentence.keySet()){
+							occurrence += matchedStringsAndTheirOccurrencesInSentence.get(key);
 						}
 
 					}
