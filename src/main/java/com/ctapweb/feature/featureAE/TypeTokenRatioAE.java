@@ -116,7 +116,8 @@ public class TypeTokenRatioAE extends JCasAnnotator_ImplBase {
 		case "LogTTR":
 			ttr = Math.log(nType) / Math.log(nToken); break;
 		case "Uber":
-			ttr = Math.pow(Math.log(nType), 2) / Math.log(nToken / nType); break;
+			//ttr = Math.pow(Math.log(nType), 2) / Math.log(nToken / nType); break; // already was in CTAP, is an incorrect formula
+			ttr = Math.pow(Math.log(nToken), 2) / (Math.log(nToken) - Math.log(nType)); break; // from https://books.google.it/books?id=TZMEemWIlyEC&pg=PA129&lpg=PA129&dq=uber+ttr&source=bl&ots=-5MV35ecRF&sig=ACfU3U1x4ufIS_civKcLmva2soKnAjrFMg&hl=en&sa=X&ved=2ahUKEwjCvcys7sPmAhUpNOwKHVyYBfEQ6AEwCnoECAsQAQ#v=onepage&q=uber%20ttr&f=false
 		}
 		
 		logger.trace(LogMarker.UIMA_MARKER, "TTR calculated with formula ({}): {} ", formula, ttr);
