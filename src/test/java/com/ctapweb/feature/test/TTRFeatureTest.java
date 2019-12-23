@@ -136,7 +136,7 @@ public class TTRFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
-				assertEquals(71.59682883562529, annot.getValue(), 0.0000001);
+				assertEquals(82.37127497003753, annot.getValue(), 0.0000001);
 			}
 		}
 	}

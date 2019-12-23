@@ -36,7 +36,7 @@ public class TTRFeatureDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedTokenType, aedNToken, aedNTokenType;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 				
@@ -96,7 +96,7 @@ public class TTRFeatureDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the TTR for META-INF/de-test-text.txt is 0.6401273885350318, with the precision of 0.0000001.
