@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<analysisEngineDescription
-	xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
 	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
 	<primitive>true</primitive>
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.NConnectivesAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Number of Connectives: Multi-Word Connectives (Eisenberg for German)</name>
+		<name>Number of Connectives: Breindl Single-Word Connectives</name>
 		<description>
-			Calculates the number of all multi-word connectives for German listed by Eisenberg.
+			Calculates the number of all single-word connectives listed by Breindl.
 
 			AAE dependency:
 			SentenceAnnotator.xml
@@ -51,24 +49,21 @@
 			<nameValuePair>
 				<name>Scope</name>
 				<value>
-					<string>MULTI</string>
+					<string>SINGLE</string>
 				</value>
 			</nameValuePair>
 			<nameValuePair>
 				<name>connectiveType</name>
 				<value>
-					<string>Eisenberg_MW</string>
+					<string>Breindl_S</string>
 				</value>
 			</nameValuePair>
-		</configurationParameterSettings>
+		<nameValuePair><name>LanguageCode</name><value><string>DE</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>123321</integer></value></nameValuePair></configurationParameterSettings>
 		<typeSystemDescription>
-			<imports>
-				<import
-					location="../type_system/feature_type/NConnectivesType.xml" />
-			</imports>
-		</typeSystemDescription>
-		<typePriorities />
-		<fsIndexCollection />
+			
+		<imports><import location="../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml"/></imports></typeSystemDescription>
+		<typePriorities/>
+		<fsIndexCollection/>
 		<capabilities>
 			<capability>
 				<outputs>
@@ -101,11 +96,11 @@
 	<resourceManagerConfiguration>
 		<externalResources>
 			<externalResource>
-				<name>Eisenberg_all_multi_Connectives</name>
-				<description>all multi-word connectives listed by Eisenberg
+				<name>Breindl_all_Connectives</name>
+				<description>all connectives listed by Breindl
 				</description>
 				<fileResourceSpecifier>
-					<fileUrl>file:lists/Eisenberg_all_multi_Connectives.txt</fileUrl>
+					<fileUrl>file:lists/Breindl_all_Connectives.txt</fileUrl>
 				</fileResourceSpecifier>
 				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
 				</implementationName>
@@ -114,7 +109,7 @@
 		<externalResourceBindings>
 			<externalResourceBinding>
 				<key>lookUpListDE</key>
-				<resourceName>Eisenberg_all_multi_Connectives</resourceName>
+				<resourceName>Breindl_all_Connectives</resourceName>
 			</externalResourceBinding>
 		</externalResourceBindings>
 	</resourceManagerConfiguration>
