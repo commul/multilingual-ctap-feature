@@ -36,7 +36,7 @@ public class TTRFeatureDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedTokenType, aedNToken, aedNTokenType;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -96,7 +96,7 @@ public class TTRFeatureDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the TTR for META-INF/de-test-text.txt is 0.6401273885350318, with the precision of 0.0000001.
@@ -181,6 +181,28 @@ public class TTRFeatureDeTest {
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
 				assertEquals(8.020773188899602, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Uber TTR for META-INF/de-test-text.txt is , with the precision of 0.0000001.
+	 */
+	/*
+	@Test
+	public void UberTTRFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_Uber_Feature.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatio_Uber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedTokenType, aedNToken, aedNTokenType, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 3456){
+				assertEquals(74.10088130081591, annot.getValue(), 0.0000001);
 			}
 		}
 	}

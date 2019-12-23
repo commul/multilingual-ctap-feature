@@ -137,11 +137,11 @@ public class DescriptorModifier {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;					
 					NodeList childrenList = eElement.getChildNodes();
-
+					boolean foundConfParSettNode = false;
+					
 					//Loop through all the children of "analysisEngineMetaData"
 					for (int t = 0; t < childrenList.getLength(); t++) {
 						Node childNode = childrenList.item(t);
-						boolean foundConfParSettNode = false;
 						
 						if (childNode.getNodeName().equals("configurationParameterSettings") ){
 							foundConfParSettNode = true;

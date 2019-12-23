@@ -36,7 +36,7 @@ public class GulpeaseFeatureTest {
 	AnalysisEngineDescription aedSent, aedToken, aedLetter, aedNSentence, aedNToken, aedNLetter;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 				
@@ -101,12 +101,12 @@ public class GulpeaseFeatureTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml");
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the CTTR for META-INF/cani.txt is 7.877013931995327, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void GulpeaseFeatureTest() throws Exception {		
 	
@@ -123,5 +123,5 @@ public class GulpeaseFeatureTest {
 			}
 		}
 	}
-	
+	*/
 }
