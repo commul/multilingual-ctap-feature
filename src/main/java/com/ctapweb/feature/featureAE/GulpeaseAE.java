@@ -120,6 +120,11 @@ public class GulpeaseAE  extends JCasAnnotator_ImplBase {
 		}
 		*/
 		
+		// Debugging
+		//System.out.println("nSentences: " + nSentences);
+		//System.out.println("nLetters: " + nLetters);
+		//System.out.println("nTokens: " + nTokens);
+		
 		double gulpease = 89 + ( ( 300 * nSentences - 10 * nLetters ) / nTokens);
 		//output the feature type
 		Gulpease annotation = new Gulpease(aJCas);

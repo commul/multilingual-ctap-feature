@@ -280,7 +280,7 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 				Tree tree;
 				try {
 					tree = treeReader.readTree();
-					
+					//System.out.println("tree: " + tree.toString());
 					if (tree == null) {
 						logger.warn(LogMarker.UIMA_MARKER, "ParseTree could not be converted to Tree and is skipped line 165: "+parseTree.getParseTree().toString());
 
@@ -294,7 +294,8 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 							TregexMatcher matcher = pattern.matcher(tree);
 							//One pattern can find different substrings of the sentence tree
 							while (matcher.find()) {
-								match = matcher.getMatch().toString();								
+								match = matcher.getMatch().toString();
+								//System.out.println("match: " + match);
 								//Count how many times the same string occurs in this sentence tree
 								input = tree.toString();
 								int index = input.indexOf(match);

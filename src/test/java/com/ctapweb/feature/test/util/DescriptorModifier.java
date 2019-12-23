@@ -123,14 +123,14 @@ public class DescriptorModifier {
 			}
 			
 	        int temp;
-	        String type;
-			String valueValue;
-			Element nameValuePairNode2;
-			Element nameNode2;
-			Text nametextNode2;
-			Element valueNode2;	        
-	        Element stringNode2;
-	        Text langTextNode2;
+	        //String type;
+	        //String valueValue;
+	        //Element nameValuePairNode2;
+	        //Element nameNode2;
+	        //Text nametextNode2;
+	        //Element valueNode2;	        
+	        //Element stringNode2;
+	        //Text langTextNode2;
 	        Node nNode;
 	        for (temp = 0; temp < nList.getLength(); temp++) {
 				nNode = nList.item(temp);
@@ -141,29 +141,12 @@ public class DescriptorModifier {
 					//Loop through all the children of "analysisEngineMetaData"
 					for (int t = 0; t < childrenList.getLength(); t++) {
 						Node childNode = childrenList.item(t);
-
+						boolean foundConfParSettNode = false;
+						
 						if (childNode.getNodeName().equals("configurationParameterSettings") ){
-							//Loop through the parameters HashMap
-							for(String valueName: parametersValuesHashMap.keySet()){
-								//Get the name and value of the parameter
-								ArrayList <String> typeValueArray = parametersValuesHashMap.get(valueName);
-								type = typeValueArray.get(0);
-								valueValue = typeValueArray.get(1);
-								//Create the nameValuePair XML element with the name and value parameters inside
-						        nameValuePairNode2 = doc.createElement("nameValuePair");	        	        
-						        nameNode2 = doc.createElement("name");	        
-						        nametextNode2 = doc.createTextNode(valueName);
-						        nameNode2.appendChild(nametextNode2);	        
-						        valueNode2 = doc.createElement("value");	        
-						        stringNode2 = doc.createElement(type);
-						        langTextNode2 = doc.createTextNode(valueValue);
-						        stringNode2.appendChild(langTextNode2);
-						        valueNode2.appendChild(stringNode2);
-						        nameValuePairNode2.appendChild(nameNode2);
-						        nameValuePairNode2.appendChild(valueNode2);
-						        //Add the nameValuePair XML element to the configurationParameterSettings XML element
-						        childNode.appendChild(nameValuePairNode2);
-							}
+							foundConfParSettNode = true;
+							addParameterSettingsFromHashMapIntoXML(doc, childNode, parametersValuesHashMap);
+							
 						}else if (childNode.getNodeName().equals("typeSystemDescription") ){
 							NodeList childrenTSDList = childNode.getChildNodes();
 							//Loop through all the children of "typeSystemDescription"
@@ -178,7 +161,12 @@ public class DescriptorModifier {
 							childNode.appendChild(importsNode);
 						}
 						
-						
+						if (foundConfParSettNode == false && t == (childrenList.getLength()-1)){
+							Element confParSetNode = doc.createElement("configurationParameterSettings");
+							eElement.appendChild(confParSetNode);
+							addParameterSettingsFromHashMapIntoXML(doc, confParSetNode, parametersValuesHashMap);
+							
+						}
 					}
 				}
 	        }
@@ -196,6 +184,38 @@ public class DescriptorModifier {
 		transformer.transform(source, result);
 		//Return the file object
 		return fToReturn;
+	}
+	
+	private static void addParameterSettingsFromHashMapIntoXML(Document doc, Node confParSetNode, HashMap<String, ArrayList<String>> parametersValuesHashMap){
+		String type;
+		String valueValue;
+		Element nameValuePairNode2;
+		Element nameNode2;
+		Text nametextNode2;
+		Element valueNode2;	        
+        Element stringNode2;
+        Text langTextNode2;
+		//Loop through the parameters HashMap
+		for(String valueName: parametersValuesHashMap.keySet()){
+			//Get the name and value of the parameter
+			ArrayList <String> typeValueArray = parametersValuesHashMap.get(valueName);
+			type = typeValueArray.get(0);
+			valueValue = typeValueArray.get(1);
+			//Create the nameValuePair XML element with the name and value parameters inside
+	        nameValuePairNode2 = doc.createElement("nameValuePair");	        	        
+	        nameNode2 = doc.createElement("name");	        
+	        nametextNode2 = doc.createTextNode(valueName);
+	        nameNode2.appendChild(nametextNode2);	        
+	        valueNode2 = doc.createElement("value");	        
+	        stringNode2 = doc.createElement(type);
+	        langTextNode2 = doc.createTextNode(valueValue);
+	        stringNode2.appendChild(langTextNode2);
+	        valueNode2.appendChild(stringNode2);
+	        nameValuePairNode2.appendChild(nameNode2);
+	        nameValuePairNode2.appendChild(valueNode2);
+	        //Add the nameValuePair XML element to the configurationParameterSettings XML element
+	        confParSetNode.appendChild(nameValuePairNode2);
+		}
 	}
 	
 	/*

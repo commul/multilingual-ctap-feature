@@ -65,6 +65,6 @@
 			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
 			<outputsNewCASes>false</outputsNewCASes>
 		</operationalProperties>
-	<configurationParameterSettings><nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>777</integer></value></nameValuePair></configurationParameterSettings></analysisEngineMetaData>
+	<configurationParameterSettings><nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>555</integer></value></nameValuePair></configurationParameterSettings></analysisEngineMetaData>
 	<resourceManagerConfiguration/>
 </analysisEngineDescription>
