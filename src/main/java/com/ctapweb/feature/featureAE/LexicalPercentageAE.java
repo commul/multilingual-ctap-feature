@@ -2,6 +2,7 @@ package com.ctapweb.feature.featureAE;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -100,11 +101,13 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 		int numberLemmasInDeMauro = 0;
 		int numberLemmas = 0;
 		
+		Set <String> deMauroDic = deMauroList.getKeys();
+		
 		while (lemmaIter.hasNext()) {
 			numberLemmas += 1;
 			Lemma lemma = (Lemma) lemmaIter.next();
 			String lemmaString = lemma.getLemma();
-			if ( deMauroList.getKeys().contains(lemmaString)) {
+			if ( deMauroDic.contains(lemmaString)) {
 				numberLemmasInDeMauro += 1;
 			}
 		}
