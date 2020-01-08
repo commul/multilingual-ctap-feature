@@ -79,14 +79,6 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 		//get the list of connectives
 		try {
 			deMauroList = (LookUpListResource) aContext.getResourceObject(languageSpecificResourceKey);
-			/*
-			logger.trace(LogMarker.UIMA_MARKER, "De Mauro words: ");
-			System.out.println("De Mauro words: ");
-			for (String word: deMauroList.getKeys()){
-				logger.trace(LogMarker.UIMA_MARKER, word);
-				System.out.println(word);
-			}
-			*/
 		} catch (ResourceAccessException e) {
 			logger.throwing(e);
 			throw new ResourceInitializationException(e);
@@ -102,41 +94,22 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
 		logger.trace(LogMarker.UIMA_MARKER, 
 				new ProcessingDocumentMessage(aeType, aeName, aJCas.getDocumentText()));
-		System.out.println("Beginning of process");
-				
-		double numberTokens = 0;
-		Iterator it = aJCas.getAllIndexedFS(NToken.class);
-		if(it.hasNext()) {
-			NToken nToken = (NToken)it.next();
-			numberTokens = nToken.getValue();
-			//logger.trace(LogMarker.UIMA_MARKER, numberTokens);
-			//System.out.println("numberTokens: " + numberTokens);
-		}
 
 		// get annotation indexes and iterator
 		Iterator lemmaIter = aJCas.getAnnotationIndex(Lemma.type).iterator();
 		int numberLemmasInDeMauro = 0;
 		int numberLemmas = 0;
 		
-		logger.trace(LogMarker.UIMA_MARKER, "lemmaIter.toString(): " + lemmaIter.toString());
-		System.out.println("lemmaIter.toString(): " + lemmaIter.toString());
-		
 		while (lemmaIter.hasNext()) {
 			numberLemmas += 1;
-			System.out.println("numberLemmas: " + numberLemmas);
 			Lemma lemma = (Lemma) lemmaIter.next();
 			String lemmaString = lemma.getLemma();
-			logger.trace(LogMarker.UIMA_MARKER, lemmaString);
-			System.out.println("lemmaString: " + lemmaString);
 			if ( deMauroList.getKeys().contains(lemmaString)) {
 				numberLemmasInDeMauro += 1;
-				logger.trace(LogMarker.UIMA_MARKER, "in De Mauro");
-				System.out.println("in De Mauro");
 			}
 		}
 		
-		
-		double percentage = ( numberLemmasInDeMauro / numberLemmas ) * 100;
+		double percentage = ( (double)numberLemmasInDeMauro / (double)numberLemmas ) * 100;
 		
 		LexicalPercentage annotation = new LexicalPercentage(aJCas);
 		//set the feature ID and feature value

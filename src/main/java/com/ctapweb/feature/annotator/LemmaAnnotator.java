@@ -178,9 +178,10 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			//populate the CAS
 			for(int i = 0; i < lemmas.length; i++) {  
 				Token token = sentTokens.get(i);
-				Lemma annotation = new Lemma(aJCas);
 				//logger.trace(LogMarker.UIMA_MARKER, "Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
 				//System.out.println("Adding Lemma: "+token.getCoveredText()+" "+lemmas[i]);  // debugging
+				
+				Lemma annotation = new Lemma(aJCas);
 				annotation.setBegin(token.getBegin()); 
 				annotation.setEnd(token.getEnd());
 				annotation.setLemma(lemmas[i]);

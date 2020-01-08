@@ -5,6 +5,7 @@ data_out/
 .classpath
 .settings/
 target/
+META-INF/org.apache.uima.fit/
 
 ######for latex######
 ## Core latex/pdflatex auxiliary files:

@@ -42,14 +42,7 @@
 		<capabilities>
 			<capability>
 				<inputs>
-					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Sentence</type>
-					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSentence</type>
-					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Token</type>
-					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NToken</type>
-					<!-- <type allAnnotatorFeatures="true">com.ctapweb.feature.type.TokenType</type> -->
-					<!-- <type allAnnotatorFeatures="true">com.ctapweb.feature.type.NTokenType</type> -->
 					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Lemma</type>
-					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NLemma</type>
 				</inputs>
 				<outputs>
 					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.LexicalPercentage

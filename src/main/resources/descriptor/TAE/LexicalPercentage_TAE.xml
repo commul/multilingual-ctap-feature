@@ -55,12 +55,6 @@
     </configurationParameterSettings>
     <flowConstraints>
       <fixedFlow>
-        <!-- <node>TokenAnnotator</node>
-        <node>NTokenFeature</node>
-        <node>SentenceAnnotator</node>
-      	<node>NSentenceFeature</node>
-        <node>LemmaAnnotator</node> 
-        <node>NLemmaFeature</node>-->
         <node>SentenceAnnotator</node>
         <node>TokenAnnotator</node>
         <node>NTokenFeature</node>
