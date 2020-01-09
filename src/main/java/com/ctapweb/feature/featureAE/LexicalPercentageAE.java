@@ -1,5 +1,6 @@
 package com.ctapweb.feature.featureAE;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -31,6 +32,13 @@ import com.ctapweb.feature.util.LookUpListResource;
 /**
  * 
  * @author nokinina
+ * 
+ * Calculates the percentage of lemmas listed in a resource.
+ * 
+ * For each token of a text, excluding punctuations, takes its lemma and checks if it is present in the resource (a set of lemmas).
+ * Devides the number of lemmas present in the resource by the whole number of lemmas and multiplies by 100.
+ * 
+ * By default counts all lemmas. If the type parameter is set to true, only counts unique lemmas.
  *
  */
 public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
@@ -38,10 +46,13 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 	//the analysis engine's id from the database
 	//this value needs to be set when initiating the analysis engine
 	public static final String PARAM_AEID = "aeID";
+	public static final String PARAM_SCOPE = "scope";
+	public static final String PARAM_TYPE = "type";
 	public static final String RESOURCE_KEY = "lookUpList";
 	public static final String PARAM_LANGUAGE_CODE = "LanguageCode";
-	
+
 	private int aeID;
+	private boolean type = false; //whether to count unique lemmas or all lemmas: "true" means to calculate unique lemmas instead of all lemmas
 	private LookUpListResource deMauroList;
 
 	private static final Logger logger = LogManager.getLogger();
@@ -63,6 +74,11 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 			throw e;
 		} else {
 			aeID = (Integer) aContext.getConfigParameterValue(PARAM_AEID);
+		}
+
+		// get the optional parameter of "type" (boolean)
+		if(aContext.getConfigParameterValue(PARAM_TYPE) != null) {
+			type = (Boolean) aContext.getConfigParameterValue(PARAM_TYPE);
 		}
 
 		// obtain mandatory language parameter and access language dependent resources
@@ -100,28 +116,31 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 		Iterator lemmaIter = aJCas.getAnnotationIndex(Lemma.type).iterator();
 		int numberLemmasInDeMauro = 0;
 		int numberLemmas = 0;
-		
+
 		Set <String> deMauroDic = deMauroList.getKeys();
-		
+
+		//for storing unique lemmas
+		Set<String> uniqueLemmas = new HashSet<>();
+
 		while (lemmaIter.hasNext()) {
 			Lemma lemma = (Lemma) lemmaIter.next();
 			String lemmaString = lemma.getLemma();
-			//Ignore punctuations
+
 			if(lemmaString.matches("\\p{Punct}")) {
-				continue;
-			} else {
+				continue; //Ignore punctuations
+			}else if(type && uniqueLemmas.contains(lemmaString)) {
+				continue; //skip repeated lemmas
+			}else {
+				uniqueLemmas.add(lemmaString);
 				numberLemmas += 1;
 				if ( deMauroDic.contains(lemmaString)) {
 					numberLemmasInDeMauro += 1;
 				}
 			}
 		}
-		
+
 		double percentage = ( (double)numberLemmasInDeMauro / (double)numberLemmas ) * 100;
-		//System.out.println("numberLemmas: "+numberLemmas);
-		//System.out.println("numberLemmasInDeMauro: "+numberLemmasInDeMauro);
-		//System.out.println("percentage: "+percentage);
-		
+
 		LexicalPercentage annotation = new LexicalPercentage(aJCas);
 		//set the feature ID and feature value
 		annotation.setId(aeID);
@@ -130,7 +149,7 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 
 		logger.info(new PopulatedFeatureValueMessage(aeID, percentage));
 	}
-	
+
 
 	@Override
 	public void destroy() {

@@ -6,9 +6,9 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.LexicalPercentageAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Lexical Sophistication: Percentage of Tokens Listed in the De Mauro Basic Dictionary</name>
-		<description>Calculates the percentage of tokens listed in the De Mauro basic dictionary.
-			number of tokens of which the lemmas are listed in the De Mauro dictionary / number of tokens (excluding punctuations)
+		<name>Lexical Sophistication: Percentage of Lemmas Listed in the De Mauro Basic Dictionary (all lemmas)</name>
+		<description>Calculates the percentage of lemmas listed in the De Mauro basic dictionary.
+			( number of lemmas listed in the De Mauro dictionary / number of lemmas (excluding punctuations) ) * 100
 						
 			AAE dependency:
 			SentenceAnnotator.xml
@@ -32,7 +32,22 @@
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
+      		<configurationParameter>
+        		<name>type</name>
+        		<description>whether to calculate unique lemmas instead of all lemmas</description>
+        		<type>Boolean</type>
+        		<multiValued>false</multiValued>
+        		<mandatory>false</mandatory>
+      		</configurationParameter>
         </configurationParameters>
+        <configurationParameterSettings>
+    		<nameValuePair>
+        		<name>type</name>
+        		<value>
+          			<boolean>false</boolean>
+        		</value>
+      		</nameValuePair>
+    	</configurationParameterSettings>
 		<typeSystemDescription>
 			<imports>
 				<import location="../type_system/feature_type/LexicalPercentageType.xml" />

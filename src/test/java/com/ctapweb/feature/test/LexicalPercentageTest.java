@@ -95,9 +95,9 @@ public class LexicalPercentageTest {
 	 */
 	
 	@Test
-	public void LexicalPercentageDeMauroFeatureTest() throws Exception {		
+	public void LexicalPercentageDeMauroAllLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalPercentage_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_All_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalPercentage_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -107,6 +107,27 @@ public class LexicalPercentageTest {
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9020){
 				assertEquals(73.48484848484848, annot.getValue(), 0.0000001); // 73.48484848484848
+			}
+		}
+	}
+	
+	/*
+	 * Checks that the percentage of unique lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 73.48484848484848, with the precision of 0.0000001.
+	 */
+	
+	@Test
+	public void LexicalPercentageDeMauroUniqueLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_Unique_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalPercentage_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 9020){
+				assertEquals(72.07792207792207, annot.getValue(), 0.0000001); // 73.48484848484848
 			}
 		}
 	}
