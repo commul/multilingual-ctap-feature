@@ -104,15 +104,23 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 		Set <String> deMauroDic = deMauroList.getKeys();
 		
 		while (lemmaIter.hasNext()) {
-			numberLemmas += 1;
 			Lemma lemma = (Lemma) lemmaIter.next();
 			String lemmaString = lemma.getLemma();
-			if ( deMauroDic.contains(lemmaString)) {
-				numberLemmasInDeMauro += 1;
+			//Ignore punctuations
+			if(lemmaString.matches("\\p{Punct}")) {
+				continue;
+			} else {
+				numberLemmas += 1;
+				if ( deMauroDic.contains(lemmaString)) {
+					numberLemmasInDeMauro += 1;
+				}
 			}
 		}
 		
 		double percentage = ( (double)numberLemmasInDeMauro / (double)numberLemmas ) * 100;
+		//System.out.println("numberLemmas: "+numberLemmas);
+		//System.out.println("numberLemmasInDeMauro: "+numberLemmasInDeMauro);
+		//System.out.println("percentage: "+percentage);
 		
 		LexicalPercentage annotation = new LexicalPercentage(aJCas);
 		//set the feature ID and feature value

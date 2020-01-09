@@ -91,7 +91,7 @@ public class LexicalPercentageTest {
 	
 	
 	/*
-	 * Checks that the percentage of lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 65.76271186440678, with the precision of 0.0000001.
+	 * Checks that the percentage of lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 73.48484848484848, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -106,7 +106,7 @@ public class LexicalPercentageTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9020){
-				assertEquals(65.76271186440678, annot.getValue(), 0.0000001); // 65.76271186440678
+				assertEquals(73.48484848484848, annot.getValue(), 0.0000001); // 73.48484848484848
 			}
 		}
 	}
