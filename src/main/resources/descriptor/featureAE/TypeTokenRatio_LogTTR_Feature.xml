@@ -14,7 +14,9 @@
 			LogTTR = LogT/LogN
 			T stands for number of word types,
 			N for number of tokens.
-
+	
+			Herdan, G. 1960. Type-Token Mathematics: A Textbook of Mathematical Linguistics. The Hague: Mouton.
+	
 			AAE dependency:
 			SentenceAnnotator.xml
 			TokenAnnotator.xml

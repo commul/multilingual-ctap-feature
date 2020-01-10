@@ -9,7 +9,9 @@
 		<name>Lexical Sophistication: Percentage of Unique Lemmas Listed in the De Mauro Basic Dictionary (unique lemmas)</name>
 		<description>Calculates the percentage of unique lemmas listed in the De Mauro basic dictionary.
 			( number of unique lemmas that are listed in the De Mauro dictionary / number of unique lemmas (excluding punctuations) ) * 100
-						
+			
+			Il Nuovo vocabolario di base della lingua italiana. A cura di Tullio De Mauro. 23 dicembre 2016. https://dizionario.internazionale.it/nuovovocabolariodibase
+					
 			AAE dependency:
 			SentenceAnnotator.xml
 			NSentenceFeature.xml

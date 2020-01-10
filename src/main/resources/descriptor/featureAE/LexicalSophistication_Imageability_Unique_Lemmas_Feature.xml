@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.LexicalSophisticationLemmaAE</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>Lexical Sophistication Feature: Imageability (Unique Lemmas)</name>
+    <description>Calculates lexical sophistication of the text.
+    
+A norm list is a list where a norm value that describes a certain aspect of a word is given to each word. Only words that are included in the norm list are calculated. Words that do not appear in the norm list are omitted.
+
+All lemmas features take into consideration all lemmas, while unique lemmas features calculate only unique lemmas.
+
+This feature calculates lexical sophistication with the Imageability norm list from the Burani et al., 2001, containing 626 Italian nouns (https://www.istc.cnr.it/en/grouppage/varless):
+Cristina Burani, Lisa S Arduino, Laura Barca, "Una base di dati sui valori di età di acquisizione, frequenza, familiarità, immaginabilità, concretezza, e altre variabili lessicali e sublessicali per 626 nomi dell'italiano", Giornale Italiano di Psicologia, January 2001
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	LemmaAnnotator.xml</description>
+    <version>1.0</version>
+    <vendor>Nadezda Okinina</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>aeID</name>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>type</name>
+        <description>whether to calculate unique lemmas instead of all lemmas</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>LanguageCode</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+    <nameValuePair>
+        <name>type</name>
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import location="../type_system/feature_type/LexicalSophisticationType.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type allAnnotatorFeatures="true">com.ctapweb.feature.type.Lemma</type>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">com.ctapweb.feature.type.LexicalSophistication</type>
+        </outputs>
+                <languagesSupported>
+                    <language>IT</language>
+                    <!-- add new language here -->
+                </languagesSupported>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <externalResourceDependencies>
+    <externalResourceDependency>
+      <key>lookUpTableIT</key>
+      <description>a look up table is the frequency list (or other word-value mapping lists) with which word sophistication values are obtained.</description>
+      <interfaceName>com.ctapweb.feature.util.LookUpTableResource</interfaceName>
+      <optional>false</optional>
+    </externalResourceDependency>
+  </externalResourceDependencies>
+  <resourceManagerConfiguration>
+    <externalResources>
+      <externalResource>
+        <name>Imageability</name>
+        <description>Imageability from Burani et al., 2001.</description>
+        <fileResourceSpecifier>
+          <fileUrl>file:table/imageability-it-Burani.csv</fileUrl>
+        </fileResourceSpecifier>
+        <implementationName>com.ctapweb.feature.util.LookUpTableResource_Impl</implementationName>
+      </externalResource>
+    </externalResources>
+    <externalResourceBindings>
+      <externalResourceBinding>
+        <key>lookUpTableIT</key>
+        <resourceName>Imageability</resourceName>
+      </externalResourceBinding>
+    </externalResourceBindings>
+  </resourceManagerConfiguration>
+</analysisEngineDescription>

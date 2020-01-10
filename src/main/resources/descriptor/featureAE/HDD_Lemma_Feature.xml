@@ -10,6 +10,10 @@
 		<description>The code for the calculation of the HDD measure of lexical diversity
 		was translated in Java by Nadezda Okinina from the Python implementation of John Frens: https://github.com/jfrens/lexical_diversity
  	If the text length is inferior to 50 tokens, gives the value -1.
+ 	
+ 	McCarthy, P. M. and Jarvis, S. (2010). MTLD, vocd-D, and HD-D: A validation study of sophisticated approaches to lexical diversity assessment. Behavior Research Methods, 42(2):381–392.
+
+	
 			AAE dependency:
 			SentenceAnnotator.xml
 			TokenAnnotator.xml

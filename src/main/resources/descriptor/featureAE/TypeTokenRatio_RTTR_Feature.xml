@@ -14,6 +14,8 @@
 			LogTTR = T/sqrt(N)
 			T stands for number of word types, N for
 			number of tokens.
+			
+			Guiraud, P. 1960. Problemes et Methodes de la Statistique Linguistique. Dordrecht: D. Reidel.
 
 			AAE dependency:
 			SentenceAnnotator.xml

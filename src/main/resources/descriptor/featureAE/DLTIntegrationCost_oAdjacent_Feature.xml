@@ -6,7 +6,9 @@
 	<analysisEngineMetaData>
 		<name>Dependency Locality Theory: High Adjacent IC at Finite Verb (original cost configuration)</name>
 		<description>Calculates the average frequency of high adjacent IC (according to the DLT with its original cost configuration) at the finite verb. High costs are defined as costs higher than 2 after integration.
-
+			
+			Gibson, Edward. 2000. The dependency locality theory: A distance-based theory of linguistic complexity. In: Image, language, brain, pp. 95–126.
+			
 			AAE dependency:
 			SentenceAnnotator.xml
 			TokenAnnotator.xml

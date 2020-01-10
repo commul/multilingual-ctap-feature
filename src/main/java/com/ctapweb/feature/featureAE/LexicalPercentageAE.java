@@ -46,14 +46,13 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 	//the analysis engine's id from the database
 	//this value needs to be set when initiating the analysis engine
 	public static final String PARAM_AEID = "aeID";
-	public static final String PARAM_SCOPE = "scope";
 	public static final String PARAM_TYPE = "type";
 	public static final String RESOURCE_KEY = "lookUpList";
 	public static final String PARAM_LANGUAGE_CODE = "LanguageCode";
 
 	private int aeID;
 	private boolean type = false; //whether to count unique lemmas or all lemmas: "true" means to calculate unique lemmas instead of all lemmas
-	private LookUpListResource deMauroList;
+	private LookUpListResource lemmaResourceList;
 
 	private static final Logger logger = LogManager.getLogger();
 
@@ -95,7 +94,7 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 
 		//get the list of connectives
 		try {
-			deMauroList = (LookUpListResource) aContext.getResourceObject(languageSpecificResourceKey);
+			lemmaResourceList = (LookUpListResource) aContext.getResourceObject(languageSpecificResourceKey);
 		} catch (ResourceAccessException e) {
 			logger.throwing(e);
 			throw new ResourceInitializationException(e);
@@ -114,10 +113,10 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 
 		// get annotation indexes and iterator
 		Iterator lemmaIter = aJCas.getAnnotationIndex(Lemma.type).iterator();
-		int numberLemmasInDeMauro = 0;
+		int numberLemmasInResource = 0;
 		int numberLemmas = 0;
 
-		Set <String> deMauroDic = deMauroList.getKeys();
+		Set <String> deMauroDic = lemmaResourceList.getKeys();
 
 		//for storing unique lemmas
 		Set<String> uniqueLemmas = new HashSet<>();
@@ -134,12 +133,12 @@ public class LexicalPercentageAE extends JCasAnnotator_ImplBase {
 				uniqueLemmas.add(lemmaString);
 				numberLemmas += 1;
 				if ( deMauroDic.contains(lemmaString)) {
-					numberLemmasInDeMauro += 1;
+					numberLemmasInResource += 1;
 				}
 			}
 		}
 
-		double percentage = ( (double)numberLemmasInDeMauro / (double)numberLemmas ) * 100;
+		double percentage = ( (double)numberLemmasInResource / (double)numberLemmas ) * 100;
 
 		LexicalPercentage annotation = new LexicalPercentage(aJCas);
 		//set the feature ID and feature value

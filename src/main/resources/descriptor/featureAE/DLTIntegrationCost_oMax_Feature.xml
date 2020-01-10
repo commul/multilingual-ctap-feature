@@ -6,7 +6,9 @@
 	<analysisEngineMetaData>
 		<name>Dependency Locality Theory: Maximal IC at Finite Verb (original cost configuration)</name>
 		<description>Calculates the average maximal integration cost per clause (according to the DLT with its original cost configuration) at the finite verb.
-
+			
+			Gibson, Edward. 2000. The dependency locality theory: A distance-based theory of linguistic complexity. In: Image, language, brain, pp. 95–126.
+			
 			AAE dependency:
 			SentenceAnnotator.xml
 			TokenAnnotator.xml

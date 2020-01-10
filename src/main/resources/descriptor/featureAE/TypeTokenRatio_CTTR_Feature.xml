@@ -14,7 +14,9 @@
 			CTTR = T/sqrt(2*N)
 			T stands for number of word types,
 			N for number of tokens.
-
+	
+			Carroll, J. B. 1964. Language and Thought. Englewood Cliffs, NJ: Prentice-Hall.
+	
 			AAE dependency:
 			SentenceAnnotator.xml
 			TokenAnnotator.xml

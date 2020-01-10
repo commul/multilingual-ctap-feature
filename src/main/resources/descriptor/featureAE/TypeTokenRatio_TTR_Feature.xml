@@ -14,6 +14,8 @@
 			TTR = T/N
 			T stands for number of word types, N for number of
 			tokens.
+			
+			Templin, M. (1957). Certain language skills in children. Minneapolis: University of Minnesota Press.
 
 			AAE dependency:
 			SentenceAnnotator.xml
