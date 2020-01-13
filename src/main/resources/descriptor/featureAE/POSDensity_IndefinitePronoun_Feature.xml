@@ -8,19 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Indefinite Pronoun</name>
 		<description>Calculates Indefinite Pronoun density of the text.
-			Indefinite Pronouns include for German: the Tiger tags PIAT PIDAT.
-			Indefinite Pronouns include for Italian: the tag PI.
-			This feature is not available for English.
+Indefinite Pronouns include
+	for German: the Tiger tags PIAT PIDAT.
+	for Italian: the tag PI.
+	
+This feature is NOT available for English.
 
-			Formula:
-			indefPronDensity = numIndefPron / numTokens
+Formula:
+	indefPronDensity = numIndefPron / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

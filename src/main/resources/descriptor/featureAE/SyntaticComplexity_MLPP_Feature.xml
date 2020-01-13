@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Mean Length of Prepositional Phrase</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the mean length of prepositional phrase. 
-Definition: # of word / # of prepositional phrases
+    <description>Calculates the syntactic complexity of the text. T
+Calculates the mean length of prepositional phrase. 
+ 
+This feature is NOT available for English, Italian.
+
+Definition: 
+	number of word / number of prepositional phrases
 
 AAE dependency:
 	SentenceAnnotator.xml

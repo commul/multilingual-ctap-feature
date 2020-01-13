@@ -7,11 +7,10 @@
 		<name>Parse Tree Annotator</name>
 		<description>Annotates sentences with their parse trees.
 
-			AAE 
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			POSAnnotator.xml</description>
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	POSAnnotator.xml</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>
 		<configurationParameters>

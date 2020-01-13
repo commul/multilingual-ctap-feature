@@ -7,14 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Multi-Word Connectives per Connective (Breindl for German)</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the multi-word connectives per connective listed by Breindl.
-			Definition: # of multi-word connectives / # of connectives
+		<description>Calculates the cohesive complexity of the text.
+Calculates the multi-word connectives per connective listed by Breindl.
+			
+Definition:
+	number of multi-word connectives / number of connectives
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NConnectives_Breindl_AllMulti_Feature.xml
-			NConnectives_Breindl_All_Feature.xml
+This feature is not available for English, Italian.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NConnectives_Breindl_AllMulti_Feature.xml
+	NConnectives_Breindl_All_Feature.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

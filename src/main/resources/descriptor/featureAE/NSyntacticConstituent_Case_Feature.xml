@@ -4,7 +4,7 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Case</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of cases in the text. 
+    <description>Counts the number of cases in the text. 
 
 "programmi per il trattamento della pelle" 
 
@@ -19,7 +19,7 @@ case(pelle-6, della-5)
 nmod:della(trattamento-4, pelle-6)
 punct(programmi-1, .-7)
 
-
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

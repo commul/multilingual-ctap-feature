@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Mean Length of Noun Phrase</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the mean length of noun phrase. 
-Definition: # of word / # of noun phrases
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the mean length of noun phrase. 
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of words / number of noun phrases
 
 AAE dependency:
 	SentenceAnnotator.xml

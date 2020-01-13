@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: T-unit complexity ratio</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the T-unit complexity ratio. 
-Definition: # of clauses / # of T-unit
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the T-unit complexity ratio. 
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of clauses / number of T-units
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -7,20 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Past Participle Verb</name>
-		<description>Calculates past participle verb density of the text. Past particple verbs include
-			for English: the Penn Treebank tag VBN,
-			for German: the Tiger tags VVPP VMPP VAPP,
-			for Italian: the tags Vp VAp VMp
+		<description>Calculates past participle verb density of the text.
+Past particple verbs include
+	for English: the Penn Treebank tag VBN,
+	for German: the Tiger tags VVPP VMPP VAPP,
+	for Italian: the tags Vp VAp VMp
 
-			Formula:
-			VBNDensity = numVBNs /
-			numTokens
+Formula:
+	VBNDensity = numVBNs /	numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

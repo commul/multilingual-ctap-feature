@@ -8,22 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Coordinating Conjunction</name>
 		<description>Calculates conordinating conjunction density of the text.
-			Coordinating conjunction include
-			for English: the Penn Treebank tags
-			CC,
-			for German: the Tiger tag KON,
-			for Italian: CC tag.
+Coordinating conjunction include
+	for English: the Penn Treebank tags	CC,
+	for German: the Tiger tag KON,
+	for Italian: CC tag.
 
-			Formula:
-			CCDensity = numCC /
-			numTokens
+Formula:
+	CCDensity = numCC /	numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

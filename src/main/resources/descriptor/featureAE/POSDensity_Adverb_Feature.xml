@@ -8,22 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Adverb</name>
 		<description>Calculates adverb density of the text.
-			Adverbs include
-			for
-			English: the Penn Treebank tags RB, RBR, RBS, WRB.
-			for German: the
-			Tiger tag ADV.
-			for Italian: B, BN
+Adverbs include 
+	for English: the Penn Treebank tags RB, RBR, RBS, WRB.
+	for German: the Tiger tag ADV.
+	for Italian: B, BN
 
-			Formula:
-			advDensity = numAdverbs / numTokens
+Formula:
+	advDensity = numAdverbs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

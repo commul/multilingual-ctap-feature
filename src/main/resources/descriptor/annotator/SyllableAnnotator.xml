@@ -9,9 +9,9 @@
 		<name>Syllable Annotator</name>
 		<description>Annotates syllables in each token.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

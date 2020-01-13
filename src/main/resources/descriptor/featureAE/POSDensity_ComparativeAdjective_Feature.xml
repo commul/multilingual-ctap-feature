@@ -8,18 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Comparative Adjective</name>
 		<description>Calculates comparative adjective density of the text.
-			Comparative adjectives include for English the Penn Treebank tag JJR.
-			This feature is not available for: German, Italian.
+Comparative adjectives include for English the Penn Treebank tag JJR.
 
-			Formula:
-			JJRDensity = numJJR
-			/ numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	JJRDensity = numJJR	/ numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

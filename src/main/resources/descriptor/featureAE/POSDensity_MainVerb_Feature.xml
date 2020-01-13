@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Main Verb</name>
 		<description>Calculates Main Verb density of the text.
-			Main Verbs include for German: the Tiger tags VVFIN VVIMP VVINF VVIZU VVPP.
-			Main Verbs include for Italian: Vip,Vip3,Vii,Vii3,Vis,Vis3,Vif,Vif3,Vcp,Vcp3,Vci,Vci3,Vdp,Vdp3,Vg,Vp,Vf,Vm
+Main Verbs include
+	for German: the Tiger tags VVFIN VVIMP VVINF VVIZU VVPP.
+	for Italian: Vip,Vip3,Vii,Vii3,Vis,Vis3,Vif,Vif3,Vcp,Vcp3,Vci,Vci3,Vdp,Vdp3,Vg,Vp,Vf,Vm
+	
+This feature is not available for English.
 
-			Formula:
-			mainVerbDensity = numMainVerbs / numTokens
+Formula:
+	mainVerbDensity = numMainVerbs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

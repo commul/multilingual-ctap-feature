@@ -7,18 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: List Item Marker</name>
-		<description>Calculates list item marker density of the text. List item markers include 
-			for English the Penn Treebank tag LS.
-			This feature is not available for: German, Italian
+		<description>Calculates list item marker density of the text.
+List item markers include 
+	for English the Penn Treebank tag LS.
+	
+This feature is NOT available for: German, Italian
 
-			Formula:
-			LSDensity = numLSs / numTokens
+Formula:
+	LSDensity = numLSs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Mean Length of Clause</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the mean length of clause. 
-Definition: # of word / # of clauses
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the mean length of clause.
+
+This feature is NOT available for Italian.
+    
+Definition: 
+	number of words / number of clauses
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -7,20 +7,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: To</name>
-		<description>Calculates To density of the text. Tos include 
-			for English the Penn Treebank tag TO,
-			for German the Tiger tags VVIZU 
+		<description>Calculates To density of the text.
+Tos include 
+	for English the Penn Treebank tag TO,
+	for German the Tiger tags VVIZU 
 			
-			This feature is not available for Italian.
+This feature is NOT available for Italian.
 
-			Formula:
-			TODensity = numTOs / numTokens
+Formula:
+	TODensity = numTOs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

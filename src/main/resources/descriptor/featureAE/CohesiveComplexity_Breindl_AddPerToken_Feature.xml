@@ -7,14 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Additive Connectives per Token (Breindl for German)</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the additive connectives per token, listed by Breindl for German, by Nadezda Okinina for Italian.
-			Definition: # of additive connectives / # of token
+		<description>Calculates the cohesive complexity of the text. 
+Calculates the additive connectives per token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+			
+Definition:
+	number of additive connectives / number of tokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			NConnectives_Breindl_Additive_Feature.xml
+This feature is NOT available for English.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	NConnectives_Breindl_Additive_Feature.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

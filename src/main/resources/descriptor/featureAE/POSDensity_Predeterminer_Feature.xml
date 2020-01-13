@@ -7,21 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Predeterminer</name>
-		<description>Calculates predeterminer density of the text. Predeterminers include 
-			for English the Penn Treebank tag PDT,
-			for Italian: T.
-			This feature is not available for: German.
+		<description>Calculates predeterminer density of the text.
+Predeterminers include 
+	for English the Penn Treebank tag PDT,
+	for Italian: T.
+This feature is NOT available for: German.
 
+Formula:
+	PDTDensity = numPDT / numTokens
 
-			Formula:
-			PDTDensity =
-			numPDT / numTokens
-
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

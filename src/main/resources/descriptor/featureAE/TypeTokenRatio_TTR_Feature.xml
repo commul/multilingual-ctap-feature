@@ -7,22 +7,23 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Lexical Richness: Type Token Ratio (TTR)</name>
-		<description>Calculates the type token ratio of a text. A word type is
-			a non-duplicated token.
-			This features calculates the TTR with the
-			formula:
-			TTR = T/N
-			T stands for number of word types, N for number of
-			tokens.
+		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
 			
-			Templin, M. (1957). Certain language skills in children. Minneapolis: University of Minnesota Press.
+Definition:
+	This features calculates the TTR with the formula:
+	TTR = T/N
+	
+	T stands for number of word types, N for number of tokens.
+			
+Bib. ref.:
+	Templin, M. (1957). Certain language skills in children. Minneapolis: University of Minnesota Press.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			TokenTypeAnnotator.xml
-			NTokenFeature.xml
-			NTokenTypeFeature.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	TokenTypeAnnotator.xml
+	NTokenFeature.xml
+	NTokenTypeFeature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

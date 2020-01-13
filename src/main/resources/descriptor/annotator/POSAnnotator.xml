@@ -7,9 +7,9 @@
 		<name>POS Annotator</name>
 		<description>Annotates part-of-speech of tokens in natural language.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml</description>
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>
 		<configurationParameters>

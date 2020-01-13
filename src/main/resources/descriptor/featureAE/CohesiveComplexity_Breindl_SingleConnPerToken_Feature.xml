@@ -7,14 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Single-Word Connectives per Token (Breindl for German)</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the single-word connectives listed by Breindl per token.
-			Definition: # of single-word connectives / # of tokens
+		<description>Calculates the cohesive complexity of the text. 
+Calculates the single-word connectives listed by Breindl per token.
+			
+Definition:
+	number of single-word connectives / number of tokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			NConnectives_Breindl_AllSingle_Feature.xml
+This feature is not available for English, Italian.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	NConnectives_Breindl_AllSingle_Feature.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

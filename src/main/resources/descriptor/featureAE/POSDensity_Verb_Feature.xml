@@ -7,28 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Verb</name>
-		<description>
-			Calculates verb density of the text.
-			Verbs include for
-			English: the Penn Treebank tags VB, VBD, VBG, VBN, VBP
-			and
-			VBZ,
-			for
-			German: the Tiger tags VVFIN VVIMP VVINF VVIZU VMFIN VMIMP VMINF
-			VMIZU
-			VMPP VAFIN VAIMP VAINF VAIZU VAPP
-			
-			For Italian: Vip, Vip3, Vii, Vii3, Vis, Vis3, Vif, Vif3, Vcp, Vcp3, Vci, Vci3, Vdp, Vdp3, Vg, Vp, Vf, Vm, VMip, VMip3, VMii, VMii3, VMis, VMis3, VMif, VMif3, VMcp, VMcp3, VMci, VMci3, VMdp, VMdp3, VMg, VMp, VMf, VMm
+		<description>Calculates the verb density of the text.
+Verbs include
+	for	English: the Penn Treebank tags VB, VBD, VBG, VBN, VBP, VBZ,
+	for	German: the Tiger tags VVFIN VVIMP VVINF VVIZU VMFIN VMIMP VMINF VMIZU VMPP VAFIN VAIMP VAINF VAIZU VAPP
+	for Italian: Vip, Vip3, Vii, Vii3, Vis, Vis3, Vif, Vif3, Vcp, Vcp3, Vci, Vci3, Vdp, Vdp3, Vg, Vp, Vf, Vm, VMip, VMip3, VMii, VMii3, VMis, VMis3, VMif, VMif3, VMcp, VMcp3, VMci, VMci3, VMdp, VMdp3, VMg, VMp, VMf, VMm
 
-			Formula:
-			verbDensity = numVerbs
-			/ numTokens
+Formula:
+	verbDensity = numVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

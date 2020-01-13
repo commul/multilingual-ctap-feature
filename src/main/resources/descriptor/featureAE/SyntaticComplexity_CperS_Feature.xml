@@ -7,16 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Syntactic Complexity Feature: Sentence Complexity Ratio</name>
-		<description>Calculates the syntactic complexity of the text. This
-			feature calculates the sentence complexity ratio.
-			Definition: # of clauses / # of sentences
+		<description>Calculates the syntactic complexity of the text. 
+Calculates the sentence complexity ratio.
+ 
+This feature is NOT available for Italian.
+		
+Definition:
+	number of clauses / number of sentences
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			ParseTreeAnnotator.xml
-			NSyntacticConstituent_C_Feature.xml
-			NSyntacticConstituent_S_Feature.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	ParseTreeAnnotator.xml
+	NSyntacticConstituent_C_Feature.xml
+	NSyntacticConstituent_S_Feature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

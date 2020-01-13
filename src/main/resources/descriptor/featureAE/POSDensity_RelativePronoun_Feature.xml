@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Relative Pronoun</name>
 		<description>Calculates Relative Pronoun density of the text.
-			Relative Pronouns include for German: the Tiger tag PRELS PRELAT,
-			for Italian: PR.
+Relative Pronouns include
+	for German: the Tiger tag PRELS PRELAT,
+	for Italian: PR.
+	
+This feature is NOT available for English.
 
-			Formula:
-			relPronDensity = numRelPron / numTokens
+Formula:
+	relPronDensity = numRelPron / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

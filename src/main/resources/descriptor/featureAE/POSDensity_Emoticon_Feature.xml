@@ -7,19 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Emoticon</name>
-		<description>Calculates emoticon density of the text. Emoticons include 
+		<description>Calculates emoticon density of the text.
+Emoticons include 
 			for Italian: XE.
 			
-			This feature is not available for: English, German
+This feature is NOT available for: English, German.
 
-			Formula:
-			emoticonDensity = numEmoticons / numTokens
+Formula:
+	emoticonDensity = numEmoticons / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

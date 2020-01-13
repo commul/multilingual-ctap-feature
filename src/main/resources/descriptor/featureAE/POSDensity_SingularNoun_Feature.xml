@@ -7,19 +7,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Singular Noun</name>
-		<description>Calculates singular noun density of the text. Singular nouns include 
-			for English: the Penn Treebank tag NN,
-			for Italian: SS.
-			This feature is not available for: German.
+		<description>Calculates singular noun density of the text.
+Singular nouns include 
+	for English: the Penn Treebank tag NN,
+	for Italian: SS.
+	
+This feature is NOT available for: German.
 
-			Formula:
-			NNDensity = numNN / numTokens
+Formula:
+	NNDensity = numNN / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

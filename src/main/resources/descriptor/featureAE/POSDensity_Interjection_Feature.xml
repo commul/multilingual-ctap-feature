@@ -7,19 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Interjection</name>
-		<description>Calculates interjection density of the text. Interjections include
-			for English: the Penn Treebank tags UH
-			for German: the Tiger tag ITJ
-			for Italian: the tag I
+		<description>Calculates interjection density of the text.
+Interjections include
+	for English: the Penn Treebank tags UH
+	for German: the Tiger tag ITJ
+	for Italian: the tag I
 
-			Formula:
-			interDensity = numInter / numTokens
+Formula:
+	interDensity = numInter / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -8,19 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: 3rd Person Singular Verb</name>
 		<description>Calculates 3rd person singular verb density of the text.
-			Third person singular verbs include
-			for English the Penn Treebank tag VBZ.
-			This feature is not available for:
-			German, Italian
+Third person singular verbs include for English the Penn Treebank tag VBZ.
 
-			Formula:
-			VBZDensity = numVBZs / numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	VBZDensity = numVBZs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

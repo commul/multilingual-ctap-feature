@@ -4,13 +4,15 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Direct Object</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of direct objects in the text. 
+    <description>Calculates the number of a specific syntactic constituents in the text.
+Counts the number of direct objects in the text. 
 
 The direct object of a VP is the noun phrase which is the (accusative) object of the verb
-	
 
 "quando mi vede" dobj(vede, mi);
 "hanno vinto la lotteria" dobj(vinto, lotteria) 
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

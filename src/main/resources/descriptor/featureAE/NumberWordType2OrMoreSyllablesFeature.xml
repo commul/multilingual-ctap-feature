@@ -9,10 +9,10 @@
 		<name>Number of Word Types with 2 or more Syllables</name>
 		<description>Calculates number of words types with 2 or more syllables.
 
-			AAE Dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			SyllableAnnotator.xml
+AAE Dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	SyllableAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

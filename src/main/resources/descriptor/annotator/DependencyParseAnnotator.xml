@@ -5,16 +5,14 @@
 	<annotatorImplementationName>com.ctapweb.feature.annotator.DependencyParseAnnotator</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Dependency Parse Annotator</name>
-		<description>Annotates sentences with their dependency parses using
-			morphologically informed POS tags.
+		<description>Annotates sentences with their dependency parses using	morphologically informed POS tags.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			LemmaAnnotator.xml
-			MorphologicalTagAnnotator.xml
-			POSAnnotator.xml</description>
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	LemmaAnnotator.xml
+	MorphologicalTagAnnotator.xml
+	POSAnnotator.xml</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>
 		<configurationParameters>

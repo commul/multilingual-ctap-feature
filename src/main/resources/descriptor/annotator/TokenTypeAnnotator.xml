@@ -9,9 +9,9 @@
 		<name>Type Annotator</name>
 		<description>Populates token types into the CAS.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>xiaobin</vendor>

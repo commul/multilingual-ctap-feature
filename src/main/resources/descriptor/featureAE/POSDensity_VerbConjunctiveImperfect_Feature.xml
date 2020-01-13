@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Conjunctive Imperfect Verb</name>
-		<description>
-			Calculates conjunctive imperfect verbs density of the text.
-
-			For Italian: Vci Vci3 VAci VAci3 VMci VMci3
+		<description>Calculates conjunctive imperfect verbs density of the text.
+Conjunctive imperfect verbs for Italian: Vci Vci3 VAci VAci3 VMci VMci3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			conjunctiveImperfectVerbDensity = numConjunctiveImperfectVerbs
-			/ numTokens
+Formula:
+	conjunctiveImperfectVerbDensity = numConjunctiveImperfectVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

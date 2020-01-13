@@ -8,19 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Ordinal Number</name>
 		<description>Calculates cardinal number density of the text.
-			Ordinal	numbers include for Italian: NOs NOp NOn.
+Ordinal	numbers include
+	for Italian: NOs NOp NOn.
+	
+This feature is not available for: English, German.
 			
-			This feature is not available for: English, German.
-			
-			Formula:
-			ODDensity = numODs / numTokens
+Formula:
+	ODDensity = numODs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

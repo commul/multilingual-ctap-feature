@@ -8,22 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Determiner</name>
 		<description>Calculates determiner density of the text.
-			Determiners
-			include
-			for English: the Penn Treebank tags PDT, DT and WDT,
-			for
-			German: the
-			Tiger tags ART PDAT PIAT PPOSAT PRELAT PWAT,
-			for Italian: DD, DE, DI, RD, RI
+Determiners include
+	for English: the Penn Treebank tags PDT, DT and WDT,
+	for	German: the	Tiger tags ART PDAT PIAT PPOSAT PRELAT PWAT,
+	for Italian: DD, DE, DI, RD, RI
 
-			Formula:
-			detDensity = numDet / numTokens
+Formula:
+	detDensity = numDet / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

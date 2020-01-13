@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Verb Phrases per Sentence</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the verb phrases per sentence. 
-Definition: # of verb phrases / # of sentences
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the verb phrases per sentence. 
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of verb phrases / number of sentences
 
 AAE dependency:
 	SentenceAnnotator.xml

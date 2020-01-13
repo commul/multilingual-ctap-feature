@@ -7,22 +7,24 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Lexical Richness: Type Token Ratio (Uber)</name>
-		<description>Calculates the type token ratio of a text. A word type is
-			a non-duplicated token.
-			This features calculates the Uber index with
-			the formula:
-			TTR = (LogN)^2/Log(N/T)
-			T stands for number of word types,
-			N for number of tokens.
+		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
+			
+Definition:
+This features calculates the Uber index with the formula:
+	TTR = (LogN)^2/Log(N/T)
 	
-			Dugast, D. (1979). Vocabulaire et stylistique. I Théâtre et dialogue [Vocabulary and style. Vol. 1 Theatre and dialogue]. Slatkine-Champion, Geneva, Switzerland.
+	T stands for number of word types,
+	N stands for number of tokens.
+		
+Bib. ref.:
+	Dugast, D. (1979). Vocabulaire et stylistique. I Théâtre et dialogue [Vocabulary and style. Vol. 1 Theatre and dialogue]. Slatkine-Champion, Geneva, Switzerland.
 	
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			TokenTypeAnnotator.xml
-			NTokenFeature.xml
-			NTokenTypeFeature.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	TokenTypeAnnotator.xml
+	NTokenFeature.xml
+	NTokenTypeFeature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -7,10 +7,11 @@
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of adverbial clause modifiers in the text. 
 
 An adverbial clause modifier of a VP or S is a clause modifying the verb (temporal clause, consequence, conditional clause, purpose clause, etc.)
-	
 
 "Quando venne coniato il termine, esso era applicato a un particolare fenomeno atmosferico" advcl(applicato, coniato)
 "Se non entrano in contatto con goccioline d'acqua, questi gas possono depositarsi sul suolo" advcl(depositarsi, entrano) 
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

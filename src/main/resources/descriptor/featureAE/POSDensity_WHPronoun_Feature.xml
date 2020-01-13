@@ -7,20 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: WH Pronoun</name>
-		<description>Calculates WH pronoun density of the text. WH pronouns
-			include for English: the Penn Treebank tag WP.
-			This feature is not available for: German, Italian
+		<description>Calculates WH pronoun density of the text.
+WH pronouns	include
+	for English: the Penn Treebank tag WP.
 
-			Formula:
-			WPDensity = numWPs /
-			numTokens
+This feature is NOT available for: German, Italian
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	WPDensity = numWPs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

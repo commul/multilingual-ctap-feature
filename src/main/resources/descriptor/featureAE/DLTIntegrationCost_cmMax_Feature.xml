@@ -6,16 +6,19 @@
     <analysisEngineMetaData>
         <name>Dependency Locality Theory: Maximal IC at Finite Verb (no modifier weight + less coordination weight)</name>
         <description>Calculates the average maximal integration cost per clause (according to the DLT with cancelled modifier weight and reduced coordination costs configuration) at the finite verb. High costs are defined as costs higher than 2 after integration.
+
+This feature is NOT available for English, Italian.
 			
-			Gibson, Edward. 2000. The dependency locality theory: A distance-based theory of linguistic complexity. In: Image, language, brain, pp. 95–126.
+Bib.ref.:
+	Gibson, Edward. 2000. The dependency locality theory: A distance-based theory of linguistic complexity. In: Image, language, brain, pp. 95–126.
 			
-            AAE dependency:
-            SentenceAnnotator.xml
-            TokenAnnotator.xml
-            LemmaAnnotator.xml
-            MorphologicalTagAnnotator.xml
-            POSAnnotator.xml
-            DependencyParseAnnotator.xml</description>
+AAE dependency:
+   SentenceAnnotator.xml
+   TokenAnnotator.xml
+   LemmaAnnotator.xml
+   MorphologicalTagAnnotator.xml
+   POSAnnotator.xml
+   DependencyParseAnnotator.xml</description>
         <version>1.0</version>
         <vendor>Zarah Weiss</vendor>
         <configurationParameters>

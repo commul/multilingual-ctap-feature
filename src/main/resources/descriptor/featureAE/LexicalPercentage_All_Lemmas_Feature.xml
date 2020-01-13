@@ -8,16 +8,22 @@
 	<analysisEngineMetaData>
 		<name>Lexical Sophistication: Percentage of Lemmas Listed in the De Mauro Basic Dictionary (all lemmas)</name>
 		<description>Calculates the percentage of lemmas listed in the De Mauro basic dictionary.
-			( number of lemmas listed in the De Mauro dictionary / number of lemmas (excluding punctuations) ) * 100
+		
+Definition:
+	( number of lemmas listed in the De Mauro dictionary / number of lemmas (excluding punctuations) ) * 100
 			
-			Il Nuovo vocabolario di base della lingua italiana. A cura di Tullio De Mauro. 23 dicembre 2016. https://dizionario.internazionale.it/nuovovocabolariodibase
-						
-			AAE dependency:
-			SentenceAnnotator.xml
-			NSentenceFeature.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			LemmaAnnotator.xml			
+Bib. ref.:
+	Il Nuovo vocabolario di base della lingua italiana. A cura di Tullio De Mauro. 23 dicembre 2016.
+	https://dizionario.internazionale.it/nuovovocabolariodibase
+
+This feature is NOT available for English, German.
+				
+AAE dependency:
+	SentenceAnnotator.xml
+	NSentenceFeature.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	LemmaAnnotator.xml			
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

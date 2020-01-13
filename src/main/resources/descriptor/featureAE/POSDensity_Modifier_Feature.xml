@@ -8,20 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Modifier</name>
 		<description>Calculates density of modifier the text.
-			Modifier are adverbs and adjectives and include
-			for English: the Penn Treebank tags JJ, JJR, JJS, RB, RBR, RBS, WRB
-			for German: the Tiger tag ADV, ADJA, ADJD,
-			for Italian: B BN As Ap An APs APp APn.
+Modifier are adverbs and adjectives and include
+	for English: the Penn Treebank tags JJ, JJR, JJS, RB, RBR, RBS, WRB
+	for German: the Tiger tag ADV, ADJA, ADJD,
+	for Italian: B BN As Ap An APs APp APn.
 
-			Formula:
-			modDensity = numModifier / numTokens
+Formula:
+	modDensity = numModifier / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

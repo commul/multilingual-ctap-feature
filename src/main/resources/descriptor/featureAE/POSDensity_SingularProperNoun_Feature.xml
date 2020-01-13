@@ -7,20 +7,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Singular Proper Noun</name>
-		<description>Calculates singular proper noun density of the text. Singular proper nouns include 
-			for English: the Penn Treebank tag NNP,
-			for German: NE
-			
-			This feature is not available for Italian.
+		<description>Calculates singular proper noun density of the text.
+Singular proper nouns include 
+	for English: the Penn Treebank tag NNP,
+	for German: NE
+	
+This feature is not available for Italian.
 
-			Formula:
-			NNPDensity = numNNP / numTokens
+Formula:
+	NNPDensity = numNNP / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

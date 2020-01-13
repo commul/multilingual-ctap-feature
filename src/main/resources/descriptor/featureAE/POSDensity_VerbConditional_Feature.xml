@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Conditional Present Verb</name>
-		<description>
-			Calculates conditional present verbs density of the text.
-
-			For Italian: Vdp Vdp3 VAdp VAdp3 VMdp VMdp3
+		<description>Calculates conditional present verbs density of the text.
+Conditional present verbs include for Italian: Vdp Vdp3 VAdp VAdp3 VMdp VMdp3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			conditionalPresentVerbDensity = numConditionalPresentVerbs
-			/ numTokens
+Formula:
+	conditionalPresentVerbDensity = numConditionalPresentVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

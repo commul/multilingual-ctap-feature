@@ -8,19 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Modal Verb</name>
 		<description>Calculates Modal Verb density of the text.
-			Modal Verbs include for German: the Tiger tags VMFIN VMINF VMPP.
-			for Italian:  VMip VMip3 VMii VMii3 VMis VMis3 VMif VMif3 VMcp VMcp3 VMci VMci3 VMdp VMdp3 VMg VMp VMf VMm
-			Not available for: English 
+Modal Verbs include
+	for German: the Tiger tags VMFIN VMINF VMPP.
+	for Italian:  VMip VMip3 VMii VMii3 VMis VMis3 VMif VMif3 VMcp VMcp3 VMci VMci3 VMdp VMdp3 VMg VMp VMf VMm
 
-			Formula:
-			modalVerbDensity = numModalVerbs / numTokens
+This feature is NOT available for: English 
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	modalVerbDensity = numModalVerbs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

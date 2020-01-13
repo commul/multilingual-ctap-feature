@@ -12,7 +12,10 @@ A norm list is a list where a norm value that describes a certain aspect of a wo
 
 Token features take into consideration all word tokens, while type features calculate only unique tokens.
 
-This feature calculates lexical sophistication with the Meaningfulness Colerado norm list from the MRC Psycholinguistic Database (http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html). 
+This feature calculates lexical sophistication with the Meaningfulness Colerado norm list from the MRC Psycholinguistic Database.
+http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html
+
+This feature is NOT available for Italian, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

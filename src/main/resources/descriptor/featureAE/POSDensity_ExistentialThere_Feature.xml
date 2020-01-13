@@ -8,17 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Existential There</name>
 		<description>Calculates existential there density of the text.
-			Existential there include for English the Penn Treebank tag EX.
-			This feature is not available for: German, Italian.
+Existential there include for English the Penn Treebank tag EX.
 
-			Formula:
-			EXDensity = numEXs / numTokens
+This feature is not available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	EXDensity = numEXs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

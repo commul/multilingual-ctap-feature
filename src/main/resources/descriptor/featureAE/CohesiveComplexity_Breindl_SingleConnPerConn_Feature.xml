@@ -7,14 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Breindl Single-Word Connectives per Connective</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the single-word connectives per connective listed by Breindl.
-			Definition: # of single-word connectives / # of connectives
+		<description>Calculates the cohesive complexity of the text. 
+Calculates the single-word connectives per connective listed by Breindl.
+			
+Definition:
+	number of single-word connectives / number of connectives
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NConnectives_Breindl_AllSingle_Feature.xml
-			NConnectives_Breindl_All_Feature.xml
+This feature is not available for English, Italian.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NConnectives_Breindl_AllSingle_Feature.xml
+	NConnectives_Breindl_All_Feature.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

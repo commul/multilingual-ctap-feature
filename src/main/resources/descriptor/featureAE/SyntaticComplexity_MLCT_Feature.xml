@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Mean Length of Complex T-unit</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the mean length of complex T-unit. 
-Definition: # of word / # of complex T-units
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the mean length of complex T-unit. 
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of words / number of complex T-units
 
 AAE dependency:
 	SentenceAnnotator.xml

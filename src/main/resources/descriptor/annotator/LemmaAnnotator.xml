@@ -5,11 +5,11 @@
 	<annotatorImplementationName>com.ctapweb.feature.annotator.LemmaAnnotator</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Lemma Annotator</name>
-		<description>Annotates lemma of tokens in natural language.
+		<description>Annotates lemmas of tokens.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml</description>
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>
 		<configurationParameters>

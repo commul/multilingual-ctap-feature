@@ -8,33 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Functional Words</name>
 		<description>Calculates functional word density of the text.
-			Functional words include
-			for English: the Penn Treebank tags CC, IN,
-			PDT, DT, WDT,
-			PRP, PRP$, WP,
-			WP$, CD, EX, FW, LS, MD, POS, RP, SYM, TO,
-			UH;
-			
-			for German: the Tiger
-			tags CARD ITJ KOUI KOUS KON KOKOM PDS PDAT
-			PIS PIAT PIDAT PPER PPOSS
-			PPOSAT
-			PRELS PRELSAT PRF PWS PWAT PWAV PAV
-			PTKZU PTKNEG PTKVZ PTKANT PTKA VAFIN
-			VAIMP VAINF VAIZU VAPP TRUNC;
-			
-			for Italian:
-			CC CS DD DE DI DQ DR E EA RD RI T
+Functional words include
+	for English: the Penn Treebank tags CC, IN,	PDT, DT, WDT, PRP, PRP$, WP, WP$, CD, EX, FW, LS, MD, POS, RP, SYM, TO, UH;
+	for German: the Tiger tags CARD ITJ KOUI KOUS KON KOKOM PDS PDAT PIS PIAT PIDAT PPER PPOSS PPOSAT PRELS PRELSAT PRF PWS PWAT PWAV PAV PTKZU PTKNEG PTKVZ PTKANT PTKA VAFIN VAIMP VAINF VAIZU VAPP TRUNC;
+	for Italian: CC CS DD DE DI DQ DR E EA RD RI T
 
-			Formula:
-			functionalWordDensity = numFunctionalWords / numTokens
+Formula:
+	functionalWordDensity = numFunctionalWords / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

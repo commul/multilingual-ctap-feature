@@ -7,14 +7,13 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>SD Token Length in Letters</name>
-		<description>Calculates the standard deviation of token length in
-			number of letters.
+		<description>Calculates the standard deviation of token length in number of letters.
 
-			AAE Dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			SyllableAnnotator.xml
-			LetterAnnotator.xml
+AAE Dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	SyllableAnnotator.xml
+	LetterAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

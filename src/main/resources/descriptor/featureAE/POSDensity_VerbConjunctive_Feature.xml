@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Conjunctive Verb</name>
-		<description>
-			Calculates conjunctive verbs density of the text.
-
-			For Italian: Vcp Vcp3 Vci Vci3 VAcp VAcp3 VAci VAci3 VMcp VMcp3 VMci VMci3
+		<description>Calculates conjunctive verbs density of the text.
+Conjunctive verbs include for Italian: Vcp Vcp3 Vci Vci3 VAcp VAcp3 VAci VAci3 VMcp VMcp3 VMci VMci3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			conjunctiveVerbDensity = numConjunctiveVerbs
-			/ numTokens
+Formula:
+	conjunctiveVerbDensity = numConjunctiveVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -8,19 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Article</name>
 		<description>Calculates article density of the text.
-			Articles for English: include the Penn Treebank tag DT,
-			for German: the Tiger tag ART,
-			for Italian: RD, RI
+Articles for English: include the Penn Treebank tag DT,
+		for German: the Tiger tag ART,
+		for Italian: RD, RI
 
-			Formula:
-			DTDensity = numDT / numTokens
+Formula:
+	DTDensity = numDT / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

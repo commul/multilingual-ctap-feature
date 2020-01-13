@@ -7,16 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Syntactic Complexity Feature: Prenominal Modifier per Complex Noun Phrase</name>
-		<description>Calculates the syntactic complexity of the text. This
-			feature calculates the prenominal modifier per complex noun phrase.
-			Definition: # of prenominal modifier / # of complex noun phrases
+		<description>Calculates the syntactic complexity of the text. 
+Calculates the prenominal modifier per complex noun phrase.
+ 
+This feature is NOT available for English, Italian.
+			
+Definition: 
+	number of prenominal modifier / number of complex noun phrases
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			ParseTreeAnnotator.xml
-            NSyntacticConstituent_PreN_Feature.xml
-			NSyntacticConstituent_CN_Feature.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	ParseTreeAnnotator.xml
+    NSyntacticConstituent_PreN_Feature.xml
+	NSyntacticConstituent_CN_Feature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

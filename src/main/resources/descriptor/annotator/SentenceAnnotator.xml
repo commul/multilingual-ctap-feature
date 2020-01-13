@@ -9,8 +9,8 @@
 		<name>Sentence Annotator</name>
 		<description>Annotates sentences.
 
-			AAE dependency:
-
+AAE dependency:
+	no dependencies
 		</description>
 		<version>1.0</version>
 		<vendor>xiaobin</vendor>

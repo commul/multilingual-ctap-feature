@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Verb Cluster per T-Unit</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the verb cluster per T-Unit. 
-Definition: # of verb cluster / # of T-Units
+    <description>Calculates the syntactic complexity of the text.
+Calculates the verb cluster per T-Unit.
+ 
+This feature is NOT available for English, Italian.
+    
+Definition: 
+	number of verb cluster / number of T-Units
 
 AAE dependency:
 	SentenceAnnotator.xml

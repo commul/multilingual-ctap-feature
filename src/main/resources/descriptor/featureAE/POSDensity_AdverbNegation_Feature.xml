@@ -8,17 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Negation Adverb</name>
 		<description>Calculates negation adverb density of the text.
-			Negation adverb	for Italian: BN
+Negation adverb	for Italian: BN
+	
+This feature is NOT available for English, German.
 
-			Formula:
-			negationAdvDensity = numNegationAdverbs / numTokens
+Formula:
+	negationAdvDensity = numNegationAdverbs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

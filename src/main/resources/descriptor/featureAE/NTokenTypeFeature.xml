@@ -7,13 +7,12 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Word Types</name>
-		<description>Calculates the number of word types. A word type is a
-			non-duplicated token.
+		<description>Calculates the number of word types. A word type is a non-duplicated token.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			TokenTypeAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	TokenTypeAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

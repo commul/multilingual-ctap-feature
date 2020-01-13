@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Dependent clauses per T-unit</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the dependent clause per T-unit. 
-Definition: # of dependent clauses / # of T-units
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the dependent clauses per T-unit.
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of dependent clauses / number of T-units
 
 AAE dependency:
 	SentenceAnnotator.xml

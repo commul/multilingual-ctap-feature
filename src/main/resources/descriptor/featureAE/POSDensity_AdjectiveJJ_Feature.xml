@@ -8,20 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Adjective JJ</name>
 		<description>Calculates adjective JJ density of the text.
-			Adjective JJs
-			include for English the Penn Treebank tag JJ.
-			This feature is not
-			available for: German, Italian
+Adjective JJs include for English the Penn Treebank tag JJ.
 
-			Formula:
-			JJDensity = numJJ / numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	JJDensity = numJJ / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

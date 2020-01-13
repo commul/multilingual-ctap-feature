@@ -7,20 +7,26 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Lexical Sophistication Feature: Google Books Logarithmic Word Frequency Per Million Words (FW Token)</name>
-		<description>Calculates lexical sophistication of the text. Three sophistication measures are calculated from each frequency list:
-			AW: all words
-			LW: lexical words, which are verbs, nouns, adverbs and adjectives
-			FW: function words, which are non-lexical words
-			Only words that are included in the frequency list are calculated. Words that do not appear in the frequency list are omitted.
+		<description>Calculates lexical sophistication of the text.
+Three sophistication measures are calculated from each frequency list:
+	AW: all words
+	LW: lexical words, which are verbs, nouns, adverbs and adjectives
+	FW: function words, which are non-lexical words
+Only words that are included in the frequency list are calculated. Words that do not appear in the frequency list are omitted.
 
-			Token features take into consideration all word tokens, while type features calculate only unique tokens.
+Token features take into consideration all word tokens, while type features calculate only unique tokens.
 
-			This feature calculates lexical sophistication with the Google Books (2000 for German and 2012 for Italian) word frequency list (Log10 word frequency measure per million words) of functional words (FW).
+This feature calculates lexical sophistication with the Google Books (2000 for German and 2012 for Italian) word frequency list (Log10 word frequency measure per million words) of functional words (FW).
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			POSAnnotator.xml
+Definition:
+	log10 ( FREQCOUNT + 1 ) - log10 ( total number of words  in the Google corpus ( number of lines in the file ) / 1000 000 )
+
+This feature is NOT available for English.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

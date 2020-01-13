@@ -7,14 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: All Connectives per Token (Breindl for German)</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the temporal connectives per Token, listed by Breindl for German, by Nadezda Okinina for Italian.
-			Definition: # of temporal connectives / # of tokens
+		<description>Calculates the cohesive complexity of the text. 
+Calculates the temporal connectives per Token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+			
+Definition:
+	number of temporal connectives / number of tokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			POSDensity_NonPunctuationWords.xml
-			NConnectives_Breindl_All_Feature.xml
+This feature is not available for English.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	POSDensity_NonPunctuationWords.xml
+	NConnectives_Breindl_All_Feature.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

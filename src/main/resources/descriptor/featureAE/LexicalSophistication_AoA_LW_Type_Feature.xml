@@ -4,7 +4,8 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.LexicalSophisticationAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Lexical Sophistication Feature: Age of Acquisition (LW Type)</name>
-    <description>Calculates lexical sophistication of the text. Three sophistication measures are calculated from each norm list:
+    <description>Calculates lexical sophistication of the text.
+Three sophistication measures are calculated from each norm list:
 	AW: all words
 	LW: lexical words, which are verbs, nouns, adverbs and adjectives
 	FW: function words, which are non-lexical words
@@ -12,7 +13,10 @@ A norm list is a list where a norm value that describes a certain aspect of a wo
 
 Token features take into consideration all word tokens, while type features calculate only unique tokens.
 
-This feature calculates lexical sophistication with the Age of Acquisition norm list by Gilhooly and Logie (1980), which is included in the MRC Psycholinguistic Database (http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html). 
+This feature calculates lexical sophistication with the Age of Acquisition norm list by Gilhooly and Logie (1980), which is included in the MRC Psycholinguistic Database.
+http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html 
+
+This feature is NOT available for Italian, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: 3d Person Verb</name>
-		<description>
-			Calculates 3d person (singular and plural) verbs density of the text.
-
-			For Italian: Vip3 Vii3 Vis3 Vif3 Vcp3 Vci3 Vdp3 VAip3 VAii3 VAis3 VAif3 VAcp3 VAci3 VAdp3 VMip3 VMii3 VMis3 VMif3 VMcp3 VMci3 VMdp3
+		<description>Calculates 3d person (singular and plural) verbs density of the text.
+3d person verbs include for Italian: Vip3 Vii3 Vis3 Vif3 Vcp3 Vci3 Vdp3 VAip3 VAii3 VAis3 VAif3 VAcp3 VAci3 VAdp3 VMip3 VMii3 VMis3 VMif3 VMcp3 VMci3 VMdp3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			3dPersonVerbDensity = num3dPersonVerbs
-			/ numTokens
+Formula:
+	3dPersonVerbDensity = num3dPersonVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

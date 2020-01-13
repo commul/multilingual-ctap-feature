@@ -7,20 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Lexical Words</name>
-		<description>Calculates lexical word density of the text. Lexical words include
-			for English: the Penn Treebank tags JJ, JJR, JJS, RB, RBR, RBS, WRB, VB, VBD, VBG, VBN, VBP, VBZ;
-			for German: the Tiger tags: ADJA ADJD ADV NN NE VVFIN VVIMP VVINF VVIZU VVPP VMFIN VMIMP VMINF VMIZU VMPP FM XY
+		<description>Calculates lexical word density of the text.
+Lexical words include
+	for English: the Penn Treebank tags JJ, JJR, JJS, RB, RBR, RBS, WRB, VB, VBD, VBG, VBN, VBP, VBZ;
+	for German: the Tiger tags: ADJA ADJD ADV NN NE VVFIN VVIMP VVINF VVIZU VVPP VMFIN VMIMP VMINF VMIZU VMPP FM XY
+	for Italian: the tags: As,Ap,An,APs,APp,APn,SP,S,Ss,Sp,Sn, SW, SWs,SWp,SWn,B,BB,Vip,Vip3,Vii,Vii3,Vis,Vis3,Vif,Vif3,Vcp,Vcp3,Vci,Vci3,Vdp,Vdp3,Vg,Vp,Vf,Vm
 			
-			for Italian: the tags: As,Ap,An,APs,APp,APn,SP,S,Ss,Sp,Sn, SW, SWs,SWp,SWn,B,BB,Vip,Vip3,Vii,Vii3,Vis,Vis3,Vif,Vif3,Vcp,Vcp3,Vci,Vci3,Vdp,Vdp3,Vg,Vp,Vf,Vm
-			
-			Formula:
-			lexicalWordDensity = numLexicalWords / numTokens
+Formula:
+	lexicalWordDensity = numLexicalWords / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

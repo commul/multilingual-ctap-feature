@@ -7,14 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Concessive Connectives per Token (Eisenberg for German)</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the concessive connectives per token, listed by Eisenberg for German.
-			Definition: # of concessive connectives / # of tokens
+		<description>Calculates the cohesive complexity of the text. 
+Calculates the concessive connectives per token, listed by Eisenberg for German.
+			
+Definition: 
+	number of concessive connectives / number of tokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NConnectives_Breindl_Concessive_Feature.xml
-			POSDensity_NonPunctuationWords.xml
+This feature is not available for English, Italian.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NConnectives_Breindl_Concessive_Feature.xml
+	POSDensity_NonPunctuationWords.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

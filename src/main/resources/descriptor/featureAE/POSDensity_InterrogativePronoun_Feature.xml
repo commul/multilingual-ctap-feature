@@ -8,19 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Interrogative Pronoun</name>
 		<description>Calculates Interrogative Pronoun density of the text.
-			Interrogative Pronouns include for German: the Tiger tags PWS PWAT PWAV.
-			Interrogative Pronouns include for Italian: the tag PQ.
-			This feature is not available for: English
+Interrogative Pronouns include
+	for German: the Tiger tags PWS PWAT PWAV.
+	for Italian: the tag PQ.
+	
+This feature is NOT available for: English
 
-			Formula:
-			interPronDensity = numInterPron / numTokens
+Formula:
+	interPronDensity = numInterPron / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

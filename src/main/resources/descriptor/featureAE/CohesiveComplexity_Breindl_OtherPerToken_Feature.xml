@@ -8,13 +8,17 @@
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Other Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. This feature calculates the other connectives listed by Breindl per token.
-			Definition: # of other connectives / # of tokens
+			
+Definition:
+	number of other connectives / number of tokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NConnectives_Breindl_Other_Feature.xml
-			POSDensity_NonPunctuationWords.xml
+This feature is not available for English, Italian.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NConnectives_Breindl_Other_Feature.xml
+	POSDensity_NonPunctuationWords.xml
 		</description>
 		<version>1.0</version>
 	<vendor>Zarah Weiss</vendor>

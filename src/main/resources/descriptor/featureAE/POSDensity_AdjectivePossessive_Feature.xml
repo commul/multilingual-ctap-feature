@@ -8,19 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Possessive Adjective</name>
 		<description>Calculates adjective density of the text.
-			Possessive adjectives include for Italian: APs APp APn
+Possessive adjectives include for Italian: APs APp APn
 			
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 			
-			Formula:
-			adjDensity =
-			numPossessiveAdjectives / numTokens
+Formula:
+	adjDensity = numPossessiveAdjectives / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

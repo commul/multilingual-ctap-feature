@@ -8,19 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Particle</name>
 		<description>Calculates particle density of the text.
-			Particles include
-			for English: the Penn Treebank tag RP,
-			for German: the Tiger tags PTKZU PTKNEG PTKVZ PTKANT PTKA
-			This feature is not defined for Italian.
+Particles include
+	for English: the Penn Treebank tag RP,
+	for German: the Tiger tags PTKZU PTKNEG PTKVZ PTKANT PTKA
+	
+This feature is NOT available for Italian.
 
-			Formula:
-			RPDensity = numRPs / numTokens
+Formula:
+	RPDensity = numRPs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

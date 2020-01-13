@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Indicative Verb</name>
-		<description>
-			Calculates indicative verbs density of the text.
-
-			For Italian: Vip Vip3 Vii Vii3 Vis Vis3 Vif Vif3 VAip VAip3 VAii VAii3 VAis VAis3 VAif VAif3 VMip VMip3 VMii VMii3 VMis VMis3 VMif VMif3
+		<description>Calculates indicative verbs density of the text.
+Indicative verbs include for Italian: Vip Vip3 Vii Vii3 Vis Vis3 Vif Vif3 VAip VAip3 VAii VAii3 VAis VAis3 VAif VAif3 VMip VMip3 VMii VMii3 VMis VMis3 VMif VMif3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			indicativeVerbDensity = numIndicativeVerbs
-			/ numTokens
+Formula:
+	indicativeVerbDensity = numIndicativeVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Coordinate Phrases per Sentence</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the coordinate phrases per sentence. 
-Definition: # of coordinate phrases / # of sentences
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the coordinate phrases per sentence. 
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of coordinate phrases / number of sentences
 
 AAE dependency:
 	SentenceAnnotator.xml

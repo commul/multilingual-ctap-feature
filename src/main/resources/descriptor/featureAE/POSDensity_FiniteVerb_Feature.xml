@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Finite Verb</name>
 		<description>Calculates Finite Verb density of the text.
-			Finite Verbs include for German: the Tiger tags VVFIN VVIMP VAFIN VAIMP VMFIN.
- 			Finite Verbs include for Italian: Vip,Vip3,Vii,Vii3,Vis,Vis3,Vif,Vif3,Vcp,Vcp3,Vci,Vci3,Vdp,Vdp3.
- 
-			Formula:
-			finiteVerbDensity = numFiniteVerbs / numTokens
+Finite Verbs include
+	for German: the Tiger tags VVFIN VVIMP VAFIN VAIMP VMFIN.
+	for Italian: Vip,Vip3,Vii,Vii3,Vis,Vis3,Vif,Vif3,Vcp,Vcp3,Vci,Vci3,Vdp,Vdp3.
+	
+This feature is not available for English.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	finiteVerbDensity = numFiniteVerbs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

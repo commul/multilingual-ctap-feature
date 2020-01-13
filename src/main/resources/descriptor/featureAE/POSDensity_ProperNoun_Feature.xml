@@ -8,19 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Proper Noun</name>
 		<description>Calculates Proper Noun density of the text.
-			Proper Noun include for German: the Tiger tag NE,
-			for Italian: SP.
-			This feature is not available for English.
+Proper nouns include
+	for German: the Tiger tag NE,
+	for Italian: SP.
+	
+This feature is NOT available for English.
 
-			Formula:
-			NEDensity = numNE / numTokens
+Formula:
+	NEDensity = numNE / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

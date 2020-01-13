@@ -14,6 +14,8 @@ balliamo, e suoniamo e cantiamo: 2 coordinations
 "arriviste ed ambiziose" cc(arriviste, ed)
 "molto o abbastanza" cc(molto, o) 
 
+This feature is NOT available for English, German.
+
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

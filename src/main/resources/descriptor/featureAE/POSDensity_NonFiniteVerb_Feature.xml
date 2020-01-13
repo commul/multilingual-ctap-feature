@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Non Finite Verb</name>
 		<description>Calculates Non Finite Verb density of the text.
-			Non Finite Verbs include for German: the Tiger tags VVINF VVIZU VVPP VAINF VAPP VMINF VMPP.
-			Non Finite Verbs include for Italian: the tags  Vg Vp Vf Vm VAg VAp VAf VAm VMg VMp VMf VMm.
+Non Finite Verbs include
+	for German: the Tiger tags VVINF VVIZU VVPP VAINF VAPP VMINF VMPP.
+	for Italian: the tags  Vg Vp Vf Vm VAg VAp VAf VAm VMg VMp VMf VMm.
+	
+This feature is not available for English.
 
-			Formula:
-			nonFinVerbDensity = numNonFinVerb / numTokens
+Formula:
+	nonFinVerbDensity = numNonFinVerb / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

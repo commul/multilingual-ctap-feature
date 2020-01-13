@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Verb Cluster per Sentence</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the verb cluster per sentence. 
-Definition: # of verb cluster / # of sentences
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the verb cluster per sentence. 
+ 
+This feature is NOT available for English, Italian.
+
+Definition: 
+	number of verb cluster / number of sentences
 
 AAE dependency:
 	SentenceAnnotator.xml

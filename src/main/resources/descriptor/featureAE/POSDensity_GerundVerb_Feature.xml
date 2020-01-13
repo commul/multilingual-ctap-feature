@@ -7,21 +7,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Gerund Verb</name>
-		<description>Calculates gerund verb density of the text. Gerund verbs
-			include for English the Penn Treebank tag VBG,
-			for Italian: Vg VAg VMg.
-			This feature is not available for: German
+		<description>Calculates gerund verb density of the text.
+Gerund verbs include
+	for English the Penn Treebank tag VBG,
+	for Italian: Vg VAg VMg.
+	
+This feature is NOT available for: German
 
-			Formula:
-			VBGDensity = numVBGs /
-			numTokens
+Formula:
+	VBGDensity = numVBGs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

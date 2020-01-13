@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Relative Clauses per T-Unit</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the relative clauses per T-Unit. 
-Definition: # of relative clauses phrases / # of T-Units
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the relative clauses per T-Unit. 
+ 
+This feature is NOT available for English, Italian.
+
+Definition: 
+	number of relative clauses phrases / number of T-Units
 
 AAE dependency:
 	SentenceAnnotator.xml

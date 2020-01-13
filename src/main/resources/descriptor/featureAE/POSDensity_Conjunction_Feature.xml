@@ -8,20 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Conjunction</name>
 		<description>Calculates conjunction density of the text.
-			Conjunctions
-			include
-			for English: the Penn Treebank tags CC, and IN,
-			for German: the Tiger tags KOUI KOUS KON KOKOM,
-			for Italian: tags CC CS.
+Conjunctions include
+	for English: the Penn Treebank tags CC, and IN,
+	for German: the Tiger tags KOUI KOUS KON KOKOM,
+	for Italian: tags CC CS.
 
-			Formula:
-			conjDensity = numConj / numTokens
+Formula:
+	conjDensity = numConj / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

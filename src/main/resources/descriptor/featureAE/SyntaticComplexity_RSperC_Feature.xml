@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Relative Clauses per Sentence</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the relative clauses per sentence. 
-Definition: # of relative clauses / # of sentences
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the relative clauses per sentence. 
+ 
+This feature is NOT available for English, Italian.
+
+Definition: 
+	number of relative clauses / number of sentences
 
 AAE dependency:
 	SentenceAnnotator.xml

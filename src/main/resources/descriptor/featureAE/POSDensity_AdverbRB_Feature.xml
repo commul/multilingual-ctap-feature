@@ -8,19 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Adverb RB</name>
 		<description>Calculates adverb RB density of the text.
-			Adverb RBs
-			include for English the Penn Treebank tag RB.
-			This feature is not
-			available for: German, Italian
+Adverb RBs include for English the Penn Treebank tag RB.
 
-			Formula:
-			RBDensity = numRBs / numTokens
+This feature is NOT available for: German, Italian
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	RBDensity = numRBs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

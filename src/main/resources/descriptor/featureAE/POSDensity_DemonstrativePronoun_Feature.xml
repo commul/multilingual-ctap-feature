@@ -8,19 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Demonstrative Pronoun</name>
 		<description>Calculates Demonstrative Pronoun density of the text.
-			Demonstrative Pronouns include for German: the Tiger tags PDS PDAT.
-			Demonstrative Pronouns include for Italian: PD.
-			This feature is not available for: English.
+Demonstrative Pronouns include
+	for German: the Tiger tags PDS PDAT.
+	for Italian: PD.
 
-			Formula:
-            demPronDensity = numDemPron / numTokens
+This feature is NOT available for: English.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	demPronDensity = numDemPron / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

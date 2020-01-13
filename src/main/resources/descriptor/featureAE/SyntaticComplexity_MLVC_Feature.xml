@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Mean Length of Verb Cluster</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the mean length of verb cluster. 
-Definition: # of word / # of verb cluster
+    <description>Calculates the syntactic complexity of the text. T
+Calculates the mean length of verb cluster. 
+ 
+This feature is NOT available for English, Italian.
+
+Definition: 
+	number of words / number of verb clusters
 
 AAE dependency:
 	SentenceAnnotator.xml

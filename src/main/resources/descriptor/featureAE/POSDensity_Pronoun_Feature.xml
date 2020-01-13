@@ -7,22 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Pronoun</name>
-		<description>Calculates pronoun density of the text. Pronouns include
-			for English: the Penn Treebank tags PRP, PRP$, WP, WP$,
-			for German the Tiger tags: PDS PDAT PIS PIAT PIDAT PPER PPOSS PPOSAT PRELS PRELAT PRF PWS PWSAT PWAV PAV,
-			for Italian: PC PD PE PI PP PQ PR.
+		<description>Calculates pronoun density of the text.
+Pronouns include
+	for English: the Penn Treebank tags PRP, PRP$, WP, WP$,
+	for German the Tiger tags: PDS PDAT PIS PIAT PIDAT PPER PPOSS PPOSAT PRELS PRELAT PRF PWS PWSAT PWAV PAV,
+	for Italian: PC PD PE PI PP PQ PR.
 
-			Formula:
-			pronounDensity =
-			numPronouns /
-			numTokens
+Formula:
+	pronounDensity = numPronouns / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

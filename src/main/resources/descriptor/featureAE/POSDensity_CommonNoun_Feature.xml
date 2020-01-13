@@ -8,18 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Common Noun</name>
 		<description>Calculates Common Noun density of the text.
-			Common Nouns include for German: the Tiger tag NN.
-			This feature is not available for English and Italian.
+Common Nouns include for German: the Tiger tag NN.
 
-			Formula:
-			NNDensity = numNN / numTokens
+This feature is NOT available for English and Italian.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	NNDensity = numNN / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

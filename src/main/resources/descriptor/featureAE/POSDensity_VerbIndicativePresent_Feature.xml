@@ -7,20 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Indicative Present Tense Verb</name>
-		<description>Calculates indicative imperfect tense verb density of the text.
-		
-			for Italian: indicative imperfect : Vip Vip3 VAip VAip3 VMip VMip3.
-			This feature is not available for: English, German
+		<description>Calculates indicative imperfect tense verbs density of the text.
+Indicative imperfect tense verbs include
+	for Italian: indicative imperfect : Vip Vip3 VAip VAip3 VMip VMip3.
 
-			Formula:
-			VBDDensity = numVBDs / numTokens
+This feature is NOT available for: English, German
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	VBDDensity = numVBDs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

@@ -7,11 +7,11 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Letter Annotator</name>
-		<description>Annotates letters in natural language.
+		<description>Annotates letters.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>xiaobin</vendor>

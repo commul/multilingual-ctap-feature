@@ -8,20 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Adjective</name>
 		<description>Calculates adjective density of the text.
-			Adjectives include
-			for English: the Penn Treebank tags JJ, JJR and JJS,
-			for German: the Tiger tags ADJA and ADJD,
-			for Italian: As Ap An APs APp APn.
+Adjectives include
+	for English: the Penn Treebank tags JJ, JJR and JJS,
+	for German: the Tiger tags ADJA and ADJD,
+	for Italian: As Ap An APs APp APn.
 
-			Formula:
-			adjDensity =
-			numAdjectives / numTokens
+Formula:
+	adjDensity = numAdjectives / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -7,19 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Past Tense Verb</name>
-		<description>Calculates past tense verb density of the text. Past tense verbs 
-			include for English the Penn Treebank tag VBD.
-			This feature is not available for: German, Italian
+		<description>Calculates past tense verb density of the text.
+Past tense verbs include
+	for English the Penn Treebank tag VBD.
+This feature is NOT available for: German, Italian.
 
-			Formula:
-			VBDDensity = numVBDs / numTokens
+Formula:
+	VBDDensity = numVBDs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -4,8 +4,11 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Coordinations per Sentence</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the number coordinations per sentence. 
-Definition: # of coordinations / # of sentences
+    <description>Calculates the syntactic complexity of the text.
+Calculates the number coordinations per sentence. 
+
+Definition: 
+	number of coordinations / number of sentences
 
 AAE dependency:
 	SentenceAnnotator.xml

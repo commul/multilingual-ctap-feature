@@ -6,20 +6,20 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.POSDensityAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>POS Density Feature: Possesive WH Pronoun</name>
-		<description>Calculates possesive WH pronoun density of the text. Possesive WH pronouns include 
-			for English the Penn Treebank tag WP$.
-			This feature is not available for: German, Italian.
+		<name>POS Density Feature: Possessive WH Pronoun</name>
+		<description>Calculates possesive WH pronoun density of the text.
+Possesive WH pronouns include 
+	for English the Penn Treebank tag WP$.
+This feature is NOT available for: German, Italian.
 
-			Formula:
-			WP$Density = numWP$s
-			/ numTokens
+Formula:
+	possessive WH pronouns density = number of possessive WH pronouns / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

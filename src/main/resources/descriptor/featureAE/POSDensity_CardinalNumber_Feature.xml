@@ -8,21 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Cardinal Number</name>
 		<description>Calculates cardinal number density of the text.
-			Cardinal
-			numbers include
-			for English: the Penn Treebank tags CD,
-			for German: the	Tiger tag CARD,
-			for Italian: N.
+Cardinal numbers include
+	for English: the Penn Treebank tags CD,
+	for German: the	Tiger tag CARD,
+	for Italian: N.
 			
-			Formula:
-			CDDensity = numCDs / numTokens
+Formula:
+	CDDensity = numCDs / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

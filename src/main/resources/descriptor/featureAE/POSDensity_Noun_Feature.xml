@@ -7,20 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Noun</name>
-		<description>Calculates noun density of the text. Nouns include
-			for English: the Penn Treebank tags NN, NNS, NNP and NNPS,
-			for German: the Tiger tags NN NE,
-			for Italian: the tags  Ss Sp Sn SWs SWp SWn.
+		<description>Calculates noun density of the text.
+Nouns include
+	for English: the Penn Treebank tags NN, NNS, NNP and NNPS,
+	for German: the Tiger tags NN NE,
+	for Italian: the tags  Ss Sp Sn SWs SWp SWn.
 
-			Formula:
-			nounDensity = numNouns / numTokens
+Formula:
+	nounDensity = numNouns / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

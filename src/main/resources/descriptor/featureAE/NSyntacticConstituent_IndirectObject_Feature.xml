@@ -4,14 +4,15 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Indirect Object</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of indirect objects in the text. 
+    <description>Counts the number of indirect objects in the text. 
 
 The indirect object of a VP is the noun phrase which is the (dative) object of the verb
-	
 
 "assegna alla proprietà anche una funzione sociale" iobj(assegna, proprietà);   Tint ha dato: 'nmod:alla(assegna-1, proprietà-3)'
 "capacità riconosciuta- gli" iobj(riconosciuta-, gli);
 "ti ho dato l'oro" iobj(dato, ti)
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

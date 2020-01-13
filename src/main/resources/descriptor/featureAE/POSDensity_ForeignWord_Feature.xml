@@ -8,20 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Foreign Word</name>
 		<description>Calculates foreign word density of the text.
-			Foreign words
-			include
-			for English: the Penn Treebank tag FW,
-			for German: the Tiger tag FM,
-			for Italian: the tags SWs, SWp, SWn.
+Foreign words include
+	for English: the Penn Treebank tag FW,
+	for German: the Tiger tag FM,
+	for Italian: the tags SWs, SWp, SWn.
 
-			Formula:
-			FWDensity = numFWs / numTokens
+Formula:
+	FWDensity = numFWs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -7,18 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: WH Adverb</name>
-		<description>Calculates WH adverb density of the text. WH adverbs include 
-			for English: the Penn Treebank tag WRB.
-			This feature is not available for: German, Italian.
+		<description>Calculates WH adverb density of the text.
+WH adverbs include 
+	for English: the Penn Treebank tag WRB.
 
-			Formula:
-			WRBDensity = numWRBs / numTokens
+This feature is not available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	WRBDensity = numWRBs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

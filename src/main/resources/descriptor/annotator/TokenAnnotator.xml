@@ -9,8 +9,8 @@
 		<name>Token Annotator</name>
 		<description>Annotates tokens in natural language.
 
-			AAE dependency:
-			SentenceAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

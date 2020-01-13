@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Punctuation</name>
 		<description>Calculates Punctuation density of the text.
-			Punctuation includes for German: the Tiger tags $, $. $(
-			Punctuation includes for Italian: FB FC	FF FS
+Punctuation includes
+	for German: the Tiger tags $, $. $(
+	for Italian: FB FC	FF FS
+	
+This feature is NOT available for English.
 
-			Formula:
-			punctDensity = numPunct / numTokens
+Formula:
+	punctDensity = numPunct / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

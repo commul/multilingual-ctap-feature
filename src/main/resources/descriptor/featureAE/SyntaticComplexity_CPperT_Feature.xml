@@ -4,8 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Syntactic Complexity Feature: Coordinate Phrases per T-unit</name>
-    <description>Calculates the syntactic complexity of the text. This feature calculates the coordinate phrases per T-unit. 
-Definition: # of coordinate phrases / # of T-units
+    <description>Calculates the syntactic complexity of the text. 
+Calculates the coordinate phrases per T-unit. 
+ 
+This feature is NOT available for Italian.
+
+Definition: 
+	number of coordinate phrases / number of T-units
 
 AAE dependency:
 	SentenceAnnotator.xml

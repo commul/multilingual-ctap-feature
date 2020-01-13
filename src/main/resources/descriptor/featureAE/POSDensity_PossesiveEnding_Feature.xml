@@ -7,18 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Possessive Ending</name>
-		<description>Calculates possessive ending density of the text. Possessive endings include 
-			for English the Penn Treebank tag POS.
-			This feature is not available for: German, Italian
+		<description>Calculates possessive ending density of the text.
+Possessive endings include 
+	for English the Penn Treebank tag POS.
+This feature is NOT available for: German, Italian
 
-			Formula:
-			POSDensity = numPOSs / numTokens
+Formula:
+	POSDensity = numPOSs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -7,18 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Superlative Adverb</name>
-		<description>Calculates superlative adverb density of the text. Superlative adverbs include 
-			for English the Penn Treebank tag RBR.
-			This feature is not available for: German, Italian.
+		<description>Calculates superlative adverb density of the text.
+Superlative adverbs include 
+	for English the Penn Treebank tag RBR.
 
-			Formula:
-			RBSDensity = numRBSs / numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	RBSDensity = numRBSs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

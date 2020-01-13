@@ -7,18 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Superlative Adjective</name>
-		<description>Calculates superlative adjective density of the text. Superlative adjectives include 
-			for English the Penn Treebank tag JJS.
-			This feature is not available for: German, Italian.
+		<description>Calculates superlative adjective density of the text.
+Superlative adjectives include 
+	for English the Penn Treebank tag JJS.
 
-			Formula:
-			JJSDensity = numJJS / numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	JJSDensity = numJJS / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

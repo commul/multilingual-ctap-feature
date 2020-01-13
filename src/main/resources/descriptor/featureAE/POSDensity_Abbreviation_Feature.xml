@@ -7,19 +7,18 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Abbreviation</name>
-		<description>Calculates abbreviation density of the text. Abbreviations include 
-			for Italian: SA.
+		<description>Calculates abbreviation density of the text. Abbreviations include for Italian: SA.
 			
-			This feature is not available for: English, German
+This feature is not available for: English, German.
 
-			Formula:
-			abbreviationDensity = numAbbreviations / numTokens
+Formula:
+	abbreviationDensity = numAbbreviations / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

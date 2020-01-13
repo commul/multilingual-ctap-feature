@@ -8,20 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Plural Noun</name>
 		<description>Calculates plural noun density of the text.
-			Plural nouns include 
-			for English the Penn Treebank tag NNS,
-			for Italian: Sp SWp.
-			This feature is not available for: German
+Plural nouns include 
+	for English the Penn Treebank tag NNS,
+	for Italian: Sp SWp.
+	
+This feature is NOT available for: German
 
-			Formula:
-			NNSDensity = numNNS /
-			numTokens
+Formula:
+	NNSDensity = numNNS / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

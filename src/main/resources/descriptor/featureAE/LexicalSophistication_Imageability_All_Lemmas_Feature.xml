@@ -10,7 +10,12 @@ A norm list is a list where a norm value that describes a certain aspect of a wo
 
 All lemmas features take into consideration all lemmas, while unique lemmas features calculate only unique lemmas.
 
-This feature calculates lexical sophistication with the Imageability norm list from the Burani et al., 2001, containing 626 Italian nouns (https://www.istc.cnr.it/en/grouppage/varless):
+This feature calculates lexical sophistication with the Imageability norm list from the Burani et al., 2001, containing 626 Italian nouns.
+https://www.istc.cnr.it/en/grouppage/varless
+
+This feature is NOT available for English, German.
+
+Bib. ref.:
 Cristina Burani, Lisa S Arduino, Laura Barca, "Una base di dati sui valori di età di acquisizione, frequenza, familiarità, immaginabilità, concretezza, e altre variabili lessicali e sublessicali per 626 nomi dell'italiano", Giornale Italiano di Psicologia, January 2001
 
 AAE dependency:

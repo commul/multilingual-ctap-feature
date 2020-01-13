@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Infinite Verb</name>
 		<description>Calculates Infinite Verb density of the text.
-			Infinite Verbs include for German: the Tiger tags VVINF VAINF VMINF.
-			Infinite Verbs include for Italian: the tags VMf VAf Vf.
+Infinite Verbs include
+	for German: the Tiger tags VVINF VAINF VMINF.
+	for Italian: the tags VMf VAf Vf.
+	
+This feature is not available for English.
 
-			Formula:
-			infVerbDensity = numInfVerb / numTokens
+Formula:
+	infVerbDensity = numInfVerb / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

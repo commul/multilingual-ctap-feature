@@ -8,18 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Auxiliary Verb</name>
 		<description>Calculates Auxiliary Verb density of the text.
-			Auxiliary Verbs include for German: the Tiger tags VAFIN VAIMP VAINF VAPP.
-			Auxiliary Verbs include for Italian: VAip,VA,VAip3, VAii, VAii3, VAis, Vis3, VAif, VAif3, VAcp, VAcp3, VAci, VAci3, VAdp, VAdp3, VAg, VAp, VAf, VAm
+Auxiliary Verbs include
+	for German: the Tiger tags VAFIN VAIMP VAINF VAPP.
+	for Italian: VAip,VA,VAip3, VAii, VAii3, VAis, Vis3, VAif, VAif3, VAcp, VAcp3, VAci, VAci3, VAdp, VAdp3, VAg, VAp, VAf, VAm
+	
+This feature is not available for English.
 
-			Formula:
-			auxVerbDensity = numAuxVerb / numTokens
+Formula:
+	auxVerbDensity = numAuxVerb / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

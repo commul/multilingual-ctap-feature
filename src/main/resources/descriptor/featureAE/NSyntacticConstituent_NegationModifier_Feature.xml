@@ -4,12 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Negation Modifier</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of negation modifiers in the text. 
+    <description>Counts the number of negation modifiers in the text. 
 
 The negation modifier is the relation between a negation word and the word it modifies
 	
-
 "Non mi piace" neg(piace, non)
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

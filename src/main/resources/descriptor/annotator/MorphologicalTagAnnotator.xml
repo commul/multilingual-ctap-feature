@@ -7,10 +7,10 @@
 		<name>Morphological Tag Annotator</name>
 		<description>Annotates morphological features of tokens in natural language.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			LemmaAnnotator.xml</description>
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	LemmaAnnotator.xml</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>
 		<configurationParameters>

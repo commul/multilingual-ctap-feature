@@ -7,20 +7,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Twitter Tag</name>
-		<description>Calculates twitter tags density of the text. Twitter tags include 
-			for English the Penn Treebank tag SYM,
-			for Italian: XM (twitter mentions ex.: @obama) XH (twitter hashtags ex.: #nlp).
+		<description>Calculates twitter tags density of the text.
+Twitter tags include 
+	for English the Penn Treebank tag SYM,
+	for Italian: XM (twitter mentions ex.: @obama) XH (twitter hashtags ex.: #nlp).
 			
-			This feature is not available for: German, English
+This feature is NOT available for: German
 
-			Formula:
-			twitterTagsDensity = numTwitterTags / numTokens
+Formula:
+	twitterTagsDensity = numTwitterTags / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

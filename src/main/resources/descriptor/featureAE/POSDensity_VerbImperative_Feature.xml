@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Imperative Verb</name>
-		<description>
-			Calculates imperative verbs density of the text.
-
-			For Italian: Vm VAm VMm
+		<description>Calculates imperative verbs density of the text.
+Imperative verbs include for Italian: Vm VAm VMm
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			imperativeVerbDensity = numImperativeVerbs
-			/ numTokens
+Formula:
+	imperativeVerbDensity = numImperativeVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

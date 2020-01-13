@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Verb Indicative Future</name>
-		<description>
-			Calculates indicative future verbs density of the text.
-
-			For Italian: Vif Vif3 VAif VAif3 VMif VMif3
+		<description>Calculates indicative future verbs density of the text.
+Indicative future verbs include for Italian: Vif Vif3 VAif VAif3 VMif VMif3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			indicativeFutureVerbDensity = numIndicativeFutureVerbs
-			/ numTokens
+Formula:
+	indicativeFutureVerbDensity = numIndicativeFutureVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

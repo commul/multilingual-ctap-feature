@@ -7,20 +7,20 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Indicative Past Tense Verb</name>
-		<description>Calculates past tense verb density of the text. Past tense verbs 
-			include for English the Penn Treebank tag VBD,
-			for Italian: indicative past (imperfect excluded): Vis Vis3 VAis Vis3 VMis VMis3.
-			This feature is not available for: English, German
+		<description>Calculates past tense verb density of the text.
+Past tense verbs include
+	for Italian: indicative past (imperfect excluded): Vis Vis3 VAis Vis3 VMis VMis3.
 
-			Formula:
-			VBDDensity = numVBDs / numTokens
+This feature is NOT available for: German, English
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	VBDDensity = numVBDs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

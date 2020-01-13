@@ -7,22 +7,24 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Lexical Richness: Type Token Ratio (Root TTR)</name>
-		<description>Calculates the type token ratio of a text. A word type is
-			a non-duplicated token.
-			This features calculates the root TTR with the
-			formula:
-			LogTTR = T/sqrt(N)
-			T stands for number of word types, N for
-			number of tokens.
+		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
 			
-			Guiraud, P. 1960. Problemes et Methodes de la Statistique Linguistique. Dordrecht: D. Reidel.
+Definition:
+	This features calculates the root TTR with the formula:
+	LogTTR = T/sqrt(N)
+	
+	T stands for number of word types
+	N stands for number of tokens.
+			
+Bib. ref.:
+	Guiraud, P. 1960. Problemes et Methodes de la Statistique Linguistique. Dordrecht: D. Reidel.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			TokenTypeAnnotator.xml
-			NTokenFeature.xml
-			NTokenTypeFeature.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	TokenTypeAnnotator.xml
+	NTokenFeature.xml
+	NTokenTypeFeature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

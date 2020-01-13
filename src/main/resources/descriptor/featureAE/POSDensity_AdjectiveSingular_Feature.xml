@@ -8,19 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Singular Adjective</name>
 		<description>Calculates adjective density of the text.
-			Plural adjectives include for Italian: As APs
+Plural adjectives include for Italian: As APs
 			
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 
-			Formula:
-			adjDensity =
-			numSingularAdjectives / numTokens
+Formula:
+	adjDensity = numSingularAdjectives / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

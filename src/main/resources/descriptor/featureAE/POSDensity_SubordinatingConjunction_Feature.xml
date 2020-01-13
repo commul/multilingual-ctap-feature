@@ -8,21 +8,20 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Subordinating Conjunction</name>
 		<description>Calculates the density of Subordinating Conjunctions in the text.
-			Subordinating Conjunction include
-			for German: the Tiger tags KOUS KOUI,
-			for Italian: CS.
+Subordinating Conjunctions include
+	for German: the Tiger tags KOUS KOUI,
+	for Italian: CS.
 			
-			This feature is not available for English.
+This feature is not available for English.
 
-			Formula:
-			subConjDensity = numSubordConj / numTokens
+Formula:
+	subConjDensity = numSubordConj / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

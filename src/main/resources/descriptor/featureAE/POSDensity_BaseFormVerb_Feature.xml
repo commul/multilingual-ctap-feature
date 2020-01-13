@@ -8,19 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Base Form Verb</name>
 		<description>Calculates base form verb density of the text.
-			Base form
-			verbs include for English the Penn Treebank tag VB.
-			This feature is not available for: German, Italian
+Base form verbs include for English the Penn Treebank tag VB.
 
-			Formula:
-			VBDensity = numVBs / numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	VBDensity = numVBs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

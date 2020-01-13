@@ -4,14 +4,15 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Noun Phrase as Adverbial Modifier</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of noun phrases as adverbial modifiers in the text. 
+    <description>Counts the number of noun phrases as adverbial modifiers in the text. 
 
 This relation captures various places where something syntactically a noun phrase (NP) is used as an adverbial modifier in a sentence. These usages include: (i) a measure phrase, which is the relation between the head of an ADJP/ADVP/PP and the head of a measure phrase modifying the ADJP/ADVP; (ii) noun phrases giving an extent inside a VP which are not objects; (iii) financial constructions involving an adverbial or PP-like NP, notably the following construction $5 a share, where the second NP means \per share"; (iv) oating reflexives; and (v) certain other absolutive NP constructions. A temporal modifier (tmod) is a subclass of npadvmod which is distinguished as a separate relation.
 	
-
 "Costava sei lire" npadvmod(costava, lire); Tint ha dato: 'dobj(Costava-1, lire-3)'
 "a quota un milione" npadvmod(quota, milione);
 "tutte, una dopo l'altra" npadvmod(tutte, una)  
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

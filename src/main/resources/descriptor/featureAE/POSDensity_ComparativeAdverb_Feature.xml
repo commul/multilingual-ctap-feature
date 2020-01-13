@@ -8,17 +8,18 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Comparative Adverb</name>
 		<description>Calculates comparative adverb density of the text.
-			Comparative adverbs include for English the Penn Treebank tag RBR.
-			This feature is not available for: German, Italian.
+Comparative adverbs include for English the Penn Treebank tag RBR.
 
-			Formula:
-			RBRDensity = numRBRs / numTokens
+This feature is NOT available for: German, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+Formula:
+	RBRDensity = numRBRs / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -7,20 +7,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Symbol</name>
-		<description>Calculates symbol density of the text. Symbols include 
-			for English the Penn Treebank tag SYM,
-			for Italian: XX XE.
+		<description>Calculates symbol density of the text.
+Symbols include 
+	for English the Penn Treebank tag SYM,
+	for Italian: XX XE.
 			
-			This feature is not available for: German
+This feature is NOT available for: German
 
-			Formula:
-			SYMDensity = numSYMs / numTokens
+Formula:
+	SYMDensity = numSYMs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

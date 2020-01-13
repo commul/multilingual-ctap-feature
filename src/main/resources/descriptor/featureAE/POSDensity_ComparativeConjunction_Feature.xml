@@ -8,19 +8,19 @@
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Comparative Conjunction</name>
 		<description>Calculates the density of comparative conjunctions in the text.
-			Comparative conjunctions include 
-			for German: the Tiger tag KOKOM.
-			This feature is not available for English, Italian.
+Comparative conjunctions include 
+	for German: the Tiger tag KOKOM.
+	
+This feature is NOT available for English, Italian.
 
-			Formula:
-			compConjDensity = numCompConj / numTokens
+Formula:
+	compConjDensity = numCompConj / numTokens
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

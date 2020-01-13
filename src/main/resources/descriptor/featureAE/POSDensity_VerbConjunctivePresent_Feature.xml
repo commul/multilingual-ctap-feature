@@ -7,22 +7,19 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>POS Density Feature: Conjunctive Present Verb</name>
-		<description>
-			Calculates conjunctive present verbs density of the text.
-
-			For Italian: Vcp Vcp3 VAcp VAcp3 VMcp VMcp3
+		<description>Calculates conjunctive present verbs density of the text.
+Conjunctive present verbs include for Italian: Vcp Vcp3 VAcp VAcp3 VMcp VMcp3
 	
-			This feature is not available for: English, German.
+This feature is NOT available for: English, German.
 	
-			Formula:
-			conjunctivePresentVerbDensity = numConjunctivePresentVerbs
-			/ numTokens
+Formula:
+	conjunctivePresentVerbDensity = numConjunctivePresentVerbs / numTokens
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			POSAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>
