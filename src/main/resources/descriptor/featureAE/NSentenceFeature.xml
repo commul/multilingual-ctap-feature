@@ -9,9 +9,8 @@
 		<name>Number of Sentences</name>
 		<description>Calculates the number of sentences in a text.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>xiaobin</vendor>

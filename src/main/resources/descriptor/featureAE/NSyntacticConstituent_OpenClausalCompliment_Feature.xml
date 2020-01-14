@@ -8,9 +8,10 @@
 
 An open clausal complement (xcomp) of a VP or an ADJP is a clausal complement without its own subject, whose reference is determined by an external subject. These complements are always non-finite. The name xcomp is borrowed from Lexical-Functional Grammar
 	
-
 "Si dice che ami nuotare" xcomp(ami, nuotare)
 "Tutti gli esseri umani sanno di poter essere più di ciò che sono" xcomp(sanno, essere)  Tint ha dato: 'xcomp(sanno-5, più-9)'
+
+This feature is not available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

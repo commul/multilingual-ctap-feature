@@ -17,7 +17,9 @@ Only words that are included in the frequency list are calculated. Words that do
 Token features take into consideration all word tokens, while type features calculate only unique tokens.
 
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (Log10 word frequency measure per million words) of lexical words (LW).
-log10 ( FREQCOUNT + 1 ) - log10 ( total number of words  in the open subtitles corpus ( number of lines in the SUBTLEX-[lang].csv file ) / 1000 000 )
+
+Definition:
+	log10 ( FREQCOUNT + 1 ) - log10 ( total number of words  in the open subtitles corpus ( number of lines in the SUBTLEX-[lang].csv file ) / 1000 000 )
 
 AAE dependency:
 	SentenceAnnotator.xml

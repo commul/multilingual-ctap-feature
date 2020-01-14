@@ -7,11 +7,11 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Temporal Connectives (Breindl for German)</name>
-		<description>Calculates the number of temporal connectives listed by Breindl for German, by Nadezda Okinina for Italian.
+		<description>Calculates the number of temporal connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

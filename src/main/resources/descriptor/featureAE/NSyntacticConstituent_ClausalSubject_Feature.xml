@@ -8,9 +8,10 @@
 
 A clausal subject is a clausal syntactic subject of a clause, i.e., the subject is itself a clause. The governor of this relation might not always be a verb: when the verb is a copular verb, the root of the clause is the complement of the copular verb. In the two following examples, "what she said" is the subject.
 	
-
 "Che tu abbia ragione è indubbio" csubj(è, abbia)
 "A tutti è noto che il Costanzo decedette il giorno stesso" csubj(è, decedette). Tint ha dato: 'csubj(noto-4, decedette-8)'
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

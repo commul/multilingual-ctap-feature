@@ -6,7 +6,7 @@
     <name>Number of Syntactic Constituents: T-units</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of T-units in the text. 
 
-    AAE dependency:
+AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>

@@ -38,6 +38,9 @@ import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
 import com.ctapweb.feature.type.Lemma;
 import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
+import com.ctapweb.feature.util.EnglishWordCategories;
+import com.ctapweb.feature.util.GermanWordCategories;
+import com.ctapweb.feature.util.ItalianWordCategories;
 
 import is2.data.SentenceData09;
 import is2.lemmatizer.Lemmatizer;
@@ -88,19 +91,47 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 		} else {
 			lCode = ((String) aContext.getConfigParameterValue(PARAM_LANGUAGE_CODE)).toUpperCase();
 		}
+		
+		switch (lCode) {
+		case "DE":
+			String languageSpecificResourceKey = LEMMA_RESOURCE_KEY+lCode;
+			try {
+				lemmaModelFilePath = getContext().getResourceFilePath(languageSpecificResourceKey);
 
-		if (lCode.equals("DE")){  // TODO this should be a switch statement (by zweiss)
-			/*
+				logger.trace(LogMarker.UIMA_MARKER, 
+					new LoadLangModelMessage(languageSpecificResourceKey, lemmaModelFilePath));
+
+				lemmatizer = new MateLemmatizer(lemmaModelFilePath);
+				// add switch statement here to allow for different instantiations; see example in ParseTreeAnnotator.java
+
+			} catch (ResourceAccessException e) {
+				logger.throwing(e);
+				throw new ResourceInitializationException("could_not_access_data",
+					new Object[] {lemmaModelFilePath}, e);
+			} catch (IOException e) {
+				logger.throwing(e);
+				throw new ResourceInitializationException(CTAPException.EXCEPTION_DIGEST, 
+					"file_io_error",
+					new Object[] {lemmaModelFilePath}, e);
+			}
+			break;
+		case "IT":
 			try{
 				String treetaggerPath = getContext().getResourceFilePath("treetagger");
-				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("de", "treetaggerPath line 98: " + treetaggerPath));
+				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
 				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
 
 			}catch(Exception e){
 				logger.throwing(e);
 			}
-			*/
-			
+			break;
+		case "EN":
+		default:
+			break;
+		}
+		
+		/*
+		if (lCode.equals("DE")){  // TODO this should be a switch statement (by zweiss)			
 			//init lemmatizer
 			String languageSpecificResourceKey = LEMMA_RESOURCE_KEY+lCode;
 			try {
@@ -127,14 +158,14 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 		}else if (lCode.equals("IT")){
 			try{
 				String treetaggerPath = getContext().getResourceFilePath("treetagger");
-				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath line 98: " + treetaggerPath));
+				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
 				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
 
 			}catch(Exception e){
 				logger.throwing(e);
 			}
 		}
-		
+		*/
 		logger.trace(LogMarker.UIMA_MARKER, new InitializeAECompleteMessage(aeType, aeName));
 	}
 

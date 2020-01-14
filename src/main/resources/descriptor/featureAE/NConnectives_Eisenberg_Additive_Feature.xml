@@ -8,10 +8,12 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Additive Connectives (Eisenberg for German)</name>
 		<description>Calculates the number of additive connectives for German according to Eisenberg.
+		
+This feature is NOT available for English, Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

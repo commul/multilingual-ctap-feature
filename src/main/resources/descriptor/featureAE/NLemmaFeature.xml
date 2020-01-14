@@ -9,11 +9,10 @@
 		<name>Number of Lemmas</name>
 		<description>Calculates the number of lemmas in the text.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			LemmaAnnotator.xml
+AAE	dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	LemmaAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

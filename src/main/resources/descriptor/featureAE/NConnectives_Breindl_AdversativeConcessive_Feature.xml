@@ -7,7 +7,7 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Adversative or Concessive Connectives (Breindl for German)</name>
-		<description>Calculates the number of adversative or concessive connectives listed by Breindl for German, by Nadezda Okinina for Italian.
+		<description>Calculates the number of adversative or concessive connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
 
 			AAE dependency:
 			SentenceAnnotator.xml

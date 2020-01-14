@@ -4,11 +4,10 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.LexicalVariationAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Lexical Variation Feature: Modifier</name>
-    <description>Calculates lexical variation of the text. Lexical words are verbs, nouns, adjectives, and adverb. This feature calculates Modifier variation with the following formula:
-
+    <description>Calculates lexical variation of the text. Lexical words are verbs, nouns, adjectives, and adverbs. This feature calculates Modifier variation. Modifiers are adjectives and adverbs.
+    
+Formula:
 	modifierVariation = nModifierType / nLexicalToken
-
-Modifiers are adjectives and adverbs.
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -9,16 +9,15 @@
 		<name>Mean Sentence Length in Letters</name>
 		<description>Calculates the mean sentence length in letters.
 
-			AAE
-			Dependency:
-			SentenceAnnotator.xml
-			NSentenceFeature.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			SyllableAnnotator.xml
-			NSyllableFeature.xml
-			LetterAnnotator.xml
-			NLetterFeature.xml
+AAE Dependency:
+	SentenceAnnotator.xml
+	NSentenceFeature.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	SyllableAnnotator.xml
+	NSyllableFeature.xml
+	LetterAnnotator.xml
+	NLetterFeature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -19,6 +19,12 @@ Usually text with Gulpease index
     less than 60 are difficult to read for those who have finished the middle school
     less than 40 are difficult to read for those who have finished the university
     
+This feature was originally defined and optimised for Italian.
+CTAP allows to apply it also to German and English, but it's up to the user to decide to what extent the results are reliable.
+
+Bib. ref.:
+	Pietro Lucisano and Maria Emanuela Piemontese. 1988. Gulpease. Una formula per la predizione della difficoltà dei testi in lingua italiana. Scuola e Città, 3:57–68.
+
 AAE dependency:
 	SentenceAnnotator.xml
 	NSentenceFeature.xml

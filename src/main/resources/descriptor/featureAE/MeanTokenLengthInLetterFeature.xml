@@ -9,15 +9,14 @@
 		<name>Mean Token Length in Letters</name>
 		<description>Calculates the mean token length in letters.
 
-			AAE
-			Dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			NTokenFeature.xml
-			SyllableAnnotator.xml
-			NSyllableFeature.xml
-			LetterAnnotator.xml
-			NLetterFeature.xml
+AAE Dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	SyllableAnnotator.xml
+	NSyllableFeature.xml
+	LetterAnnotator.xml
+	NLetterFeature.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

@@ -5,8 +5,10 @@
   <annotatorImplementationName>com.ctapweb.feature.featureAE.MeanParseTreeDepthAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Mean Parse Tree Depth Feature</name>
-    <description>Calculates the mean parse tree depth of the text. 
-Definition: sum of parse tree depths of all the sentences of the text / number of sentences of the text
+    <description>Calculates the mean parse tree depth of the text.
+     
+Definition:
+	sum of parse tree depths of all the sentences of the text / number of sentences of the text
 
 Note that different syntactic parsers are used for different languages:
 - Stanford dependencies are created for English and German

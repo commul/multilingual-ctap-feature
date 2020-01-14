@@ -14,6 +14,8 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the Thorndike­-Lorge norm list of frequencies (1944), which is included in the MRC Psycholinguistic Database (http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html). 
 
+This feature is not available for German, Italian.
+
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

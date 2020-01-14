@@ -8,8 +8,9 @@
 
 A temporal modifier (of a VP, NP, or an ADJP is a bare noun phrase constituent that serves to modify the meaning of the constituent by specifying a time. (Other temporal modifiers are prepositional phrases and are introduced as prep.)
 	
-
 "L'allarme è scattato la scorsa settimana" tmod(scattato, settimana) Tint ha dato: nmod(scattato-4, settimana-7)
+
+This feature is not available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

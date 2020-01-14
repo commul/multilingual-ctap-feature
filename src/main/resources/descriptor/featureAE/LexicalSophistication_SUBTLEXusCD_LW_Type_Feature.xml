@@ -14,6 +14,8 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (Contextual Diversity measure) of lexical words (LW).
 
+This feature is not available for German, Italian.
+
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

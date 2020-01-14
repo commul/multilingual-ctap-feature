@@ -4,14 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Relative Clause Modifier</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of relative clause modifiers in the text. 
+    <description>Counts the number of relative clause modifiers in the text. 
 
-relative clause modifier
-
-	"I saw the man you love" rcmod(man, love); "I saw the book which you bought" rcmod(book,bought)
+"I saw the man you love" rcmod(man, love); "I saw the book which you bought" rcmod(book,bought)
 
 "distinzioni che possono rendere difficile un confronto" rcmod(distinzioni, rendere)
  
+This feature is not available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

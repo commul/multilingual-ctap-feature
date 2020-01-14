@@ -7,11 +7,13 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Hierarchy Connectives</name>
-		<description>Calculates the number of hierarchy connectives listed by Nadezda Okinina for Italian.
+		<description>Calculates the number of hierarchy connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+		
+This feature is NOT available for English, German.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Nadezda Okinina</vendor>

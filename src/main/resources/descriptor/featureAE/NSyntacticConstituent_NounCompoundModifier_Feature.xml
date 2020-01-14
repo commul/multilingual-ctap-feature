@@ -4,14 +4,12 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Noun Compound Modifier</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of noun compound modifiers in the text. 
+    <description>Counts the number of noun compound modifiers in the text. 
 
 A noun compound modifier of an NP is any noun that serves to modify the head noun. (Note that in the current system for dependency extraction, all nouns modify the rightmost noun of the NP { there is no intelligent noun compound analysis. This is likely to be fixed once the Penn Treebank represents the branching structure of NPs.)
 	
-
 "la macchina cinema" nn(macchina, cinema);
 "l'effetto serra" nn(effetto, serra) 
-
 
 Tint ha dato: L'effetto serra è irreversibile.
 
@@ -23,6 +21,7 @@ compound(effetto-2, serra-3)
 cop(irreversibile-5, è-4)
 punct(irreversibile-5, .-6)
 
+This feature is not available for English.
 
 AAE dependency:
 	SentenceAnnotator.xml

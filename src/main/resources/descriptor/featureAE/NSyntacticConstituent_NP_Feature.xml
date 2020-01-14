@@ -4,9 +4,9 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Noun Phrase</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of noun phrases in the text. 
+    <description>Counts the number of noun phrases in the text. 
 
-    AAE dependency:
+AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>

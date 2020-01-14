@@ -22,6 +22,9 @@ Scores can be interpreted as shown in the table below:
 	50.0–30.0 	College 	Difficult to read.
 	30.0–0.0 	College graduate 	Very difficult to read. Best understood by university graduates. 
 
+This feature was originally defined and optimised for English.
+CTAP allows to apply it also to German and Italian, but it's up to the user to decide to what extent the results are reliable.
+
 AAE dependency:
 	SentenceAnnotator.xml
 	NSentenceFeature.xml

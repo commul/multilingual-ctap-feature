@@ -20,6 +20,7 @@ amod(settimana-7, scorsa-6)
 nmod(scattato-4, settimana-7)
 punct(scattato-4, .-8)
 
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

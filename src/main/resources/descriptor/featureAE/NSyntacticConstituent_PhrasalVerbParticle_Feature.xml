@@ -6,7 +6,7 @@
     <name>Number of Syntactic Constituents: Phrasal Verb Particle</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of phrasal verb particles in the text. 
 
-Used for clitic pronoun in reflexive verbs
+Used for clitic pronoun in reflexive verbs.
 
 "appostar-si nel parcheggio" prt(appostar-, si)
 "si divertì" prt(divertì, si)
@@ -20,7 +20,8 @@ det(principe-2, Il-1)
 nsubj(divertì-4, principe-2)
 expl(divertì-4, si-3)
 punct(divertì-4, .-5)
- 
+
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -11,6 +11,7 @@
 Predeterminers include 
 	for English the Penn Treebank tag PDT,
 	for Italian: T.
+	
 This feature is NOT available for: German.
 
 Formula:

@@ -4,11 +4,13 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.NSyntacticConstituentAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Predeterminer</name>
-    <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of predeterminers in the text. 
+    <description>Counts the number of predeterminers in the text. 
 
 A predeterminer is the relation between the head of an NP and a word that precedes and modifies the meaning of the NP determiner.
 
 "Tutte le piccole e medie aziende" predet(aziende, tutte) Tint ha dato 'det:predet(aziende-6, Tutte-1)'
+
+The feature is not available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

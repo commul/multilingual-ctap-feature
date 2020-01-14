@@ -361,8 +361,10 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 
 			// Add a custom property
 			// TODO please split up the parser logic so that POS tagging is done in the POSAnnotator, morphology is provided in the Morpholigical Tagger, etc. (by zweiss)
-			pipelineTint.setProperty("annotators","ita_toksent, pos, ita_morpho, ita_lemma, depparse");
-
+			// Reply by nokinina: Thank you. In order to obtain dependency parses, I need to launch the pipeline with a POS tagger.
+			//pipelineTint.setProperty("annotators","ita_toksent, pos, ita_morpho, ita_lemma, depparse");
+			pipelineTint.setProperty("annotators","ita_toksent, pos, depparse");
+			
 			// Load the models
 			pipelineTint.load();
 		}
@@ -386,6 +388,7 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 				baos = new ByteArrayOutputStream();
 				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
 				String substring;
+				System.out.println(baos.toString());
 				substring = baos.toString().replaceAll("(\\[Text=.+\\]|Tokens:|Sentence.+\n|Document Date:.+\n)", "");
 				substring = substring.replaceAll("(?m)^[ \t]*\r?\n", "");
 				String[] result = substring.split("Dependency Parse \\(enhanced plus plus dependencies\\):");

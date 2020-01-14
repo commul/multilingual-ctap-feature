@@ -25,9 +25,9 @@ Definition:
 This feature is NOT available for English.
 
 AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			POSAnnotator.xml
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	POSAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

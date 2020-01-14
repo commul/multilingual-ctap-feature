@@ -4,8 +4,9 @@
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.LexicalVariationAE</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Lexical Variation Feature: Adverb</name>
-    <description>Calculates lexical variation of the text. Lexical words are verbs, nouns, adjectives, and adverb. This feature calculates Adverb variation with the following formula:
+    <description>Calculates lexical variation of the text. Lexical words are verbs, nouns, adjectives, and adverb. This feature calculates Adverb variation.
 
+Formula:
 	adverbVariation = nAdverbType / nLexicalToken
 
 AAE dependency:

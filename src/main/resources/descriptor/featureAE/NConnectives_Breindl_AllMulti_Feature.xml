@@ -7,12 +7,13 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Breindl Multi-Word Connectives</name>
-		<description>
-			Calculates the number of all multi-word connectives listed by Breindl.
+		<description>Calculates the number of all multi-word connectives listed by Breindl.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+This feature is NOT available for English, Italian.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

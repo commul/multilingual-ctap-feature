@@ -8,9 +8,10 @@
 
 A numeric modifier of a noun is any number phrase that serves to modify the meaning of the noun
 	
-
 "Ha cambiato due ministri" num(ministri, due);
 "Dopo cinque anni di lavoro" num(anni, cinque) 
+
+This feature is not available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml

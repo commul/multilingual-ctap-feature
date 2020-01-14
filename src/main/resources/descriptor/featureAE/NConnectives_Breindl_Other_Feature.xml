@@ -9,9 +9,9 @@
 		<name>Number of Connectives: Breindl Other Connectives</name>
 		<description>Calculates the number of unspecified connectives connectives listed by Breindl.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

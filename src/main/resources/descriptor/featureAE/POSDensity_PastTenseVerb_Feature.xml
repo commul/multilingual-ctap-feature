@@ -10,6 +10,7 @@
 		<description>Calculates past tense verb density of the text.
 Past tense verbs include
 	for English the Penn Treebank tag VBD.
+	
 This feature is NOT available for: German, Italian.
 
 Formula:
