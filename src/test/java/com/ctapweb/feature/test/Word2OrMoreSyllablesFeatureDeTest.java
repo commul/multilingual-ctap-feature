@@ -30,7 +30,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class Word2OrMoreSyllablesFeatureTest {
+public class Word2OrMoreSyllablesFeatureDeTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedSyllable;
@@ -59,18 +59,18 @@ public class Word2OrMoreSyllablesFeatureTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "IT");
+		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSyllable = new XMLInputSource(fSyllable);
 		aedSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceSyllable);
 		
@@ -81,7 +81,7 @@ public class Word2OrMoreSyllablesFeatureTest {
 		paramsHashMap.put("aeID", dynamicStringArray);
 		
 		ArrayList dynamicStringArray2 = new ArrayList(2);
-		String[] names2 = {"string", "IT"};
+		String[] names2 = {"string", "DE"};
 		dynamicStringArray2.addAll(Arrays.asList(names2));
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);		
 		
@@ -92,7 +92,7 @@ public class Word2OrMoreSyllablesFeatureTest {
 	*/
 	
 	/*
-	 * Checks that the number of tokens with 2 or more syllables in META-INF/cani.txt is 170.0, with the precision of 0.0000001.
+	 * Checks that the number of tokens with 2 or more syllables in META-INF/de-test-text.txt is 170.0, with the precision of 0.0000001.
 	 */
 	/*
 	@Test
@@ -107,14 +107,14 @@ public class Word2OrMoreSyllablesFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 1333){
-				assertEquals(170.0, annot.getValue(), 0.0000001);
+				assertEquals(155.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	*/
 	
 	/*
-	 * Checks that the percent of tokens with 2 or more syllables in META-INF/cani.txt is 0.6439393939393939, with the precision of 0.0000001.
+	 * Checks that the percent of tokens with 2 or more syllables in META-INF/de-test-text.txt is 0.6439393939393939, with the precision of 0.0000001.
 	 */	
 	/*
 	@Test
@@ -129,14 +129,14 @@ public class Word2OrMoreSyllablesFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 1333){
-				assertEquals(0.6439393939393939, annot.getValue(), 0.0000001);
+				assertEquals(0.49363057324840764, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	*/
 	
 	/*
-	 * Checks that the number of word types in META-INF/cani.txt is 143.0, with the precision of 0.0000001.
+	 * Checks that the number of word types in META-INF/de-test-text.txt is 143.0, with the precision of 0.0000001.
 	 */	
 	/*
 	@Test
@@ -151,14 +151,14 @@ public class Word2OrMoreSyllablesFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 1333){
-				assertEquals(143.0, annot.getValue(), 0.0000001);
+				assertEquals(131.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	*/
 	
 	/*
-	 * Checks that the percent of word types in META-INF/cani.txt is 0.7606382978723404, with the precision of 0.0000001.
+	 * Checks that the percent of word types in META-INF/de-test-text.txt is 0.7606382978723404, with the precision of 0.0000001.
 	 */	
 	/*
 	@Test
@@ -173,7 +173,7 @@ public class Word2OrMoreSyllablesFeatureTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 1333){
-				assertEquals(0.7606382978723404, annot.getValue(), 0.0000001);
+				assertEquals(0.6298076923076923, annot.getValue(), 0.0000001);
 			}
 		}
 	}

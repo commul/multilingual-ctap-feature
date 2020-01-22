@@ -28,7 +28,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class SDTokenLengthFeatureTest {
+public class SDTokenLengthFeatureDeTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedSyllable, aedLetter;
@@ -55,22 +55,22 @@ public class SDTokenLengthFeatureTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "IT");
+		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSyllable = new XMLInputSource(fSyllable);
 		aedSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceSyllable);
 		
-		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", "./META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "IT");
+		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", "./META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceLetter = new XMLInputSource(fLetter);
 		aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
@@ -78,7 +78,7 @@ public class SDTokenLengthFeatureTest {
 	*/
 	
 	/*
-	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 2.973243104638609, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the token length in tokens in META-INF/de-test-text.txt is 3.098217222907109, with the precision of 0.001.
 	 */
 	/*
 	@Test
@@ -91,14 +91,14 @@ public class SDTokenLengthFeatureTest {
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 8585){
-				assertEquals(2.973243104638609, annot.getValue(), 0.0000001);
+				assertEquals(3.098217222907109, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	*/
 	
 	/*
-	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 1.1677977497340455, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the token length in tokens in META-INF/de-test-text.txt is 1.0552780920736824, with the precision of 0.001.
 	 */
 	/*
 	@Test
@@ -111,7 +111,7 @@ public class SDTokenLengthFeatureTest {
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 8585){
-				assertEquals(1.1677977497340455, annot.getValue(), 0.0000001);
+				assertEquals(1.0552780920736824, annot.getValue(), 0.0000001);
 			}	
 		}
 	}

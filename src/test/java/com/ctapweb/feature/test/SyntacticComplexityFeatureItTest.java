@@ -24,7 +24,7 @@ import org.w3c.dom.Document;
 
 import com.ctapweb.feature.test.util.DescriptorModifier;
 
-public class SyntacticComplexityFeatureTest {
+public class SyntacticComplexityFeatureItTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedParseTree, aed;

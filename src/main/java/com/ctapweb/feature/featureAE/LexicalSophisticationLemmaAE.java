@@ -81,6 +81,8 @@ public class LexicalSophisticationLemmaAE extends JCasAnnotator_ImplBase {
 		if(aContext.getConfigParameterValue(PARAM_TYPE) != null) {
 			type = (Boolean) aContext.getConfigParameterValue(PARAM_TYPE);
 		}
+		
+		logger.trace(LogMarker.UIMA_MARKER, "type: " + type);
 
 		// obtain mandatory language parameter and access language dependent resources
 		String lCode = "";
@@ -120,7 +122,9 @@ public class LexicalSophisticationLemmaAE extends JCasAnnotator_ImplBase {
 
 		//for storing unique lemmas
 		Set<String> uniqueLemmas = new HashSet<>();
-
+		
+		logger.trace(LogMarker.UIMA_MARKER, "type: " + type);
+		
 		while (lemmaIter.hasNext()) {
 			Lemma lemma = (Lemma) lemmaIter.next();
 			String lemmaString = lemma.getLemma();

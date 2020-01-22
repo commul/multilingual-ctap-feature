@@ -37,7 +37,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class NSyntacticConstituentFeatureTest {
+public class NSyntacticConstituentFeatureItTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedParseTree, aed;

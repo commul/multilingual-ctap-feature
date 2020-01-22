@@ -30,13 +30,13 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class NConnectivesTest {
+public class NConnectivesItTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 				
@@ -83,12 +83,12 @@ public class NConnectivesTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of additive connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 9.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NAdditiveConnectivesFeatureTest() throws Exception {		
 	
@@ -105,12 +105,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of adversative connectives according to Breindl for META-INF/cani.txt is 2.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NAdversativeConnectivesFeatureTest() throws Exception {		
 	
@@ -127,12 +127,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of adversative and concessive connectives according to Breindl for META-INF/cani.txt is 3.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NAdversativeConcessiveConnectivesFeatureTest() throws Exception {		
 	
@@ -149,12 +149,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of all connectives according to Breindl for META-INF/cani.txt is 21.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NAllConnectivesFeatureTest() throws Exception {		
 	
@@ -171,12 +171,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of argumentative connectives according to Lorenzo zanasi and Nadezda Okinina for META-INF/cani.txt is 21.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NArgumentativeConnectivesFeatureTest() throws Exception {		
 	
@@ -193,12 +193,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of consequence connectives according to Lorenzo zanasi and Nadezda Okinina for META-INF/cani.txt is 21.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NConsequenceConnectivesFeatureTest() throws Exception {		
 	
@@ -215,12 +215,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of causal connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 2.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NCausalConnectivesFeatureTest() throws Exception {		
 	
@@ -237,12 +237,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of concessive connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NConcessiveConnectivesFeatureTest() throws Exception {		
 	
@@ -259,13 +259,13 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	
 	/*
 	 * Checks that the number of temporal connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NTemporalConnectivesFeatureTest() throws Exception {		
 	
@@ -282,12 +282,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of temporal connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NPurposeConnectivesFeatureTest() throws Exception {		
 	
@@ -304,12 +304,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-		
+	*/
 	
 	/*
 	 * Checks that the number of hierarchical connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NHierarchicalConnectivesFeatureTest() throws Exception {		
 	
@@ -326,12 +326,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of hypothetical and conditional connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NHypotheticalConditionalConnectivesFeatureTest() throws Exception {		
 	
@@ -348,12 +348,12 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the number of multifunctional connectives according to Lorenzo Zanasi and Nadezda Okinina for META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */
-	
+	/*
 	@Test
 	public void NMultifunctionalConnectivesFeatureTest() throws Exception {		
 	
@@ -370,5 +370,5 @@ public class NConnectivesTest {
 			}
 		}
 	}
-	
+	*/
 }

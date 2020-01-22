@@ -28,7 +28,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class MeanSentenceLengthFeatureTest {
+public class MeanSentenceLengthFeatureItTest {
 
 	JCas jCas;
 	XMLParser pars;

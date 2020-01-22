@@ -36,7 +36,7 @@ public class DLTDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedLemma, aedMorph, aedPOS, aedDepParse;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	
+	/*
 	@Before
 	public void setUp() throws Exception {
 				
@@ -102,7 +102,7 @@ public class DLTDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml");
 	}
-	
+	*/
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.

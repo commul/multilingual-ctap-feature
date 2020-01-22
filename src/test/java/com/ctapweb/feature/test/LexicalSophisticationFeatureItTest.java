@@ -26,15 +26,16 @@ import org.apache.uima.util.XMLParser;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
+import com.ctapweb.feature.type.Lemma;
 
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class LexicalSophisticationFeatureTest {
+public class LexicalSophisticationFeatureItTest {
 	
 	JCas jCas;
 	XMLParser pars;
-	AnalysisEngineDescription aedSent, aedToken, aedPOS;
+	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedLemma;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
 	/*
@@ -48,6 +49,7 @@ public class LexicalSophisticationFeatureTest {
 		ArrayList<String> locationsList = new ArrayList<String>();
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalSophisticationType.xml", "./META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml")));
@@ -73,6 +75,10 @@ public class LexicalSophisticationFeatureTest {
 		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", "./META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourcePOS = new XMLInputSource(fPOS);
 		aedPOS = pars.parseAnalysisEngineDescription(xmlInputSourcePOS);
+		
+		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", "./META-INF/org.apache.uima.fit/LemmaAnnotatorForUIMAFitTest.xml", "IT");
+		XMLInputSource xmlInputSourceLemma = new XMLInputSource(fLemma);
+		aedLemma = pars.parseAnalysisEngineDescription(xmlInputSourceLemma);
 		
 		paramsHashMap = new HashMap <String, ArrayList <String>> ();		
 		ArrayList dynamicStringArray = new ArrayList(2);
@@ -1153,4 +1159,136 @@ public class LexicalSophisticationFeatureTest {
 					}
 				}
 				*/
+	
+	/*
+	 * Checks that the Lexical Sophistication Feature: Concreteness All Lemmas for META-INF/cani.txt is 5.864375, with the precision of 0.0000001.
+	 */	
+/*
+	@Test
+	public void LexicalSophisticationConcretenessAllLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Concreteness_All_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalSophistication_Concreteness_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 123){
+				assertEquals(5.864375, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Lexical Sophistication Feature: Concreteness Unique Lemmas for META-INF/cani.txt is 5.395454545454545, with the precision of 0.0000001.
+	 */	
+/*
+	@Test
+	public void LexicalSophisticationConcretenessUniqueLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Concreteness_Unique_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalSophistication_Concreteness_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 123){
+				assertEquals(5.395454545454545, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Lexical Sophistication Feature: Imageability All Lemmas for META-INF/cani.txt is 5.876875, with the precision of 0.0000001.
+	 */	
+/*
+	@Test
+	public void LexicalSophisticationImageabilityAllLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Imageability_All_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalSophistication_Imageability_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 123){
+				assertEquals(5.876875, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Lexical Sophistication Feature: Imageability Unique Lemmas for META-INF/cani.txt is 5.573636363636363, with the precision of 0.0000001.
+	 */	
+/*
+	@Test
+	public void LexicalSophisticationImageabilityUniqueLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Imageability_Unique_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalSophistication_Imageability_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 123){
+				assertEquals(5.573636363636363, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Lexical Sophistication Feature: Age of Acquisition All Lemmas for META-INF/cani.txt is 2.3881249999999996, with the precision of 0.0000001.
+	 */	
+/*
+	@Test
+	public void LexicalSophisticationAoAAllLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_AoA_All_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalSophistication_AoA_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 123){
+				assertEquals(2.3881249999999996, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Lexical Sophistication Feature: Age of Acquisition Unique Lemmas for META-INF/cani.txt is 2.7190909090909092, with the precision of 0.0000001.
+	 */	
+	/*
+	@Test
+	public void LexicalSophisticationAoAUniqueLemmasFeatureTest() throws Exception {		
+	
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_AoA_Unique_Lemmas_Feature.xml", "./META-INF/org.apache.uima.fit/LexicalSophistication_AoA_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aedLemma, aed);
+	
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 123){
+				assertEquals(2.7190909090909092, annot.getValue(), 0.0000001);
+			}
+		}
+	}
+	*/
 }

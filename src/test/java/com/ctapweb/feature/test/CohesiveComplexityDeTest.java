@@ -358,7 +358,7 @@ public class CohesiveComplexityDeTest {
 	*/
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Breindl_Single Connectives Per Token_feature for META-INF/de-test-text.txt is 0.0031847133757961785, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Breindl_Single Connectives Per Token_feature for META-INF/de-test-text.txt is 0.06369426751592357, with the precision of 0.0000001.
 	 */
 	/*
 	@Test

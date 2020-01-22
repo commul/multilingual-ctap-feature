@@ -30,7 +30,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class LexicalPercentageTest {
+public class LexicalPercentageItTest {
 	
 	JCas jCas;
 	XMLParser pars;

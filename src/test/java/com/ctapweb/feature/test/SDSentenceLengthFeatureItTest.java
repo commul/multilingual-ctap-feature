@@ -1,5 +1,6 @@
 package com.ctapweb.feature.test;
 
+import com.ctapweb.feature.test.util.DescriptorModifier;
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
@@ -7,6 +8,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,6 +19,10 @@ import org.apache.uima.fit.factory.TypeSystemDescriptionFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.AnnotationBase;
+import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.jcas.cas.TOP;
+import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.resource.metadata.TypeSystemDescription;
 import org.apache.uima.util.CasCreationUtils;
 import org.apache.uima.util.XMLInputSource;
@@ -25,13 +31,21 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import com.ctapweb.feature.test.util.DescriptorModifier;
-import com.ctapweb.feature.type.ComplexityFeatureBase;
+import com.ctapweb.feature.type.SDSentenceLength;
+import com.ctapweb.feature.type.Syllable;
 
-public class MeanTokenLengthFeatureTest {
+import com.ctapweb.feature.type.ComplexityFeatureBase;
+import org.apache.uima.jcas.tcas.Annotation;
+
+/**
+ * Tests the SDSentenceLengthInToken Feature.
+ * @author Nadezda Okinina
+ */
+
+public class SDSentenceLengthFeatureItTest {
 	JCas jCas;
 	XMLParser pars;
-	AnalysisEngineDescription aedSent, aedToken, aedNToken, aedSyllable, aedNSyllable, aedLetter, aedNLetter;
+	AnalysisEngineDescription aedSent, aedToken, aedSyllable, aedLetter;
 	/*
 	@Before
 	public void setUp() throws Exception {
@@ -41,12 +55,13 @@ public class MeanTokenLengthFeatureTest {
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NSyllableType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NLetterType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/MeanTokenLengthType.xml", "./META-INF/org.apache.uima.fit/MeanTokenLengthTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/MeanTokenLengthTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/SDSentenceLengthType.xml", "./META-INF/org.apache.uima.fit/SDSentenceLengthTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/SDSentenceLengthTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -66,67 +81,76 @@ public class MeanTokenLengthFeatureTest {
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", "./META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "IT", "123");
-		XMLInputSource xmlInputSourceNToken = new XMLInputSource(fNToken);
-		aedNToken = pars.parseAnalysisEngineDescription(xmlInputSourceNToken);
-		
 		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSyllable = new XMLInputSource(fSyllable);
 		aedSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceSyllable);
-		
-		File fNSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSyllableFeature.xml", "./META-INF/org.apache.uima.fit/NSyllableFeatureForUIMAFitTest.xml", "IT", "777");
-		XMLInputSource xmlInputSourceNSyllable = new XMLInputSource(fNSyllable);
-		aedNSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceNSyllable);
 		
 		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", "./META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceLetter = new XMLInputSource(fLetter);
 		aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
-		File fNLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", "./META-INF/org.apache.uima.fit/NLetterFeatureForUIMAFitTest.xml", "IT", "777");
-		XMLInputSource xmlInputSourceNLetter = new XMLInputSource(fNLetter);
-		aedNLetter = pars.parseAnalysisEngineDescription(xmlInputSourceNLetter);
-		
 	}
 	*/
-		
+	
 	/*
-	 * Checks that the mean token length in letters in META-INF/cani.txt is 4.988636363636363, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 18.983246201944397, with the precision of 0.001.
 	 */
 	/*
 	@Test
-	public void MeanTokenLengthInLetterFeatureTest() throws Exception {
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanTokenLengthInLetterFeature.xml", "./META-INF/org.apache.uima.fit/MeanTokenLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "12222");
+	public void SDSentenceLengthInTokenFeatureTest() throws Exception {
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/SDSentenceLengthInTokenFeature.xml", "./META-INF/org.apache.uima.fit/SDSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "token", "9999");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
-		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedNToken, aedSyllable, aedNSyllable, aedLetter, aedNLetter, aed);
-	
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 12222){
-				assertEquals(4.988636363636363, annot.getValue(), 0.0000001);
+			System.out.println(annot.toString());
+			System.out.println(annot.getId());
+			System.out.println(annot.getValue());
+			if(annot.getId() == 9999){
+				assertEquals(18.983246201944397, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	*/
 	
 	/*
-	 * Checks that the mean token length in syllables in META-INF/cani.txt is 2.1666666666666665, with the precision of 0.0000001.
+	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 99.31412515118609, with the precision of 0.001.
 	 */
 	/*
 	@Test
-	public void MeanTokenLengthInSyllableFeatureTest() throws Exception {
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanTokenLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/MeanTokenLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "12222");
+	public void SDSentenceLengthInLetterFeatureTest() throws Exception {
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/SDSentenceLengthInLetterFeature.xml", "./META-INF/org.apache.uima.fit/SDSentenceLengthInLetterFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "9999");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
-		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedNToken, aedSyllable, aedNSyllable, aedLetter, aedNLetter, aed);
-	
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 12222){
-				assertEquals(2.1666666666666665, annot.getValue(), 0.0000001);
+			if(annot.getId() == 9999){
+				assertEquals(99.31412515118609, annot.getValue(), 0.0000001);
 			}
+		}
+	}
+	*/
+	
+	/*
+	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 42.58965587884912, with the precision of 0.001.
+	 */
+	/*
+	@Test
+	public void SDSentenceLengthInSyllableFeatureTest() throws Exception {
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/SDSentenceLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/SDSentenceLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "9999");
+		XMLInputSource xmlInputSource = new XMLInputSource(f);
+		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
+		
+		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
+		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
+			if(annot.getId() == 9999){
+				assertEquals(42.58965587884912, annot.getValue(), 0.0000001);
+			}	
 		}
 	}
 	*/

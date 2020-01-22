@@ -28,7 +28,7 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 import com.ctapweb.feature.type.ComplexityFeatureBase;
 
-public class NSentenceFeatureTest {
+public class NSyllableFeatureDeTest {
 	JCas jCas;
 	/*
 	@Before
@@ -39,10 +39,10 @@ public class NSentenceFeatureTest {
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSentenceType.xml", "./META-INF/org.apache.uima.fit/NSentenceTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/NSentenceTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSyllableType.xml", "./META-INF/org.apache.uima.fit/NSyllableTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/NSyllableTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -51,33 +51,41 @@ public class NSentenceFeatureTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		AnalysisEngineDescription aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", "./META-INF/org.apache.uima.fit/NSentenceFeatureForUIMAFitTest.xml", "IT", "22231");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
+		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
+		AnalysisEngineDescription aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
+		
+		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "DE");
+		XMLInputSource xmlInputSourceSyllable = new XMLInputSource(fSyllable);
+		AnalysisEngineDescription aedSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceSyllable);
+		
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSyllableFeature.xml", "./META-INF/org.apache.uima.fit/NSyllableFeatureForUIMAFitTest.xml", "DE", "777");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
-		SimplePipeline.runPipeline(jCas, aedSent, aed);
+		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aed);
 	}
 	*/
 	
 	/*
-	 * Checks that the number of sentences in META-INF/cani.txt is 18.983246201944397, with the precision of 0.001.
+	 * Checks that the number of syllables in META-INF/de-test-text.txt is 572.0.
 	 */
 	/*
 	@Test
-	public void NSentenceFeatureTest() throws Exception {
+	public void NSyllableFeatureTest() throws Exception {
 
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 22231){
-				assertEquals(12.0, annot.getValue(), 0.0000001);
-			}
+			if(annot.getId() == 777){
+				assertEquals(554.0, annot.getValue(), 0.0000001);
+			}	
 		}
 	}
 	*/
