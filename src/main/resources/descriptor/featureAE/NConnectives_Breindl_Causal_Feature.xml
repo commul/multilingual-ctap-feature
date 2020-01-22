@@ -7,7 +7,7 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Causal Connectives (Breindl for German)</name>
-		<description>Calculates the number of causal connectives listed by Breindl for German, by Nadezda Okinina for Italian.
+		<description>Calculates the number of causal connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
 
 			AAE dependency:
 			SentenceAnnotator.xml
@@ -118,7 +118,7 @@
 			</externalResource>
 			<externalResource>
 				<name>It_causalConnectives</name>
-				<description>causal connectives listed by Nadezda Okinina
+				<description>causal connectives listed by Nadezda Okinina and Lorenzo Zanasi
 				</description>
 				<fileResourceSpecifier>
 					<fileUrl>file:lists/Italian_connectives_causal.txt</fileUrl>

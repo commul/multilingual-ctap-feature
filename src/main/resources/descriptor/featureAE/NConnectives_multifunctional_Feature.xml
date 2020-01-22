@@ -6,8 +6,8 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.NConnectivesAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Number of Connectives: Hypothetical Connectives</name>
-		<description>Calculates the number of hypothetical connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+		<name>Number of Connectives: Multifunctional Connectives</name>
+		<description>Calculates the number of multifunctional connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
 		
 This feature is NOT available for English, German.
 
@@ -58,7 +58,7 @@ AAE dependency:
             <nameValuePair>
                 <name>connectiveType</name>
                 <value>
-                    <string>Hypothetical</string>
+                    <string>Multifunctional</string>
                 </value>
             </nameValuePair>
         </configurationParameterSettings>
@@ -100,11 +100,11 @@ AAE dependency:
 	<resourceManagerConfiguration>
 		<externalResources>
 			<externalResource>
-				<name>It_hypotheticalConnectives</name>
-				<description>hypothetical connectives listed by Nadezda Okinina
+				<name>It_multifunctionalConnectives</name>
+				<description>multifunctional connectives listed by Nadezda Okinina and Lorenzo Zanasi
 				</description>
 				<fileResourceSpecifier>
-					<fileUrl>file:lists/Italian_connectives_hypothetical.txt</fileUrl>
+					<fileUrl>file:lists/Italian_connectives_multifunctional.txt</fileUrl>
 				</fileResourceSpecifier>
 				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
 				</implementationName>
@@ -113,7 +113,7 @@ AAE dependency:
 		<externalResourceBindings>
 			<externalResourceBinding>
 				<key>lookUpListIT</key>
-				<resourceName>It_hypotheticalConnectives</resourceName>
+				<resourceName>It_multifunctionalConnectives</resourceName>
 			</externalResourceBinding>
 		</externalResourceBindings>
 	</resourceManagerConfiguration>

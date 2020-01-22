@@ -101,7 +101,7 @@ AAE dependency:
 		<externalResources>
 			<externalResource>
 				<name>It_explicativeConnectives</name>
-				<description>explicative connectives listed by Nadezda Okinina
+				<description>explicative connectives listed by Nadezda Okinina and Lorenzo Zanasi
 				</description>
 				<fileResourceSpecifier>
 					<fileUrl>file:lists/Italian_connectives_explicative.txt</fileUrl>

@@ -6,15 +6,17 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.NConnectivesAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Number of Connectives: Temporal Connectives (Breindl for German)</name>
-		<description>Calculates the number of temporal connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+		<name>Number of Connectives: Consequence Connectives</name>
+		<description>Calculates the number of consequence connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+		
+This feature is NOT available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
-		<vendor>Zarah Weiss</vendor>
+		<vendor>Nadezda Okinina</vendor>
 		<configurationParameters>
 			<configurationParameter>
 				<name>aeID</name>
@@ -56,7 +58,7 @@ AAE dependency:
             <nameValuePair>
                 <name>connectiveType</name>
                 <value>
-                    <string>Breindl_T</string>
+                    <string>Consequence</string>
                 </value>
             </nameValuePair>
         </configurationParameterSettings>
@@ -74,7 +76,6 @@ AAE dependency:
 					</type>
 				</outputs>
 				<languagesSupported>
-					<language>DE</language>
 					<language>IT</language>
 					<!-- add new language here -->
 				</languagesSupported>
@@ -88,14 +89,6 @@ AAE dependency:
 	</analysisEngineMetaData>
 	<externalResourceDependencies>
 		<externalResourceDependency>
-			<key>lookUpListDE</key>
-			<description>a look up list is the list of connectives with which types of connectives are obtained.
-			</description>
-			<interfaceName>com.ctapweb.feature.util.LookUpListResource
-			</interfaceName>
-			<optional>false</optional>
-		</externalResourceDependency>
-		<externalResourceDependency>
 			<key>lookUpListIT</key>
 			<description>a look up list is the list of connectives with which types of connectives are obtained.
 			</description>
@@ -107,21 +100,11 @@ AAE dependency:
 	<resourceManagerConfiguration>
 		<externalResources>
 			<externalResource>
-				<name>Breindl_temporalConnectives</name>
-				<description>temporal connectives listed by Breindl
+				<name>It_consequenceConnectives</name>
+				<description>consequence connectives listed by Nadezda Okinina and Lorenzo Zanasi
 				</description>
 				<fileResourceSpecifier>
-					<fileUrl>file:lists/Breindl_temporalConnectives.txt</fileUrl>
-				</fileResourceSpecifier>
-				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
-				</implementationName>
-			</externalResource>
-			<externalResource>
-				<name>It_temporalConnectives</name>
-				<description>temporal connectives listed by Nadezda Okinina and Lorenzo Zanasi
-				</description>
-				<fileResourceSpecifier>
-					<fileUrl>file:lists/Italian_connectives_temporal.txt</fileUrl>
+					<fileUrl>file:lists/Italian_connectives_consequence.txt</fileUrl>
 				</fileResourceSpecifier>
 				<implementationName>com.ctapweb.feature.util.LookUpListResource_Impl
 				</implementationName>
@@ -129,12 +112,8 @@ AAE dependency:
 		</externalResources>
 		<externalResourceBindings>
 			<externalResourceBinding>
-				<key>lookUpListDE</key>
-				<resourceName>Breindl_temporalConnectives</resourceName>
-			</externalResourceBinding>
-			<externalResourceBinding>
 				<key>lookUpListIT</key>
-				<resourceName>It_temporalConnectives</resourceName>
+				<resourceName>It_consequenceConnectives</resourceName>
 			</externalResourceBinding>
 		</externalResourceBindings>
 	</resourceManagerConfiguration>

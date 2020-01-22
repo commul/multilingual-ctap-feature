@@ -57,7 +57,7 @@
             <nameValuePair>
                 <name>connectiveType</name>
                 <value>
-                    <string>Breindl_AC</string>
+                    <string>Breindl_A</string>
                 </value>
             </nameValuePair>
         </configurationParameterSettings>
@@ -119,7 +119,7 @@
 			</externalResource>
 			<externalResource>
 				<name>It_AdversativeConnectives</name>
-				<description>adversative connectives listed by Nadezda Okinina
+				<description>adversative connectives listed by Nadezda Okinina and Lorenzo Zanasi
 				</description>
 				<fileResourceSpecifier>
 					<fileUrl>file:lists/Italian_connectives_adversative.txt</fileUrl>

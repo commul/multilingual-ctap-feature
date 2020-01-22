@@ -1,5 +1,9 @@
+anche
 ancora
+e
+ed
 in aggiunta
+in oltre
 in più
 inoltre
 oltre a ciò
@@ -9,4 +13,5 @@ per sopraggiunta
 per soprammercato
 per soprappaga
 perdipiù
+tra l'altro
 ulteriormente

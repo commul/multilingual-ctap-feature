@@ -1,13 +1,18 @@
 a questo punto
 all'inizio
 anche
+anteriormente
 anzitutto
-e
-ed
+appresso
+come
+di seguito
+dopo
 in aggiunta
 in conclusione
 in più
 in primo luogo
+in seguito
+indi
 infine
 inizialmente
 innanzitutto
@@ -22,7 +27,10 @@ per di più
 per giunta
 per prima cosa
 poi
+posteriormente
 preliminarmente
 prima di tutto
-pure
+quindi
 si aggiunga il fatto che
+successivamente
+ulteriormente

@@ -1,136 +1,175 @@
-a ogni buon conto
+a condizione che
+a patto che
+a proposito di
 a quei tempi
 a questo punto
+acciocché
 ad esempio
-ad ogni buon conto
-ad ogni modo
 adesso
+affinché
 al contrario
-all'incontrario
+al fine di
 all'inizio
 all'inverso
 all'opposto
 alla fine
+allo scopo che
+allo scopo di
 allora
-ammesso che
+allorché
+allorquando
 ammettendo che
 anche
 ancora
+ancorché
+ancorquando
 anni fa
+antecedente a
+anteriormente
 anticamente
 anzi
 anziché
 anzitutto
+appresso
+appunto
 benché
+ché
 cionondimeno
 ciononostante
 cioè
+ciò nonostante
 come
-comunque
-con tutto ciò
+concretamente
 conseguentemente
 considerato che
-così
+contrariamente
+così che
 d'altra parte
 d'altro canto
 d'altronde
 da ciò si deduce che
+da questo si deduce che
 dacché
 dal momento che
 dappoiché
+dapprima
+dapprincipio
 dato che
+davvero
 del resto
 di conseguenza
+di fatto
+di seguito
+difatti
+differentemente
 diversamente
 dopo
+dopodiché
 dunque
 e
-eccetto che
 ed
+effettivamente
 eppure
-fuorché
+esattamente
+essendoché
 giacché
 giorni fa
 in aggiunta
 in altre parole
+in altri termini
+in anticipo
 in conclusione
-in ogni modo
+in concreto
+in oltre
+in passato
 in più
 in precedenza
 in primo luogo
-in quel istante
 in quel momento
+in quell'istante
 in questo istante
 in questo modo
 in questo momento
-in secondo luogo
+in realtà
+in relazione a
 in seguito
 in sintesi
-in terzo luogo
-in tutti i modi
+in verità
+indi
 infatti
 infine
 inizialmente
+innanzi
 innanzitutto
 inoltre
 insomma
 intanto che
 invece
-ipoteticamente
+invero
+laddove
 ma
 malgrado
 mentre
 mesi fa
+mettiamo il caso che
+motivo per cui
 ne deriva che
 nel caso che
 nel caso in cui
 nel frattempo
+nell'eventualità che
+nell'ipotesi in cui
 nello stesso modo
 non ci resta che
-nondimanco
 nondimeno
-nonostante
-nonpertanto
-nulladimeno
-o
 oltre a ciò
 oltre a quanto è stato detto
 oltre a questo
+onde
+or ora
 ora
 oramai
 ormai
 ossia
+ove
 ovvero
 ovverosia
 partendo dal presupposto che
 per converso
+per così dire
 per cui
 per di più
 per esempio
 per giunta
+per il fatto che
+per il resto
+per la ragione che
 per prima cosa
-per quanto
 per quanto riguarda
 per sopraggiunta
 per soprammercato
 per soprappaga
 peraltro
 perché
+perciocché
 perciò
 perdipiù
 pertanto
 però
 piuttosto che
+piú tardi
+poco fa
 poi
 poiché
 poniamo il caso che
+posteriormente
+posto che
 precedentemente
+precisamente
 preliminarmente
-prima
-prima di tutto
 prima di tutto
 purché
-pure
+putacaso
 qualche anno fa
 qualche giorno fa
 qualche mese fa
@@ -140,21 +179,34 @@ qualora
 quando
 quantunque
 quindi
+ragion per cui
+realmente
+relativamente a
+riguardo a
+se
+se mai
 se è vero che
+sebbene
+semmai
+sempre che
 seppure
 settimane fa
 si aggiunga il fatto che
 sicché
+siccome
 stante che
 successivamente
 supposto che
+tanto è vero
+tempo addietro
+tempo fa
 tra l'altro
-tranne
 tuttafiata
 tuttavia
 tuttavolta
 ulteriormente
 una volta
 vale a dire
+veramente
 viceversa
 visto che

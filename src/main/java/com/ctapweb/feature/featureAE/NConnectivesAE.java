@@ -208,16 +208,21 @@ public class NConnectivesAE extends JCasAnnotator_ImplBase {
 
 		//TODO Add check for syntactic structure
 		private int countOccurrencesConnectives(String sentence, List<String> tokenizedSentence, String connID) {
+			//logger.trace(LogMarker.UIMA_MARKER, "in countOccurrencesConnectives connID: "+connID);
 			// Base case 1: connective does not occur in sentence
 			if (!sentence.contains(connID)) {
 				//logger.trace(LogMarker.UIMA_MARKER, "Exit 1: ID not in sentence");
 				return 0;
 			}
 			int nOccurrence = 0;
-
-			Pattern p = Pattern.compile("(^|\\P{L})" + connID+"(\\P{L}|$)");
+			Pattern p;
+						
+			if(connID.equals("se")){
+				p = Pattern.compile("(^|\\P{L})" + connID+"(\\P{L}+(?!(stess|medesim)[oaei])|$)");
+			}else{
+				p = Pattern.compile("(^|\\P{L})" + connID+"(\\P{L}|$)");
+			}
 			Matcher m = p.matcher(sentence);
-			int count = 0;
 			while (m.find()){
 				nOccurrence++;
 				//  Debugging
@@ -227,7 +232,7 @@ public class NConnectivesAE extends JCasAnnotator_ImplBase {
 
 			//  Debugging
 			//logger.trace(LogMarker.UIMA_MARKER, "nOccurrence: "+nOccurrence);
-
+			
 			return nOccurrence;
 		}
 	}

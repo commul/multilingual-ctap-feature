@@ -141,5 +141,5 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<artifactId>ctap</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<url>http://www.ctapweb.com</url>
+	<url>https://github.com/commul/ctap</url>
 </project>

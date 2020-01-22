@@ -7,7 +7,7 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Additive Connectives (Breindl for German)</name>
-		<description>Calculates the number of additive connectives according to Breindl for German, to Nadezda Okinina for Italian.
+		<description>Calculates the number of additive connectives according to Breindl for German, to Nadezda Okinina and Lorenzo Zanasi for Italian.
 
 			AAE dependency:
 			SentenceAnnotator.xml
@@ -118,7 +118,7 @@
 			</externalResource>
 			<externalResource>
 				<name>It_additiveConnectives</name>
-				<description>additive connectives according to Nadezda Okinina
+				<description>additive connectives according to Nadezda Okinina and Lorenzo Zanasi
 				</description>
 				<fileResourceSpecifier>
 					<fileUrl>file:lists/Italian_connectives_additive.txt</fileUrl>
