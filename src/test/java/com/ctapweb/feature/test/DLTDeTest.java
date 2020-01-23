@@ -236,28 +236,7 @@ public class DLTDeTest {
 		}
 	}
 	
-	
-	/*
-	 * Checks that the DLTIntegrationCost_mAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
-	 */
-	
-	@Test
-	public void DLTIntegrationCost_mAdjacentFeatureTest() throws Exception {		
-	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_mAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_mAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
-		XMLInputSource xmlInputSource = new XMLInputSource(f);
-		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
-		
-		//Run the analysis pipeline
-		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedLemma, aedMorph, aedPOS, aedDepParse, aed);
-	
-		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 2506){
-				assertEquals(0.0, annot.getValue(), 0.00);
-			}
-		}
-	}
-	
+
 	
 	/*
 	 * Checks that the DLTIntegrationCost_mMaxFeature for META-INF/de-test-text.txt is 2.21875, with the precision of 0.0000001.
@@ -320,28 +299,6 @@ public class DLTDeTest {
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2506){
 				assertEquals(0.0, annot.getValue(), 0.00);
-			}
-		}
-	}
-	
-	
-	/*
-	 * Checks that the DLTIntegrationCost_cvMaxFeature for META-INF/de-test-text.txt is 2.21875, with the precision of 0.0000001.
-	 */
-	
-	@Test
-	public void DLTIntegrationCost_cvMaxFeatureTest() throws Exception {		
-	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_oMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_oMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
-		XMLInputSource xmlInputSource = new XMLInputSource(f);
-		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
-		
-		//Run the analysis pipeline
-		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedLemma, aedMorph, aedPOS, aedDepParse, aed);
-	
-		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 2506){
-				assertEquals(2.21875, annot.getValue(), 0.00);
 			}
 		}
 	}
