@@ -49,8 +49,8 @@ public class TTRFeatureDeTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenTypeType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatioTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/TypeTokenRatioTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatioTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatioTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -59,26 +59,26 @@ public class TTRFeatureDeTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 	
-		File fTokenType = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenTypeAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenTypeAnnotatorForUIMAFitTest.xml", "DE");
+		File fTokenType = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenTypeAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenTypeAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceTokenType = new XMLInputSource(fTokenType);
 		aedTokenType = pars.parseAnalysisEngineDescription(xmlInputSourceTokenType);
 		
-		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", "./META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "DE", "123");
+		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "DE", "123");
 		XMLInputSource xmlInputSourceNToken = new XMLInputSource(fNToken);
 		aedNToken = pars.parseAnalysisEngineDescription(xmlInputSourceNToken);
 		
-		File fNTokenType = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenTypeFeature.xml", "./META-INF/org.apache.uima.fit/NTokenTypeFeatureForUIMAFitTest.xml", "DE", "123");
+		File fNTokenType = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenTypeFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NTokenTypeFeatureForUIMAFitTest.xml", "DE", "123");
 		XMLInputSource xmlInputSourceNTokenType = new XMLInputSource(fNTokenType);
 		aedNTokenType = pars.parseAnalysisEngineDescription(xmlInputSourceNTokenType);
 		
@@ -105,7 +105,7 @@ public class TTRFeatureDeTest {
 	@Test
 	public void TTRFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_TTR_Feature.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatio_TTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_TTR_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatio_TTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -127,7 +127,7 @@ public class TTRFeatureDeTest {
 	@Test
 	public void RTTRFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_RTTR_Feature.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatio_RTTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_RTTR_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatio_RTTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -149,7 +149,7 @@ public class TTRFeatureDeTest {
 	@Test
 	public void LogTTRFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_LogTTR_Feature.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatio_LogTTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_LogTTR_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatio_LogTTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -171,7 +171,7 @@ public class TTRFeatureDeTest {
 	@Test
 	public void CTTRFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_CTTR_Feature.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatio_CTTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_CTTR_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatio_CTTR_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -193,7 +193,7 @@ public class TTRFeatureDeTest {
 	@Test
 	public void UberTTRFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_Uber_Feature.xml", "./META-INF/org.apache.uima.fit/TypeTokenRatio_Uber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/TypeTokenRatio_Uber_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TypeTokenRatio_Uber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

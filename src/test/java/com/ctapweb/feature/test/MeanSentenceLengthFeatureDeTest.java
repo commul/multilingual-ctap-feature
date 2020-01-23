@@ -47,8 +47,8 @@ public class MeanSentenceLengthFeatureDeTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NSyllableType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NLetterType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/MeanSentenceLengthType.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/MeanSentenceLengthTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/MeanSentenceLengthType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/MeanSentenceLengthTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/MeanSentenceLengthTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -57,39 +57,39 @@ public class MeanSentenceLengthFeatureDeTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File fNSentence = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", "./META-INF/org.apache.uima.fit/NSentenceFeatureForUIMAFitTest.xml", "DE", "22231");
+		File fNSentence = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSentenceFeatureForUIMAFitTest.xml", "DE", "22231");
 		XMLInputSource xmlInputSourceNSentence = new XMLInputSource(fNSentence);
 		aedNSentence = pars.parseAnalysisEngineDescription(xmlInputSourceNSentence);
 		
 		
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", "./META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "DE", "123");
+		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "DE", "123");
 		XMLInputSource xmlInputSourceNToken = new XMLInputSource(fNToken);
 		aedNToken = pars.parseAnalysisEngineDescription(xmlInputSourceNToken);
 		
-		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "./META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "DE");
+		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSyllable = new XMLInputSource(fSyllable);
 		aedSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceSyllable);
 		
-		File fNSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSyllableFeature.xml", "./META-INF/org.apache.uima.fit/NSyllableFeatureForUIMAFitTest.xml", "DE", "777");
+		File fNSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSyllableFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyllableFeatureForUIMAFitTest.xml", "DE", "777");
 		XMLInputSource xmlInputSourceNSyllable = new XMLInputSource(fNSyllable);
 		aedNSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceNSyllable);
 		
-		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", "./META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "DE");
+		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceLetter = new XMLInputSource(fLetter);
 		aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
-		File fNLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", "./META-INF/org.apache.uima.fit/NLetterFeatureForUIMAFitTest.xml", "DE", "777");
+		File fNLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NLetterFeatureForUIMAFitTest.xml", "DE", "777");
 		XMLInputSource xmlInputSourceNLetter = new XMLInputSource(fNLetter);
 		aedNLetter = pars.parseAnalysisEngineDescription(xmlInputSourceNLetter);
 		
@@ -102,7 +102,7 @@ public class MeanSentenceLengthFeatureDeTest {
 	
 	@Test
 	public void MeanSentenceLengthInTokenFeatureTest() throws Exception {
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInTokenFeature.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "token", "5454");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInTokenFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/MeanSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "token", "5454");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -123,7 +123,7 @@ public class MeanSentenceLengthFeatureDeTest {
 	
 	@Test
 	public void MeanSentenceLengthInLetterFeatureTest() throws Exception {
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInLetterFeature.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "5454");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInLetterFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/MeanSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "5454");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -144,7 +144,7 @@ public class MeanSentenceLengthFeatureDeTest {
 	
 	@Test
 	public void MeanSentenceLengthInSyllableFeatureTest() throws Exception {
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "5454");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInSyllableFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/MeanSentenceLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "5454");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

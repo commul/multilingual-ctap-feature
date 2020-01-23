@@ -51,8 +51,9 @@ public class DLTDeTest {
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/DependencyParseType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCostTypeForUIMAFitTest.xml", locationsList);
-		String DLTTypeDescr = new String(Files.readAllBytes(Paths.get("./META-INF/org.apache.uima.fit/DLTIntegrationCostTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCostTypeForUIMAFitTest.xml", locationsList);
+		//String DLTTypeDescr = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCostTypeForUIMAFitTest.xml")));
+		String DLTTypeDescr = new String(Files.readAllBytes(Paths.get("/META-INF/org.apache.uima.fit/DLTIntegrationCostTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -61,30 +62,31 @@ public class DLTDeTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("./META-INF/de-test-text.txt")));
+	    //String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/de-test-text.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("/META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "./META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "./META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 	
-		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", "./META-INF/org.apache.uima.fit/LemmaAnnotatorForUIMAFitTest.xml", "DE");
+		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LemmaAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceLemma = new XMLInputSource(fLemma);
 		aedLemma = pars.parseAnalysisEngineDescription(xmlInputSourceLemma);
 		
-		File fMorph = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/MorphologicalTagAnnotator.xml", "./META-INF/org.apache.uima.fit/MorphologicalTagAnnotatorForUIMAFitTest.xml", "DE");
+		File fMorph = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/MorphologicalTagAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/MorphologicalTagAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceMorph = new XMLInputSource(fMorph);
 		aedMorph = pars.parseAnalysisEngineDescription(xmlInputSourceMorph);
 		
-		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", "./META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "DE");
+		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourcePOS = new XMLInputSource(fPOS);
 		aedPOS = pars.parseAnalysisEngineDescription(xmlInputSourcePOS);
 		
-		File fDepParse = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/DependencyParseAnnotator.xml", "./META-INF/org.apache.uima.fit/DependencyParseAnnotatorForUIMAFitTest.xml", "DE");
+		File fDepParse = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/DependencyParseAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DependencyParseAnnotatorForUIMAFitTest.xml", "DE");
 		XMLInputSource xmlInputSourceDepParse = new XMLInputSource(fDepParse);
 		aedDepParse = pars.parseAnalysisEngineDescription(xmlInputSourceDepParse);
 		
@@ -111,7 +113,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cAdjacentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cAdjacent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -134,7 +136,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cmAdjacentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cmAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmAdjacent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cmAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -156,7 +158,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cmvAdjacentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmvAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cmvAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmvAdjacent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cmvAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -178,7 +180,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cvAdjacentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cvAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cvAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cvAdjacent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cvAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -200,7 +202,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cvMaxFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cvMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cvMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cvMax_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cvMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -222,7 +224,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cvTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cvTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cvTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cvTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cvTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -245,7 +247,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_mMaxFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_mMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_mMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_mMax_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_mMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -267,7 +269,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_mTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_mTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_mTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_mTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_mTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -289,7 +291,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_oAdjacentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_oAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_oAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_oAdjacent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_oAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -311,7 +313,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_oTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_oTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_oTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_oTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_oTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -333,7 +335,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_mAdjacentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_vAdjacent_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_vAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_vAdjacent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_vAdjacent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -355,7 +357,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_vMaxFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_vMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_vMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_vMax_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_vMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -377,7 +379,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_vTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_vTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_vTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_vTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_vTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -399,7 +401,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cmvMaxFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmvMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cmvMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmvMax_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cmvMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -421,7 +423,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cmvTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmvTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cmvTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmvTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cmvTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -443,7 +445,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -465,7 +467,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cMaxFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cMax_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -486,7 +488,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cmMaxFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmMax_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cmMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmMax_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cmMax_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -508,7 +510,7 @@ public class DLTDeTest {
 	@Test
 	public void DLTIntegrationCost_cmTotalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmTotal_Feature.xml", "./META-INF/org.apache.uima.fit/DLTIntegrationCost_cmTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/DLTIntegrationCost_cmTotal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/DLTIntegrationCost_cmTotal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
