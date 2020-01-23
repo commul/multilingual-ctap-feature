@@ -49,7 +49,7 @@ public class POSDensityFeatureDeTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensityTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensityTypeForUIMAFitTest.xml")));
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes("META-INF/org.apache.uima.fit/POSDensityTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -58,7 +58,7 @@ public class POSDensityFeatureDeTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/de-test-text.txt")));
+	    String contents = new String(Files.readAllBytes("META-INF/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");

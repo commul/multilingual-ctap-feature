@@ -52,7 +52,7 @@ public class LexicalSophisticationFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalSophisticationType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml")));
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes("META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -61,7 +61,7 @@ public class LexicalSophisticationFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes("META-INF/cani.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");

@@ -101,13 +101,13 @@ public class SentenceAnnotatorTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars1);
 	    JCas jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
 	    
 		jCas.setDocumentText(contents);
 		
 		XMLParser pars = UIMAFramework.getXMLParser();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		
 		
 		XMLInputSource xmlInputSource = new XMLInputSource(f);

@@ -41,7 +41,7 @@ public class TokenAnnotatorTest{
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenTypeForUIMAFitTest.xml", locationsList);
-		String tokenTypeDescr = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenTypeForUIMAFitTest.xml")));
+		String tokenTypeDescr = new String(Files.readAllBytes("META-INF/org.apache.uima.fit/TokenTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -51,7 +51,7 @@ public class TokenAnnotatorTest{
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes("META-INF/cani.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
