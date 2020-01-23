@@ -51,7 +51,7 @@ public class GulpeaseFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NLetterType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/GulpeaseTypeForUIMAFitTest.xml", locationsList);
-		String GulpeaseTypeDescr = new String(Files.readAllBytes("META-INF/org.apache.uima.fit/GulpeaseTypeForUIMAFitTest.xml")));
+		String GulpeaseTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/GulpeaseTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -60,7 +60,7 @@ public class GulpeaseFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
