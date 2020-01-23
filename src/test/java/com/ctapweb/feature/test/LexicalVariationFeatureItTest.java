@@ -37,7 +37,7 @@ public class LexicalVariationFeatureItTest {
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
 	
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -88,12 +88,12 @@ public class LexicalVariationFeatureItTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Adjective for META-INF/cani.txt is 0.10869565217391304, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationAdjectiveFeatureTest() throws Exception {		
 	
@@ -110,12 +110,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Adverb for META-INF/cani.txt is 0.09420289855072464, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationAdverbFeatureTest() throws Exception {		
 	
@@ -132,12 +132,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Lexical for META-INF/cani.txt is 0.8405797101449275, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationLexicalFeatureTest() throws Exception {		
 	
@@ -154,12 +154,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Modifier for META-INF/cani.txt is 0.2028985507246377, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationModifierFeatureTest() throws Exception {		
 	
@@ -176,12 +176,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Noun for META-INF/cani.txt is 0.391304347826087, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationNounFeatureTest() throws Exception {		
 	
@@ -198,12 +198,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Verb for META-INF/cani.txt is 0.2898550724637681, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbFeatureTest() throws Exception {		
 	
@@ -220,12 +220,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Corrected Verb Variation 1 for META-INF/cani.txt is 4.170288281141495, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbCVV1FeatureTest() throws Exception {		
 	
@@ -242,12 +242,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Squared Verb Variation 1 for META-INF/cani.txt is 34.78260869565217, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbSVV1FeatureTest() throws Exception {		
 	
@@ -264,12 +264,12 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Verb Variation 1 for META-INF/cani.txt is 0.8695652173913043, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbVV1FeatureTest() throws Exception {		
 	
@@ -286,5 +286,5 @@ public class LexicalVariationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

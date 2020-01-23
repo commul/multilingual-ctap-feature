@@ -36,7 +36,7 @@ public class POSDensityFeatureDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedNToken;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -92,12 +92,12 @@ public class POSDensityFeatureDeTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
 	
 	}
-	*/	
+	
 	
 	/*
 	 * Checks that the adjective density in META-INF/de-test-text.txt is 0.08280254777070063, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdjectiveFeatureTest() throws Exception {		
 		
@@ -114,12 +114,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the adverb density in META-INF/de-test-text.txt is 0.07006369426751592, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdverbFeatureTest() throws Exception {		
 	
@@ -136,12 +136,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/	
+		
 	
 	/*
 	 * Checks that the article density in META-INF/de-test-text.txt is 0.11146496815286625, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityArticleFeatureTest() throws Exception {		
 	
@@ -158,12 +158,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the auxiliary verb density in META-INF/de-test-text.txt is 0.041401273885350316, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAuxiliaryVerbFeatureTest() throws Exception {		
 	
@@ -180,12 +180,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the cardinal number density in META-INF/de-test-text.txt is 0.025477707006369428, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityCardinalNumberFeatureTest() throws Exception {		
 	
@@ -202,12 +202,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the conjunction density in META-INF/de-test-text.txt is 0.07006369426751592, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityConjunctionFeatureTest() throws Exception {		
 	
@@ -224,12 +224,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the coordinating conjunction density in META-INF/de-test-text.txt is 0.03184713375796178, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityCoordinatingConjunctionFeatureTest() throws Exception {		
 	
@@ -246,12 +246,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the coordinating conjunction density in META-INF/de-test-text.txt is 0.006369426751592357, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityDemonstrativePronounFeatureTest() throws Exception {		
 	
@@ -268,12 +268,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the determiner density in META-INF/de-test-text.txt is 0.13694267515923567, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityDeterminerFeatureTest() throws Exception {		
 	
@@ -290,13 +290,13 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	
 	/*
 	 * Checks that the finite verb density in META-INF/de-test-text.txt is 0.10191082802547771, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityFiniteVerbFeatureTest() throws Exception {		
 	
@@ -313,12 +313,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the finite verb density in META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityForeignWordFeatureTest() throws Exception {		
 	
@@ -335,12 +335,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the functional density in META-INF/de-test-text.txt is 0.25477707006369427, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityFunctionalFeatureTest() throws Exception {		
 	
@@ -357,12 +357,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indefinite pronoun density in META-INF/de-test-text.txt is 0.012738853503184714, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityIndefinitePronounFeatureTest() throws Exception {		
 	
@@ -379,12 +379,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the infinite verb density in META-INF/de-test-text.txt is 0.01592356687898089, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityInfiniteVerbFeatureTest() throws Exception {		
 	
@@ -401,12 +401,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the interjection density in META-INF/de-test-text.txt is , with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityInterjectionFeatureTest() throws Exception {		
 	
@@ -423,12 +423,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the interrogative pronoun density in META-INF/de-test-text.txt is 0.006369426751592357, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityInterrogativePronounFeatureTest() throws Exception {		
 	
@@ -445,12 +445,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the lexical density in META-INF/de-test-text.txt is 0.5159235668789809, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityLexicalFeatureTest() throws Exception {		
 	
@@ -467,12 +467,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the main verb density in META-INF/de-test-text.txt is 0.10509554140127389, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityMainVerbFeatureTest() throws Exception {		
 	
@@ -489,12 +489,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modal density in META-INF/de-test-text.txt is 0.006369426751592357, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityModalFeatureTest() throws Exception {		
 	
@@ -511,12 +511,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modal verb density in META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityModalVerbFeatureTest() throws Exception {		
 	
@@ -533,12 +533,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modifier density in META-INF/de-test-text.txt is 0.15286624203821655, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityModifierFeatureTest() throws Exception {		
 	
@@ -555,12 +555,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modifier density in META-INF/de-test-text.txt is 0.050955414012738856, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityNonFiniteVerbFeatureTest() throws Exception {		
 	
@@ -577,12 +577,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the noun density in META-INF/de-test-text.txt is 0.2515923566878981, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityNounFeatureTest() throws Exception {		
 	
@@ -599,12 +599,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 		
 	/*
 	 * Checks that the past participle verb density in META-INF/de-test-text.txt is 0.03503184713375796, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPastParticipleVerbFeatureTest() throws Exception {		
 	
@@ -621,12 +621,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 
 	/*
 	 * Checks that the personal pronoun density in META-INF/de-test-text.txt is 0.03503184713375796, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPersonalPronounFeatureTest() throws Exception {		
 	
@@ -643,13 +643,13 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	
 	/*
 	 * Checks that the possessive pronoun density in META-INF/de-test-text.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPossessivePronounFeatureTest() throws Exception {		
 	
@@ -666,13 +666,13 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	
 	/*
 	 * Checks that the preposition density in META-INF/de-test-text.txt is 0.10191082802547771, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityPrepositionFeatureTest() throws Exception {		
 	
@@ -689,12 +689,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the pronoun density in META-INF/de-test-text.txt is 0.09554140127388536, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPronounFeatureTest() throws Exception {		
 	
@@ -711,12 +711,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the proper noun density in META-INF/de-test-text.txt is 0.044585987261146494, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityProperNounFeatureTest() throws Exception {		
 	
@@ -733,12 +733,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the punctuation density in META-INF/de-test-text.txt is 0.12738853503184713, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityPunctuationFeatureTest() throws Exception {		
 	
@@ -755,12 +755,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the relative pronoun density in META-INF/de-test-text.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityRelativePronounFeatureTest() throws Exception {		
 	
@@ -777,12 +777,12 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the subordinating conjunction density in META-INF/de-test-text.txt is 0.028662420382165606, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensitySubordinatingConjunctionFeatureTest() throws Exception {		
 	
@@ -799,13 +799,13 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	
 	/*
 	 * Checks that the verb density in META-INF/de-test-text.txt is 0.1178343949044586, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityVerbFeatureTest() throws Exception {		
 	
@@ -822,5 +822,5 @@ public class POSDensityFeatureDeTest {
 			}
 		}
 	}
-	*/	
+		
 }

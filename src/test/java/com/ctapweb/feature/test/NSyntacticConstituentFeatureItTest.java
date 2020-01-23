@@ -43,7 +43,7 @@ public class NSyntacticConstituentFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedParseTree, aed;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -100,12 +100,12 @@ public class NSyntacticConstituentFeatureItTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
 	
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of attributes in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentAttributiveFeatureTest() throws Exception {
 	
@@ -122,12 +122,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of auxiliary verbs in META-INF/cani.txt is 15.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentAuxiliaryFeatureTest() throws Exception {
 	
@@ -144,12 +144,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of passive auxiliaries in META-INF/cani.txt is 2.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentAuxiliaryPassiveTest() throws Exception {
 	
@@ -166,12 +166,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of cases in META-INF/cani.txt is 29.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentCaseTest() throws Exception {
 	
@@ -188,12 +188,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of clausal complements in META-INF/cani.txt is 3.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentClausalComplementTest() throws Exception {
 	
@@ -210,12 +210,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of clausal passive subjects in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentClausalPassiveSubjectTest() throws Exception {
 	
@@ -232,12 +232,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of clausal subjects in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentClausalSubjectTest() throws Exception {
 	
@@ -254,12 +254,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of coordinations in META-INF/cani.txt is 12.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentCoordinationTest() throws Exception {
 	
@@ -276,12 +276,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of copulae in META-INF/cani.txt is 5.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentCopulaTest() throws Exception {
 	
@@ -303,7 +303,7 @@ public class NSyntacticConstituentFeatureItTest {
 	/*
 	 * Checks that the number of dependent clauses in META-INF/cani.txt is 23.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentDCTest() throws Exception {
 	
@@ -320,12 +320,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of direct objects in META-INF/cani.txt is 20.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentDirectObjectTest() throws Exception {
 	
@@ -342,12 +342,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of discourse elements in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentDiscourseElementTest() throws Exception {
 	
@@ -364,12 +364,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of expletive elements in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentExpletiveTest() throws Exception {
 	
@@ -386,12 +386,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of indirect objects in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentIndirectObjectTest() throws Exception {
 	
@@ -408,12 +408,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of emarkers in META-INF/cani.txt is 9.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentMarkerTest() throws Exception {
 	
@@ -430,12 +430,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of multi word expressions in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentMultiWordExpressionTest() throws Exception {
 	
@@ -452,12 +452,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of negation modifiers in META-INF/cani.txt is 2.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNegationModifierTest() throws Exception {
 	
@@ -474,12 +474,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of nominal modifiers in META-INF/cani.txt is 33.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNominalModifierTest() throws Exception {
 	
@@ -496,12 +496,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of nominal subjects in META-INF/cani.txt is 19.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNominalSubjectTest() throws Exception {
 	
@@ -518,12 +518,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of passive nominal subjects in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNominalSubjectPassiveTest() throws Exception {
 	
@@ -540,12 +540,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of noun compounds in META-INF/cani.txt is 3.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNounCompoundModifierTest() throws Exception {
 	
@@ -562,12 +562,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of noun phrases as adverbial modifiers in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNounPhraseAsAdverbialModifierTest() throws Exception {
 	
@@ -584,13 +584,13 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	
 	/*
 	 * Checks that the number of noun phrases in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNumberTest() throws Exception {
 	
@@ -607,12 +607,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of numeric modifiers in META-INF/cani.txt is 4.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentNumericModifierTest() throws Exception {
 	
@@ -629,12 +629,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of open clausal complements in META-INF/cani.txt is 6.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentOpenClausalComplementTest() throws Exception {
 	
@@ -651,12 +651,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of parataxis complements in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentParataxisTest() throws Exception {
 	
@@ -673,12 +673,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of phrasal verb particles in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentPhrasalVerbParticleTest() throws Exception {
 	
@@ -695,12 +695,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of possession modifiers in META-INF/cani.txt is 8.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentPossessionModifierTest() throws Exception {
 	
@@ -717,12 +717,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of preconjuncts in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentPreconjunctTest() throws Exception {
 	
@@ -739,12 +739,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of predeterminers in META-INF/cani.txt is 1.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentPredeterminerTest() throws Exception {
 	
@@ -761,12 +761,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of prepositional complements in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentPrepositionalComplementTest() throws Exception {
 	
@@ -783,12 +783,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of proper noun modifiers in META-INF/cani.txt is 2.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentProperNounModifierTest() throws Exception {
 	
@@ -805,12 +805,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of quantifier phrase modifiers in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NSyntacticConstituentQuantifierPhraseModifierTest() throws Exception {
 	
@@ -827,12 +827,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of quantifier phrase modifiers in META-INF/cani.txt is 8.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentRelativeClauseModifierTest() throws Exception {
 	
@@ -849,13 +849,13 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of sentences in META-INF/cani.txt is 14.0, with the precision of 0.0000001.
 	 * Tint splits some sentences into multiple sentences. In the text cani.txt, 2 sentences were split by colon ':' : the second and the 8th (that starts with "Scrive su Facebook:").
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentSentencesTest() throws Exception {
 	
@@ -872,12 +872,12 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of temporal modifiers in META-INF/cani.txt is 0.0, with the precision of 0.001.
 	 */
-	/*
+	
 	@Test
 	public void NSyntacticConstituentTemporalModifierTest() throws Exception {
 	
@@ -894,5 +894,5 @@ public class NSyntacticConstituentFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

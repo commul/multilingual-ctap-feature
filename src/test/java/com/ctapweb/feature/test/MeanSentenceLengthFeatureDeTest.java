@@ -33,7 +33,7 @@ public class MeanSentenceLengthFeatureDeTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedNSentence,  aedToken, aedNToken, aedSyllable, aedNSyllable, aedLetter, aedNLetter;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -94,12 +94,12 @@ public class MeanSentenceLengthFeatureDeTest {
 		aedNLetter = pars.parseAnalysisEngineDescription(xmlInputSourceNLetter);
 		
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the mean sentence length in tokens in META-INF/de-test-text.txt is 16.526315789473685, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void MeanSentenceLengthInTokenFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInTokenFeature.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "token", "5454");
@@ -115,12 +115,12 @@ public class MeanSentenceLengthFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the mean sentence length in letters in META-INF/de-test-text.txt is 90.73684210526316, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void MeanSentenceLengthInLetterFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInLetterFeature.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "5454");
@@ -136,12 +136,12 @@ public class MeanSentenceLengthFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the mean sentence length in syllables in META-INF/de-test-text.txt is 29.157894736842106, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void MeanSentenceLengthInSyllableFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanSentenceLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/MeanSentenceLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "5454");
@@ -157,5 +157,5 @@ public class MeanSentenceLengthFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 }

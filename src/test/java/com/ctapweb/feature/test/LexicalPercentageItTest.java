@@ -37,7 +37,7 @@ public class LexicalPercentageItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedLemma;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -88,12 +88,12 @@ public class LexicalPercentageItTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the percentage of lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 76.13636363636364, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalPercentageDeMauroAllLemmasFeatureTest() throws Exception {		
 	
@@ -110,12 +110,12 @@ public class LexicalPercentageItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the percentage of unique lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 74.67532467532467, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalPercentageDeMauroUniqueLemmasFeatureTest() throws Exception {		
 	
@@ -132,6 +132,6 @@ public class LexicalPercentageItTest {
 			}
 		}
 	}
-	*/
+	
 	
 }

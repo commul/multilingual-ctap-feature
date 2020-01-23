@@ -30,7 +30,7 @@ import com.ctapweb.feature.type.ComplexityFeatureBase;
 
 public class NTokenFeatureItTest {
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -69,12 +69,12 @@ public class NTokenFeatureItTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of tokens in META-INF/cani.txt is 264.0, without punctuations.
 	 */
-	/*
+	
 	@Test
 	public void NTokenFeatureTest() throws Exception {
 
@@ -84,5 +84,5 @@ public class NTokenFeatureItTest {
 			}	
 		}
 	}
-	*/
+	
 }

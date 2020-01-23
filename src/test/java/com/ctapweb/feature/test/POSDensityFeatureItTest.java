@@ -36,7 +36,7 @@ public class POSDensityFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedNToken;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -92,12 +92,12 @@ public class POSDensityFeatureItTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
 	
 	}
-	*/	
+		
 	
 	/*
 	 * Checks that the abbreviation density in META-INF/cani.txt is 0.0189393939393939, with the precision of 0.001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAbbreviationFeatureTest() throws Exception {
 	
@@ -114,12 +114,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the adjective density in META-INF/cani.txt is 0.071969696969697, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdjectiveFeatureTest() throws Exception {		
 		
@@ -136,12 +136,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the possessive adjective density in META-INF/cani.txt is 0.0265151515151515, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdjectivePossessiveFeatureTest() throws Exception {		
 	
@@ -158,12 +158,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the singular adjective density in META-INF/cani.txt is 0.0265151515151515, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdjectiveSingularFeatureTest() throws Exception {		
 	
@@ -180,12 +180,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the plural adjective density in META-INF/cani.txt is 0.022727272727272728, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdjectivePluralFeatureTest() throws Exception {		
 	
@@ -202,12 +202,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the adverb density in META-INF/cani.txt is 0.0606060606060606, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdverbFeatureTest() throws Exception {		
 	
@@ -224,12 +224,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the negation adverb density in META-INF/cani.txt is 0.00757575757575758, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAdverbNegationFeatureTest() throws Exception {		
 	
@@ -246,12 +246,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the article density in META-INF/cani.txt is 0.071969696969697, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityArticleFeatureTest() throws Exception {		
 	
@@ -268,12 +268,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the auxiliary verb density in META-INF/cani.txt is 0.0454545454545455, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityAuxiliaryVerbFeatureTest() throws Exception {		
 	
@@ -290,12 +290,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the cardinal number density in META-INF/cani.txt is 0.0189393939393939, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityCardinalNumberFeatureTest() throws Exception {		
 	
@@ -312,12 +312,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the conjunction density in META-INF/cani.txt is 0.0492424242424242, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityConjunctionFeatureTest() throws Exception {		
 	
@@ -334,12 +334,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the coordinating conjunction density in META-INF/cani.txt is 0.0454545454545455, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityCoordinatingConjunctionFeatureTest() throws Exception {		
 	
@@ -356,12 +356,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the coordinating conjunction density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityDemonstrativePronounFeatureTest() throws Exception {		
 	
@@ -378,12 +378,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the determiner density in META-INF/cani.txt is 0.0871212121212121, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityDeterminerFeatureTest() throws Exception {		
 	
@@ -400,12 +400,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the emoticon density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityEmoticonFeatureTest() throws Exception {		
 	
@@ -422,12 +422,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the finite verb density in META-INF/cani.txt is 0.13257575757575757, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityFiniteVerbFeatureTest() throws Exception {		
 	
@@ -444,12 +444,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the finite verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityForeignWordFeatureTest() throws Exception {		
 	
@@ -466,12 +466,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the functional density in META-INF/cani.txt is 0.481060606060606, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityFunctionalFeatureTest() throws Exception {		
 	
@@ -488,12 +488,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indefinite pronoun density in META-INF/cani.txt is 0.0227272727272727, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityIndefinitePronounFeatureTest() throws Exception {		
 	
@@ -510,12 +510,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the infinite verb density in META-INF/cani.txt is 0.0340909090909091, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityInfiniteVerbFeatureTest() throws Exception {		
 	
@@ -532,12 +532,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the interjection density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityInterjectionFeatureTest() throws Exception {		
 	
@@ -554,12 +554,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the interrogative pronoun density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityInterrogativePronounFeatureTest() throws Exception {		
 	
@@ -576,12 +576,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the lexical density in META-INF/cani.txt is 0.522727272727273, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityLexicalFeatureTest() throws Exception {		
 	
@@ -598,12 +598,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the main verb density in META-INF/cani.txt is 0.174242424242424, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityMainVerbFeatureTest() throws Exception {		
 	
@@ -620,12 +620,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modal density in META-INF/cani.txt is 0.0151515151515152, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityModalFeatureTest() throws Exception {		
 	
@@ -642,12 +642,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modal verb density in META-INF/cani.txt is 0.0151515151515152, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityModalVerbFeatureTest() throws Exception {		
 	
@@ -664,12 +664,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modifier density in META-INF/cani.txt is 0.132575757575758, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityModifierFeatureTest() throws Exception {		
 	
@@ -686,12 +686,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the modifier density in META-INF/cani.txt is 0.102272727272727, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityNonFiniteVerbFeatureTest() throws Exception {		
 	
@@ -708,12 +708,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the noun density in META-INF/cani.txt is 0.25, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityNounFeatureTest() throws Exception {		
 	
@@ -730,12 +730,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 		
 	/*
 	 * Checks that the ordinal number density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityOrdinalNumberFeatureTest() throws Exception {		
 	
@@ -752,12 +752,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 		
 	/*
 	 * Checks that the past participle verb density in META-INF/cani.txt is 0.0454545454545455, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPastParticipleVerbFeatureTest() throws Exception {		
 	
@@ -774,12 +774,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the personal pronoun density in META-INF/cani.txt is 0.0189393939393939, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPersonalPronounFeatureTest() throws Exception {		
 	
@@ -796,12 +796,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the plural noun density in META-INF/cani.txt is 0.08333333333333333, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPluralNounFeatureTest() throws Exception {		
 	
@@ -818,12 +818,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the possessive pronoun density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPossessivePronounFeatureTest() throws Exception {		
 	
@@ -840,12 +840,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the possessive pronoun density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPredeterminerFeatureTest() throws Exception {		
 	
@@ -862,12 +862,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the preposition density in META-INF/cani.txt is 0.140151515151515, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityPrepositionFeatureTest() throws Exception {		
 	
@@ -884,12 +884,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the pronoun density in META-INF/cani.txt is 0.0833333333333333, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityPronounFeatureTest() throws Exception {		
 	
@@ -906,12 +906,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the proper noun density in META-INF/cani.txt is 0.0340909090909091, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityProperNounFeatureTest() throws Exception {		
 	
@@ -928,12 +928,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the punctuation density in META-INF/cani.txt is 0.117424242424242, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityPunctuationFeatureTest() throws Exception {		
 	
@@ -950,12 +950,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the relative pronoun density in META-INF/cani.txt is 0.0265151515151515, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityRelativePronounFeatureTest() throws Exception {		
 	
@@ -972,12 +972,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the singular noun density in META-INF/cani.txt is 0.125, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensitySingularNounFeatureTest() throws Exception {		
 	
@@ -994,12 +994,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the subordinating conjunction density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensitySubordinatingConjunctionFeatureTest() throws Exception {		
 	
@@ -1016,12 +1016,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the symbol density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensitySymbolFeatureTest() throws Exception {		
 	
@@ -1038,12 +1038,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the twitter tag density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityTwitterTagFeatureTest() throws Exception {		
 	
@@ -1060,12 +1060,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the verb density in META-INF/cani.txt is 0.234848484848485, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityVerbFeatureTest() throws Exception {		
 	
@@ -1082,12 +1082,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the 3d person verb density in META-INF/cani.txt is 0.106060606060606, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerb3dPersonFeatureTest() throws Exception {		
 	
@@ -1104,12 +1104,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the conditional present verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbConditionalFeatureTest() throws Exception {		
 	
@@ -1126,12 +1126,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the conjunctive verb density in META-INF/cani.txt is 0.00757575757575758, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbConjunctiveFeatureTest() throws Exception {		
 	
@@ -1148,12 +1148,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the conjunctive imperfect verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbConjunctiveImperfectFeatureTest() throws Exception {		
 	
@@ -1170,12 +1170,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the conjunctive present verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbConjunctivePresentFeatureTest() throws Exception {		
 	
@@ -1192,12 +1192,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the imperative verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbImperativeFeatureTest() throws Exception {		
 	
@@ -1214,12 +1214,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indicative verb density in META-INF/cani.txt is 0.125, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbIndicativeFeatureTest() throws Exception {		
 	
@@ -1236,12 +1236,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indicative future verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbIndicativeFutureFeatureTest() throws Exception {		
 	
@@ -1258,12 +1258,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indicative imperfect verb density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void POSDensityVerbIndicativeImperfectFeatureTest() throws Exception {		
 	
@@ -1280,12 +1280,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indicative past verb density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbIndicativePastFeatureTest() throws Exception {		
 	
@@ -1302,12 +1302,12 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the indicative past verb density in META-INF/cani.txt is 0.117424242424242, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void POSDensityVerbIndicativePresentFeatureTest() throws Exception {		
 	
@@ -1324,5 +1324,5 @@ public class POSDensityFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

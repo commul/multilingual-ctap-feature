@@ -42,7 +42,7 @@ public class ParseTreeAnnotatorTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -87,12 +87,12 @@ public class ParseTreeAnnotatorTest {
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedPOS, aed);
 		
 		}
-	*/
+	
 	
 	/*
 	 * Tests that the number of parse trees is equal to 12
 	 */
-	/*
+	
 	@Test
 	public void annotateParseTreeNumberParseTreesItalianTest() throws Exception {		
 		int n = 0;
@@ -105,12 +105,12 @@ public class ParseTreeAnnotatorTest {
 
 		assertEquals(12, n); 
 	}
-	*/
+	
 	
 	/*
 	 * Tests that 12 parse trees start with "(0 (root "
 	 */
-	/*
+
 	@Test
 	public void annotateParseTreeAllParseTreesStartWithZeroRootItalianTest() throws Exception {		
 		int n = 0;
@@ -126,5 +126,5 @@ public class ParseTreeAnnotatorTest {
 
 		assertEquals(12, n); 
 	}
-	*/
+	
 }

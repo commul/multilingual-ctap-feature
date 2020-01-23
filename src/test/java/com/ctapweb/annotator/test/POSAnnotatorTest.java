@@ -33,7 +33,7 @@ import com.ctapweb.feature.type.POS;
 public class POSAnnotatorTest {
 	JCas jCas;
 
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -72,12 +72,12 @@ public class POSAnnotatorTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then POSAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Tests that the number of POS tags in the text cani.txt is equal to 295
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSNumberItalianTest() throws Exception {		
 		int n = 0;
@@ -89,12 +89,12 @@ public class POSAnnotatorTest {
 
 		assertEquals(295, n); 
 	}
-	*/
+	
 	
 	/*
 	 * Tests that the first word of the text cani.txt "La" is tagged as an article ("RD")
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalianFirstWordTest() throws Exception {	
 		int n = 0;
@@ -107,12 +107,12 @@ public class POSAnnotatorTest {
 	      }
 
 	}
-	*/
+	
 	
 	/*
 	 * Tests that the word "hanno" of the text cani.txt  is tagged as a verb
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalian287WordTest() throws Exception {	
 		int n = 0;
@@ -128,12 +128,12 @@ public class POSAnnotatorTest {
 	         }
 	      }
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of articles in the text cani.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalianNumberArticlesTest() throws Exception {	
 		int n = 0;
@@ -148,12 +148,12 @@ public class POSAnnotatorTest {
 	      }
 		assertEquals(19, n);
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of adverbs in the text cani.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalianNumberAdverbsTest() throws Exception {	
 		int n = 0;
@@ -168,12 +168,12 @@ public class POSAnnotatorTest {
 	      }
 		assertEquals(16, n);
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of singular nouns in the text cani.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalianNumberNounsTest() throws Exception {	
 		int n = 0;
@@ -188,12 +188,12 @@ public class POSAnnotatorTest {
 	      }
 		assertEquals(66, n);
 	}
-	*/
+	
 		
 	/*
 	 * Tests the number of verbs in the text cani.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalianNumberVerbsTest() throws Exception {	
 		int n = 0;
@@ -208,12 +208,12 @@ public class POSAnnotatorTest {
 	      }
 		assertEquals(62, n);
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of pronouns in the text cani.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSItalianNumberPronounsTest() throws Exception {	
 		int n = 0;
@@ -230,5 +230,5 @@ public class POSAnnotatorTest {
 	      }
 		assertEquals(22, n);
 	}
-	*/
+	
 }

@@ -36,7 +36,7 @@ public class CohesiveComplexityItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedNToken, aedACFeature;
 	HashMap <String, ArrayList <String>> paramsHashMap, paramsHashMapAC;
 	ArrayList<String> locationsListForTest, locationsListForTestAC;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -89,12 +89,12 @@ public class CohesiveComplexityItTest {
 		locationsListForTestAC.add("../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
     
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Temporal Connectives Per Token_feature for META-INF/cani.txt is 0.0031847133757961785, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityTemporalFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Temporal_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Temporal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -127,12 +127,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/	
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Concessive Connectives Per Token_feature for META-INF/cani.txt is 0.0031847133757961785, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityConcessiveFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Concessive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Concessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -165,12 +165,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/	
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Causal Connectives Per Token_feature for META-INF/cani.txt is 0.006369426751592357, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityCausalFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Causal_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Causal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -203,12 +203,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/	
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_All Connectives Per Token_feature for META-INF/cani.txt is 0.06687898089171974, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAllFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_All_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_All_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -241,12 +241,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Additive Connectives Per Token_feature for META-INF/cani.txt is 0.044585987261146494, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdditiveFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Additive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Additive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -279,12 +279,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Adversative and Concessive Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdversativeConcessiveFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AdversativeConcessive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_AdversativeConcessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -317,12 +317,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Adversative Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdversativeFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Adversative_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Adversative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -355,12 +355,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Argumentative Connectives Per Token_feature for META-INF/cani.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityArgumentativeFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_argumentative_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_argumentative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -393,12 +393,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Consequence Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityConsequenceFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_consequence_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_consequence_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -431,12 +431,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Hierarchy Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityHierarchyFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_hierarchy_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_hierarchy_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -469,12 +469,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Hypothetical and Conditional Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityHypotheticalConditionalFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_hypothetical_conditional_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_hypothetical_conditional_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -507,12 +507,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Multifunctional Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityMultifunctionalFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_multifunctional_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_multifunctional_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -545,12 +545,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Purpose Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityPurposeFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_purpose_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_purpose_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -583,12 +583,12 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Explicative Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityExplicativeFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_explicative_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_explicative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -621,5 +621,5 @@ public class CohesiveComplexityItTest {
 			}
 		}
 	}
-	*/
+	
 }

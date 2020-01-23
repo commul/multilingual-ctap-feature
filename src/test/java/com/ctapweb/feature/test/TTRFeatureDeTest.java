@@ -36,7 +36,7 @@ public class TTRFeatureDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedTokenType, aedNToken, aedNTokenType;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -96,12 +96,12 @@ public class TTRFeatureDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the TTR for META-INF/de-test-text.txt is 0.6401273885350318, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void TTRFeatureTest() throws Exception {		
 	
@@ -118,12 +118,12 @@ public class TTRFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the RTTR for META-INF/de-test-text.txt is 11.343086224460317, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void RTTRFeatureTest() throws Exception {		
 	
@@ -140,12 +140,12 @@ public class TTRFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Log TTR for META-INF/de-test-text.txt is 0.9224112738609905, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LogTTRFeatureTest() throws Exception {		
 	
@@ -162,12 +162,12 @@ public class TTRFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the CTTR for META-INF/de-test-text.txt is 8.020773188899602, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CTTRFeatureTest() throws Exception {		
 	
@@ -184,12 +184,12 @@ public class TTRFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Uber TTR for META-INF/de-test-text.txt is , with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void UberTTRFeatureTest() throws Exception {		
 	
@@ -206,5 +206,5 @@ public class TTRFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 }

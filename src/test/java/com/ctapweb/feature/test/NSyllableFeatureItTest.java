@@ -30,7 +30,7 @@ import com.ctapweb.feature.type.ComplexityFeatureBase;
 
 public class NSyllableFeatureItTest {
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -73,12 +73,12 @@ public class NSyllableFeatureItTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of syllables in META-INF/cani.txt is 572.0.
 	 */
-	/*
+	
 	@Test
 	public void NSyllableFeatureTest() throws Exception {
 
@@ -88,5 +88,5 @@ public class NSyllableFeatureItTest {
 			}	
 		}
 	}
-	*/
+	
 }

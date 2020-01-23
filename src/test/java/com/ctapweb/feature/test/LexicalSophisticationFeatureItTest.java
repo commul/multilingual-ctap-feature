@@ -38,7 +38,7 @@ public class LexicalSophisticationFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedLemma;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -94,13 +94,13 @@ public class LexicalSophisticationFeatureItTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 	}
-	*/
+	
 	
 	//---------------Google 2012  Familiarity----------------
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Familiarity Per Million Words (AW Token) for META-INF/cani.txt is 3.789217471480068E8, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityAWTokenFeatureTest() throws Exception {		
 	
@@ -117,12 +117,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Familiarity Per Million Words (AW Type) for META-INF/cani.txt is 1.5713620613951483E8, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityAWTypeFeatureTest() throws Exception {		
 	
@@ -139,12 +139,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Familiarity Per Million Words (FW Token) for META-INF/cani.txt is 7.374125502753642E8, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityFWTokenFeatureTest() throws Exception {		
 	
@@ -161,12 +161,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Familiarity Per Million Words (FW Type) for META-INF/cani.txt is 3.695195652914551E8, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityFWTypeFeatureTest() throws Exception {		
 	
@@ -183,12 +183,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Familiarity Per Million Words (LW Token) for META-INF/cani.txt is 3.953182800122403E7, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityLWTokenFeatureTest() throws Exception {		
 	
@@ -205,12 +205,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Familiarity Per Million Words (LW Type) for META-INF/cani.txt is 3.3062107890640084E7, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityLWTypeFeatureTest() throws Exception {		
 	
@@ -227,13 +227,13 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	//---------------Google 2012  Informativeness----------------
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Informativeness Per Million Words (AW Token) for META-INF/cani.txt is 91.27076381897876, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessAWTokenFeatureTest() throws Exception {		
 	
@@ -250,12 +250,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Informativeness Per Million Words (AW Type) for META-INF/cani.txt is 117.7134747143073, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessAWTypeFeatureTest() throws Exception {		
 	
@@ -272,12 +272,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Informativeness Per Million Words (FW Token) for META-INF/cani.txt is 11.464919427389937, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessFWTokenFeatureTest() throws Exception {		
 	
@@ -294,12 +294,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Informativeness Per Million Words (FW Type) for META-INF/cani.txt is 20.374627715807016, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessFWTypeFeatureTest() throws Exception {		
 	
@@ -316,12 +316,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Informativeness Per Million Words (LW Token) for META-INF/cani.txt is 165.88767438813557, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessLWTokenFeatureTest() throws Exception {		
 	
@@ -338,12 +338,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Google Books Word Informativeness Per Million Words (LW Type) for META-INF/cani.txt is 173.35201668131904, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessLWTypeFeatureTest() throws Exception {		
 	
@@ -360,13 +360,13 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	//---------------Google 2012  Log10WFInMillion----------------
 		/*
 		 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 FW In Million Words (AW Token) for META-INF/cani.txt is 7.283676476436987, with the precision of 0.0000001.
 		 */
-	/*
+	
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionAWTokenFeatureTest() throws Exception {		
 		
@@ -383,12 +383,12 @@ public class LexicalSophisticationFeatureItTest {
 				}
 			}
 		}
-		*/
+		
 	
 		/*
 		 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 FW In Million Words (AW Type) for META-INF/cani.txt is 6.808967777362547, with the precision of 0.0000001.
 		 */	
-	/*
+	
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionAWTypeFeatureTest() throws Exception {		
 		
@@ -405,12 +405,12 @@ public class LexicalSophisticationFeatureItTest {
 				}
 			}
 		}
-		*/
+		
 	
 		/*
 		 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 FW In Million Words (FW Token) for META-INF/cani.txt is 8.361300153457918, with the precision of 0.0000001.
 		 */	
-	/*
+	
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionFWTokenFeatureTest() throws Exception {		
 		
@@ -427,12 +427,12 @@ public class LexicalSophisticationFeatureItTest {
 				}
 			}
 		}
-		*/
+		
 		
 		/*
 		 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 FW In Million Words (FW Type) for META-INF/cani.txt is 7.925231615479594, with the precision of 0.0000001.
 		 */	
-	/*
+	
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionFWTypeFeatureTest() throws Exception {		
 		
@@ -449,12 +449,12 @@ public class LexicalSophisticationFeatureItTest {
 				}
 			}
 		}
-		*/
+		
 		
 		/*
 		 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 FW In Million Words (LW Token) for META-INF/cani.txt is 6.25645736477395, with the precision of 0.0000001.
 		 */	
-	/*
+	
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionLWTokenFeatureTest() throws Exception {		
 		
@@ -471,12 +471,12 @@ public class LexicalSophisticationFeatureItTest {
 				}
 			}
 		}
-		*/
+		
 		
 		/*
 		 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 FW In Million Words (LW Type) for META-INF/cani.txt is 6.149629204366376, with the precision of 0.0000001.
 		 */	
-	/*
+	
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionLWTypeFeatureTest() throws Exception {		
 		
@@ -493,13 +493,13 @@ public class LexicalSophisticationFeatureItTest {
 				}
 			}
 		}
-		*/
+		
 	
 		//---------------Google 2012  Log10WF----------------
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (AW Token) for META-INF/cani.txt is 7.238204078990767, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFAWTokenFeatureTest() throws Exception {		
 				
@@ -516,12 +516,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 	
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (AW Type) for META-INF/cani.txt is 6.763495379916329, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFAWTypeFeatureTest() throws Exception {		
 				
@@ -538,12 +538,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 	
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (FW Token) for META-INF/cani.txt is 8.315827756011696, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFFWTokenFeatureTest() throws Exception {		
 				
@@ -560,12 +560,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (FW Type) for META-INF/cani.txt is 7.879759218033367, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFFWTypeFeatureTest() throws Exception {		
 				
@@ -582,12 +582,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (LW Token) for META-INF/cani.txt is 6.210984967327724, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFLWTokenFeatureTest() throws Exception {		
 				
@@ -604,12 +604,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (LW Type) for META-INF/cani.txt is 6.149629204366376, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFLWTypeFeatureTest() throws Exception {		
 				
@@ -626,13 +626,13 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				//---------------Google 2012   WF----------------
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books WF (AW Token) for META-INF/cani.txt is 3.624385937336369E8, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00WFAWTokenFeatureTest() throws Exception {		
 				
@@ -649,12 +649,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 	
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books WF (AW Type) for META-INF/cani.txt is 1.3463907860349092E8, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00WFAWTypeFeatureTest() throws Exception {		
 				
@@ -671,12 +671,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books WF (FW Token) for META-INF/cani.txt is 7.191037479697275E8, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00WFFWTokenFeatureTest() throws Exception {		
 				
@@ -693,12 +693,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word Log10 WF (FW Type) for META-INF/cani.txt is 3.3556183569967175E8, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00WFFWTypeFeatureTest() throws Exception {		
 				
@@ -715,12 +715,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books Word WF (LW Token) for META-INF/cani.txt is 2.4789218175908413E7, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00WFLWTokenFeatureTest() throws Exception {		
 				
@@ -737,12 +737,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: Google Books WF (LW Type) for META-INF/cani.txt is 1.7275882191081878E7, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationGoogle00WFLWTypeFeatureTest() throws Exception {		
 				
@@ -759,13 +759,13 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				//---------------SUBTLEX  Familiarity----------------
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Familiarity (AW Token) for META-INF/cani.txt is 911597.132527755, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityAWTokenFeatureTest() throws Exception {		
 				
@@ -782,12 +782,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Familiarity (AW Type) for META-INF/cani.txt is 418056.6265819095, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityAWTypeFeatureTest() throws Exception {		
 				
@@ -804,12 +804,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Familiarity (FW Token) for META-INF/cani.txt is 1635406.434504271, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityFWTokenFeatureTest() throws Exception {		
 				
@@ -826,12 +826,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Familiarity (FW Type) for META-INF/cani.txt is 861610.9125104927, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityFWTypeFeatureTest() throws Exception {		
 				
@@ -848,12 +848,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Familiarity (LW Token) for META-INF/cani.txt is 215064.3532570539, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityLWTokenFeatureTest() throws Exception {		
 				
@@ -870,12 +870,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Familiarity (LW Type) for META-INF/cani.txt is 154985.28082863658, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityLWTypeFeatureTest() throws Exception {		
 				
@@ -892,13 +892,13 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				//---------------SUBTLEX  Informativeness----------------
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Informativeness (AW Token) for META-INF/cani.txt is 48.91335076180772, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessAWTokenFeatureTest() throws Exception {		
 				
@@ -915,12 +915,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Informativeness (AW Type) for META-INF/cani.txt is 62.661115774186186, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessAWTypeFeatureTest() throws Exception {		
 				
@@ -937,12 +937,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Informativeness (FW Token) for META-INF/cani.txt is 6.3233286564121025, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessFWTokenFeatureTest() throws Exception {		
 				
@@ -959,12 +959,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Informativeness(FW Type) for META-INF/cani.txt is 10.283908164326132, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessFWTypeFeatureTest() throws Exception {		
 				
@@ -981,12 +981,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Informativeness (LW Token) for META-INF/cani.txt is 89.54729597289108, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessLWTokenFeatureTest() throws Exception {		
 				
@@ -1003,12 +1003,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Word Informativeness (LW Type) for META-INF/cani.txt is 93.23429948978692, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessLWTypeFeatureTest() throws Exception {		
 				
@@ -1025,13 +1025,13 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				//---------------SUBTLEX  Log10WF In Million----------------
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Log10 WF In Million (AW Token) for META-INF/cani.txt is 4.908699559377197, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionAWTokenFeatureTest() throws Exception {		
 				
@@ -1048,12 +1048,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Log10 WF In Million (AW Type) for META-INF/cani.txt is 4.43863858471746, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionAWTypeFeatureTest() throws Exception {		
 				
@@ -1070,12 +1070,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Log10 WF In Million (FW Token) for META-INF/cani.txt is 5.810062917577086, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionFWTokenFeatureTest() throws Exception {		
 				
@@ -1092,12 +1092,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Log10 WF In Million (FW Type) for META-INF/cani.txt is 5.385605125683745, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionFWTypeFeatureTest() throws Exception {		
 				
@@ -1114,12 +1114,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Log10 WF In Million (LW Token) for META-INF/cani.txt is 4.032161968501652, with the precision of 0.0000001.
 				 */
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionLWTokenFeatureTest() throws Exception {		
 				
@@ -1136,12 +1136,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 				
 				/*
 				 * Checks that the Lexical Sophistication Feature: SUBTLEX Log10 WF In Million (LW Type) for META-INF/cani.txt is 3.867910544488611, with the precision of 0.0000001.
 				 */	
-	/*
+	
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionLWTypeFeatureTest() throws Exception {		
 				
@@ -1158,12 +1158,12 @@ public class LexicalSophisticationFeatureItTest {
 						}
 					}
 				}
-				*/
+				
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Concreteness All Lemmas for META-INF/cani.txt is 5.864375, with the precision of 0.0000001.
 	 */	
-/*
+
 	@Test
 	public void LexicalSophisticationConcretenessAllLemmasFeatureTest() throws Exception {		
 	
@@ -1180,12 +1180,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Concreteness Unique Lemmas for META-INF/cani.txt is 5.395454545454545, with the precision of 0.0000001.
 	 */	
-/*
+
 	@Test
 	public void LexicalSophisticationConcretenessUniqueLemmasFeatureTest() throws Exception {		
 	
@@ -1202,12 +1202,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Imageability All Lemmas for META-INF/cani.txt is 5.876875, with the precision of 0.0000001.
 	 */	
-/*
+
 	@Test
 	public void LexicalSophisticationImageabilityAllLemmasFeatureTest() throws Exception {		
 	
@@ -1224,12 +1224,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Imageability Unique Lemmas for META-INF/cani.txt is 5.573636363636363, with the precision of 0.0000001.
 	 */	
-/*
+
 	@Test
 	public void LexicalSophisticationImageabilityUniqueLemmasFeatureTest() throws Exception {		
 	
@@ -1246,12 +1246,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Age of Acquisition All Lemmas for META-INF/cani.txt is 2.3881249999999996, with the precision of 0.0000001.
 	 */	
-/*
+
 	@Test
 	public void LexicalSophisticationAoAAllLemmasFeatureTest() throws Exception {		
 	
@@ -1268,12 +1268,12 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Sophistication Feature: Age of Acquisition Unique Lemmas for META-INF/cani.txt is 2.7190909090909092, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void LexicalSophisticationAoAUniqueLemmasFeatureTest() throws Exception {		
 	
@@ -1290,5 +1290,5 @@ public class LexicalSophisticationFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

@@ -33,7 +33,7 @@ import org.w3c.dom.Document;
 
 public class TokenTypeAnnotatorTest {
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -70,12 +70,12 @@ public class TokenTypeAnnotatorTest {
 		
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of token types in the file META-INF/cani.txt is 181.
 	 */
-	/*
+	
 	@Test
 	public void annotateLemmasItalianNumberLemmasTest() throws Exception {		
 		int n = 0;
@@ -88,5 +88,5 @@ public class TokenTypeAnnotatorTest {
 		
 		assertEquals(181, n); 
 	}
-	*/
+	
 }

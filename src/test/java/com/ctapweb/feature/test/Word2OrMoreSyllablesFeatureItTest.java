@@ -36,7 +36,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedSyllable;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -89,12 +89,12 @@ public class Word2OrMoreSyllablesFeatureItTest {
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
 	
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of tokens with 2 or more syllables in META-INF/cani.txt is 170.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NumberWordToken2OrMoreSyllablesFeatureTest() throws Exception {
 	
@@ -111,12 +111,12 @@ public class Word2OrMoreSyllablesFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the percent of tokens with 2 or more syllables in META-INF/cani.txt is 0.6439393939393939, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void PercentWordToken2OrMoreSyllablesFeatureTest() throws Exception {
 	
@@ -133,12 +133,12 @@ public class Word2OrMoreSyllablesFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of word types in META-INF/cani.txt is 143.0, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void NumberWordType2OrMoreSyllablesFeatureTest() throws Exception {
 	
@@ -155,12 +155,12 @@ public class Word2OrMoreSyllablesFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the percent of word types in META-INF/cani.txt is 0.7606382978723404, with the precision of 0.0000001.
 	 */	
-	/*
+	
 	@Test
 	public void PercentWordType2OrMoreSyllablesFeatureTest() throws Exception {
 	
@@ -177,5 +177,5 @@ public class Word2OrMoreSyllablesFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

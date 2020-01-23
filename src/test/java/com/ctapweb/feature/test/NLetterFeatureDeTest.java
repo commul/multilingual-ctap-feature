@@ -30,7 +30,7 @@ import com.ctapweb.feature.type.ComplexityFeatureBase;
 
 public class NLetterFeatureDeTest {
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -73,12 +73,12 @@ public class NLetterFeatureDeTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedLetter, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of letters in META-INF/de-test-text.txt is 1724.
 	 */
-	/*
+	
 	@Test
 	public void NLetterFeatureTest() throws Exception {
 
@@ -88,5 +88,5 @@ public class NLetterFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 }

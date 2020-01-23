@@ -32,7 +32,7 @@ public class MeanTokenLengthFeatureItTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedNToken, aedSyllable, aedNSyllable, aedLetter, aedNLetter;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
@@ -87,12 +87,12 @@ public class MeanTokenLengthFeatureItTest {
 		aedNLetter = pars.parseAnalysisEngineDescription(xmlInputSourceNLetter);
 		
 	}
-	*/
+	
 		
 	/*
 	 * Checks that the mean token length in letters in META-INF/cani.txt is 4.988636363636363, with the precision of 0.001.
 	 */
-	/*
+	
 	@Test
 	public void MeanTokenLengthInLetterFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanTokenLengthInLetterFeature.xml", "./META-INF/org.apache.uima.fit/MeanTokenLengthInTokenFeatureForUIMAFitTest.xml", "IT", "unit", "letter", "12222");
@@ -108,12 +108,12 @@ public class MeanTokenLengthFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the mean token length in syllables in META-INF/cani.txt is 2.1666666666666665, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void MeanTokenLengthInSyllableFeatureTest() throws Exception {
 		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID ("src/main/resources/descriptor/featureAE/MeanTokenLengthInSyllableFeature.xml", "./META-INF/org.apache.uima.fit/MeanTokenLengthInSyllableFeatureForUIMAFitTest.xml", "IT", "unit", "syllable", "12222");
@@ -129,5 +129,5 @@ public class MeanTokenLengthFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

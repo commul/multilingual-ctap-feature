@@ -36,7 +36,7 @@ public class CohesiveComplexityDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedNToken, aedACFeature;
 	HashMap <String, ArrayList <String>> paramsHashMap, paramsHashMapAC;
 	ArrayList<String> locationsListForTest, locationsListForTestAC;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -89,12 +89,12 @@ public class CohesiveComplexityDeTest {
 		locationsListForTestAC.add("../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
     
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Temporal Connectives Per Token_feature for META-INF/de-test-text.txt is 0.0031847133757961785, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityTemporalFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Temporal_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Temporal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -127,12 +127,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Eisenberg_Temporal Connectives Per Token_feature for META-INF/de-test-text.txt is 0.041401273885350316, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityTemporalEisenbergFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Eisenberg_Temporal_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Eisenberg_Temporal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -165,12 +165,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Other Connectives Per Token_feature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityOtherFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Other_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Other_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -203,12 +203,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Eisenberg_Other Connectives Per Token_feature for META-INF/de-test-text.txt is 0.0031847133757961785, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityOtherEisenbergFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Eisenberg_Other_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Eisenberg_Other_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -241,12 +241,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Multi Connectives Per Connective_feature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityMultiPerConnFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AllMulti_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_AllMulti_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -279,12 +279,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Single Connectives Per Connective_feature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexitySinglePerConnFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AllSingle_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_AllSingle_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -317,12 +317,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Concessive Connectives Per Token_feature for META-INF/de-test-text.txt is 0.0031847133757961785, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityConcessiveFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Concessive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Concessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -355,12 +355,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Single Connectives Per Token_feature for META-INF/de-test-text.txt is 0.06369426751592357, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexitySinglePerTokenFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AllSingle_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_AllSingle_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -393,12 +393,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Eisenberg_Concessive Connectives Per Token_feature for META-INF/de-test-text.txt is 0.028662420382165606, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityConcessiveEisenbergFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Eisenberg_Concessive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Eisenberg_Concessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -431,12 +431,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Causal Connectives Per Token_feature for META-INF/de-test-text.txt is 0.006369426751592357, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityCausalFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Causal_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Causal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -469,12 +469,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Eisenberg_Causal Connectives Per Token_feature for META-INF/de-test-text.txt is 0.03184713375796178, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityCausalEisenbergFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Eisenberg_Causal_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Eisenberg_Causal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -507,12 +507,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_All Connectives Per Token_feature for META-INF/de-test-text.txt is 0.06687898089171974, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAllFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_All_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_All_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -545,12 +545,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Additive Connectives Per Token_feature for META-INF/de-test-text.txt is 0.044585987261146494, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdditiveFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Additive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_Additive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -583,12 +583,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Eisenberg_Additive Connectives Per Token_feature for META-INF/de-test-text.txt is 0.044585987261146494, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdditiveEisenbergFeatureTest() throws Exception {
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Eisenberg_Additive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Eisenberg_Additive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -621,12 +621,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Breindl_Adversative and Concessive Connectives Per Token_feature for META-INF/de-test-text.txt is 0.009554140127388535, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdversativeConcessiveFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AdversativeConcessive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Breindl_AdversativeConcessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -659,12 +659,12 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the value of the Cohesive Complexity_Eisenberg_Adversative and Concessive Connectives Per Token_feature for META-INF/de-test-text.txt is 0.03821656050955414, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CohesionComplexityAdversativeConcessiveEisenbergFeatureTest() throws Exception {		
     	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Eisenberg_AdversativeConcessive_Feature.xml", "./META-INF/org.apache.uima.fit/NConnectives_Eisenberg_AdversativeConcessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
@@ -697,5 +697,5 @@ public class CohesiveComplexityDeTest {
 			}
 		}
 	}
-	*/
+	
 }

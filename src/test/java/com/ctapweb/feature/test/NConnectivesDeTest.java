@@ -36,7 +36,7 @@ public class NConnectivesDeTest {
 	AnalysisEngineDescription aedSent, aedToken;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -83,12 +83,12 @@ public class NConnectivesDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of additive connectives according to Breindl for META-INF/de-test-text.txt is 14.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAdditiveConnectivesFeatureTest() throws Exception {		
 	
@@ -105,12 +105,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of adversative connectives according to Breindl for META-INF/de-test-text.txt is 2.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAdversativeConnectivesFeatureTest() throws Exception {		
 	
@@ -127,12 +127,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of adversative and concessive connectives according to Breindl for META-INF/de-test-text.txt is 3.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAdversativeConcessiveConnectivesFeatureTest() throws Exception {		
 	
@@ -149,12 +149,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of all connectives according to Breindl for META-INF/de-test-text.txt is 21.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAllConnectivesFeatureTest() throws Exception {		
 	
@@ -171,12 +171,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of all multi connectives according to Breindl for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAllMultiConnectivesFeatureTest() throws Exception {		
 	
@@ -193,12 +193,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of all single connectives according to Breindl for META-INF/de-test-text.txt is 20.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAllSingleConnectivesFeatureTest() throws Exception {		
 	
@@ -215,12 +215,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of causal connectives according to Breindl for META-INF/de-test-text.txt is 2.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NCausalConnectivesFeatureTest() throws Exception {		
 	
@@ -237,12 +237,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of concessive connectives according to Breindl for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NConcessiveConnectivesFeatureTest() throws Exception {		
 	
@@ -259,12 +259,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of other connectives according to Breindl for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NOtherConnectivesFeatureTest() throws Exception {		
 	
@@ -281,12 +281,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of temporal connectives according to Breindl for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NTemporalConnectivesFeatureTest() throws Exception {		
 	
@@ -303,7 +303,7 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * *********************************************************************************
@@ -312,7 +312,7 @@ public class NConnectivesDeTest {
 	/*
 	 * Checks that the number of additive connectives according to Eisenberg for META-INF/de-test-text.txt is 14.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAdditiveConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -329,12 +329,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of adversative connectives according to Eisenberg for META-INF/de-test-text.txt is 2.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAdversativeConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -351,12 +351,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of adversative and concessive connectives according to Eisenberg for META-INF/de-test-text.txt is 3.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NAdversativeConcessiveConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -373,12 +373,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of causal connectives according to Eisenberg for META-INF/de-test-text.txt is 2.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NCausalConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -395,12 +395,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of concessive connectives according to Eisenberg for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NConcessiveConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -417,12 +417,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of other connectives according to Eisenberg for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NOtherConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -439,12 +439,12 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of temporal connectives according to Eisenberg for META-INF/de-test-text.txt is 1.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void NTemporalConnectivesEisenbergFeatureTest() throws Exception {		
 	
@@ -461,5 +461,5 @@ public class NConnectivesDeTest {
 			}
 		}
 	}
-	*/
+	
 }

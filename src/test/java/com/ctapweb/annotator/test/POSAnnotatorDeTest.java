@@ -33,7 +33,7 @@ import com.ctapweb.feature.type.POS;
 public class POSAnnotatorDeTest {
 	JCas jCas;
 
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -72,12 +72,12 @@ public class POSAnnotatorDeTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then POSAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Tests that the number of POS tags in the text de-test-text.txt is equal to 354
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSNumberGermanTest() throws Exception {		
 		int n = 0;
@@ -88,12 +88,12 @@ public class POSAnnotatorDeTest {
 	      }
 		assertEquals(354, n); 
 	}
-	*/
+	
 	
 	/*
 	 * Tests that the first word of the text de-test-text.txt "Der" is tagged as an article ("RD")
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGermanFirstWordTest() throws Exception {	
 		Iterator it = jCas.getAnnotationIndex(POS.type).iterator();		
@@ -103,12 +103,12 @@ public class POSAnnotatorDeTest {
 	         break;
 	      }
 	}
-	*/
+	
 	
 	/*
 	 * Tests that the word "eingebürgert" of the text de-test-text.txt  is tagged as a verb
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGerman287WordTest() throws Exception {	
 		//int n = 0;
@@ -122,12 +122,12 @@ public class POSAnnotatorDeTest {
 	         }
 	      }
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of articles in the text de-test-text.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGermanNumberArticlesTest() throws Exception {	
 		int n = 0;
@@ -141,12 +141,12 @@ public class POSAnnotatorDeTest {
 	      }
 		assertEquals(35, n);
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of adverbs in the text de-test-text.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGermanNumberAdverbsTest() throws Exception {	
 		int n = 0;
@@ -160,12 +160,12 @@ public class POSAnnotatorDeTest {
 	      }
 		assertEquals(22, n);
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of nouns in the text de-test-text.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGermanNumberNounsTest() throws Exception {	
 		int n = 0;
@@ -179,12 +179,12 @@ public class POSAnnotatorDeTest {
 	      }
 		assertEquals(65, n);
 	}
-	*/
+	
 		
 	/*
 	 * Tests the number of verbs in the text de-test-text.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGermanNumberVerbsTest() throws Exception {	
 		int n = 0;
@@ -198,12 +198,12 @@ public class POSAnnotatorDeTest {
 	      }
 		assertEquals(48, n);
 	}
-	*/
+	
 	
 	/*
 	 * Tests the number of pronouns in the text de-test-text.txt
 	 */
-	/*
+	
 	@Test
 	public void annotatePOSGermanNumberPronounsTest() throws Exception {	
 		int n = 0;
@@ -219,6 +219,6 @@ public class POSAnnotatorDeTest {
 	      }
 		assertEquals(42, n);
 	}
-	*/
+	
 }
 

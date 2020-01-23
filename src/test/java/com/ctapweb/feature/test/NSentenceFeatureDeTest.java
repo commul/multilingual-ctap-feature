@@ -30,7 +30,7 @@ import com.ctapweb.feature.type.ComplexityFeatureBase;
 
 public class NSentenceFeatureDeTest {
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -65,12 +65,12 @@ public class NSentenceFeatureDeTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of sentences in META-INF/de-test-text.txt is 19.0, with the precision of 0.001.
 	 */
-	/*
+	
 	@Test
 	public void NSentenceFeatureTest() throws Exception {
 
@@ -80,5 +80,5 @@ public class NSentenceFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 }

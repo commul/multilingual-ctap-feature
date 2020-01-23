@@ -37,7 +37,7 @@ public class LexicalVariationFeatureDeTest {
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
 	
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -88,12 +88,12 @@ public class LexicalVariationFeatureDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Adjective for META-INF/de-test-text.txt is 0.15432098765432098, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationAdjectiveFeatureTest() throws Exception {		
 	
@@ -110,12 +110,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Adverb for META-INF/de-test-text.txt is 0.08641975308641975, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationAdverbFeatureTest() throws Exception {		
 	
@@ -132,12 +132,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Lexical for META-INF/de-test-text.txt is 0.7901234567901234, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationLexicalFeatureTest() throws Exception {		
 	
@@ -154,12 +154,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Modifier for META-INF/de-test-text.txt is 0.24074074074074073, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationModifierFeatureTest() throws Exception {		
 	
@@ -176,12 +176,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Noun for META-INF/de-test-text.txt is 0.345679012345679, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationNounFeatureTest() throws Exception {		
 	
@@ -198,12 +198,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Verb for META-INF/de-test-text.txt is 0.1419753086419753, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbFeatureTest() throws Exception {		
 	
@@ -220,12 +220,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Corrected Verb Variation 1 for META-INF/de-test-text.txt is 3.3197640478403483, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbCVV1FeatureTest() throws Exception {		
 	
@@ -242,12 +242,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Squared Verb Variation 1 for META-INF/de-test-text.txt is 22.041666666666668, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbSVV1FeatureTest() throws Exception {		
 	
@@ -264,12 +264,12 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Lexical Variation Feature: Verb Variation 1 for META-INF/de-test-text.txt is 0.9583333333333334, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LexicalVariationVerbVV1FeatureTest() throws Exception {		
 	
@@ -286,6 +286,6 @@ public class LexicalVariationFeatureDeTest {
 			}
 		}
 	}
-	*/
+	
 }
 

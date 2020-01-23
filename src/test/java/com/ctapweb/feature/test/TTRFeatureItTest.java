@@ -36,7 +36,7 @@ public class TTRFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedTokenType, aedNToken, aedNTokenType;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -96,12 +96,12 @@ public class TTRFeatureItTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the TTR for META-INF/cani.txt is 0.6856060606060606, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void TTRFeatureTest() throws Exception {		
 	
@@ -118,12 +118,12 @@ public class TTRFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the TTR Uber for META-INF/cani.txt is 71.59682883562529, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void TTRUberFeatureTest() throws Exception {		
 	
@@ -140,12 +140,12 @@ public class TTRFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the RTTR for META-INF/cani.txt is 11.139779933629612, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void RTTRFeatureTest() throws Exception {		
 	
@@ -162,12 +162,12 @@ public class TTRFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the Log TTR for META-INF/cani.txt is 0.932307116708166, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void LogTTRFeatureTest() throws Exception {		
 	
@@ -184,12 +184,12 @@ public class TTRFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the CTTR for META-INF/cani.txt is 7.877013931995327, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void CTTRFeatureTest() throws Exception {		
 	
@@ -206,5 +206,5 @@ public class TTRFeatureItTest {
 			}
 		}
 	}
-	*/
+	
 }

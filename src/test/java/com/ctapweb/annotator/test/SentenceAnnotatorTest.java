@@ -85,7 +85,7 @@ public class SentenceAnnotatorTest {
 	/*
 	 * Reads a file META-INF/cani.txt and counts its sentences, compares the result with the reference number.
 	 */
-	/*
+	
 	@Test
 	public void annotateSentencesItalianTest() throws Exception {
 		System.out.println(UimaContextHolder.getContext());
@@ -125,5 +125,5 @@ public class SentenceAnnotatorTest {
 		
 		assertEquals(12, n);
 	}
-	*/
+	
 }

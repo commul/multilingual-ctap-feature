@@ -33,7 +33,7 @@ import org.w3c.dom.Document;
 public class SyllableAnnotatorTest {
 	
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -71,12 +71,12 @@ public class SyllableAnnotatorTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of syllables in META-INF/cani.txt is 572.
 	 */
-	/*
+	
 	@Test
 	public void annotateSyllablesItalianNumberSyllablesTest() throws Exception {
 		int n = 0;
@@ -88,12 +88,12 @@ public class SyllableAnnotatorTest {
 		
 		assertEquals(572, n); 
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the second syllable in META-INF/cani.txt is "don".
 	 */	
-	/*
+	
 	@Test
 	public void annotateSyllablesItalianSecondSyllableTest() throws Exception {
 		int n = 0;
@@ -108,5 +108,5 @@ public class SyllableAnnotatorTest {
 	         
 	      }
 	}
-	*/
+	
 }

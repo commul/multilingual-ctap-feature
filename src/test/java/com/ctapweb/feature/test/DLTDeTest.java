@@ -36,7 +36,7 @@ public class DLTDeTest {
 	AnalysisEngineDescription aedSent, aedToken, aedLemma, aedMorph, aedPOS, aedDepParse;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 				
@@ -102,12 +102,12 @@ public class DLTDeTest {
 		locationsListForTest = new ArrayList <String> ();
 		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml");
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cAdjacentFeatureTest() throws Exception {		
 	
@@ -124,13 +124,13 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cmAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cmAdjacentFeatureTest() throws Exception {		
 	
@@ -147,12 +147,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cmvAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cmvAdjacentFeatureTest() throws Exception {		
 	
@@ -169,12 +169,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cvAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cvAdjacentFeatureTest() throws Exception {		
 	
@@ -191,12 +191,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cvMaxFeature for META-INF/de-test-text.txt is 3.3125, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cvMaxFeatureTest() throws Exception {		
 	
@@ -213,12 +213,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cvTotalFeature for META-INF/de-test-text.txt is 4.625, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cvTotalFeatureTest() throws Exception {		
 	
@@ -235,12 +235,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_mAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_mAdjacentFeatureTest() throws Exception {		
 	
@@ -257,12 +257,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_mMaxFeature for META-INF/de-test-text.txt is 2.21875, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_mMaxFeatureTest() throws Exception {		
 	
@@ -279,12 +279,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_mTotalFeature for META-INF/de-test-text.txt is 2.96875, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_mTotalFeatureTest() throws Exception {		
 	
@@ -301,12 +301,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_oAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_oAdjacentFeatureTest() throws Exception {		
 	
@@ -323,12 +323,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cvMaxFeature for META-INF/de-test-text.txt is 2.21875, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cvMaxFeatureTest() throws Exception {		
 	
@@ -345,12 +345,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_oTotalFeature for META-INF/de-test-text.txt is 2.96875, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_oTotalFeatureTest() throws Exception {		
 	
@@ -367,12 +367,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_mAdjacentFeature for META-INF/de-test-text.txt is 0.0, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_mAdjacentFeatureTest() throws Exception {		
 	
@@ -389,12 +389,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_vMaxFeature for META-INF/de-test-text.txt is 3.4375, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_vMaxFeatureTest() throws Exception {		
 	
@@ -411,12 +411,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_vTotalFeature for META-INF/de-test-text.txt is 3.4375, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_vTotalFeatureTest() throws Exception {		
 	
@@ -433,12 +433,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cmvMaxFeature for META-INF/de-test-text.txt is 3.3125, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cmvMaxFeatureTest() throws Exception {		
 	
@@ -455,12 +455,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cmvTotalFeature for META-INF/de-test-text.txt is 4.625, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cmvTotalFeatureTest() throws Exception {		
 	
@@ -477,12 +477,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cTotalFeature for META-INF/de-test-text.txt is 2.84375, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cTotalFeatureTest() throws Exception {		
 	
@@ -499,12 +499,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cMaxFeature for META-INF/de-test-text.txt is 2.09375, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cMaxFeatureTest() throws Exception {		
 	
@@ -521,11 +521,11 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	/*
 	 * Checks that the DLTIntegrationCost_cmMaxFeature for META-INF/de-test-text.txt is 2.09375, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cmMaxFeatureTest() throws Exception {		
 	
@@ -542,12 +542,12 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the DLTIntegrationCost_cmTotalFeature for META-INF/de-test-text.txt is 2.84375, with the precision of 0.0000001.
 	 */
-	/*
+	
 	@Test
 	public void DLTIntegrationCost_cmTotalFeatureTest() throws Exception {		
 	
@@ -564,5 +564,5 @@ public class DLTDeTest {
 			}
 		}
 	}
-	*/
+	
 }

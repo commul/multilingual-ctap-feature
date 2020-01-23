@@ -30,7 +30,7 @@ import javax.xml.parsers.*;
 public class TokenAnnotatorTest{
 	
 	JCas jCas;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		XMLParser pars = UIMAFramework.getXMLParser();
@@ -65,12 +65,12 @@ public class TokenAnnotatorTest{
 		
 		SimplePipeline.runPipeline(jCas, aedSent, aed);
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the number of tokens in the file META-INF/cani.txt is 295.
 	 */
-	/*
+	
 	@Test
 	public void annotateTokensItalianNumberTokensTest() throws Exception {
 		int n = 0;
@@ -81,12 +81,12 @@ public class TokenAnnotatorTest{
 	      }		
 		assertEquals(295, n); // 295, because I didn't exclude punctuations. Otherwise it would be 264.
 	}
-	*/
+	
 	
 	/*
 	 * Checks that the second token in the file META-INF/cani.txt is "donna" (converts it to lowercase).
 	 */
-	/*
+	
 	@Test
 	public void annotateTokensItalianSecondTokenTest() throws Exception {
 		int n = 0;
@@ -101,5 +101,5 @@ public class TokenAnnotatorTest{
 	      }		
 		
 	}
-	*/
+	
 }
