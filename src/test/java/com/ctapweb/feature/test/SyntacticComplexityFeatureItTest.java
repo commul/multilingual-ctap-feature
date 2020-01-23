@@ -25,12 +25,13 @@ import org.w3c.dom.Document;
 import com.ctapweb.feature.test.util.DescriptorModifier;
 
 public class SyntacticComplexityFeatureItTest {
+	/*
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedParseTree, aed;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
-	/*
+	
 	@Before
 	public void setUp() throws Exception {
 		pars = UIMAFramework.getXMLParser();
