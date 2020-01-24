@@ -41,7 +41,7 @@ public class LemmaAnnotatorTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml", "src/test/resources/org.apache.uima.fit/LemmaTypeForUIMAFitTest.xml", locationsList);
 		String lemmaTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"LemmaTypeForUIMAFitTest.xml")));

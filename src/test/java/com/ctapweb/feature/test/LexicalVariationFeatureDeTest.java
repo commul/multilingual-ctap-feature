@@ -47,8 +47,8 @@ public class LexicalVariationFeatureDeTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/POSType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml", testResourcesFolder+"LexicalVariationTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"LexicalVariationTypeForUIMAFitTest.xml")));

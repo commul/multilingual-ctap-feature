@@ -46,10 +46,10 @@ public class GulpeaseFeatureItTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/NTokenType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/NSentenceType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/NLetterType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/NSentenceType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/NLetterType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml", testResourcesFolder+"GulpeaseTypeForUIMAFitTest.xml", locationsList);
 		String GulpeaseTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"GulpeaseTypeForUIMAFitTest.xml")));

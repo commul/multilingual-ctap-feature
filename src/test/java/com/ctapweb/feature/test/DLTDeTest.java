@@ -46,11 +46,11 @@ public class DLTDeTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/MorphologicalTagType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/POSType.xml");
-		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/DependencyParseType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/MorphologicalTagType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
+		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/DependencyParseType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml", testResourcesFolder+"DLTIntegrationCostTypeForUIMAFitTest.xml", locationsList);
 		//String DLTTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"DLTIntegrationCostTypeForUIMAFitTest.xml")));
