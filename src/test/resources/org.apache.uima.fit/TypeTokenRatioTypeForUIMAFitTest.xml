@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>Type token ratio</name>
+    <description>The type for storing type token ratio results
+
+Extends: ComplexityFeatureBase.
+Dependency: 
+	Feature types: none
+	Linguistic types: NTokenType, NTokenTypeType</description>
+    <version>1.0</version>
+    <vendor>Xiaobin</vendor>
+  
+  <types>
+    <typeDescription>
+      <name>com.ctapweb.feature.type.TTR</name>
+      <description>type token ratio</description>
+      <supertypeName>com.ctapweb.feature.type.ComplexityFeatureBase</supertypeName>
+    </typeDescription>
+  </types>
+<imports><import location="src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml"/><import location="src/main/resources/descriptor/type_system/feature_type/NTokenType.xml"/><import location="src/main/resources/descriptor/type_system/feature_type/NTokenTypeType.xml"/></imports></typeSystemDescription>

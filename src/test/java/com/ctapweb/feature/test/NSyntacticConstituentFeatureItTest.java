@@ -43,6 +43,7 @@ public class NSyntacticConstituentFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedParseTree, aed;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -56,8 +57,8 @@ public class NSyntacticConstituentFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituentTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/NSyntacticConstituentTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml", testResourcesFolder+"NSyntacticConstituentTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"NSyntacticConstituentTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -66,22 +67,22 @@ public class NSyntacticConstituentFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "IT");
+		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", testResourcesFolder+"POSAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourcePOS = new XMLInputSource(fPOS);
 		aedPOS = pars.parseAnalysisEngineDescription(xmlInputSourcePOS);
 		
-		File fParseTree = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/ParseTreeAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/ParseTreeAnnotatorForUIMAFitTest.xml", "IT");
+		File fParseTree = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/ParseTreeAnnotator.xml", testResourcesFolder+"ParseTreeAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceParseTree = new XMLInputSource(fParseTree);
 		aedParseTree = pars.parseAnalysisEngineDescription(xmlInputSourceParseTree);
 		
@@ -109,7 +110,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentAttributiveFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Attributive_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Attributive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Attributive_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Attributive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -131,7 +132,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentAuxiliaryFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Auxiliary_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Auxiliary_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Auxiliary_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Auxiliary_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -153,7 +154,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentAuxiliaryPassiveTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_AuxiliaryPassive_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_AuxiliaryPassive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_AuxiliaryPassive_Feature.xml", testResourcesFolder+"NSyntacticConstituent_AuxiliaryPassive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -175,7 +176,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentCaseTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Case_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Case_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Case_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Case_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -197,7 +198,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentClausalComplementTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ClausalComplement_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_ClausalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ClausalComplement_Feature.xml", testResourcesFolder+"NSyntacticConstituent_ClausalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -219,7 +220,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentClausalPassiveSubjectTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ClausalPassiveSubject_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_ClausalPassiveSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ClausalPassiveSubject_Feature.xml", testResourcesFolder+"NSyntacticConstituent_ClausalPassiveSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -241,7 +242,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentClausalSubjectTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ClausalSubject_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_ClausalSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ClausalSubject_Feature.xml", testResourcesFolder+"NSyntacticConstituent_ClausalSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -263,7 +264,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentCoordinationTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Coordination_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Coordination_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Coordination_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Coordination_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -285,7 +286,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentCopulaTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Copula_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Copula_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Copula_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Copula_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -307,7 +308,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentDCTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DC_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_DC_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DC_Feature.xml", testResourcesFolder+"NSyntacticConstituent_DC_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -329,7 +330,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentDirectObjectTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DirectObject_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_DirectObject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DirectObject_Feature.xml", testResourcesFolder+"NSyntacticConstituent_DirectObject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -351,7 +352,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentDiscourseElementTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DiscourseElement_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_DiscourseElement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_DiscourseElement_Feature.xml", testResourcesFolder+"NSyntacticConstituent_DiscourseElement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -373,7 +374,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentExpletiveTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Expletive_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Expletive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Expletive_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Expletive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -395,7 +396,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentIndirectObjectTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_IndirectObject_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_IndirectObject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_IndirectObject_Feature.xml", testResourcesFolder+"NSyntacticConstituent_IndirectObject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -417,7 +418,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentMarkerTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Marker_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Marker_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Marker_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Marker_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -439,7 +440,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentMultiWordExpressionTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_MultiWordExpression_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_MultiWordExpression_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_MultiWordExpression_Feature.xml", testResourcesFolder+"NSyntacticConstituent_MultiWordExpression_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -461,7 +462,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNegationModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NegationModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NegationModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NegationModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NegationModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -483,7 +484,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNominalModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NominalModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NominalModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -505,7 +506,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNominalSubjectTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalSubject_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NominalSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalSubject_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NominalSubject_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -527,7 +528,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNominalSubjectPassiveTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalSubjectPassive_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NominalSubjectPassive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NominalSubjectPassive_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NominalSubjectPassive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -549,7 +550,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNounCompoundModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NounCompoundModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NounCompoundModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NounCompoundModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NounCompoundModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -571,7 +572,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNounPhraseAsAdverbialModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NounPhraseAsAdverbialModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NounPhraseAsAdverbialModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NounPhraseAsAdverbialModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NounPhraseAsAdverbialModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -594,7 +595,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNumberTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Number_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Number_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Number_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Number_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -616,7 +617,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentNumericModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NumericModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_NumericModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_NumericModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_NumericModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -638,7 +639,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentOpenClausalComplementTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_OpenClausalCompliment_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_OpenClausalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_OpenClausalCompliment_Feature.xml", testResourcesFolder+"NSyntacticConstituent_OpenClausalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -660,7 +661,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentParataxisTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Parataxis_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Parataxis_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Parataxis_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Parataxis_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -682,7 +683,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentPhrasalVerbParticleTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PhrasalVerbParticle_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_PhrasalVerbParticle_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PhrasalVerbParticle_Feature.xml", testResourcesFolder+"NSyntacticConstituent_PhrasalVerbParticle_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -704,7 +705,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentPossessionModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PossessionModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_PossessionModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PossessionModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_PossessionModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -726,7 +727,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentPreconjunctTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Preconjunct_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Preconjunct_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Preconjunct_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Preconjunct_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -748,7 +749,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentPredeterminerTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Predeterminer_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_Predeterminer_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_Predeterminer_Feature.xml", testResourcesFolder+"NSyntacticConstituent_Predeterminer_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -770,7 +771,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentPrepositionalComplementTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PrepositionalComplement_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_PrepositionalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_PrepositionalComplement_Feature.xml", testResourcesFolder+"NSyntacticConstituent_PrepositionalComplement_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -792,7 +793,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentProperNounModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ProperNounModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_ProperNounModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_ProperNounModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_ProperNounModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -814,7 +815,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentQuantifierPhraseModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_QuantifierPhraseModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_QuantifierPhraseModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_QuantifierPhraseModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_QuantifierPhraseModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -836,7 +837,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentRelativeClauseModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_RelativeClauseModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_RelativeClauseModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_RelativeClauseModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_RelativeClauseModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -859,7 +860,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentSentencesTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_S_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_S_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_S_Feature.xml", testResourcesFolder+"NSyntacticConstituent_S_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -881,7 +882,7 @@ public class NSyntacticConstituentFeatureItTest {
 	@Test
 	public void NSyntacticConstituentTemporalModifierTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_TemporalModifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSyntacticConstituent_TemporalModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NSyntacticConstituent_TemporalModifier_Feature.xml", testResourcesFolder+"NSyntacticConstituent_TemporalModifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

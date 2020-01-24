@@ -38,6 +38,7 @@ public class LexicalSophisticationFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedLemma;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -51,8 +52,8 @@ public class LexicalSophisticationFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalSophisticationType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/LexicalSophisticationTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalSophisticationType.xml", testResourcesFolder+"LexicalSophisticationTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"LexicalSophisticationTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -61,22 +62,22 @@ public class LexicalSophisticationFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 	
-		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "IT");
+		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", testResourcesFolder+"POSAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourcePOS = new XMLInputSource(fPOS);
 		aedPOS = pars.parseAnalysisEngineDescription(xmlInputSourcePOS);
 		
-		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LemmaAnnotatorForUIMAFitTest.xml", "IT");
+		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", testResourcesFolder+"LemmaAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceLemma = new XMLInputSource(fLemma);
 		aedLemma = pars.parseAnalysisEngineDescription(xmlInputSourceLemma);
 		
@@ -104,7 +105,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityAWTokenFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Familiarity_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Familiarity_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -126,7 +127,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityAWTypeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Familiarity_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Familiarity_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -148,7 +149,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityFWTokenFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Familiarity_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Familiarity_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -170,7 +171,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityFWTypeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Familiarity_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Familiarity_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -192,7 +193,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityLWTokenFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Familiarity_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Familiarity_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -214,7 +215,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00FamiliarityLWTypeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Familiarity_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Familiarity_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Familiarity_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -237,7 +238,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessAWTokenFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Informativeness_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Informativeness_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -259,7 +260,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessAWTypeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Informativeness_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Informativeness_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -281,7 +282,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessFWTokenFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Informativeness_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Informativeness_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -303,7 +304,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessFWTypeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Informativeness_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Informativeness_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -325,7 +326,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessLWTokenFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Informativeness_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Informativeness_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -347,7 +348,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationGoogle00InformativenessLWTypeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Informativeness_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Informativeness_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Informativeness_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -370,7 +371,7 @@ public class LexicalSophisticationFeatureItTest {
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionAWTokenFeatureTest() throws Exception {		
 		
-			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Log10WFInMillion_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Log10WFInMillion_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 			XMLInputSource xmlInputSource = new XMLInputSource(f);
 			AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 			
@@ -392,7 +393,7 @@ public class LexicalSophisticationFeatureItTest {
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionAWTypeFeatureTest() throws Exception {		
 		
-			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Log10WFInMillion_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Log10WFInMillion_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 			XMLInputSource xmlInputSource = new XMLInputSource(f);
 			AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 			
@@ -414,7 +415,7 @@ public class LexicalSophisticationFeatureItTest {
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionFWTokenFeatureTest() throws Exception {		
 		
-			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Log10WFInMillion_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Log10WFInMillion_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 			XMLInputSource xmlInputSource = new XMLInputSource(f);
 			AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 			
@@ -436,7 +437,7 @@ public class LexicalSophisticationFeatureItTest {
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionFWTypeFeatureTest() throws Exception {		
 		
-			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Log10WFInMillion_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Log10WFInMillion_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 			XMLInputSource xmlInputSource = new XMLInputSource(f);
 			AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 			
@@ -458,7 +459,7 @@ public class LexicalSophisticationFeatureItTest {
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionLWTokenFeatureTest() throws Exception {		
 		
-			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Log10WFInMillion_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Log10WFInMillion_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 			XMLInputSource xmlInputSource = new XMLInputSource(f);
 			AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 			
@@ -480,7 +481,7 @@ public class LexicalSophisticationFeatureItTest {
 		@Test
 		public void LexicalSophisticationGoogle00Log10WFInMillionLWTypeFeatureTest() throws Exception {		
 		
-			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00_Log10WFInMillion_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+			File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00_Log10WFInMillion_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00_Log10WFInMillion_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 			XMLInputSource xmlInputSource = new XMLInputSource(f);
 			AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 			
@@ -503,7 +504,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFAWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00Log10WF_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00Log10WF_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -525,7 +526,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFAWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00Log10WF_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00Log10WF_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -547,7 +548,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFFWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00Log10WF_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00Log10WF_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -569,7 +570,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFFWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00Log10WF_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00Log10WF_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -591,7 +592,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFLWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00Log10WF_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00Log10WF_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -613,7 +614,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00Log10WFLWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00Log10WF_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00Log10WF_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00Log10WF_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -636,7 +637,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00WFAWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00WF_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00WF_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -658,7 +659,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00WFAWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00WF_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00WF_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -680,7 +681,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00WFFWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00WF_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00WF_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -702,7 +703,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00WFFWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00WF_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00WF_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -724,7 +725,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00WFLWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00WF_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00WF_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -746,7 +747,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationGoogle00WFLWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Google00WF_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Google00WF_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_Google00WF_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -769,7 +770,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityAWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Familiarity_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Familiarity_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -791,7 +792,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityAWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Familiarity_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Familiarity_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -813,7 +814,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityFWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Familiarity_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Familiarity_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -835,7 +836,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityFWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Familiarity_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Familiarity_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -857,7 +858,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityLWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Familiarity_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Familiarity_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -879,7 +880,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXFamiliarityLWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Familiarity_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Familiarity_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Familiarity_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -902,7 +903,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessAWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Informativeness_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Informativeness_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -924,7 +925,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessAWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Informativeness_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Informativeness_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -946,7 +947,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessFWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Informativeness_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Informativeness_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -968,7 +969,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessFWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Informativeness_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Informativeness_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -990,7 +991,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessLWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Informativeness_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Informativeness_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1012,7 +1013,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXInformativenessLWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Informativeness_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Informativeness_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Informativeness_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1035,7 +1036,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionAWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1057,7 +1058,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionAWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Log10WFInMillion_AW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1079,7 +1080,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionFWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1101,7 +1102,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionFWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Log10WFInMillion_FW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1123,7 +1124,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionLWTokenFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Token_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Token_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Token_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1145,7 +1146,7 @@ public class LexicalSophisticationFeatureItTest {
 				@Test
 				public void LexicalSophisticationSUBTLEXLog10WFInMillionLWTypeFeatureTest() throws Exception {		
 				
-					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Type_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+					File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Type_Feature.xml", testResourcesFolder+"LexicalSophistication_SUBTLEX_Log10WFInMillion_LW_Type_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 					XMLInputSource xmlInputSource = new XMLInputSource(f);
 					AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 					
@@ -1167,7 +1168,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationConcretenessAllLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Concreteness_All_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Concreteness_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Concreteness_All_Lemmas_Feature.xml", testResourcesFolder+"LexicalSophistication_Concreteness_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1189,7 +1190,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationConcretenessUniqueLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Concreteness_Unique_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Concreteness_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Concreteness_Unique_Lemmas_Feature.xml", testResourcesFolder+"LexicalSophistication_Concreteness_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1211,7 +1212,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationImageabilityAllLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Imageability_All_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Imageability_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Imageability_All_Lemmas_Feature.xml", testResourcesFolder+"LexicalSophistication_Imageability_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1233,7 +1234,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationImageabilityUniqueLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Imageability_Unique_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_Imageability_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_Imageability_Unique_Lemmas_Feature.xml", testResourcesFolder+"LexicalSophistication_Imageability_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1255,7 +1256,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationAoAAllLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_AoA_All_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_AoA_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_AoA_All_Lemmas_Feature.xml", testResourcesFolder+"LexicalSophistication_AoA_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1277,7 +1278,7 @@ public class LexicalSophisticationFeatureItTest {
 	@Test
 	public void LexicalSophisticationAoAUniqueLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_AoA_Unique_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalSophistication_AoA_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalSophistication_AoA_Unique_Lemmas_Feature.xml", testResourcesFolder+"LexicalSophistication_AoA_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

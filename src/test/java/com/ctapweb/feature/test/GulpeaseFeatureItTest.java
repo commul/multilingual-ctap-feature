@@ -36,6 +36,7 @@ public class GulpeaseFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedLetter, aedNSentence, aedNToken, aedNLetter;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -50,8 +51,8 @@ public class GulpeaseFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NSentenceType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NLetterType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/GulpeaseTypeForUIMAFitTest.xml", locationsList);
-		String GulpeaseTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/GulpeaseTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml", testResourcesFolder+"GulpeaseTypeForUIMAFitTest.xml", locationsList);
+		String GulpeaseTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"GulpeaseTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -60,30 +61,30 @@ public class GulpeaseFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 	
-		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LetterAnnotatorForUIMAFitTest.xml", "IT");
+		File fLetter = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LetterAnnotator.xml", testResourcesFolder+"LetterAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceLetter = new XMLInputSource(fLetter);
 		aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
-		File fNSentence = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NSentenceFeatureForUIMAFitTest.xml", "IT", "123");
+		File fNSentence = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", testResourcesFolder+"NSentenceFeatureForUIMAFitTest.xml", "IT", "123");
 		XMLInputSource xmlInputSourceNSentence = new XMLInputSource(fNSentence);
 		aedNSentence = pars.parseAnalysisEngineDescription(xmlInputSourceNSentence);
 		
-		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "IT", "123");
+		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", testResourcesFolder+"NTokenFeatureForUIMAFitTest.xml", "IT", "123");
 		XMLInputSource xmlInputSourceNToken = new XMLInputSource(fNToken);
 		aedNToken = pars.parseAnalysisEngineDescription(xmlInputSourceNToken);
 		
-		File fNLetter= DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NLetterFeatureForUIMAFitTest.xml", "IT", "555");
+		File fNLetter= DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", testResourcesFolder+"NLetterFeatureForUIMAFitTest.xml", "IT", "555");
 		XMLInputSource xmlInputSourceNLetter = new XMLInputSource(fNLetter);
 		aedNLetter = pars.parseAnalysisEngineDescription(xmlInputSourceNLetter);
 		
@@ -110,7 +111,7 @@ public class GulpeaseFeatureItTest {
 	@Test
 	public void GulpeaseFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/Gulpease_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/Gulpease_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/Gulpease_Feature.xml", testResourcesFolder+"Gulpease_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

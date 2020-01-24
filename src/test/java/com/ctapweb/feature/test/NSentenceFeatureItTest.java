@@ -30,6 +30,7 @@ import com.ctapweb.feature.type.ComplexityFeatureBase;
 
 public class NSentenceFeatureItTest {
 	JCas jCas;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -42,7 +43,7 @@ public class NSentenceFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSentenceType.xml", "META-INF/org.apache.uima.fit/NSentenceTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/NSentenceTypeForUIMAFitTest.xml")));
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"NSentenceTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -51,7 +52,7 @@ public class NSentenceFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");

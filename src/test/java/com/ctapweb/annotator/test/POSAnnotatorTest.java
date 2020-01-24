@@ -43,8 +43,8 @@ public class POSAnnotatorTest {
 		ArrayList<String> locationsList = new ArrayList<String>();
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml", "META-INF/org.apache.uima.fit/POSTypeForUIMAFitTest.xml", locationsList);
-		String posTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/POSTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml", "src/test/resources/org.apache.uima.fit/POSTypeForUIMAFitTest.xml", locationsList);
+		String posTypeDescr = new String(Files.readAllBytes(Paths.get("src/test/resources/org.apache.uima.fit/POSTypeForUIMAFitTest.xml")));
 		
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -54,18 +54,18 @@ public class POSAnnotatorTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "src/test/resources/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		AnalysisEngineDescription aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "src/test/resources/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		AnalysisEngineDescription aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", "META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "IT");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", "src/test/resources/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

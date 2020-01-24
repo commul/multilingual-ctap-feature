@@ -37,6 +37,7 @@ public class LexicalPercentageItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedLemma;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -49,8 +50,8 @@ public class LexicalPercentageItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalPercentageType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalPercentageTypeForUIMAFitTest.xml", locationsList);
-		String lexPercTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/LexicalPercentageTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalPercentageType.xml", testResourcesFolder+"LexicalPercentageTypeForUIMAFitTest.xml", locationsList);
+		String lexPercTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"LexicalPercentageTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -59,18 +60,18 @@ public class LexicalPercentageItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 	
-		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LemmaAnnotatorForUIMAFitTest.xml", "IT");
+		File fLemma = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/LemmaAnnotator.xml", testResourcesFolder+"LemmaAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceLemma = new XMLInputSource(fLemma);
 		aedLemma = pars.parseAnalysisEngineDescription(xmlInputSourceLemma);
 		
@@ -97,7 +98,7 @@ public class LexicalPercentageItTest {
 	@Test
 	public void LexicalPercentageDeMauroAllLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_All_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalPercentage_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_All_Lemmas_Feature.xml", testResourcesFolder+"LexicalPercentage_All_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -119,7 +120,7 @@ public class LexicalPercentageItTest {
 	@Test
 	public void LexicalPercentageDeMauroUniqueLemmasFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_Unique_Lemmas_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/LexicalPercentage_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/LexicalPercentage_Unique_Lemmas_Feature.xml", testResourcesFolder+"LexicalPercentage_Unique_Lemmas_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

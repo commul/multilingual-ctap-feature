@@ -46,6 +46,7 @@ public class SDSentenceLengthFeatureDeTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedToken, aedSyllable, aedLetter;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -61,7 +62,7 @@ public class SDSentenceLengthFeatureDeTest {
 		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/SDSentenceLengthType.xml", "META-INF/org.apache.uima.fit/SDSentenceLengthTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/SDSentenceLengthTypeForUIMAFitTest.xml")));
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"SDSentenceLengthTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -70,7 +71,7 @@ public class SDSentenceLengthFeatureDeTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/de-test-text.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/de-test-text.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "DE");

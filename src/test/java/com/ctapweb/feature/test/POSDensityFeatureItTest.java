@@ -36,6 +36,7 @@ public class POSDensityFeatureItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedPOS, aedNToken;
 	HashMap <String, ArrayList <String>> paramsHashMap;
 	ArrayList<String> locationsListForTest;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -48,8 +49,8 @@ public class POSDensityFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensityTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/POSDensityTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml", testResourcesFolder+"POSDensityTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"POSDensityTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -58,22 +59,22 @@ public class POSDensityFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSAnnotatorForUIMAFitTest.xml", "IT");
+		File fPOS = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/POSAnnotator.xml", testResourcesFolder+"POSAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourcePOS = new XMLInputSource(fPOS);
 		aedPOS = pars.parseAnalysisEngineDescription(xmlInputSourcePOS);
 		
-		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "IT", "123");
+		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", testResourcesFolder+"NTokenFeatureForUIMAFitTest.xml", "IT", "123");
 		XMLInputSource xmlInputSourceNToken = new XMLInputSource(fNToken);
 		aedNToken = pars.parseAnalysisEngineDescription(xmlInputSourceNToken);
 		
@@ -101,7 +102,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAbbreviationFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Abbreviation_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Abbreviation_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Abbreviation_Feature.xml", testResourcesFolder+"POSDensity_Abbreviation_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -123,7 +124,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAdjectiveFeatureTest() throws Exception {		
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Adjective_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Adjective_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Adjective_Feature.xml", testResourcesFolder+"POSDensity_Adjective_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -145,7 +146,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAdjectivePossessiveFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdjectivePossessive_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_AdjectivePossessive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdjectivePossessive_Feature.xml", testResourcesFolder+"POSDensity_AdjectivePossessive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -167,7 +168,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAdjectiveSingularFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdjectiveSingular_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_AdjectiveSingular_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdjectiveSingular_Feature.xml", testResourcesFolder+"POSDensity_AdjectiveSingular_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -189,7 +190,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAdjectivePluralFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdjectivePlural_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_AdjectivePlural_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdjectivePlural_Feature.xml", testResourcesFolder+"POSDensity_AdjectivePlural_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -211,7 +212,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAdverbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Adverb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Adverb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Adverb_Feature.xml", testResourcesFolder+"POSDensity_Adverb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -233,7 +234,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAdverbNegationFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdverbNegation_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_AdverbNegation_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AdverbNegation_Feature.xml", testResourcesFolder+"POSDensity_AdverbNegation_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -255,7 +256,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityArticleFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Article_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Article_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Article_Feature.xml", testResourcesFolder+"POSDensity_Article_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -277,7 +278,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityAuxiliaryVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AuxiliaryVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_AuxiliaryVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_AuxiliaryVerb_Feature.xml", testResourcesFolder+"POSDensity_AuxiliaryVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -299,7 +300,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityCardinalNumberFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_CardinalNumber_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_CardinalNumber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_CardinalNumber_Feature.xml", testResourcesFolder+"POSDensity_CardinalNumber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -321,7 +322,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityConjunctionFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Conjunction_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Conjunction_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Conjunction_Feature.xml", testResourcesFolder+"POSDensity_Conjunction_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -343,7 +344,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityCoordinatingConjunctionFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_CoordinatingConjunction_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_CoordinatingConjunction_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_CoordinatingConjunction_Feature.xml", testResourcesFolder+"POSDensity_CoordinatingConjunction_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -365,7 +366,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityDemonstrativePronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_DemonstrativePronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_DemonstrativePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_DemonstrativePronoun_Feature.xml", testResourcesFolder+"POSDensity_DemonstrativePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -387,7 +388,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityDeterminerFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Determiner_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Determiner_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Determiner_Feature.xml", testResourcesFolder+"POSDensity_Determiner_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -409,7 +410,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityEmoticonFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Emoticon_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Emoticon_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Emoticon_Feature.xml", testResourcesFolder+"POSDensity_Emoticon_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -431,7 +432,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityFiniteVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_FiniteVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_FiniteVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_FiniteVerb_Feature.xml", testResourcesFolder+"POSDensity_FiniteVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -453,7 +454,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityForeignWordFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_ForeignWord_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_ForeignWord_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_ForeignWord_Feature.xml", testResourcesFolder+"POSDensity_ForeignWord_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -475,7 +476,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityFunctionalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Functional_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Functional_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Functional_Feature.xml", testResourcesFolder+"POSDensity_Functional_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -497,7 +498,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityIndefinitePronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_IndefinitePronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_IndefinitePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_IndefinitePronoun_Feature.xml", testResourcesFolder+"POSDensity_IndefinitePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -519,7 +520,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityInfiniteVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_InfiniteVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_InfiniteVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_InfiniteVerb_Feature.xml", testResourcesFolder+"POSDensity_InfiniteVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -541,7 +542,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityInterjectionFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Interjection_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Interjection_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Interjection_Feature.xml", testResourcesFolder+"POSDensity_Interjection_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -563,7 +564,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityInterrogativePronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_InterrogativePronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_InterrogativePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_InterrogativePronoun_Feature.xml", testResourcesFolder+"POSDensity_InterrogativePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -585,7 +586,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityLexicalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Lexical_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Lexical_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Lexical_Feature.xml", testResourcesFolder+"POSDensity_Lexical_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -607,7 +608,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityMainVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_MainVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_MainVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_MainVerb_Feature.xml", testResourcesFolder+"POSDensity_MainVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -629,7 +630,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityModalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Modal_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Modal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Modal_Feature.xml", testResourcesFolder+"POSDensity_Modal_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -651,7 +652,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityModalVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_ModalVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_ModalVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_ModalVerb_Feature.xml", testResourcesFolder+"POSDensity_ModalVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -673,7 +674,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityModifierFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Modifier_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Modifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Modifier_Feature.xml", testResourcesFolder+"POSDensity_Modifier_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -695,7 +696,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityNonFiniteVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_NonFiniteVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_NonFiniteVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_NonFiniteVerb_Feature.xml", testResourcesFolder+"POSDensity_NonFiniteVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -717,7 +718,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityNounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Noun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Noun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Noun_Feature.xml", testResourcesFolder+"POSDensity_Noun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -739,7 +740,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityOrdinalNumberFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_OrdinalNumber_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_OrdinalNumber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_OrdinalNumber_Feature.xml", testResourcesFolder+"POSDensity_OrdinalNumber_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -761,7 +762,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPastParticipleVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PastParticipleVerb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_PastParticipleVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PastParticipleVerb_Feature.xml", testResourcesFolder+"POSDensity_PastParticipleVerb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -783,7 +784,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPersonalPronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PersonalPronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_PersonalPronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PersonalPronoun_Feature.xml", testResourcesFolder+"POSDensity_PersonalPronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -805,7 +806,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPluralNounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PluralNoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_PluralNoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PluralNoun_Feature.xml", testResourcesFolder+"POSDensity_PluralNoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -827,7 +828,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPossessivePronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PossesivePronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_PossesivePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_PossesivePronoun_Feature.xml", testResourcesFolder+"POSDensity_PossesivePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -849,7 +850,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPredeterminerFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Predeterminer_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Predeterminer_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Predeterminer_Feature.xml", testResourcesFolder+"POSDensity_Predeterminer_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -871,7 +872,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPrepositionFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Preposition_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Preposition_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Preposition_Feature.xml", testResourcesFolder+"POSDensity_Preposition_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -893,7 +894,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Pronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Pronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Pronoun_Feature.xml", testResourcesFolder+"POSDensity_Pronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -915,7 +916,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityProperNounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_ProperNoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_ProperNoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_ProperNoun_Feature.xml", testResourcesFolder+"POSDensity_ProperNoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -937,7 +938,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityPunctuationFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Punctuation_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Punctuation_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Punctuation_Feature.xml", testResourcesFolder+"POSDensity_Punctuation_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -959,7 +960,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityRelativePronounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_RelativePronoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_RelativePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_RelativePronoun_Feature.xml", testResourcesFolder+"POSDensity_RelativePronoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -981,7 +982,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensitySingularNounFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_SingularNoun_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_SingularNoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_SingularNoun_Feature.xml", testResourcesFolder+"POSDensity_SingularNoun_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1003,7 +1004,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensitySubordinatingConjunctionFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_SubordinatingConjunction_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_SubordinatingConjunction_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_SubordinatingConjunction_Feature.xml", testResourcesFolder+"POSDensity_SubordinatingConjunction_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1025,7 +1026,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensitySymbolFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Symbol_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Symbol_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Symbol_Feature.xml", testResourcesFolder+"POSDensity_Symbol_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1047,7 +1048,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityTwitterTagFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_TwitterTag_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_TwitterTag_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_TwitterTag_Feature.xml", testResourcesFolder+"POSDensity_TwitterTag_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1069,7 +1070,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Verb_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Verb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Verb_Feature.xml", testResourcesFolder+"POSDensity_Verb_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1091,7 +1092,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerb3dPersonFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Verb3dPerson_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_Verb3dPerson_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_Verb3dPerson_Feature.xml", testResourcesFolder+"POSDensity_Verb3dPerson_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1113,7 +1114,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbConditionalFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConditional_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbConditional_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConditional_Feature.xml", testResourcesFolder+"POSDensity_VerbConditional_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1135,7 +1136,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbConjunctiveFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConjunctive_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbConjunctive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConjunctive_Feature.xml", testResourcesFolder+"POSDensity_VerbConjunctive_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1157,7 +1158,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbConjunctiveImperfectFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConjunctiveImperfect_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbConjunctiveImperfect_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConjunctiveImperfect_Feature.xml", testResourcesFolder+"POSDensity_VerbConjunctiveImperfect_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1179,7 +1180,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbConjunctivePresentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConjunctivePresent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbConjunctivePresent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbConjunctivePresent_Feature.xml", testResourcesFolder+"POSDensity_VerbConjunctivePresent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1201,7 +1202,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbImperativeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbImperative_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbImperative_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbImperative_Feature.xml", testResourcesFolder+"POSDensity_VerbImperative_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1223,7 +1224,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbIndicativeFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicative_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbIndicative_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicative_Feature.xml", testResourcesFolder+"POSDensity_VerbIndicative_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1245,7 +1246,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbIndicativeFutureFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativeFuture_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbIndicativeFuture_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativeFuture_Feature.xml", testResourcesFolder+"POSDensity_VerbIndicativeFuture_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1267,7 +1268,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbIndicativeImperfectFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativeImperfect_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbIndicativeImperfect_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativeImperfect_Feature.xml", testResourcesFolder+"POSDensity_VerbIndicativeImperfect_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1289,7 +1290,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbIndicativePastFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativePast_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbIndicativePast_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativePast_Feature.xml", testResourcesFolder+"POSDensity_VerbIndicativePast_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -1311,7 +1312,7 @@ public class POSDensityFeatureItTest {
 	@Test
 	public void POSDensityVerbIndicativePresentFeatureTest() throws Exception {		
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativePresent_Feature.xml", System.getProperty("user.dir")+"/META-INF/org.apache.uima.fit/POSDensity_VerbIndicativePresent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/POSDensity_VerbIndicativePresent_Feature.xml", testResourcesFolder+"POSDensity_VerbIndicativePresent_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

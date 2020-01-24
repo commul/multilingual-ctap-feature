@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>LexicalPercentage</name>
+    <description>The type for storing LexicalPercentage results
+
+Extends: ComplexityFeatureBase.
+Dependency: 
+	Feature types: none
+	Linguistic types: TokenType, SentenceType, LemmaType</description>
+    <version>1.0</version>
+    <vendor>Nadezda Okinina</vendor>
+  
+  <types>
+    <typeDescription>
+      <name>com.ctapweb.feature.type.LexicalPercentage</name>
+      <description>LexicalPercentage</description>
+      <supertypeName>com.ctapweb.feature.type.ComplexityFeatureBase</supertypeName>
+    </typeDescription>
+  </types>
+<imports><import location="src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml"/><import location="src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml"/></imports></typeSystemDescription>

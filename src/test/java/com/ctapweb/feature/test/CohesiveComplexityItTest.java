@@ -36,6 +36,7 @@ public class CohesiveComplexityItTest {
 	AnalysisEngineDescription aedSent, aedToken, aedNToken, aedACFeature;
 	HashMap <String, ArrayList <String>> paramsHashMap, paramsHashMapAC;
 	ArrayList<String> locationsListForTest, locationsListForTestAC;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -49,8 +50,8 @@ public class CohesiveComplexityItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/CohesiveComplexityType.xml", "META-INF/org.apache.uima.fit/CohesiveComplexityTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/CohesiveComplexityTypeForUIMAFitTest.xml")));
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/CohesiveComplexityType.xml", testResourcesFolder+"CohesiveComplexityTypeForUIMAFitTest.xml", locationsList);
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"CohesiveComplexityTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -59,18 +60,18 @@ public class CohesiveComplexityItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", "META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "IT", "123");
+		File fNToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", testResourcesFolder+"NTokenFeatureForUIMAFitTest.xml", "IT", "123");
 		XMLInputSource xmlInputSourceNToken = new XMLInputSource(fNToken);
 		aedNToken = pars.parseAnalysisEngineDescription(xmlInputSourceNToken);
 		
@@ -97,7 +98,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityTemporalFeatureTest() throws Exception {
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Temporal_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_Temporal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Temporal_Feature.xml", testResourcesFolder+"NConnectives_Breindl_Temporal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -114,7 +115,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_TempPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_Breindl_TempPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_TempPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_Breindl_TempPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -135,7 +136,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityConcessiveFeatureTest() throws Exception {
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Concessive_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_Concessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Concessive_Feature.xml", testResourcesFolder+"NConnectives_Breindl_Concessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -152,7 +153,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_ConcessivePerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_Breindl_ConcessivePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_ConcessivePerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_Breindl_ConcessivePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -173,7 +174,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityCausalFeatureTest() throws Exception {
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Causal_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_Causal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Causal_Feature.xml", testResourcesFolder+"NConnectives_Breindl_Causal_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -190,7 +191,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_CausalPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_Breindl_CausalPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_CausalPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_Breindl_CausalPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -211,7 +212,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityAllFeatureTest() throws Exception {
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_All_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_All_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_All_Feature.xml", testResourcesFolder+"NConnectives_Breindl_All_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -228,7 +229,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_AllPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_Breindl_AllPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_AllPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_Breindl_AllPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -249,7 +250,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityAdditiveFeatureTest() throws Exception {
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Additive_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_Additive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Additive_Feature.xml", testResourcesFolder+"NConnectives_Breindl_Additive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -266,7 +267,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_AddPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_Breindl_AddPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_AddPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_Breindl_AddPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -287,7 +288,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityAdversativeConcessiveFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AdversativeConcessive_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_AdversativeConcessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_AdversativeConcessive_Feature.xml", testResourcesFolder+"NConnectives_Breindl_AdversativeConcessive_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -304,7 +305,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_ACPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_Breindl_ACPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_Breindl_ACPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_Breindl_ACPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -325,7 +326,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityAdversativeFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Adversative_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_Breindl_Adversative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_Breindl_Adversative_Feature.xml", testResourcesFolder+"NConnectives_Breindl_Adversative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -342,7 +343,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_AdversativePerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_AdversativePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_AdversativePerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_AdversativePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -363,7 +364,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityArgumentativeFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_argumentative_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_argumentative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_argumentative_Feature.xml", testResourcesFolder+"NConnectives_argumentative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -380,7 +381,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_ArgumentativePerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_ArgumentativePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_ArgumentativePerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_ArgumentativePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -401,7 +402,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityConsequenceFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_consequence_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_consequence_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_consequence_Feature.xml", testResourcesFolder+"NConnectives_consequence_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -418,7 +419,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_ConsequencePerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_ConsequencePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_ConsequencePerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_ConsequencePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -439,7 +440,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityHierarchyFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_hierarchy_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_hierarchy_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_hierarchy_Feature.xml", testResourcesFolder+"NConnectives_hierarchy_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -456,7 +457,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_HierarchyPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_HierarchyPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_HierarchyPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_HierarchyPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -477,7 +478,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityHypotheticalConditionalFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_hypothetical_conditional_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_hypothetical_conditional_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_hypothetical_conditional_Feature.xml", testResourcesFolder+"NConnectives_hypothetical_conditional_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -494,7 +495,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_HypotheticalConditionalPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_HypotheticalConditionalPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_HypotheticalConditionalPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_HypotheticalConditionalPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -515,7 +516,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityMultifunctionalFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_multifunctional_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_multifunctional_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_multifunctional_Feature.xml", testResourcesFolder+"NConnectives_multifunctional_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -532,7 +533,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_MultifunctionalPerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_MultifunctionalPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_MultifunctionalPerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_MultifunctionalPerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -553,7 +554,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityPurposeFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_purpose_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_purpose_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_purpose_Feature.xml", testResourcesFolder+"NConnectives_purpose_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -570,7 +571,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_PurposePerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_PurposePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_PurposePerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_PurposePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -591,7 +592,7 @@ public class CohesiveComplexityItTest {
 	
 	@Test
 	public void CohesionComplexityExplicativeFeatureTest() throws Exception {		
-    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_explicative_Feature.xml", "META-INF/org.apache.uima.fit/NConnectives_explicative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
+    	File fACFeature = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NConnectives_explicative_Feature.xml", testResourcesFolder+"NConnectives_explicative_FeatureForUIMAFitTest.xml", paramsHashMapAC, locationsListForTestAC);
 		XMLInputSource xmlInputSourceACFeature = new XMLInputSource(fACFeature);
 		aedACFeature = pars.parseAnalysisEngineDescription(xmlInputSourceACFeature);
 		
@@ -608,7 +609,7 @@ public class CohesiveComplexityItTest {
 		
 		locationsListForTest = new ArrayList <String> ();
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_ExplicativePerToken_Feature.xml", "META-INF/org.apache.uima.fit/CohesiveComplexity_ExplicativePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/CohesiveComplexity_ExplicativePerToken_Feature.xml", testResourcesFolder+"CohesiveComplexity_ExplicativePerToken_FeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

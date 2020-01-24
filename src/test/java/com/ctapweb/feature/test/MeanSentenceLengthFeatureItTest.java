@@ -33,6 +33,7 @@ public class MeanSentenceLengthFeatureItTest {
 	JCas jCas;
 	XMLParser pars;
 	AnalysisEngineDescription aedSent, aedNSentence,  aedToken, aedNToken, aedSyllable, aedNSyllable, aedLetter, aedNLetter;
+	String testResourcesFolder = "src/test/resources/org.apache.uima.fit/";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -48,7 +49,7 @@ public class MeanSentenceLengthFeatureItTest {
 		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NLetterType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/MeanSentenceLengthType.xml", "META-INF/org.apache.uima.fit/MeanSentenceLengthTypeForUIMAFitTest.xml", locationsList);
-		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("META-INF/org.apache.uima.fit/MeanSentenceLengthTypeForUIMAFitTest.xml")));
+		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"MeanSentenceLengthTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -57,7 +58,7 @@ public class MeanSentenceLengthFeatureItTest {
 		tsd.buildFromXMLElement(doc.getDocumentElement(), pars);
 	    jCas = CasCreationUtils.createCas(tsd, null, null).getJCas();
 		
-	    String contents = new String(Files.readAllBytes(Paths.get("META-INF/cani.txt")));
+	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
 		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
