@@ -39,10 +39,10 @@ public class NTokenFeatureItTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml", "META-INF/org.apache.uima.fit/NTokenTypeForUIMAFitTest.xml", locationsList);
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml", testResourcesFolder+"NTokenTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"NTokenTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -55,15 +55,15 @@ public class NTokenFeatureItTest {
 	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		AnalysisEngineDescription aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		AnalysisEngineDescription aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", "META-INF/org.apache.uima.fit/NTokenFeatureForUIMAFitTest.xml", "IT", "123");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NTokenFeature.xml", testResourcesFolder+"NTokenFeatureForUIMAFitTest.xml", "IT", "123");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

@@ -16,4 +16,4 @@ Note: calculating sd requires the whole set of original values for each token.</
       <supertypeName>com.ctapweb.feature.type.ComplexityFeatureBase</supertypeName>
     </typeDescription>
   </types>
-<imports><import location="src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml"/><import location="src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/><import location="src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml"/><import location="src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml"/></imports></typeSystemDescription>
+<imports><import location="../../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml"/><import location="../../../src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/><import location="../../../src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml"/><import location="../../../src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml"/></imports></typeSystemDescription>

@@ -39,10 +39,10 @@ public class NSentenceFeatureItTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSentenceType.xml", "META-INF/org.apache.uima.fit/NSentenceTypeForUIMAFitTest.xml", locationsList);
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSentenceType.xml", testResourcesFolder+"NSentenceTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"NSentenceTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -55,11 +55,11 @@ public class NSentenceFeatureItTest {
 	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		AnalysisEngineDescription aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", "META-INF/org.apache.uima.fit/NSentenceFeatureForUIMAFitTest.xml", "IT", "22231");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NSentenceFeature.xml", testResourcesFolder+"NSentenceFeatureForUIMAFitTest.xml", "IT", "22231");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

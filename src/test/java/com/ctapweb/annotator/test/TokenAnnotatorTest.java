@@ -38,7 +38,7 @@ public class TokenAnnotatorTest{
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml", "src/test/resources/org.apache.uima.fit/TokenTypeForUIMAFitTest.xml", locationsList);
 		String tokenTypeDescr = new String(Files.readAllBytes(Paths.get("src/test/resources/org.apache.uima.fit/TokenTypeForUIMAFitTest.xml")));

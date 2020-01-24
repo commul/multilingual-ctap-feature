@@ -46,11 +46,11 @@ public class Word2OrMoreSyllablesFeatureItTest {
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
 		
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
 		
-		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml", "META-INF/org.apache.uima.fit/Word2OrMoreSyllablesTypeForUIMAFitTest.xml", locationsList);
+		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml", testResourcesFolder+"Word2OrMoreSyllablesTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"Word2OrMoreSyllablesTypeForUIMAFitTest.xml")));
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -63,15 +63,15 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	    String contents = new String(Files.readAllBytes(Paths.get("src/test/resources/cani.txt")));
 		jCas.setDocumentText(contents);
 		
-		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", "META-INF/org.apache.uima.fit/SentenceAnnotatorForUIMAFitTest.xml", "IT");
+		File fSent = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SentenceAnnotator.xml", testResourcesFolder+"SentenceAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSent = new XMLInputSource(fSent);
 		aedSent = pars.parseAnalysisEngineDescription(xmlInputSourceSent);
 	
-		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", "META-INF/org.apache.uima.fit/TokenAnnotatorForUIMAFitTest.xml", "IT");
+		File fToken = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/TokenAnnotator.xml", testResourcesFolder+"TokenAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceToken = new XMLInputSource(fToken);
 		aedToken = pars.parseAnalysisEngineDescription(xmlInputSourceToken);
 		
-		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", "META-INF/org.apache.uima.fit/SyllableAnnotatorForUIMAFitTest.xml", "IT");
+		File fSyllable = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguage ("src/main/resources/descriptor/annotator/SyllableAnnotator.xml", testResourcesFolder+"SyllableAnnotatorForUIMAFitTest.xml", "IT");
 		XMLInputSource xmlInputSourceSyllable = new XMLInputSource(fSyllable);
 		aedSyllable = pars.parseAnalysisEngineDescription(xmlInputSourceSyllable);
 		
@@ -99,7 +99,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	@Test
 	public void NumberWordToken2OrMoreSyllablesFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NumberWordToken2OrMoreSyllablesFeature.xml", "META-INF/org.apache.uima.fit/NumberWordToken2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NumberWordToken2OrMoreSyllablesFeature.xml", testResourcesFolder+"NumberWordToken2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -121,7 +121,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	@Test
 	public void PercentWordToken2OrMoreSyllablesFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/PercentWordToken2OrMoreSyllablesFeature.xml", "META-INF/org.apache.uima.fit/PercentWordToken2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/PercentWordToken2OrMoreSyllablesFeature.xml", testResourcesFolder+"PercentWordToken2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -143,7 +143,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	@Test
 	public void NumberWordType2OrMoreSyllablesFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NumberWordType2OrMoreSyllablesFeature.xml", "META-INF/org.apache.uima.fit/NumberWordType2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/NumberWordType2OrMoreSyllablesFeature.xml", testResourcesFolder+"NumberWordType2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -165,7 +165,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	@Test
 	public void PercentWordType2OrMoreSyllablesFeatureTest() throws Exception {
 	
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/PercentWordType2OrMoreSyllablesFeature.xml", "META-INF/org.apache.uima.fit/PercentWordType2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddParamsFromHashModifyImports ("src/main/resources/descriptor/featureAE/PercentWordType2OrMoreSyllablesFeature.xml", testResourcesFolder+"PercentWordType2OrMoreSyllablesFeatureForUIMAFitTest.xml", paramsHashMap, locationsListForTest);
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		

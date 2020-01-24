@@ -41,10 +41,10 @@ public class SDTokenLengthFeatureItTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/LetterType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/SDTokenLengthType.xml", testResourcesFolder+"SDTokenLengthTypeForUIMAFitTest.xml", locationsList);
 		String sdTokenLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"SDTokenLengthTypeForUIMAFitTest.xml")));

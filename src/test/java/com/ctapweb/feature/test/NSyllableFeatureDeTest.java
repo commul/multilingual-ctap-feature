@@ -39,8 +39,8 @@ public class NSyllableFeatureDeTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSyllableType.xml", testResourcesFolder+"NSyllableTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"NSyllableTypeForUIMAFitTest.xml")));

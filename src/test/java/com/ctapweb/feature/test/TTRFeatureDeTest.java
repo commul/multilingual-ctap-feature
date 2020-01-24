@@ -46,9 +46,9 @@ public class TTRFeatureDeTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/feature_type/NTokenTypeType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/NTokenType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/feature_type/NTokenTypeType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml", testResourcesFolder+"TypeTokenRatioTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"TypeTokenRatioTypeForUIMAFitTest.xml")));

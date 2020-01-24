@@ -51,8 +51,8 @@ public class ParseTreeAnnotatorTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();		
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml");
-		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml");
+		locationsList.add("../../../main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml", "src/test/resources/org.apache.uima.fit/ParseTreeTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get("src/test/resources/org.apache.uima.fit/ParseTreeTypeForUIMAFitTest.xml")));

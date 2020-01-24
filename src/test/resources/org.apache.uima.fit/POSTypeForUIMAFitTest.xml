@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
-	<name>Lemma Linguistic Type</name>
-	<description>This is the linguistic type of lemma, which extends the
-		UIMA Annotation type.
-		As a result, it contains the features of Begin and End.
-		It is used for annotating words with their lemmas.
+	<name>POS Linguistic Type</name>
+	<description>This is the linguistic type of Part-of-speech, which
+		extends the UIMA Annotation type.
+		As a result, it contains the features
+		of Begin and End.
+		It is used for annotating the part of speeches of
+		tokens in the following languages:
+		English, German, Italian
 
 		Dependency:
 		Linguistic_type: Token</description>
@@ -12,16 +15,17 @@
 	
 	<types>
 		<typeDescription>
-			<name>com.ctapweb.feature.type.Lemma</name>
-			<description>the lemma of a token</description>
+			<name>com.ctapweb.feature.type.POS</name>
+			<description>The pos type.</description>
 			<supertypeName>uima.tcas.Annotation</supertypeName>
 			<features>
 				<featureDescription>
-					<name>lemma</name>
-					<description>the lemma as a String</description>
+					<name>tag</name>
+					<description>the pos tag</description>
 					<rangeTypeName>uima.cas.String</rangeTypeName>
 				</featureDescription>
 			</features>
 		</typeDescription>
+
 	</types>
 <imports><import location="../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/></imports></typeSystemDescription>
