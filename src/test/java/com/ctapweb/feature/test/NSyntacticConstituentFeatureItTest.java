@@ -53,9 +53,9 @@ public class NSyntacticConstituentFeatureItTest {
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
 		
-		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/POSType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml", testResourcesFolder+"NSyntacticConstituentTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"NSyntacticConstituentTypeForUIMAFitTest.xml")));
@@ -98,7 +98,7 @@ public class NSyntacticConstituentFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
+		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
 	
 	}
 	

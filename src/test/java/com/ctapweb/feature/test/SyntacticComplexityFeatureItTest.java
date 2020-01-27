@@ -85,7 +85,7 @@ public class SyntacticComplexityFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
+		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
 	
 	}
 	*/

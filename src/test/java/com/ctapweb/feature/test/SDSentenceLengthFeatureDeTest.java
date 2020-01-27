@@ -55,11 +55,11 @@ public class SDSentenceLengthFeatureDeTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 				
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SentenceType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LetterType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/SDSentenceLengthType.xml", testResourcesFolder+"SDSentenceLengthTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"SDSentenceLengthTypeForUIMAFitTest.xml")));
@@ -106,9 +106,6 @@ public class SDSentenceLengthFeatureDeTest {
 		//Run the analysis pipeline: SentenceAnnotator, then TokenAnnotator, then SyllableAnnotator
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			System.out.println(annot.toString());
-			System.out.println(annot.getId());
-			System.out.println(annot.getValue());
 			if(annot.getId() == 9999){
 				assertEquals(5.938279034765616, annot.getValue(), 0.0000001);
 			}

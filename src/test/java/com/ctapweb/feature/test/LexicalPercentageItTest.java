@@ -47,8 +47,8 @@ public class LexicalPercentageItTest {
 		TypeSystemDescription tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
-		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/LexicalPercentageType.xml", testResourcesFolder+"LexicalPercentageTypeForUIMAFitTest.xml", locationsList);
 		String lexPercTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"LexicalPercentageTypeForUIMAFitTest.xml")));
@@ -87,7 +87,7 @@ public class LexicalPercentageItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("../../src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
+		locationsListForTest.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 	}
 	
 	

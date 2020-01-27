@@ -46,9 +46,9 @@ public class Word2OrMoreSyllablesFeatureItTest {
 		
 		ArrayList<String> locationsList = new ArrayList<String>();
 		
-		locationsList.add("../../src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
-		locationsList.add("../../src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml");
+		locationsList.add("src/main/resources/descriptor/type_system/linguistic_type/SyllableType.xml");
 		
 		DescriptorModifier.readXMLTypeDescriptorModifyImports ("src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml", testResourcesFolder+"Word2OrMoreSyllablesTypeForUIMAFitTest.xml", locationsList);
 		String sdSentenceLengthTypeDescr = new String(Files.readAllBytes(Paths.get(testResourcesFolder+"Word2OrMoreSyllablesTypeForUIMAFitTest.xml")));
@@ -87,7 +87,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);		
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
+		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
 	
 	}
 	
