@@ -9,7 +9,7 @@
 		<name>Flesch Reading Ease</name>
 		<description>Calculates the Flesch Reading Ease measure of readability.
 		
-Definition:
+Formula:
 	206.835 - (84.6 * mean_token_length_in_syllables) - (1.015 * mean_sentence_length_in_tokens)
 		
 Scores can be interpreted as shown in the table below:

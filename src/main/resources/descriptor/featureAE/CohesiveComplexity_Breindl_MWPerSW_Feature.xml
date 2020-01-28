@@ -10,7 +10,7 @@
 		<description>Calculates the cohesive complexity of the text.
 Calculates the ratio of multi- to single-word connectives listed by Breindl.
 			
-Definition: 
+Formula: 
 	number of multi-word connectives / number of single-word connectives
 
 This feature is not available for English, Italian.

@@ -9,6 +9,16 @@
 		<name>Number of Connectives: Breindl Single-Word Connectives</name>
 		<description>Calculates the number of all single-word connectives listed by Breindl.
 
+The lists contains 60 single-word connectives.
+
+Example:
+	aber
+	allerdings
+	also
+	anfangs
+	außerdem
+	bald
+	
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

@@ -9,8 +9,29 @@
 		<name>Cohesive Complexity Feature: Additive Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the additive connectives per token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+
+The German list contains 9 connectives.
+
+Example:
+	außerdem
+	ebenfalls
+	ebenso
+	überdies
+	übrigens
+	und
+
+The Italian list contains 17 connectives.
+
+Example:
+	anche
+	ancora
+	e
+	ed
+	in aggiunta
+	in oltre
+	in più
+	
+Formula:
 	number of additive connectives / number of tokens
 
 This feature is NOT available for English.

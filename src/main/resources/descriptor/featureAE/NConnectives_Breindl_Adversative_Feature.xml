@@ -9,9 +9,28 @@
 		<name>Number of Connectives: Adversative Connectives (Breindl for German)</name>
 		<description>Calculates the number of adversative connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+The German list contains 10 connective groups.
+
+Example:
+	zwar : zwar-aber,zwar-doch
+	aber
+	sondern : sondern-auch
+	nur : nicht-nur
+	einerseits
+	
+The Italian lists contains 38 connectives.
+
+Example:
+	al contrario
+	all'inverso
+	all'opposto
+	anzi
+	anziché
+	cionondimeno
+		
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

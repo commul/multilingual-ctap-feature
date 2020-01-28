@@ -7,8 +7,17 @@
 		<name>Cohesive Complexity Feature: Explicative Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the explicative connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+The list contains 30 connectives.
+
+Example:
+	ad esempio
+	appunto
+	cioè
+	come
+	concretamente
+	davvero
+		
+Formula:
 	number of explicative connectives / number of tokens
 
 This feature is not available for English, German.

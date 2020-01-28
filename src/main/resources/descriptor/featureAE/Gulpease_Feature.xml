@@ -9,7 +9,7 @@
 		<name>Gulpease</name>
 		<description>Calculates the Gulpease measure of readability.
 		
-Definition:
+Formula:
 	89 + ( ((300 * number of sentences) - (10 * number of letters)) / number of tokens )
 		
 The results vary from 0 to 100, where the value "100" indicates the highest readability and "0" indicates the lowest readability.

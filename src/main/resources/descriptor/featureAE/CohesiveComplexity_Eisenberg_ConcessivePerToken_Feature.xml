@@ -9,8 +9,17 @@
 		<name>Cohesive Complexity Feature: Concessive Connectives per Token (Eisenberg for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the concessive connectives per token, listed by Eisenberg for German.
-			
-Definition: 
+The list contains 38 connectives.
+
+Example:
+	trotz : trotz allem
+	unbeschadet
+	abgesehen von
+	ungeachtet
+	obwohl
+	obgleich
+		
+Formula: 
 	number of concessive connectives / number of tokens
 
 This feature is not available for English, Italian.

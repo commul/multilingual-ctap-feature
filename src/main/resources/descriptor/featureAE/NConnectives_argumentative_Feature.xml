@@ -8,7 +8,13 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Argumentative Connectives</name>
 		<description>Calculates the number of argumentative connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
-		
+The lists contains 5 connectives:
+	a proposito di
+	in relazione a
+	per quanto riguarda
+	relativamente a
+	riguardo a
+			
 This feature is NOT available for English, German.
 
 AAE dependency:

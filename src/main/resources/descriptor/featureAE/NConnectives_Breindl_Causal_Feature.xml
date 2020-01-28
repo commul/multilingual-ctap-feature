@@ -9,9 +9,29 @@
 		<name>Number of Connectives: Causal Connectives (Breindl for German)</name>
 		<description>Calculates the number of causal connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+The Italian list contains 16 connectives.
+
+Example:
+	ché
+	considerato che
+	dacché
+	dal momento che
+	dappoiché
+	dato che
+	
+The German list contains 8 connectives:
+	denn : geschweige denn
+	also
+	deshalb
+	deswegen
+	folglich
+	nämlich
+	somit
+	weil
+		
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

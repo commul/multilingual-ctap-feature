@@ -9,8 +9,28 @@
 		<name>Cohesive Complexity Feature: Causal Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the causal connectives per token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+
+The Italian list contains 16 connectives.
+
+Example:
+	ché
+	considerato che
+	dacché
+	dal momento che
+	dappoiché
+	dato che
+	
+The German list contains 8 connectives:
+	denn : geschweige denn
+	also
+	deshalb
+	deswegen
+	folglich
+	nämlich
+	somit
+	weil
+		
+Formula:
 	number of temporal connectives / number of tokens
 
 This feature is not available for English.

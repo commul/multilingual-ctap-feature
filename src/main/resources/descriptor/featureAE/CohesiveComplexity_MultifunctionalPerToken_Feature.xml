@@ -7,8 +7,13 @@
 		<name>Cohesive Complexity Feature: Multifunctional Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the multifunctional connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+Multifunctional connectives appear in more than 1 list.
+The lists contains 23 connectives.
+
+Example:
+The connectives 'dopo' and 'poi' both have 2 meanings, temporal and hierarchical. So they appear in 3 lists: temporal, hierarchical and multifunctional.
+	
+Formula:
 	number of multifunctional connectives / number of tokens
 
 This feature is not available for English, German.

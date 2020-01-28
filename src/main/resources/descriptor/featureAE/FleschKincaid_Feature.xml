@@ -9,7 +9,7 @@
 		<name>Flesch-Kincaid Grade Level</name>
 		<description>Calculates the Flesch-Kincaid Grade Level measure of readability.
 		
-Definition:
+Formula:
 	( 0.39 * mean_sentence_length_in_tokens ) + ( 11.8 * mean_token_length_in_syllables ) - 15.59
 	
 This feature was originally defined and optimised for English.

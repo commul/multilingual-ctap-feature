@@ -9,8 +9,14 @@
 		<name>Cohesive Complexity Feature: Multi-Word Connectives per Connective (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the multi-word connectives per connective listed by Breindl.
+The lists contains 9 connectives.
+
+Example:
+	bevor : bevor nicht
+	denn : geschweige denn
+	nur : nicht-nur
 			
-Definition:
+Formula:
 	number of multi-word connectives / number of connectives
 
 This feature is not available for English, Italian.

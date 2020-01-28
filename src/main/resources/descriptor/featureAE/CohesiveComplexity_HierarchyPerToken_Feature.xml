@@ -7,8 +7,21 @@
 		<name>Cohesive Complexity Feature: Hierarchy Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the hierarchy connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+The lists contains 36 connectives.
+
+Example:
+	a questo punto
+	anche
+	anteriormente
+	anzitutto
+	appresso
+	come
+	di seguito
+	dopo
+	in aggiunta
+	in conclusione
 			
-Definition:
+Formula:
 	number of hierarchy connectives / number of tokens
 
 This feature is not available for English, German.

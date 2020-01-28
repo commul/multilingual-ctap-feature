@@ -9,9 +9,32 @@
 		<name>Number of Connectives: Additive Connectives (Breindl for German)</name>
 		<description>Calculates the number of additive connectives according to Breindl for German, to Nadezda Okinina and Lorenzo Zanasi for Italian.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+The German list contains 9 connectives.
+
+Example:
+	außerdem
+	ebenfalls
+	ebenso
+	überdies
+	übrigens
+	und
+
+The Italian list contains 17 connectives.
+
+Example:
+	anche
+	ancora
+	e
+	ed
+	in aggiunta
+	in oltre
+	in più
+
+This feature is NOT available for English.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

@@ -9,6 +9,18 @@
 		<name>Number of Connectives: Breindl Other Connectives</name>
 		<description>Calculates the number of unspecified connectives connectives listed by Breindl.
 
+The lists contains 10 connectives:
+	jedoch
+	sowie
+	falls
+	hierdurch
+	höchstens
+	oder
+	ohnehin
+	sofern
+	sonst
+	sprich
+			
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

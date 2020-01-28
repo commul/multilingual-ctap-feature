@@ -9,8 +9,25 @@
 		<name>Cohesive Complexity Feature: Concessive Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the concessive connectives per token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+
+The German list contains 6 connectives:
+	allerdings
+	dennoch
+	obwohl
+	sowieso
+	trotzdem
+	wenngleich
+	
+The Italian lists contains 7 connectives:
+	ancorché
+	ancorquando
+	benché
+	malgrado
+	quantunque
+	sebbene
+	seppure
+		
+Formula:
 	number of concessive connectives / number of tokens
 
 This feature is not available for English.

@@ -8,7 +8,13 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Breindl Multi-Word Connectives</name>
 		<description>Calculates the number of all multi-word connectives listed by Breindl.
+The lists contains 9 connectives.
 
+Example:
+	bevor : bevor nicht
+	denn : geschweige denn
+	nur : nicht-nur
+	
 This feature is NOT available for English, Italian.
 
 AAE dependency:
