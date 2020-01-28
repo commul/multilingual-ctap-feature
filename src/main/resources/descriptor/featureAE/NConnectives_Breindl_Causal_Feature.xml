@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Causal Connectives (Breindl for German)</name>
 		<description>Calculates the number of causal connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
 
 The Italian list contains 16 connectives.
 

@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Adjectival Complement</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of adjectival complements in the text. 
+Gives an absolute number.
 
 An adjectival complement of a verb is an adjectival phrase which functions as the complement (like an object of the verb)
 	

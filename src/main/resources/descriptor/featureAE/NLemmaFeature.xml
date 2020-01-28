@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Lemmas</name>
 		<description>Calculates the number of lemmas in the text.
+Gives an absolute number.
 
 AAE	dependency:
 	SentenceAnnotator.xml

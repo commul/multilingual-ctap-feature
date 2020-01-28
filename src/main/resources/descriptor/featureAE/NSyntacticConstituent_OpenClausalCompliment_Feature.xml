@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Open Clausal Compliment</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of open clausal complements in the text. 
+Gives an absolute number.
 
 An open clausal complement (xcomp) of a VP or an ADJP is a clausal complement without its own subject, whose reference is determined by an external subject. These complements are always non-finite. The name xcomp is borrowed from Lexical-Functional Grammar
 	

@@ -9,8 +9,8 @@
 		<name>Lexical Richness: Type Token Ratio (Uber)</name>
 		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
 			
-Definition:
-This features calculates the Uber index with the formula:
+Formula:
+	This features calculates the Uber index with the formula:
 	TTR = (LogN)^2/Log(N/T)
 	
 	T stands for number of word types,

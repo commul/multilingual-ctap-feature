@@ -9,7 +9,7 @@ Calculates the T-unit complexity ratio.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of clauses / number of T-units
 
 AAE dependency:

@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Verb Cluster</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of verb clusters in the text.
+Gives an absolute number.
 
 AAE dependency:
 	SentenceAnnotator.xml

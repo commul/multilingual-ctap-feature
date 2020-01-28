@@ -9,7 +9,7 @@ Calculates the dependent clause per sentence.
  
 This feature is NOT available for Italian.
  
-Definition: 
+Formula: 
 	number of dependent clauses / number of sentences
 
 AAE dependency:

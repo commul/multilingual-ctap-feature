@@ -12,7 +12,7 @@ Calculates the complex nominals per sentence.
  
 This feature is NOT available for Italian.
 		
-Definition: 
+Formula: 
 	number of complex nominals / number of sentences
 
 AAE dependency:

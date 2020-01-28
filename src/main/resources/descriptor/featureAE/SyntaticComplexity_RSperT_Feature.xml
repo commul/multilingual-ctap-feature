@@ -9,7 +9,7 @@ Calculates the relative clauses per T-Unit.
  
 This feature is NOT available for English, Italian.
 
-Definition: 
+Formula: 
 	number of relative clauses phrases / number of T-Units
 
 AAE dependency:

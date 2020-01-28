@@ -12,7 +12,7 @@ Calculates the noun phrases per sentence.
  
 This feature is NOT available for English, Italian.
 		
-Definition:
+Formula:
 	number of noun phrases / number of sentences
 
 AAE dependency:

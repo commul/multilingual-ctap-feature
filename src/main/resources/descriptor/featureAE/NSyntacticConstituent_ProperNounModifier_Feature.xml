@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Proper Noun Modifier</name>
     <description>Counts the number of proper noun modifiers in the text. 
+Gives an absolute number.
 
 "Woody Allen" nnp(Allen, Woody);
 "Mariateresa Di Lascia" nnp(Lascia, Mariateresa) nnp(Lascia, Di) 

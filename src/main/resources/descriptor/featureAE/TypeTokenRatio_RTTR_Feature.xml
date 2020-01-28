@@ -9,7 +9,7 @@
 		<name>Lexical Richness: Type Token Ratio (Root TTR)</name>
 		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
 			
-Definition:
+Formula:
 	This features calculates the root TTR with the formula:
 	LogTTR = T/sqrt(N)
 	

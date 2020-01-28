@@ -9,7 +9,7 @@ Calculates the mean length of prepositional phrase.
  
 This feature is NOT available for English, Italian.
 
-Definition: 
+Formula: 
 	number of word / number of prepositional phrases
 
 AAE dependency:

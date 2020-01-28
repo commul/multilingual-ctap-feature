@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Copula</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of copulas in the text. 
+Gives an absolute number.
 
 A copula is the relation between the complement of a copular verb and the copular verb.
 	"Giovanni è un uomo onesto" cop(uomo, è)

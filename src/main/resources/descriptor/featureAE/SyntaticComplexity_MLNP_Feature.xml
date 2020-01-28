@@ -9,7 +9,7 @@ Calculates the mean length of noun phrase.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of words / number of noun phrases
 
 AAE dependency:

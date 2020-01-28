@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Adverbial Clause Modifier</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of adverbial clause modifiers in the text. 
+Gives an absolute number.
 
 An adverbial clause modifier of a VP or S is a clause modifying the verb (temporal clause, consequence, conditional clause, purpose clause, etc.)
 

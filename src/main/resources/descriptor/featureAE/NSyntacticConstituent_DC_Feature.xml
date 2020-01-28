@@ -9,6 +9,7 @@
 		<name>Number of Syntactic Constituents: Dependent Clauses</name>
 		<description>Calculates the number of a specific syntactic constituents in the text. 
 Counts the number of dependent clauses in the text.
+Gives an absolute number.
 
 AAE dependency:
 	SentenceAnnotator.xml

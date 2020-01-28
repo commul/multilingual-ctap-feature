@@ -9,7 +9,7 @@ Calculates the sentence coordination ratio.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of clauses / number of sentences
 
 AAE dependency:

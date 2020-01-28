@@ -8,12 +8,12 @@
 	<analysisEngineMetaData>
 		<name>Number Of Letters</name>
 		<description>Count the number of letters in the document.
+Gives an absolute number.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			LetterAnnotator.xml
+AAE	dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	LetterAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

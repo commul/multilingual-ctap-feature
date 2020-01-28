@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Parataxis</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of parataxis relations in the text. 
+Gives an absolute number.
 
 The parataxis relation (from Greek for \place side by side") is a relation between the main verb of a clause and other sentential elements, such as a sentential parenthetical, a clause after a ":" or a ";", or two sentences placed side by side without any explicit coordination or subordination.
 	

@@ -9,7 +9,7 @@ Calculates the verb cluster per T-Unit.
  
 This feature is NOT available for English, Italian.
     
-Definition: 
+Formula: 
 	number of verb cluster / number of T-Units
 
 AAE dependency:

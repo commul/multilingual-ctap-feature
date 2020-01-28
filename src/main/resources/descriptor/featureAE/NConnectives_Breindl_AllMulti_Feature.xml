@@ -8,6 +8,8 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Breindl Multi-Word Connectives</name>
 		<description>Calculates the number of all multi-word connectives listed by Breindl.
+Gives an absolute number.
+
 The lists contains 9 connectives.
 
 Example:

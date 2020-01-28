@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Auxiliary</name>
     <description>Counts the number of auxiliaries in the text. 
+Gives an absolute number.
 
 An auxiliary of a clause is a non-main verb of the clause, e.g., a modal auxiliary, or a form of "be", "do" or "have" in a periphrastic tense
 

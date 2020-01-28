@@ -9,7 +9,7 @@
 		<name>Lexical Richness: Type Token Ratio (TTR)</name>
 		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
 			
-Definition:
+Formula:
 	This features calculates the TTR with the formula:
 	TTR = T/N
 	

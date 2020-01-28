@@ -9,7 +9,7 @@ Calculates the verb phrases per sentence.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of verb phrases / number of sentences
 
 AAE dependency:

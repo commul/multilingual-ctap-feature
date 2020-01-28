@@ -12,7 +12,7 @@ Calculates the postnominal modifier per complex noun phrase.
  
 This feature is NOT available for English, Italian.
 		
-Definition: 
+Formula: 
 	number of postnominal modifier / number of complex noun phrases
 
 AAE dependency:

@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Number</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of numbers in the text. 
+Gives an absolute number.
 
 An element of compound number is a part of a number phrase or currency amount
 	

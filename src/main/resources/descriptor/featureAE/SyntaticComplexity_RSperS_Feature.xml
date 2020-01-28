@@ -9,7 +9,7 @@ Calculates the relative clauses per clause.
  
 This feature is NOT available for English, Italian.
 
-Definition: 
+Formula: 
 	number of relative clauses / number of clauses
 
 AAE dependency:

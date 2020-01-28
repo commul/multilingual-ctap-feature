@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Tokens with 2 or more Syllables</name>
 		<description>Calculates number of words tokens with 2 or more syllables.
+Gives an absolute number.
 
 AAE Dependency:
 	SentenceAnnotator.xml

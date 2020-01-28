@@ -8,7 +8,30 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Temporal Connectives (Eisenberg for German)</name>
 		<description>Calculates the number of temporal connectives for German listed by Eisenberg.
+Gives an absolute number.
+
+The German list contains 71 connectives.
+
+Example:
+	nach
+	nachdem
+	kaum
+	wonach
+	worauf
+	dann : selbst dann wenn,auch dann wenn,sogar dann wenn,wenn-dann
+
+The Italian list contains 55 connectives.
+
+Example:
+	a quei tempi
+	adesso
+	alla fine
+	allora
+	allorché
+	allorquando
+	anni fa
 		
+	
 This feature is NOT available for English, Italian.
 
 AAE dependency:

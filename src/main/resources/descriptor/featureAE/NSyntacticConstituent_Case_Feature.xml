@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Case</name>
     <description>Counts the number of cases in the text. 
+Gives an absolute number.
 
 "programmi per il trattamento della pelle" 
 

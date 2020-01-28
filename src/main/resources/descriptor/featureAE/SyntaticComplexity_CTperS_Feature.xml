@@ -9,8 +9,8 @@ Calculates the ratio of complex t-units to sentences.
  
 This feature is NOT available for Italian.
 
-Definition: 
-number of complex T-units / number of sentences
+Formula: 
+	number of complex T-units / number of sentences
 
 AAE dependency:
 	SentenceAnnotator.xml

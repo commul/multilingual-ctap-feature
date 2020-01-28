@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Clausal Passive Subject</name>
     <description>Counts the number of clausal passive subjects in the text. 
+Gives an absolute number.
 
 A clausal passive subject is a clausal syntactic subject of a passive clause. In the example below, "that she lied" is the subject.
 	

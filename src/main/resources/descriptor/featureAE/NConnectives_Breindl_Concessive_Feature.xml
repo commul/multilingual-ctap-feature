@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Concessive Connectives (Breindl for German)</name>
 		<description>Calculates the number of concessive connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
 
 The German list contains 6 connectives:
 	allerdings

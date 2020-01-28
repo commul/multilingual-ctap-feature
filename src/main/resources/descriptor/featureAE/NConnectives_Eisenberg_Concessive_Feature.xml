@@ -8,6 +8,18 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Concessive Connectives (Eisenberg for German)</name>
 		<description>Calculates the number of concessive connectives for German listed by Eisenberg.
+Gives an absolute number.
+
+The list contains 38 connectives.
+
+Example:
+	trotz : trotz allem
+	unbeschadet
+	abgesehen von
+	ungeachtet
+	obwohl
+	obgleich
+		
 		
 This feature is NOT available for English, Italian.
 

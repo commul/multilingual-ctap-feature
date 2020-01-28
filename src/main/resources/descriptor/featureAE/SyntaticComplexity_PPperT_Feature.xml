@@ -12,7 +12,7 @@ Calculates the prepositional phrases per T-Unit.
  
 This feature is NOT available for English, Italian.
 		
-Definition: 
+Formula: 
 	number of prepositional phrases / number of T-Units
 
 AAE dependency:

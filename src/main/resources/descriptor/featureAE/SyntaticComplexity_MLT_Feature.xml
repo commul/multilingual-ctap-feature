@@ -9,7 +9,7 @@ Calculates the mean length of T-unit.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of words / number of T-units
 
 AAE dependency:

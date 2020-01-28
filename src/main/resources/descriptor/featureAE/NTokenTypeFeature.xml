@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Word Types</name>
 		<description>Calculates the number of word types. A word type is a non-duplicated token.
+Gives an absolute number.
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -8,6 +8,8 @@
 		<description>Calculates the cohesive complexity of the text.
 Calculates the hypothetical and conditional connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
 
+The list contains 20 connectives.
+
 Example:
 	ammettendo che
 	nel caso in cui

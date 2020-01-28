@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Adversative Connectives (Breindl for German)</name>
 		<description>Calculates the number of adversative connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
 
 The German list contains 10 connective groups.
 

@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Adjectival Clause Modifier</name>
     <description>Counts the number of adjectival clause modifiers in the text. 
+Gives an absolute number.
 
 Ex: Negozi aperti
 	Evacuata la Tate Gallery.

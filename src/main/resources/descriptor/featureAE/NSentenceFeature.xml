@@ -8,6 +8,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Sentences</name>
 		<description>Calculates the number of sentences in a text.
+Gives an absolute number.
 
 AAE dependency:
 	SentenceAnnotator.xml

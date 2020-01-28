@@ -5,6 +5,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Complex Noun Phrase</name>
     <description>Counts the number of complex noun phrases in the text. 
+Gives an absolute number.
 
 This feature is NOT available for Italian.
 

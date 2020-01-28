@@ -9,7 +9,7 @@ Calculates the coordinate phrases per sentence.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of coordinate phrases / number of sentences
 
 AAE dependency:

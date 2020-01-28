@@ -9,7 +9,7 @@ Calculates the mean length of clause.
 
 This feature is NOT available for Italian.
     
-Definition: 
+Formula: 
 	number of words / number of clauses
 
 AAE dependency:

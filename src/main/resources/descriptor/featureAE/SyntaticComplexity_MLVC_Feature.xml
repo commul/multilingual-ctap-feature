@@ -9,7 +9,7 @@ Calculates the mean length of verb cluster.
  
 This feature is NOT available for English, Italian.
 
-Definition: 
+Formula: 
 	number of words / number of verb clusters
 
 AAE dependency:

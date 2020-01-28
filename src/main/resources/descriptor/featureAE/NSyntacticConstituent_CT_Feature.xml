@@ -7,6 +7,7 @@
 		<name>Number of Syntactic Constituents: Complex T-units</name>
 		<description>Calculates the number of a specific syntactic constituents in the text. 
 Counts the number of complex T-units in the text.
+Gives an absolute number.
 
 This feature is NOT available for Italian.
 

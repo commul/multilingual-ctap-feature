@@ -9,7 +9,7 @@ Calculates the coordinate phrases per clause.
  
 This feature is NOT available for Italian.
     
-Definition: 
+Formula: 
 	number of coordinate phrases / number of clauses
 
 AAE dependency:

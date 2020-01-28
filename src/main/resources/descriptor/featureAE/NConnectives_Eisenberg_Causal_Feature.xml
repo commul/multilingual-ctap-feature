@@ -8,7 +8,18 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Causal Connectives (Eisenberg for German)</name>
 		<description>Calculates the number of causal connectives for German listed by Eisenberg.
-		
+Gives an absolute number.
+
+The list contains 58 connectives.
+
+Example:
+	andernfalls
+	ansonsten
+	dann : selbst dann wenn,auch dann wenn,sogar dann wenn,wenn-dann
+	unter Umständen
+	eventuell
+	wegen
+			
 This feature is NOT available for English, Italian.
 
 AAE dependency:

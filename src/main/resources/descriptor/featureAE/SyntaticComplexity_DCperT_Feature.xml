@@ -9,7 +9,7 @@ Calculates the dependent clauses per T-unit.
  
 This feature is NOT available for Italian.
 
-Definition: 
+Formula: 
 	number of dependent clauses / number of T-units
 
 AAE dependency:

@@ -7,7 +7,7 @@
     <description>Calculates the syntactic complexity of the text.
 Calculates the number coordinations per sentence. 
 
-Definition: 
+Formula: 
 	number of coordinations / number of sentences
 
 AAE dependency:

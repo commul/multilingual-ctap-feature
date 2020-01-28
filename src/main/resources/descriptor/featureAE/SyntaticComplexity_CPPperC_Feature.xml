@@ -12,7 +12,7 @@ Calculates the complex prepositional phrases per clause.
  
 This feature is NOT available for English, Italian.
 		
-Definition: 
+Formula: 
 	number of complex prepositional phrases / number of clauses
 
 AAE dependency:

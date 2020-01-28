@@ -9,7 +9,7 @@ Calculates the verb cluster per sentence.
  
 This feature is NOT available for English, Italian.
 
-Definition: 
+Formula: 
 	number of verb cluster / number of sentences
 
 AAE dependency:
