@@ -87,7 +87,7 @@ public class CohesiveComplexityDeTest {
 		paramsHashMapAC.put("LanguageCode", dynamicStringArrayAC2);
 	
 		locationsListForTestAC = new ArrayList <String> ();
-		locationsListForTestAC.add("src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
+		locationsListForTestAC.add("../../../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
     
 	}
 	

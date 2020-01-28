@@ -90,7 +90,7 @@ public class POSDensityFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
 	
 	}
 		
@@ -118,7 +118,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the adjective density in META-INF/cani.txt is 0.071969696969697, with the precision of 0.0000001.
+	 * Checks that the adjective density in META-INF/cani.txt is 0.07169811320754717, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -133,14 +133,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.071969696969697, annot.getValue(), 0.0000001);
+				assertEquals(0.07169811320754717, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the possessive adjective density in META-INF/cani.txt is 0.0265151515151515, with the precision of 0.0000001.
+	 * Checks that the possessive adjective density in META-INF/cani.txt is 0.026415094339622643, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -155,14 +155,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0265151515151515, annot.getValue(), 0.0000001);
+				assertEquals(0.026415094339622643, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the singular adjective density in META-INF/cani.txt is 0.0265151515151515, with the precision of 0.0000001.
+	 * Checks that the singular adjective density in META-INF/cani.txt is 0.04905660377358491, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -177,14 +177,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0492424242424242, annot.getValue(), 0.0000001);
+				assertEquals(0.04905660377358491, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the plural adjective density in META-INF/cani.txt is 0.022727272727272728, with the precision of 0.0000001.
+	 * Checks that the plural adjective density in META-INF/cani.txt is 0.022641509433962263, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -199,14 +199,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.022727272727272728, annot.getValue(), 0.0000001);
+				assertEquals(0.022641509433962263, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the adverb density in META-INF/cani.txt is 0.0606060606060606, with the precision of 0.0000001.
+	 * Checks that the adverb density in META-INF/cani.txt is 0.06037735849056604, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -221,14 +221,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0606060606060606, annot.getValue(), 0.0000001);
+				assertEquals(0.06037735849056604, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the negation adverb density in META-INF/cani.txt is 0.00757575757575758, with the precision of 0.0000001.
+	 * Checks that the negation adverb density in META-INF/cani.txt is 0.007547169811320755, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -243,14 +243,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00757575757575758, annot.getValue(), 0.0000001);
+				assertEquals(0.007547169811320755, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the article density in META-INF/cani.txt is 0.071969696969697, with the precision of 0.0000001.
+	 * Checks that the article density in META-INF/cani.txt is 0.07547169811320754, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -265,14 +265,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.071969696969697, annot.getValue(), 0.0000001);
+				assertEquals(0.07547169811320754, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the auxiliary verb density in META-INF/cani.txt is 0.0454545454545455, with the precision of 0.0000001.
+	 * Checks that the auxiliary verb density in META-INF/cani.txt is 0.045283018867924525, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -287,14 +287,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0454545454545455, annot.getValue(), 0.0000001);
+				assertEquals(0.045283018867924525, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the cardinal number density in META-INF/cani.txt is 0.0189393939393939, with the precision of 0.0000001.
+	 * Checks that the cardinal number density in META-INF/cani.txt is 0.018867924528301886, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -309,14 +309,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0189393939393939, annot.getValue(), 0.0000001);
+				assertEquals(0.018867924528301886, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the conjunction density in META-INF/cani.txt is 0.0492424242424242, with the precision of 0.0000001.
+	 * Checks that the conjunction density in META-INF/cani.txt is 0.04905660377358491, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -331,14 +331,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0492424242424242, annot.getValue(), 0.0000001);
+				assertEquals(0.04905660377358491, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the coordinating conjunction density in META-INF/cani.txt is 0.0454545454545455, with the precision of 0.0000001.
+	 * Checks that the coordinating conjunction density in META-INF/cani.txt is 0.045283018867924525, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -353,14 +353,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0454545454545455, annot.getValue(), 0.0000001);
+				assertEquals(0.045283018867924525, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the coordinating conjunction density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
+	 * Checks that the coordinating conjunction density in META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -375,14 +375,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00378787878787879, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the determiner density in META-INF/cani.txt is 0.0871212121212121, with the precision of 0.0000001.
+	 * Checks that the determiner density in META-INF/cani.txt is 0.09056603773584905, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -397,7 +397,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0871212121212121, annot.getValue(), 0.0000001);
+				assertEquals(0.09056603773584905, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -426,7 +426,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the finite verb density in META-INF/cani.txt is 0.13257575757575757, with the precision of 0.0000001.
+	 * Checks that the finite verb density in META-INF/cani.txt is 0.12830188679245283, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -441,7 +441,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.13257575757575757, annot.getValue(), 0.0000001);
+				assertEquals(0.12830188679245283, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -470,7 +470,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the functional density in META-INF/cani.txt is 0.481060606060606, with the precision of 0.0000001.
+	 * Checks that the functional density in META-INF/cani.txt is 0.4830188679245283, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -485,14 +485,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.481060606060606, annot.getValue(), 0.0000001);
+				assertEquals(0.4830188679245283, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the indefinite pronoun density in META-INF/cani.txt is 0.0227272727272727, with the precision of 0.0000001.
+	 * Checks that the indefinite pronoun density in META-INF/cani.txt is 0.022641509433962263, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -507,14 +507,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0227272727272727, annot.getValue(), 0.0000001);
+				assertEquals(0.022641509433962263, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the infinite verb density in META-INF/cani.txt is 0.0340909090909091, with the precision of 0.0000001.
+	 * Checks that the infinite verb density in META-INF/cani.txt is 0.033962264150943396, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -529,7 +529,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0340909090909091, annot.getValue(), 0.0000001);
+				assertEquals(0.033962264150943396, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -580,7 +580,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the lexical density in META-INF/cani.txt is 0.522727272727273, with the precision of 0.0000001.
+	 * Checks that the lexical density in META-INF/cani.txt is 0.5207547169811321, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -595,14 +595,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.522727272727273, annot.getValue(), 0.0000001);
+				assertEquals(0.5207547169811321, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the main verb density in META-INF/cani.txt is 0.174242424242424, with the precision of 0.0000001.
+	 * Checks that the main verb density in META-INF/cani.txt is 0.16981132075471697, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -617,14 +617,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.174242424242424, annot.getValue(), 0.0000001);
+				assertEquals(0.16981132075471697, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the modal density in META-INF/cani.txt is 0.0151515151515152, with the precision of 0.0000001.
+	 * Checks that the modal density in META-INF/cani.txt is 0.01509433962264151, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -639,14 +639,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0151515151515152, annot.getValue(), 0.0000001);
+				assertEquals(0.01509433962264151, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the modal verb density in META-INF/cani.txt is 0.0151515151515152, with the precision of 0.0000001.
+	 * Checks that the modal verb density in META-INF/cani.txt is 0.01509433962264151, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -661,14 +661,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0151515151515152, annot.getValue(), 0.0000001);
+				assertEquals(0.01509433962264151, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the modifier density in META-INF/cani.txt is 0.132575757575758, with the precision of 0.0000001.
+	 * Checks that the modifier density in META-INF/cani.txt is 0.1320754716981132, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -683,14 +683,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.132575757575758, annot.getValue(), 0.0000001);
+				assertEquals(0.1320754716981132, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the modifier density in META-INF/cani.txt is 0.102272727272727, with the precision of 0.0000001.
+	 * Checks that the modifier density in META-INF/cani.txt is 0.1018867924528302, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -705,14 +705,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.102272727272727, annot.getValue(), 0.0000001);
+				assertEquals(0.1018867924528302, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the noun density in META-INF/cani.txt is 0.25, with the precision of 0.0000001.
+	 * Checks that the noun density in META-INF/cani.txt is 0.2528301886792453, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -727,7 +727,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.25, annot.getValue(), 0.0000001);
+				assertEquals(0.2528301886792453, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -756,7 +756,7 @@ public class POSDensityFeatureItTest {
 	
 		
 	/*
-	 * Checks that the past participle verb density in META-INF/cani.txt is 0.0454545454545455, with the precision of 0.0000001.
+	 * Checks that the past participle verb density in META-INF/cani.txt is 0.045283018867924525, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -771,14 +771,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0454545454545455, annot.getValue(), 0.0000001);
+				assertEquals(0.045283018867924525, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the personal pronoun density in META-INF/cani.txt is 0.0189393939393939, with the precision of 0.0000001.
+	 * Checks that the personal pronoun density in META-INF/cani.txt is 0.018867924528301886, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -793,14 +793,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0189393939393939, annot.getValue(), 0.0000001);
+				assertEquals(0.018867924528301886, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the plural noun density in META-INF/cani.txt is 0.08333333333333333, with the precision of 0.0000001.
+	 * Checks that the plural noun density in META-INF/cani.txt is 0.08679245283018867, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -815,7 +815,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.08333333333333333, annot.getValue(), 0.0000001);
+				assertEquals(0.08679245283018867, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -844,7 +844,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the possessive pronoun density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
+	 * Checks that the possessive pronoun density in META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -859,14 +859,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00378787878787879, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the preposition density in META-INF/cani.txt is 0.140151515151515, with the precision of 0.0000001.
+	 * Checks that the preposition density in META-INF/cani.txt is 0.13962264150943396, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -881,14 +881,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.140151515151515, annot.getValue(), 0.0000001);
+				assertEquals(0.13962264150943396, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the pronoun density in META-INF/cani.txt is 0.0833333333333333, with the precision of 0.0000001.
+	 * Checks that the pronoun density in META-INF/cani.txt is 0.0830188679245283, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -903,14 +903,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0833333333333333, annot.getValue(), 0.0000001);
+				assertEquals(0.0830188679245283, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the proper noun density in META-INF/cani.txt is 0.0340909090909091, with the precision of 0.0000001.
+	 * Checks that the proper noun density in META-INF/cani.txt is 0.033962264150943396, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -925,14 +925,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0340909090909091, annot.getValue(), 0.0000001);
+				assertEquals(0.033962264150943396, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the punctuation density in META-INF/cani.txt is 0.117424242424242, with the precision of 0.0000001.
+	 * Checks that the punctuation density in META-INF/cani.txt is 0.12075471698113208, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -947,14 +947,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.117424242424242, annot.getValue(), 0.0000001);
+				assertEquals(0.12075471698113208, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the relative pronoun density in META-INF/cani.txt is 0.0265151515151515, with the precision of 0.0000001.
+	 * Checks that the relative pronoun density in META-INF/cani.txt is 0.026415094339622643, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -969,14 +969,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.0265151515151515, annot.getValue(), 0.0000001);
+				assertEquals(0.026415094339622643, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the singular noun density in META-INF/cani.txt is 0.125, with the precision of 0.0000001.
+	 * Checks that the singular noun density in META-INF/cani.txt is 0.12452830188679245, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -991,14 +991,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.125, annot.getValue(), 0.0000001);
+				assertEquals(0.12452830188679245, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the subordinating conjunction density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
+	 * Checks that the subordinating conjunction density in META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1013,7 +1013,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00378787878787879, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -1064,7 +1064,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the verb density in META-INF/cani.txt is 0.234848484848485, with the precision of 0.0000001.
+	 * Checks that the verb density in META-INF/cani.txt is 0.23018867924528302, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -1079,14 +1079,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.234848484848485, annot.getValue(), 0.0000001);
+				assertEquals(0.23018867924528302, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the 3d person verb density in META-INF/cani.txt is 0.106060606060606, with the precision of 0.0000001.
+	 * Checks that the 3d person verb density in META-INF/cani.txt is 0.1018867924528302, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1101,7 +1101,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.106060606060606, annot.getValue(), 0.0000001);
+				assertEquals(0.1018867924528302, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -1130,7 +1130,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the conjunctive verb density in META-INF/cani.txt is 0.00757575757575758, with the precision of 0.0000001.
+	 * Checks that the conjunctive verb density in META-INF/cani.txt is 0.007547169811320755, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1145,7 +1145,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00757575757575758, annot.getValue(), 0.0000001);
+				assertEquals(0.007547169811320755, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -1174,7 +1174,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the conjunctive present verb density in META-INF/cani.txt is 0.0, with the precision of 0.0000001.
+	 * Checks that the conjunctive present verb density in META-INF/cani.txt is 0.007547169811320755, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1189,7 +1189,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00757575757575758, annot.getValue(), 0.0000001);
+				assertEquals(0.007547169811320755, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -1218,7 +1218,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the indicative verb density in META-INF/cani.txt is 0.125, with the precision of 0.0000001.
+	 * Checks that the indicative verb density in META-INF/cani.txt is 0.12075471698113208, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1233,7 +1233,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.125, annot.getValue(), 0.0000001);
+				assertEquals(0.12075471698113208, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -1262,7 +1262,7 @@ public class POSDensityFeatureItTest {
 	
 	
 	/*
-	 * Checks that the indicative imperfect verb density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
+	 * Checks that the indicative imperfect verb density in META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -1277,14 +1277,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00378787878787879, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the indicative past verb density in META-INF/cani.txt is 0.00378787878787879, with the precision of 0.0000001.
+	 * Checks that the indicative past verb density in META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1299,14 +1299,14 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.00378787878787879, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the indicative past verb density in META-INF/cani.txt is 0.117424242424242, with the precision of 0.0000001.
+	 * Checks that the indicative past verb density in META-INF/cani.txt is 0.11320754716981132, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -1321,7 +1321,7 @@ public class POSDensityFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 333){
-				assertEquals(0.117424242424242, annot.getValue(), 0.0000001);
+				assertEquals(0.11320754716981132, annot.getValue(), 0.0000001);
 			}
 		}
 	}

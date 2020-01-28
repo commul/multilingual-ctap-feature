@@ -87,7 +87,7 @@ public class LexicalVariationFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml");
 	}
 	
 	
@@ -180,7 +180,7 @@ public class LexicalVariationFeatureItTest {
 	
 	
 	/*
-	 * Checks that the Lexical Variation Feature: Noun for META-INF/cani.txt is 0.391304347826087, with the precision of 0.0000001.
+	 * Checks that the Lexical Variation Feature: Noun for META-INF/cani.txt is 0.39855072463768115, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -195,14 +195,14 @@ public class LexicalVariationFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2222){
-				assertEquals(0.391304347826087, annot.getValue(), 0.0000001); 
+				assertEquals(0.39855072463768115, annot.getValue(), 0.0000001); 
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the Lexical Variation Feature: Verb for META-INF/cani.txt is 0.2898550724637681, with the precision of 0.0000001.
+	 * Checks that the Lexical Variation Feature: Verb for META-INF/cani.txt is 0.2826086956521739, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -217,14 +217,14 @@ public class LexicalVariationFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2222){
-				assertEquals(0.2898550724637681, annot.getValue(), 0.0000001); 
+				assertEquals(0.2826086956521739, annot.getValue(), 0.0000001); 
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the Lexical Variation Feature: Corrected Verb Variation 1 for META-INF/cani.txt is 4.170288281141495, with the precision of 0.0000001.
+	 * Checks that the Lexical Variation Feature: Corrected Verb Variation 1 for META-INF/cani.txt is 4.110960958218893, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -239,14 +239,14 @@ public class LexicalVariationFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2222){
-				assertEquals(4.170288281141495, annot.getValue(), 0.0000001); 
+				assertEquals(4.110960958218893, annot.getValue(), 0.0000001); 
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the Lexical Variation Feature: Squared Verb Variation 1 for META-INF/cani.txt is 34.78260869565217, with the precision of 0.0000001.
+	 * Checks that the Lexical Variation Feature: Squared Verb Variation 1 for META-INF/cani.txt is 33.8, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -261,14 +261,14 @@ public class LexicalVariationFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2222){
-				assertEquals(34.78260869565217, annot.getValue(), 0.0000001); 
+				assertEquals(33.8, annot.getValue(), 0.0000001); 
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the Lexical Variation Feature: Verb Variation 1 for META-INF/cani.txt is 0.8695652173913043, with the precision of 0.0000001.
+	 * Checks that the Lexical Variation Feature: Verb Variation 1 for META-INF/cani.txt is 0.8666666666666667, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -283,7 +283,7 @@ public class LexicalVariationFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2222){
-				assertEquals(0.8695652173913043, annot.getValue(), 0.0000001);
+				assertEquals(0.8666666666666667, annot.getValue(), 0.0000001);
 			}
 		}
 	}

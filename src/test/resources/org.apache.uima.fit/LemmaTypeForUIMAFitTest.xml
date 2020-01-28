@@ -24,4 +24,4 @@
 			</features>
 		</typeDescription>
 	</types>
-<imports><import location="../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/></imports></typeSystemDescription>
+<imports><import location="src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/></imports></typeSystemDescription>

@@ -34,4 +34,4 @@
 			</features>
 		</typeDescription>
 	</types>
-<imports><import location="../../main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml"/><import location="../../main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml"/><import location="../../main/resources/descriptor/type_system/linguistic_type/POSType.xml"/></imports></typeSystemDescription>
+<imports><import location="src/main/resources/descriptor/type_system/feature_type/ComplexityFeatureBaseType.xml"/><import location="src/main/resources/descriptor/type_system/linguistic_type/ParseTreeType.xml"/><import location="src/main/resources/descriptor/type_system/linguistic_type/POSType.xml"/></imports></typeSystemDescription>

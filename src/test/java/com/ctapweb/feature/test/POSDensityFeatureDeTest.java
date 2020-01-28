@@ -90,7 +90,7 @@ public class POSDensityFeatureDeTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/POSDensityType.xml");
 	
 	}
 	

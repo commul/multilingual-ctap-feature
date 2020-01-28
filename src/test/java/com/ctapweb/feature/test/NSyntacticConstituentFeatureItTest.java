@@ -98,7 +98,7 @@ public class NSyntacticConstituentFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/NSyntacticConstituentType.xml");
 	
 	}
 	
@@ -126,7 +126,7 @@ public class NSyntacticConstituentFeatureItTest {
 	
 	
 	/*
-	 * Checks that the number of auxiliary verbs in META-INF/cani.txt is 15.0, with the precision of 0.0000001.
+	 * Checks that the number of auxiliary verbs in META-INF/cani.txt is 16.0, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -141,7 +141,7 @@ public class NSyntacticConstituentFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(15.0, annot.getValue(), 0.0000001);
+				assertEquals(16.0, annot.getValue(), 0.0000001);
 			}
 		}
 	}

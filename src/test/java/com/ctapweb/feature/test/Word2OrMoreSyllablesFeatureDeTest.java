@@ -87,7 +87,7 @@ public class Word2OrMoreSyllablesFeatureDeTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);		
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
 	
 	}
 	

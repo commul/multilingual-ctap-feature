@@ -95,7 +95,7 @@ public class TTRFeatureDeTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
 	}
 	
 	

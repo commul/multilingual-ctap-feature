@@ -79,7 +79,7 @@ public class SDTokenLengthFeatureItTest {
 	
 	
 	/*
-	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 2.973243104638609, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 2.9783044358745694, with the precision of 0.001.
 	 */
 	
 	@Test
@@ -92,14 +92,14 @@ public class SDTokenLengthFeatureItTest {
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 8585){
-				assertEquals(2.973243104638609, annot.getValue(), 0.0000001);
+				assertEquals(2.9783044358745694, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 1.1677977497340455, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the token length in tokens in META-INF/cani.txt is 1.1677851373132264, with the precision of 0.001.
 	 */
 	
 	@Test
@@ -112,7 +112,7 @@ public class SDTokenLengthFeatureItTest {
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 8585){
-				assertEquals(1.1677977497340455, annot.getValue(), 0.0000001);
+				assertEquals(1.1677851373132264, annot.getValue(), 0.0000001);
 			}	
 		}
 	}

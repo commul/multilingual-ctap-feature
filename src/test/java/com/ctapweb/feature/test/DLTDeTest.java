@@ -103,7 +103,7 @@ public class DLTDeTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml");
 	}
 	
 	
@@ -389,7 +389,7 @@ public class DLTDeTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 2506){
-				assertEquals(3.4375, annot.getValue(), 0.00);
+				assertEquals(4.75, annot.getValue(), 0.00);
 			}
 		}
 	}

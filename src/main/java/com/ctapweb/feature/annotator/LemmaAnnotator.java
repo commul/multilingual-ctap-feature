@@ -2,8 +2,12 @@ package com.ctapweb.feature.annotator;
 
 import static java.util.Arrays.asList;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.annolab.tt4j.TokenHandler;
 import org.annolab.tt4j.TreeTaggerWrapper;
@@ -41,6 +47,7 @@ import com.ctapweb.feature.type.Token;
 import com.ctapweb.feature.util.EnglishWordCategories;
 import com.ctapweb.feature.util.GermanWordCategories;
 import com.ctapweb.feature.util.ItalianWordCategories;
+import com.ctapweb.feature.util.TintReadableStringTransformer;
 
 import is2.data.SentenceData09;
 import is2.lemmatizer.Lemmatizer;
@@ -52,6 +59,10 @@ import org.annolab.tt4j.TreeTaggerWrapper;
 
 import com.sun.jna.Library;
 import com.sun.jna.Native;
+
+import edu.stanford.nlp.trees.LabeledScoredTreeNode;
+import eu.fbk.dh.tint.runner.TintPipeline;
+import eu.fbk.dh.tint.runner.TintRunner;
 
 /**
  * Annotates text with lemmas for each word in the input text
@@ -117,10 +128,12 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			break;
 		case "IT":
 			try{
-				String treetaggerPath = getContext().getResourceFilePath("treetagger");
-				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
-				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
-
+				//String treetaggerPath = getContext().getResourceFilePath("treetagger");
+				//logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
+				//lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
+				
+				lemmatizer = new TintLemmatizer ();
+				
 			}catch(Exception e){
 				logger.throwing(e);
 			}
@@ -278,10 +291,97 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	}
 	
 	/**
+	 * Wrapper for use of Tint
+	 * 
+	 * @author nokinina
+	 */
+	private class TintLemmatizer implements CTAPLemmatizer {		
+		private TintPipeline pipelineTint;
+		private InputStream stream;
+		private ByteArrayOutputStream baos;
+		
+		public TintLemmatizer() throws IOException {
+			pipelineTint = new TintPipeline();
+			// Load the default properties
+			// see https://github.com/dhfbk/tint/blob/master/tint-runner/src/main/resources/default-config.properties
+			try {
+				pipelineTint.loadDefaultProperties();
+			}
+			catch (IOException e) { //TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			pipelineTint.setProperty("annotators","ita_toksent, pos, ita_morpho, ita_lemma");
+			
+			// Load the models
+			pipelineTint.load();
+		}
+		
+		@Override
+		public String[] lemmatize(List<Token> sentTokens) {
+			ArrayList<String> lemmaList = new ArrayList();
+
+			String tokenString;
+			StringBuilder strB = new StringBuilder();
+
+			for(Token token : sentTokens){
+				tokenString = token.getCoveredText();
+				strB.append(" " + tokenString);
+			}
+
+			String sentenceString = strB.toString();
+			stream = new ByteArrayInputStream(sentenceString.getBytes(StandardCharsets.UTF_8));
+
+			baos = new ByteArrayOutputStream();
+			//pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
+			try{
+				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
+				String annotation = baos.toString();
+				Pattern patternLemma = Pattern.compile("Lemma=(.+)?\\]\n");
+				Matcher matcher = patternLemma.matcher(annotation);
+				String lemma;
+				//int counter = 0;
+				// check all occurrences
+				while (matcher.find()) {
+					//text = matcher.group(1);
+					lemma = matcher.group(1);
+					//System.out.println(lemma);
+					//if(lemma.equals("[PUNCT]")){
+						//lemmaList.add(sentTokens.get(counter).getCoveredText());
+						//}else{
+						lemmaList.add(lemma);
+					//}
+					//counter ++;
+				}
+
+			}catch(IOException e){
+				logger.throwing(e);
+			}
+
+			String[] arrayResult = getStringArray(lemmaList);
+			return arrayResult;
+		}
+		
+		// Function to convert ArrayList<String> to String[] 
+	    private String[] getStringArray(ArrayList<String> arr){	  
+	        // declaration and initialise String Array 
+	        String str[] = new String[arr.size()]; 
+	  
+	        // ArrayList to Array Conversion 
+	        for (int j = 0; j < arr.size(); j++) { 	  
+	            // Assign each value to String array 
+	            str[j] = arr.get(j); 
+	        }	  
+	        return str; 
+	    }
+	}
+	
+	/**
 	 * Wrapper for use of Tree Tagger lemmatizer
 	 * 
 	 * @author nokinina
 	 */
+	/*
 	private class TreeTaggerLemmatizer implements CTAPLemmatizer {		
 		private TreeTaggerWrapper tt;
 		private String utf8FilePath;
@@ -345,5 +445,8 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	        
 	        return arrayResult;
 		}
+		
+		
 	}
+	*/
 }

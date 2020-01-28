@@ -62,10 +62,10 @@ AAE dependency:
 					<string>Uber</string>
 				</value>
 			</nameValuePair>
-		<nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>3456</integer></value></nameValuePair></configurationParameterSettings>
+		<nameValuePair><name>LanguageCode</name><value><string>DE</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>3456</integer></value></nameValuePair></configurationParameterSettings>
 		<typeSystemDescription>
 			
-		<imports><import location="../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml"/></imports></typeSystemDescription>
+		<imports><import location="../../../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml"/></imports></typeSystemDescription>
 		<typePriorities/>
 		<fsIndexCollection/>
 		<capabilities>

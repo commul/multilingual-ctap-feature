@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>com.ctapweb.feature.featureAE.GulpeaseAE
+	</annotatorImplementationName>
+	<analysisEngineMetaData>
+		<name>Gulpease</name>
+		<description>Calculates the Gulpease measure of readability.
+		
+Definition:
+	89 + ( ((300 * number of sentences) - (10 * number of letters)) / number of tokens )
+		
+The results vary from 0 to 100, where the value "100" indicates the highest readability and "0" indicates the lowest readability.
+		
+Usually text with Gulpease index
+    less than 80 are difficult to read for those who have finished the elementary school
+    less than 60 are difficult to read for those who have finished the middle school
+    less than 40 are difficult to read for those who have finished the university
+    
+This feature was originally defined and optimised for Italian.
+CTAP allows to apply it also to German and English, but it's up to the user to decide to what extent the results are reliable.
+
+Bib. ref.:
+	Pietro Lucisano and Maria Emanuela Piemontese. 1988. Gulpease. Una formula per la predizione della difficoltà dei testi in lingua italiana. Scuola e Città, 3:57–68.
+
+AAE dependency:
+	SentenceAnnotator.xml
+	NSentenceFeature.xml
+	TokenAnnotator.xml
+	NTokenFeature.xml
+	LetterAnnotator.xml
+	NLetterFeature.xml
+		</description>
+		<version>1.0</version>
+		<vendor>Nadezda Okinina</vendor>
+		<configurationParameters>
+			<configurationParameter>
+				<name>aeID</name>
+				<description>analysis engine id</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>LanguageCode</name>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+		</configurationParameters>
+		<typeSystemDescription>
+			
+		<imports><import location="../../../../src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml"/></imports></typeSystemDescription>
+		<typePriorities/>
+		<fsIndexCollection/>
+		<capabilities>
+			<capability>
+				<inputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NToken
+					</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NSentence
+					</type>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.NLetter
+					</type>
+				</inputs>
+				<outputs>
+					<type allAnnotatorFeatures="true">com.ctapweb.feature.type.Gulpease</type>
+				</outputs>
+				<languagesSupported>
+					<language>EN</language>
+					<language>DE</language>
+					<language>IT</language>
+					<!-- add new language here -->
+				</languagesSupported>
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	<configurationParameterSettings><nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>9011</integer></value></nameValuePair><nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>9011</integer></value></nameValuePair></configurationParameterSettings></analysisEngineMetaData>
+	<resourceManagerConfiguration/>
+</analysisEngineDescription>

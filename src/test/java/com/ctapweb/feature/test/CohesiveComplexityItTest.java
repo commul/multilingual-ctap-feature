@@ -87,13 +87,13 @@ public class CohesiveComplexityItTest {
 		paramsHashMapAC.put("LanguageCode", dynamicStringArrayAC2);
 	
 		locationsListForTestAC = new ArrayList <String> ();
-		locationsListForTestAC.add("src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
+		locationsListForTestAC.add("../../../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml");
     
 	}
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Temporal Connectives Per Token_feature for META-INF/cani.txt is 0.0031847133757961785, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Temporal Connectives Per Token_feature for META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -124,7 +124,7 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731547){
-				assertEquals(0.003787878787878788, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -207,7 +207,7 @@ public class CohesiveComplexityItTest {
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_All Connectives Per Token_feature for META-INF/cani.txt is 0.06687898089171974, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_All Connectives Per Token_feature for META-INF/cani.txt is 0.05660377358490566, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -238,14 +238,14 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731473){
-				assertEquals(0.056818181818181816, annot.getValue(), 0.0000001);
+				assertEquals(0.05660377358490566, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Additive Connectives Per Token_feature for META-INF/cani.txt is 0.044585987261146494, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Additive Connectives Per Token_feature for META-INF/cani.txt is 0.033962264150943396, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -276,14 +276,14 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731474){
-				assertEquals(0.03409090909090909, annot.getValue(), 0.0000001);
+				assertEquals(0.033962264150943396, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Adversative and Concessive Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Adversative and Concessive Connectives Per Token_feature for META-INF/cani.txt is 0.011320754716981131, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -314,14 +314,14 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731475){
-				assertEquals(0.011363636363636364, annot.getValue(), 0.0000001);
+				assertEquals(0.011320754716981131, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Adversative Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Adversative Connectives Per Token_feature for META-INF/cani.txt is 0.011320754716981131, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -352,7 +352,7 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731475){
-				assertEquals(0.011363636363636364, annot.getValue(), 0.0000001);
+				assertEquals(0.011320754716981131, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -397,7 +397,7 @@ public class CohesiveComplexityItTest {
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Consequence Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Consequence Connectives Per Token_feature for META-INF/cani.txt is 0.0037735849056603774, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -428,14 +428,14 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731475){
-				assertEquals(0.003787878787878788, annot.getValue(), 0.0000001);
+				assertEquals(0.0037735849056603774, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Hierarchy Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Hierarchy Connectives Per Token_feature for META-INF/cani.txt is 0.007547169811320755, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -466,7 +466,7 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731475){
-				assertEquals(0.007575757575757576, annot.getValue(), 0.0000001);
+				assertEquals(0.007547169811320755, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -511,7 +511,7 @@ public class CohesiveComplexityItTest {
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Multifunctional Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Multifunctional Connectives Per Token_feature for META-INF/cani.txt is 0.011320754716981131, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -542,7 +542,7 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731475){
-				assertEquals(0.011363636363636364, annot.getValue(), 0.0000001);
+				assertEquals(0.011320754716981131, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -587,7 +587,7 @@ public class CohesiveComplexityItTest {
 	
 	
 	/*
-	 * Checks that the value of the Cohesive Complexity_Explicative Connectives Per Token_feature for META-INF/cani.txt is 0.009554140127388535, with the precision of 0.0000001.
+	 * Checks that the value of the Cohesive Complexity_Explicative Connectives Per Token_feature for META-INF/cani.txt is 0.007547169811320755, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -618,7 +618,7 @@ public class CohesiveComplexityItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 25731475){
-				assertEquals(0.007575757575757576, annot.getValue(), 0.0000001);
+				assertEquals(0.007547169811320755, annot.getValue(), 0.0000001);
 			}
 		}
 	}

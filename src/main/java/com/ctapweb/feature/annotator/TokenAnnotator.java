@@ -3,13 +3,19 @@
  */
 package com.ctapweb.feature.annotator;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,6 +39,8 @@ import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
 import com.ctapweb.feature.util.SupportedLanguages;
 
+import eu.fbk.dh.tint.runner.TintPipeline;
+import eu.fbk.dh.tint.runner.TintRunner;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.InvalidFormatException;
@@ -69,7 +77,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		super.initialize(aContext);
 
 		String modelFilePath = null;
-		
+
 		// define the model to be loaded based on the mandatory LanguageCode config parameter
 		String lCode = "";
 		if(aContext.getConfigParameterValue(PARAM_LANGUAGE_CODE) == null) {
@@ -87,8 +95,26 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 
 			logger.trace(LogMarker.UIMA_MARKER, 
 					new LoadLangModelMessage(languageSpecificResourceKey, modelFilePath));
-
+			
+		switch (lCode) {
+		case "IT":
+			try{
+				tokenizer = new TintTokenizer ();
+			}catch(Exception e){
+				logger.throwing(e);
+			}
+			break;
+		case "EN":
 			tokenizer = new OpenNLPTokenizer(modelFilePath);
+			break;
+		case "DE":
+			tokenizer = new OpenNLPTokenizer(modelFilePath);
+			break;
+		default:
+			break;
+		}
+			
+			//tokenizer = new OpenNLPTokenizer(modelFilePath);
 			// add switch statement here to allow for different instantiations; see example in ParseTreeAnnotator.java
 
 		} catch (ResourceAccessException e) {
@@ -136,7 +162,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 				annotation.setBegin(span.getStart() + sent.getBegin()); // the offset is absolute, so adds the sentence begin position.
 				annotation.setEnd(span.getEnd() + sent.getBegin());
 				annotation.addToIndexes();
-//				//logger.info("token: " + annotation.getBegin() + ", " + annotation.getEnd() + " "  + annotation.getCoveredText());
+				//				//logger.info("token: " + annotation.getBegin() + ", " + annotation.getEnd() + " "  + annotation.getCoveredText());
 				//System.out.println(" token: " + annotation.getCoveredText());
 			}
 		}
@@ -181,6 +207,82 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		public Span[] tokenize(String sentence) {
 			return openNlpTokenizer.tokenizePos(sentence);
 		}
-		
+
+	}
+
+	/**
+	 * Wrapper for use of Tint tokenizer
+	 * @author nokinina
+	 *
+	 */
+	private class TintTokenizer implements CTAPTokenizer {
+		private TintPipeline pipelineTint;
+		private InputStream stream;
+		private ByteArrayOutputStream baos;
+
+		public TintTokenizer() throws FileNotFoundException, IOException {
+			pipelineTint = new TintPipeline();
+			// Load the default properties
+			// see https://github.com/dhfbk/tint/blob/master/tint-runner/src/main/resources/default-config.properties
+			try {
+				pipelineTint.loadDefaultProperties();
+			}
+			catch (IOException e) { //TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			pipelineTint.setProperty("annotators","ita_toksent");
+
+			// Load the models
+			pipelineTint.load();
+		}
+
+		@Override
+		public Span[] tokenize(String sentence) {
+			//System.out.println(sentence);
+			
+			ArrayList<Span> spanList = new ArrayList();
+			InputStream stream = new ByteArrayInputStream(sentence.getBytes(StandardCharsets.UTF_8));
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			try{
+				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
+				String annotation = baos.toString();
+
+				Pattern pattern = Pattern.compile("CharacterOffsetBegin=(\\d+)? CharacterOffsetEnd=(\\d+)");
+				Matcher matcher = pattern.matcher(annotation);
+				int start;
+				int end;
+				Span span;
+				
+				// check all occurrences
+				while (matcher.find()) {
+					//text = matcher.group(1);
+					start = Integer.parseInt(matcher.group(1));
+					end = Integer.parseInt(matcher.group(2));
+					//System.out.println("start: " + start);
+					//System.out.println("end: " + end);
+					span = new Span(start, end);
+					spanList.add(span);
+				}
+			}catch(IOException e){
+				logger.throwing(e);
+			}
+			Span[] arrayResult = getSpanArray(spanList);
+			return arrayResult;
+		}
+
+		// Function to convert ArrayList<String> to String[] 
+		private Span[] getSpanArray(ArrayList<Span> arr){	  
+			// declaration and initialise String Array 
+			Span span[] = new Span[arr.size()]; 
+
+			// ArrayList to Array Conversion 
+			for (int j = 0; j < arr.size(); j++) { 	  
+				// Assign each value to String array 
+				span[j] = arr.get(j); 
+			}	  
+			return span; 
+		}
 	}
 }

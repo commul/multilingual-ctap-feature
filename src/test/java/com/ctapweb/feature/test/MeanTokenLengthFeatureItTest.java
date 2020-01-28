@@ -91,7 +91,7 @@ public class MeanTokenLengthFeatureItTest {
 	
 		
 	/*
-	 * Checks that the mean token length in letters in META-INF/cani.txt is 4.988636363636363, with the precision of 0.001.
+	 * Checks that the mean token length in letters in META-INF/cani.txt is 4.969811320754717, with the precision of 0.001.
 	 */
 	
 	@Test
@@ -105,14 +105,14 @@ public class MeanTokenLengthFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 12222){
-				assertEquals(4.988636363636363, annot.getValue(), 0.0000001);
+				assertEquals(4.969811320754717, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the mean token length in syllables in META-INF/cani.txt is 2.1666666666666665, with the precision of 0.0000001.
+	 * Checks that the mean token length in syllables in META-INF/cani.txt is 2.1622641509433964, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -126,7 +126,7 @@ public class MeanTokenLengthFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 12222){
-				assertEquals(2.1666666666666665, annot.getValue(), 0.0000001);
+				assertEquals(2.1622641509433964, annot.getValue(), 0.0000001);
 			}
 		}
 	}

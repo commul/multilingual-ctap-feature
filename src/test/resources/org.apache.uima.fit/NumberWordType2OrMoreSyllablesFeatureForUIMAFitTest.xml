@@ -61,10 +61,10 @@ AAE Dependency:
 					<string>number</string>
 				</value>
 			</nameValuePair>
-		<nameValuePair><name>LanguageCode</name><value><string>DE</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>1333</integer></value></nameValuePair></configurationParameterSettings>
+		<nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>1333</integer></value></nameValuePair></configurationParameterSettings>
 		<typeSystemDescription>
 			
-		<imports><import location="../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml"/></imports></typeSystemDescription>
+		<imports><import location="../../../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml"/></imports></typeSystemDescription>
 		<typePriorities/>
 		<fsIndexCollection/>
 		<capabilities>

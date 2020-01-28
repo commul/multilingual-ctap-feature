@@ -73,7 +73,7 @@ public class NTokenFeatureItTest {
 	
 	
 	/*
-	 * Checks that the number of tokens in META-INF/cani.txt is 264.0, without punctuations.
+	 * Checks that the number of tokens in META-INF/cani.txt is 265.0, without punctuations.
 	 */
 	
 	@Test
@@ -81,7 +81,7 @@ public class NTokenFeatureItTest {
 
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 123){
-				assertEquals(264.0, annot.getValue(), 0.0000001);
+				assertEquals(265.0, annot.getValue(), 0.0000001);
 			}	
 		}
 	}

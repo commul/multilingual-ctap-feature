@@ -98,7 +98,7 @@ public class MeanSentenceLengthFeatureItTest {
 	
 	
 	/*
-	 * Checks that the mean sentence length in tokens in META-INF/cani.txt is 22.0, with the precision of 0.0000001.
+	 * Checks that the mean sentence length in tokens in META-INF/cani.txt is 22.083333333333332, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -112,7 +112,7 @@ public class MeanSentenceLengthFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 5454){
-				assertEquals(22.0, annot.getValue(), 0.0000001);
+				assertEquals(22.083333333333332, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -140,7 +140,7 @@ public class MeanSentenceLengthFeatureItTest {
 	
 	
 	/*
-	 * Checks that the mean sentence length in syllables in META-INF/cani.txt is 47.666666666666664, with the precision of 0.0000001.
+	 * Checks that the mean sentence length in syllables in META-INF/cani.txt is 47.75, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -154,7 +154,7 @@ public class MeanSentenceLengthFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 5454){
-				assertEquals(47.666666666666664, annot.getValue(), 0.0000001);
+				assertEquals(47.75, annot.getValue(), 0.0000001);
 			}
 		}
 	}

@@ -75,7 +75,7 @@ AAE dependency:
 		<nameValuePair><name>LanguageCode</name><value><string>DE</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>2506</integer></value></nameValuePair></configurationParameterSettings>
 		<typeSystemDescription>
 			
-		<imports><import location="../../src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml"/></imports></typeSystemDescription>
+		<imports><import location="../../../../src/main/resources/descriptor/type_system/feature_type/DLTIntegrationCostType.xml"/></imports></typeSystemDescription>
 		<typePriorities/>
 		<fsIndexCollection/>
 		<capabilities>

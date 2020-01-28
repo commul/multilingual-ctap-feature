@@ -60,7 +60,7 @@ AAE dependency:
         <nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>123321</integer></value></nameValuePair></configurationParameterSettings>
 		<typeSystemDescription>
 			
-		<imports><import location="../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml"/></imports></typeSystemDescription>
+		<imports><import location="../../../../src/main/resources/descriptor/type_system/feature_type/NConnectivesType.xml"/></imports></typeSystemDescription>
 		<typePriorities/>
 		<fsIndexCollection/>
 		<capabilities>

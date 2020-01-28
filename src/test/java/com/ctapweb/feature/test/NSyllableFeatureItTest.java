@@ -85,7 +85,7 @@ public class NSyllableFeatureItTest {
 
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 777){
-				assertEquals(572.0, annot.getValue(), 0.0000001);
+				assertEquals(573.0, annot.getValue(), 0.0000001);
 			}	
 		}
 	}

@@ -94,7 +94,7 @@ public class SDSentenceLengthFeatureItTest {
 	
 	
 	/*
-	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 18.983246201944397, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 19.004584773791887, with the precision of 0.001.
 	 */
 	
 	@Test
@@ -110,7 +110,7 @@ public class SDSentenceLengthFeatureItTest {
 			System.out.println(annot.getId());
 			System.out.println(annot.getValue());
 			if(annot.getId() == 9999){
-				assertEquals(18.983246201944397, annot.getValue(), 0.0000001);
+				assertEquals(19.004584773791887, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -137,7 +137,7 @@ public class SDSentenceLengthFeatureItTest {
 	
 	
 	/*
-	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 42.58965587884912, with the precision of 0.001.
+	 * Checks that the Standard Deviation from the sentence length in tokens in META-INF/cani.txt is 42.61268483786147, with the precision of 0.001.
 	 */
 	
 	@Test
@@ -150,7 +150,7 @@ public class SDSentenceLengthFeatureItTest {
 		SimplePipeline.runPipeline(jCas, aedSent, aedToken, aedSyllable, aedLetter, aed);
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9999){
-				assertEquals(42.58965587884912, annot.getValue(), 0.0000001);
+				assertEquals(42.61268483786147, annot.getValue(), 0.0000001);
 			}	
 		}
 	}

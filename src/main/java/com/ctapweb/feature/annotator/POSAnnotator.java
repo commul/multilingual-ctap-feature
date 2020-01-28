@@ -1,12 +1,17 @@
 package com.ctapweb.feature.annotator;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,6 +35,8 @@ import com.ctapweb.feature.type.POS;
 import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
 
+import eu.fbk.dh.tint.runner.TintPipeline;
+import eu.fbk.dh.tint.runner.TintRunner;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.util.InvalidFormatException;
@@ -78,7 +85,25 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 
 			logger.trace(LogMarker.UIMA_MARKER, 
 					new LoadLangModelMessage(languageSpecificResourceKey, POSModelFilePath));
-
+			/*
+			switch (lCode) {
+			case "IT":
+				try{
+					posTagger = new TintPosTagger();
+				}catch(Exception e){
+					logger.throwing(e);
+				}
+				break;
+			case "EN":
+				posTagger = new OpenNLPPosTagger(POSModelFilePath);
+				break;
+			case "DE":
+				posTagger = new OpenNLPPosTagger(POSModelFilePath);
+				break;
+			default:
+				break;
+			}
+			*/
 			posTagger = new OpenNLPPosTagger(POSModelFilePath);
 			// add switch statement here to allow for different instantiations; see example in ParseTreeAnnotator.java
 
@@ -140,7 +165,7 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 				annotation.setBegin(token.getBegin()); 
 				annotation.setEnd(token.getEnd());
 				annotation.setTag(tags[i]);
-				//System.out.println(token.getCoveredText() + " " + tags[i]);
+				//System.out.println("pos: " + token.getCoveredText() + " " + tags[i]);
 				annotation.addToIndexes();
 			}
 		}
@@ -195,6 +220,84 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 			String[] tokenArray = convertTokenListToStringArray(tokenizedSentence);
 			return openNlpPOSTagger.tag(tokenArray);
 		}
+	}
+	
+	/**
+	 * Wrapper for use of Tint POS tagger
+	 * @author nokinina
+	 *
+	 */
+	private class TintPosTagger extends POSTagger {
+		private TintPipeline pipelineTint;
+		private InputStream stream;
+		private ByteArrayOutputStream baos;
+		
+		public TintPosTagger() throws IOException {
+			pipelineTint = new TintPipeline();
+			// Load the default properties
+			// see https://github.com/dhfbk/tint/blob/master/tint-runner/src/main/resources/default-config.properties
+			try {
+				pipelineTint.loadDefaultProperties();
+			}
+			catch (IOException e) { //TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			pipelineTint.setProperty("annotators","ita_toksent, pos");
+
+			// Load the models
+			pipelineTint.load();
+		}
+
+		@Override
+		public String[] tag(List<Token> tokenizedSentence) {
+			ArrayList<String> posList = new ArrayList();
+
+			String tokenString;
+			StringBuilder strB = new StringBuilder();
+
+			for(Token token : tokenizedSentence){
+				tokenString = token.getCoveredText();
+				strB.append(" " + tokenString);
+			}
+
+			String sentenceString = strB.toString();
+			stream = new ByteArrayInputStream(sentenceString.getBytes(StandardCharsets.UTF_8));
+
+			baos = new ByteArrayOutputStream();
+			//pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
+			try{
+				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
+				String annotation = baos.toString();
+				Pattern patternLemma = Pattern.compile("PartOfSpeech=(.+)?\\]\n");
+				Matcher matcher = patternLemma.matcher(annotation);
+				String pos;
+				// check all occurrences
+				while (matcher.find()) {
+					pos = matcher.group(1);
+					posList.add(pos);
+				}
+
+			}catch(IOException e){
+				logger.throwing(e);
+			}
+
+			String[] arrayResult = getStringArray(posList);
+			return arrayResult;
+		}
+		
+		// Function to convert ArrayList<String> to String[] 
+	    private String[] getStringArray(ArrayList<String> arr){	  
+	        // declaration and initialise String Array 
+	        String str[] = new String[arr.size()]; 
+	  
+	        // ArrayList to Array Conversion 
+	        for (int j = 0; j < arr.size(); j++) { 	  
+	            // Assign each value to String array 
+	            str[j] = arr.get(j); 
+	        }	  
+	        return str; 
+	    }
 	}
 	
 }

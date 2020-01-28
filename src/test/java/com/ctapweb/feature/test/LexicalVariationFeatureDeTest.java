@@ -87,7 +87,7 @@ public class LexicalVariationFeatureDeTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/LexicalVariationType.xml");
 	}
 	
 	

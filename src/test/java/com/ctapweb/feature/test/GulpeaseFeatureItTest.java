@@ -100,12 +100,12 @@ public class GulpeaseFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/GulpeaseType.xml");
 	}
 	
 	
 	/*
-	 * Checks that the CTTR for META-INF/cani.txt is 7.877013931995327, with the precision of 0.0000001.
+	 * Checks that the Gulpease measure for META-INF/cani.txt is 52.886792452830186, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -120,7 +120,7 @@ public class GulpeaseFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9011){
-				assertEquals(52.75, annot.getValue(), 0.00);
+				assertEquals(52.886792452830186, annot.getValue(), 0.0000001);
 			}
 		}
 	}

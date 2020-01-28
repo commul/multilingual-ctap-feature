@@ -87,12 +87,12 @@ public class LexicalPercentageItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml");
 	}
 	
 	
 	/*
-	 * Checks that the percentage of lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 76.13636363636364, with the precision of 0.0000001.
+	 * Checks that the percentage of lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 65.993265993266, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -107,14 +107,14 @@ public class LexicalPercentageItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9020){
-				assertEquals(76.13636363636364, annot.getValue(), 0.0000001); // 76.13636363636364
+				assertEquals(65.993265993266, annot.getValue(), 0.0000001); // 65.993265993266
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the percentage of unique lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 74.67532467532467, with the precision of 0.0000001.
+	 * Checks that the percentage of unique lemmas that are listed in the De mauro dictionary for META-INF/cani.txt is 70.1219512195122, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -129,7 +129,7 @@ public class LexicalPercentageItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9020){
-				assertEquals(74.67532467532467, annot.getValue(), 0.0000001); // 74.67532467532467
+				assertEquals(70.1219512195122, annot.getValue(), 0.0000001); // 70.1219512195122
 			}
 		}
 	}

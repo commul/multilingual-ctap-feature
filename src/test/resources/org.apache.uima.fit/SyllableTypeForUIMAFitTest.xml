@@ -17,4 +17,4 @@ Dependency:
       <supertypeName>uima.tcas.Annotation</supertypeName>
     </typeDescription>
   </types>
-<imports><import location="../../../main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/></imports></typeSystemDescription>
+<imports><import location="src/main/resources/descriptor/type_system/linguistic_type/TokenType.xml"/></imports></typeSystemDescription>

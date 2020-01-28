@@ -95,12 +95,12 @@ public class TTRFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/TypeTokenRatioType.xml");
 	}
 	
 	
 	/*
-	 * Checks that the TTR for META-INF/cani.txt is 0.6856060606060606, with the precision of 0.0000001.
+	 * Checks that the TTR for META-INF/cani.txt is 0.6867924528301886, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -115,14 +115,14 @@ public class TTRFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
-				assertEquals(0.6856060606060606, annot.getValue(), 0.0000001);
+				assertEquals(0.6867924528301886, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the TTR Uber for META-INF/cani.txt is 71.59682883562529, with the precision of 0.0000001.
+	 * Checks that the TTR Uber for META-INF/cani.txt is 82.86257008649488, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -137,14 +137,14 @@ public class TTRFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
-				assertEquals(82.37127497003753, annot.getValue(), 0.0000001);
+				assertEquals(82.86257008649488, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the RTTR for META-INF/cani.txt is 11.139779933629612, with the precision of 0.0000001.
+	 * Checks that the RTTR for META-INF/cani.txt is 11.180171126377912, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -159,14 +159,14 @@ public class TTRFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
-				assertEquals(11.139779933629612, annot.getValue(), 0.0000001);
+				assertEquals(11.180171126377912, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the Log TTR for META-INF/cani.txt is 0.932307116708166, with the precision of 0.0000001.
+	 * Checks that the Log TTR for META-INF/cani.txt is 0.9326628437886744, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -181,14 +181,14 @@ public class TTRFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
-				assertEquals(0.932307116708166, annot.getValue(), 0.0000001);
+				assertEquals(0.9326628437886744, annot.getValue(), 0.0000001);
 			}
 		}
 	}
 	
 	
 	/*
-	 * Checks that the CTTR for META-INF/cani.txt is 7.877013931995327, with the precision of 0.0000001.
+	 * Checks that the CTTR for META-INF/cani.txt is 7.905574818287863, with the precision of 0.0000001.
 	 */
 	
 	@Test
@@ -203,7 +203,7 @@ public class TTRFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 3456){
-				assertEquals(7.877013931995327, annot.getValue(), 0.0000001);
+				assertEquals(7.905574818287863, annot.getValue(), 0.0000001);
 			}
 		}
 	}

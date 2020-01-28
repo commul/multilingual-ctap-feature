@@ -87,7 +87,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 		paramsHashMap.put("LanguageCode", dynamicStringArray2);		
 		
 		locationsListForTest = new ArrayList <String> ();
-		locationsListForTest.add("src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
+		locationsListForTest.add("../../../../src/main/resources/descriptor/type_system/feature_type/Word2OrMoreSyllablesType.xml");
 	
 	}
 	
@@ -115,7 +115,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	
 	
 	/*
-	 * Checks that the percent of tokens with 2 or more syllables in META-INF/cani.txt is 0.6439393939393939, with the precision of 0.0000001.
+	 * Checks that the percent of tokens with 2 or more syllables in META-INF/cani.txt is 0.6415094339622641, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -130,7 +130,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 1333){
-				assertEquals(0.6439393939393939, annot.getValue(), 0.0000001);
+				assertEquals(0.6415094339622641, annot.getValue(), 0.0000001);
 			}
 		}
 	}
@@ -159,7 +159,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	
 	
 	/*
-	 * Checks that the percent of word types in META-INF/cani.txt is 0.7606382978723404, with the precision of 0.0000001.
+	 * Checks that the percent of word types in META-INF/cani.txt is 0.7566137566137566, with the precision of 0.0000001.
 	 */	
 	
 	@Test
@@ -174,7 +174,7 @@ public class Word2OrMoreSyllablesFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 1333){
-				assertEquals(0.7606382978723404, annot.getValue(), 0.0000001);
+				assertEquals(0.7566137566137566, annot.getValue(), 0.0000001);
 			}
 		}
 	}
