@@ -6,6 +6,13 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Multifunctional Connectives</name>
 		<description>Calculates the number of multifunctional connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
+
+The lists contains 23 connectives.
+
+Example:
+The connectives 'dopo' and 'poi' both have 2 meanings, temporal and hierarchical. So they appear in 3 lists: temporal, hierarchical and multifunctional.
+	
 		
 This feature is NOT available for English, German.
 

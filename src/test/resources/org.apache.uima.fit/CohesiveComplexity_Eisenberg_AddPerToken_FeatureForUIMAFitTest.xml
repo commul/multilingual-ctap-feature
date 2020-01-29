@@ -7,8 +7,17 @@
 		<name>Cohesive Complexity Feature: Additive Connectives per Token (Eisenberg for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the additive connectives per token, listed by Eisenberg for German.
-			
-Definition: 
+The list contains 41 connectives.
+
+Example:
+	einschließlich
+	samt
+	nebst
+	inklusive
+	zuzüglich
+	ohne zu
+		
+Formula: 
 	number of additive connectives / number of tokens
 
 This feature is not available for English, Italian.

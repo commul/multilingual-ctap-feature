@@ -6,10 +6,16 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: All Connectives (Breindl for German)</name>
 		<description>Calculates the number of all connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
 
-			AAE dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
+The list for German contains 69 connectives.
+The list for Italian contains 212 connectives.
+
+This feature is not available for English.
+	
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Zarah Weiss</vendor>

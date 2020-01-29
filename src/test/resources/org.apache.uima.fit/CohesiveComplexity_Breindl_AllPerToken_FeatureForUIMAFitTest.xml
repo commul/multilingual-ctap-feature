@@ -6,10 +6,13 @@
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: All Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
-Calculates the temporal connectives per Token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
-	number of temporal connectives / number of tokens
+Calculates the number of connectives per Token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+
+The list for German contains 69 connectives.
+The list for Italian contains 212 connectives.
+		
+Formula:
+	number of connectives / number of tokens
 
 This feature is not available for English.
 

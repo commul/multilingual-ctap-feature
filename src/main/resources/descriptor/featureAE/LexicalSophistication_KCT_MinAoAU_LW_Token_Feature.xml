@@ -18,6 +18,12 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the Minimal Age of Active Use in KCT list of lexical words (LW).
 
+Formula:
+	sum of values for lexical word tokens found in the norm list / number of lexical word tokens of the text found in the norm list
+	
+	Tokens that are not in the norm list are ignored.
+
+
 This feature is NOT available for Italian, English.
 
 AAE dependency:

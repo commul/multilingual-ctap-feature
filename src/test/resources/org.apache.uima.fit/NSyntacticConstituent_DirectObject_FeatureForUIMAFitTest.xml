@@ -5,6 +5,7 @@
     <name>Number of Syntactic Constituents: Direct Object</name>
     <description>Calculates the number of a specific syntactic constituents in the text.
 Counts the number of direct objects in the text. 
+Gives an absolute number.
 
 The direct object of a VP is the noun phrase which is the (accusative) object of the verb
 

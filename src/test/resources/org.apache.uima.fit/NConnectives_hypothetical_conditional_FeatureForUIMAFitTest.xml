@@ -6,7 +6,17 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Hypothetical and Conditional Connectives</name>
 		<description>Calculates the number of hypothetical and conditional connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
-		
+Gives an absolute number.
+
+The list contains 20 connectives.
+
+Example:
+	ammettendo che
+	nel caso in cui
+	partendo dal presupposto che
+	purché
+	qualora
+			
 This feature is NOT available for English, German.
 
 AAE dependency:

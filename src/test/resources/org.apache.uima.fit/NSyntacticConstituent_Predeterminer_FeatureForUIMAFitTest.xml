@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Predeterminer</name>
     <description>Counts the number of predeterminers in the text. 
+Gives an absolute number.
 
 A predeterminer is the relation between the head of an NP and a word that precedes and modifies the meaning of the NP determiner.
 

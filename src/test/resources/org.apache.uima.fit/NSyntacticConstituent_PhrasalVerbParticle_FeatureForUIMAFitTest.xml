@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Phrasal Verb Particle</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of phrasal verb particles in the text. 
+Gives an absolute number.
 
 Used for clitic pronoun in reflexive verbs.
 

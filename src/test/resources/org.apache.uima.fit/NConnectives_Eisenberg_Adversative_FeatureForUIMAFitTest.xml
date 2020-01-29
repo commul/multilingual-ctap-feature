@@ -6,7 +6,16 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Adversative Connectives (Eisenberg for German)</name>
 		<description>Calculates the number of adversative connectives for German listed by Eisenberg.
-		
+Gives an absolute number.
+
+The list contains 38 connectives.
+
+Example:
+	gegen
+	entgegen
+	zuwider
+	statt : statt dass
+	
 This feature is NOT available for English, Italian.
 
 AAE dependency:

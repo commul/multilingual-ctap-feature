@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Indirect Object</name>
     <description>Counts the number of indirect objects in the text. 
+Gives an absolute number.
 
 The indirect object of a VP is the noun phrase which is the (dative) object of the verb
 

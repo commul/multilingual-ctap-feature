@@ -6,6 +6,15 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Consequence Connectives</name>
 		<description>Calculates the number of consequence connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
+
+The list contains 14 connectives.
+
+Example:
+	così che
+	da ciò si deduce che
+	di conseguenza
+	dunque
 		
 This feature is NOT available for English, German.
 

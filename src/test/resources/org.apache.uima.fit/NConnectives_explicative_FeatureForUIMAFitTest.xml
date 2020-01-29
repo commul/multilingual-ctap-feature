@@ -6,6 +6,17 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Explicative Connectives</name>
 		<description>Calculates the number of explicative connectives listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
+
+The list contains 30 connectives.
+
+Example:
+	ad esempio
+	appunto
+	cioè
+	come
+	concretamente
+	davvero
 		
 This feature is NOT available for English, German.
 

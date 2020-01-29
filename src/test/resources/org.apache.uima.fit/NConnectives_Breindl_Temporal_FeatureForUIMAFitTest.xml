@@ -6,6 +6,29 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Temporal Connectives (Breindl for German)</name>
 		<description>Calculates the number of temporal connectives listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
+Gives an absolute number.
+
+The Italian lists contains 55 connectives.
+
+Example:
+	a questo punto
+	alla fine
+	allora
+	allorché
+	allorquando
+	anni fa
+	antecedente a
+
+The German lists contains 26 connectives.
+
+Example:
+	dann : selbst dann wenn,auch dann wenn,sogar dann wenn,wenn-dann
+	bevor : bevor nicht
+	zuletzt : nicht zuletzt
+	anfangs
+	bald
+	bereits
+		
 
 AAE dependency:
 	SentenceAnnotator.xml

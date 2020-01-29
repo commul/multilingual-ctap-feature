@@ -6,12 +6,12 @@
 	<analysisEngineMetaData>
 		<name>Number of syllables</name>
 		<description>Calculates the number of syllables in the text.
+Gives an absolute number.
 
-			AAE
-			dependency:
-			SentenceAnnotator.xml
-			TokenAnnotator.xml
-			SyllableAnnotator.xml
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	SyllableAnnotator.xml
 		</description>
 		<version>1.0</version>
 		<vendor>Xiaobin Chen</vendor>

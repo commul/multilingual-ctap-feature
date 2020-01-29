@@ -6,8 +6,15 @@
 		<name>Cohesive Complexity Feature: Adversative and Concessive Connectives per Token (Eisenberg for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the adversative and concessive connectives per token, listed by Eisenberg for German.
-			
-Definition: 
+The lists contains 78  connectives.
+
+Example:
+	gegen
+	entgegen
+	zuwider
+	statt : statt dass
+		
+Formula: 
 	number of adversative and concessive connectives / number of tokens
 
 This feature is not available for English, Italian.

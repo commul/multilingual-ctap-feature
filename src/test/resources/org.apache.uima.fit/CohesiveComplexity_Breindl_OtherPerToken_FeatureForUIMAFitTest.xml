@@ -5,9 +5,21 @@
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>Cohesive Complexity Feature: Other Connectives per Token (Breindl for German)</name>
-		<description>Calculates the cohesive complexity of the text. This feature calculates the other connectives listed by Breindl per token.
+		<description>Calculates the cohesive complexity of the text. This feature calculates the other connectives listed by Breindl per token: connectives that are not included in lists with defined categories.
+
+The lists contains 10 connectives:
+	jedoch
+	sowie
+	falls
+	hierdurch
+	höchstens
+	oder
+	ohnehin
+	sofern
+	sonst
+	sprich
 			
-Definition:
+Formula:
 	number of other connectives / number of tokens
 
 This feature is not available for English, Italian.

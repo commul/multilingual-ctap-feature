@@ -6,8 +6,15 @@
 		<name>Cohesive Complexity Feature: Consequence Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the consequence connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+The list contains 14 connectives.
+
+Example:
+	così che
+	da ciò si deduce che
+	di conseguenza
+	dunque
 			
-Definition:
+Formula:
 	number of consequence connectives / number of tokens
 
 This feature is not available for English, German.

@@ -7,8 +7,18 @@
 		<name>Cohesive Complexity Feature: Breindl Single-Word Connectives per Connective</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the single-word connectives per connective listed by Breindl.
-			
-Definition:
+
+The lists contains 60 single-word connectives.
+
+Example:
+	aber
+	allerdings
+	also
+	anfangs
+	außerdem
+	bald
+		
+Formula:
 	number of single-word connectives / number of connectives
 
 This feature is not available for English, Italian.

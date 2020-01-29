@@ -9,6 +9,9 @@
 		<name>Mean Sentence Length in Letters</name>
 		<description>Calculates the mean sentence length in letters.
 
+Formula:
+	sum of the lengths of all the sentences of the text / number of sentences
+
 AAE Dependency:
 	SentenceAnnotator.xml
 	NSentenceFeature.xml

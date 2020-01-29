@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Expletive</name>
     <description>Counts the number of expletives in the text. 
+Gives an absolute number.
 
 This relation captures an existential \there". The main verb of the clause is the governor
 	

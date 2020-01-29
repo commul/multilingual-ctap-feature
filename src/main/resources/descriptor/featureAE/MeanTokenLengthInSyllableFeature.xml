@@ -9,6 +9,9 @@
 		<name>Mean Token Length in Syllables</name>
 		<description>Calculates the mean token length in syllables.
 
+Formula:
+	sum of the lengths of all the tokens of the text / number of tokens
+
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

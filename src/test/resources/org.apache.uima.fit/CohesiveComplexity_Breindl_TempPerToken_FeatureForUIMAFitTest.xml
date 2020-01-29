@@ -7,8 +7,29 @@
 		<name>Cohesive Complexity Feature: Temporal Connectives per Token (Breindl for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the temporal connectives per token, listed by Breindl for German, by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition: 
+
+The Italian lists contains 55 connectives.
+
+Example:
+	a questo punto
+	alla fine
+	allora
+	allorché
+	allorquando
+	anni fa
+	antecedente a
+
+The German lists contains 26 connectives.
+
+Example:
+	dann : selbst dann wenn,auch dann wenn,sogar dann wenn,wenn-dann
+	bevor : bevor nicht
+	zuletzt : nicht zuletzt
+	anfangs
+	bald
+	bereits
+		
+Formula: 
 	number of temporal connectives / number of tokens
 
 This feature is not available for English.

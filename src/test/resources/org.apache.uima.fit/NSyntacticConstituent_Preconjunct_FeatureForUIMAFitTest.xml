@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Preconjunct</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of preconjuncts in the text. 
+Gives an absolute number.
 
 A preconjunct is the relation between the head of an NP and a word that appears at the beginning bracketing a conjunction (and puts emphasis on it), such as "either", "both", "neither").
 	

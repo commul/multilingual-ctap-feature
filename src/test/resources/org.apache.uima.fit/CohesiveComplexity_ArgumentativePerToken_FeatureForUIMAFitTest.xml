@@ -6,8 +6,14 @@
 		<name>Cohesive Complexity Feature: Argumentative Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the argumentative connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+The lists contains 5 connectives:
+	a proposito di
+	in relazione a
+	per quanto riguarda
+	relativamente a
+	riguardo a
+		
+Formula:
 	number of argumentative connectives / number of tokens
 
 This feature is not available for English, German.

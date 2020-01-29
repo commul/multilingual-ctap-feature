@@ -7,7 +7,7 @@
     <name>Mean Parse Tree Depth Feature</name>
     <description>Calculates the mean parse tree depth of the text.
      
-Definition:
+Formula:
 	sum of parse tree depths of all the sentences of the text / number of sentences of the text
 
 Note that different syntactic parsers are used for different languages:

@@ -6,8 +6,17 @@
 		<name>Cohesive Complexity Feature: Hypothetical and Conditional Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the hypothetical and conditional connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
-			
-Definition:
+
+The list contains 20 connectives.
+
+Example:
+	ammettendo che
+	nel caso in cui
+	partendo dal presupposto che
+	purché
+	qualora
+		
+Formula:
 	number of hypothetical and conditional connectives / number of tokens
 
 This feature is not available for English, German.

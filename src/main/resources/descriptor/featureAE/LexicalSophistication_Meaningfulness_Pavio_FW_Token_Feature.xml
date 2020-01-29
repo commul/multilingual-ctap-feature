@@ -15,6 +15,12 @@ Token features take into consideration all word tokens, while type features calc
 This feature calculates lexical sophistication with the Meaningfulness Pavio norm list from the MRC Psycholinguistic Database.
 http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html 
 
+Formula:
+	sum of values for functional word tokens found in the norm list / number of functional word tokens of the text found in the norm list
+	
+	Tokens that are not in the norm list are ignored.
+
+
 This feature is NOT available for Italian, German.
 
 AAE dependency:

@@ -18,6 +18,9 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the SUBTLEX word frequency list of all words (AW).
 
+Formula:
+	sum of FREQCOUNTs of word tokens / number of word tokens
+
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

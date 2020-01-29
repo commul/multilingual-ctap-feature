@@ -15,6 +15,12 @@ Token features take into consideration all word tokens, while type features calc
 This feature calculates lexical sophistication with the Kucera and Francis norm list of frequencies (1967), which is included in the MRC Psycholinguistic Database.
 http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html 
 
+Formula:
+	sum of values for tokens found in the norm list / number of tokens of the text found in the norm list
+	
+	Tokens that are not in the norm list are ignored.
+
+
 This feature is NOT available for Italian, German.
 
 AAE dependency:

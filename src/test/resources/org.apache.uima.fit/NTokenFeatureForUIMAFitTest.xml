@@ -6,6 +6,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Tokens</name>
 		<description>Calculates the number of tokens in the text.
+Gives an absolute number.
 
 AAE dependency:
 	SentenceAnnotator.xml

@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Sentences</name>
     <description>Counts the number of sentences in the text. 
+Gives an absolute number.
 
 AAE dependency:
 	SentenceAnnotator.xml

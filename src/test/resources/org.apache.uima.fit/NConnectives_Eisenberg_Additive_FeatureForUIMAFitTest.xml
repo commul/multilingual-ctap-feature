@@ -6,7 +6,18 @@
 	<analysisEngineMetaData>
 		<name>Number of Connectives: Additive Connectives (Eisenberg for German)</name>
 		<description>Calculates the number of additive connectives for German according to Eisenberg.
-		
+Gives an absolute number.
+
+The list contains 41 connectives.
+
+Example:
+	einschließlich
+	samt
+	nebst
+	inklusive
+	zuzüglich
+	ohne zu
+	
 This feature is NOT available for English, Italian.
 
 AAE dependency:

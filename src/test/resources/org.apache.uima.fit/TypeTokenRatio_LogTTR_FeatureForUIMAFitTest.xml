@@ -7,7 +7,7 @@
 		<name>Lexical Richness: Type Token Ratio (Log TTR)</name>
 		<description>Calculates the type token ratio of a text. A word type is a non-duplicated token.
 			
-Definition:
+Formula:
 	This features calculates the Bilogarithmic TTR with the formula:
 	LogTTR = LogT/LogN
 	

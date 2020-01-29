@@ -19,8 +19,11 @@ Token features take into consideration all word tokens, while type features calc
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (SUBTLEX Word Informativeness Per Million Words) of functional words (FW). 
 Informativeness is the number of types with the same initial character trigram and of the same length as the given type:
 
-Definition:
-	number of words with the same first 3 characters and of the same length as this word in the subtlex-it.csv file (this word included).
+Formula:
+	for each functional word type:
+		WI = number of words with the same first 3 characters and of the same length as this word in the subtlex-[LANG].csv file (this word included)
+	
+	sum of WIs / number of functional word types
 
 This feature is NOT available for English.
 

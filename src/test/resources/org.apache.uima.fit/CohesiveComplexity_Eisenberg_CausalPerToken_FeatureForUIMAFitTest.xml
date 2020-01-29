@@ -7,8 +7,17 @@
 		<name>Cohesive Complexity Feature: Causal Connectives per Token (Eisenberg for German)</name>
 		<description>Calculates the cohesive complexity of the text. 
 Calculates the causal connectives per token, listed by Eisenberg for German.
-			
-Definition: 
+The list contains 58 connectives.
+
+Example:
+	andernfalls
+	ansonsten
+	dann : selbst dann wenn,auch dann wenn,sogar dann wenn,wenn-dann
+	unter Umständen
+	eventuell
+	wegen
+		
+Formula: 
 	number of temporal connectives / number of tokens
 
 This feature is not available for English, Italian.

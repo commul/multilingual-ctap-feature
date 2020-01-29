@@ -6,8 +6,15 @@
 		<name>Cohesive Complexity Feature: Purpose Connectives per Token</name>
 		<description>Calculates the cohesive complexity of the text.
 Calculates the purpose connectives per token, listed by Nadezda Okinina and Lorenzo Zanasi for Italian.
+The lists contains 6 connectives:
+	acciocché
+	affinché
+	al fine di
+	allo scopo che
+	allo scopo di
+	onde
 			
-Definition:
+Formula:
 	number of purpose connectives / number of tokens
 
 This feature is not available for English, German.

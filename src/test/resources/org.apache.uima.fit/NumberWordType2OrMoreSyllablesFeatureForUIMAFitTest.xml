@@ -6,6 +6,7 @@
 	<analysisEngineMetaData>
 		<name>Number of Word Types with 2 or more Syllables</name>
 		<description>Calculates number of words types with 2 or more syllables.
+Gives an absolute number.
 
 AAE Dependency:
 	SentenceAnnotator.xml

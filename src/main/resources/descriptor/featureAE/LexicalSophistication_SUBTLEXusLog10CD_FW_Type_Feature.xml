@@ -12,7 +12,15 @@ Only words that are included in the frequency list are calculated. Words that do
 
 Token features take into consideration all word tokens, while type features calculate only unique tokens.
 
-This feature calculates lexical sophistication with the SUBTLEX word frequency list of functional words (FW).
+This feature calculates lexical sophistication with the SUBTLEX word frequency list (Logarithmic Contextual Diversity measure) of functional words (FW).
+
+Formula:
+	for each function word type:
+		CD = log10 (number of films in which the word appears + 1)
+		
+	sum of CDs / number of function word types
+
+This feature is not available for German.
 
 AAE dependency:
 	SentenceAnnotator.xml

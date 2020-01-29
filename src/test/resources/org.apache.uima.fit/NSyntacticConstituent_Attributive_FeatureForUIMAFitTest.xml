@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Attributive</name>
     <description>Counts the number of attributives in the text. 
+Gives an absolute number.
 
 An attributive is a complement of a copular verb such as "to be", "to seem", "to appear". Currently, the converter only recognizes WHNP complements.
 	

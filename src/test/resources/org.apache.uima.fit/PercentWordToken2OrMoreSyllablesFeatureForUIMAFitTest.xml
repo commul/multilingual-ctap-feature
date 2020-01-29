@@ -4,8 +4,11 @@
 	<annotatorImplementationName>com.ctapweb.feature.featureAE.Word2OrMoreSyllablesAE
 	</annotatorImplementationName>
 	<analysisEngineMetaData>
-		<name>Percentage of Tokens with 2 or more Syllables</name>
-		<description>Calculates percentage of words tokens with 2 or more syllables.
+		<name>Proportion of Tokens with 2 or more Syllables</name>
+		<description>Calculates percentage of word tokens with 2 or more syllables.
+
+Formula:
+	number of tokens with 2 or more syllables / total number of tokens
 
 AAE Dependency:
 	SentenceAnnotator.xml

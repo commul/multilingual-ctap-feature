@@ -16,6 +16,12 @@ Token features take into consideration all word tokens, while type features calc
 This feature calculates lexical sophistication with the Brown norm list of frequencies by Brown (1984), which is included in the MRC Psycholinguistic Database.
 http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html
 
+Formula:
+	sum of values for lexical words found in the norm list / number of lexical words of the text found in the norm list
+	
+	Lexical words that are not in the norm list are ignored.
+
+
 This feature is NOT available for Italian, German.
 
 AAE dependency:

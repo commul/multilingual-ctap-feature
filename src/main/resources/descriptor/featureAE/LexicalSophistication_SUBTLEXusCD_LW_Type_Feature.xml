@@ -14,6 +14,12 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (Contextual Diversity measure) of lexical words (LW).
 
+Formula:
+	for each word type:
+		CD = number of films in which the word appears
+		
+	sum of CDs / number of word types
+
 This feature is not available for German, Italian.
 
 AAE dependency:

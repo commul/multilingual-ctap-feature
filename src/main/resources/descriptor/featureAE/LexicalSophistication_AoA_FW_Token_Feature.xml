@@ -16,6 +16,12 @@ Token features take into consideration all word tokens, while type features calc
 This feature calculates lexical sophistication with the Age of Acquisition norm list by Gilhooly and Logie (1980), which is included in the MRC Psycholinguistic Database.
 http://websites.psychology.uwa.edu.au/school/MRCDatabase/mrc2.html 
 
+Formula:
+	sum of AoA values for functional words found in the norm list / number of functional words of the text found in the norm list
+	
+	Functional words that are not in the norm list are ignored.
+
+
 This feature is NOT available for Italian, German.
 
 AAE dependency:

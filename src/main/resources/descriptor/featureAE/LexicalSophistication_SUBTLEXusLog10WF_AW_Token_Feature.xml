@@ -18,6 +18,12 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (Log10 word frequency measure) of all words (AW).
 
+Formula:
+	for each token:
+		LF = log10 ( FREQCOUNT + 1 )
+	
+	sum of LFs / number of tokens
+
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

@@ -4,6 +4,7 @@
   <analysisEngineMetaData>
     <name>Number of Syntactic Constituents: Quantifier Phrase Modifier</name>
     <description>Calculates the number of a specific syntactic constituents in the text. This feature counts the number of quantifier phrase modifiers in the text. 
+Gives an absolute number.
 
 A quantifier modifier is an element modifying the head of a QP constituent. (These are modifiers in complex numeric quantifiers, not other types of "quantification". Quantifiers like "all" become det.)
 	
