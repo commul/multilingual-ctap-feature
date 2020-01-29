@@ -17,8 +17,11 @@ Token features take into consideration all word tokens, while type features calc
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (SUBTLEX Word Familiarity Per Million Words) of functional words (FW).
 Familiarity is the cumulative frequency of all types with the same initial character trigram and of the same length as the given type:
 
-Definition:
-	sum of FREQCOUNTs of all the words with the same first 3 characters and of the same length as this word in the subtlex-LANG.csv file (this word’s FREQCOUNT added to the sum).
+Formula:
+	for each functional word token:
+		FA = sum of FREQCOUNTs of all the words with the same first 3 characters and of the same length as this word in the subtlex-[LANG].csv file (this word’s FREQCOUNT added to the sum)
+	
+	sum of FAs / number of functional word tokens
 
 This feature is NOT available for English.
 

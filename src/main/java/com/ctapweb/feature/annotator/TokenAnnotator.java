@@ -39,12 +39,18 @@ import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
 import com.ctapweb.feature.util.SupportedLanguages;
 
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.util.CoreMap;
 import eu.fbk.dh.tint.runner.TintPipeline;
 import eu.fbk.dh.tint.runner.TintRunner;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.InvalidFormatException;
 import opennlp.tools.util.Span;
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
 
 /**
  * Annotates text with tokens for each sentence in the input text
@@ -238,10 +244,20 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		}
 
 		@Override
-		public Span[] tokenize(String sentence) {
+		public Span[] tokenize(String sentenceString) {
 			//System.out.println(sentence);
 			
 			ArrayList<Span> spanList = new ArrayList();
+			Span span;
+			Annotation annotationTint = pipelineTint.runRaw(sentenceString);
+			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
+	            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
+	            	span = new Span(token.beginPosition(), token.endPosition());
+					spanList.add(span);
+ 
+	            }
+	        }
+			/*
 			InputStream stream = new ByteArrayInputStream(sentence.getBytes(StandardCharsets.UTF_8));
 			
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -268,6 +284,8 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 			}catch(IOException e){
 				logger.throwing(e);
 			}
+			*/
+			
 			Span[] arrayResult = getSpanArray(spanList);
 			return arrayResult;
 		}

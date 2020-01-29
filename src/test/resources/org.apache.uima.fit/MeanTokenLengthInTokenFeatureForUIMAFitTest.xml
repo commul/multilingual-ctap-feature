@@ -7,6 +7,9 @@
 		<name>Mean Token Length in Letters</name>
 		<description>Calculates the mean token length in letters.
 
+Formula:
+	sum of the lengths of all the tokens of the text / number of tokens
+
 AAE Dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml

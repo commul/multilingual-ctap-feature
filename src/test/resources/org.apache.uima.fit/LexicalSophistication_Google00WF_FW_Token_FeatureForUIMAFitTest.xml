@@ -16,6 +16,10 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the Google Books (2000 for German and 2012 for Italian) word frequency list of functional words (FW).
 
+Formula:
+	sum of FREQCOUNTs of functional word tokens / number of functional word tokens
+	
+
 This feature is NOT available for English.
 
 AAE dependency:

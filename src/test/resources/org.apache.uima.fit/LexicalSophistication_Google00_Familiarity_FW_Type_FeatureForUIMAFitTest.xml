@@ -16,9 +16,14 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the Google Books (2000 for German and 2012 for Italian) word frequency list (Google Books Word Familiarity Per Million Words) of functional words (FW).
 
-Familiarity is the cumulative frequency of all types with the same initial character trigram and of the same length as the given type:
-sum of FREQCOUNTs of all the words with the same first 3 characters and of the same length as this word (this word’s FREQCOUNT added to the sum).
+Familiarity is the cumulative frequency of all types with the same initial character trigram and of the same length as the given type.
 
+Formula:
+	for each functional word type:
+		FA = sum of FREQCOUNTs of all the words with the same first 3 characters and of the same length as this word (this word’s FREQCOUNT added to the sum)
+	
+	sum of FAs / number of functional word types
+	
 This feature is NOT available for English.
 
 AAE dependency:

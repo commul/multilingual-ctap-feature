@@ -7,7 +7,7 @@
 		<name>Lexical Sophistication: Percentage of Lemmas Listed in the De Mauro Basic Dictionary (all lemmas)</name>
 		<description>Calculates the percentage of lemmas listed in the De Mauro basic dictionary.
 		
-Definition:
+Formula:
 	( number of lemmas listed in the De Mauro dictionary / number of lemmas (excluding punctuations) ) * 100
 			
 Bib. ref.:

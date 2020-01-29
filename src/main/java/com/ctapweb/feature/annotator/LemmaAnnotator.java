@@ -60,7 +60,11 @@ import org.annolab.tt4j.TreeTaggerWrapper;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.trees.LabeledScoredTreeNode;
+import edu.stanford.nlp.util.CoreMap;
 import eu.fbk.dh.tint.runner.TintPipeline;
 import eu.fbk.dh.tint.runner.TintRunner;
 
@@ -330,6 +334,16 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			}
 
 			String sentenceString = strB.toString();
+			
+			Annotation annotationTint = pipelineTint.runRaw(sentenceString);
+			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
+	            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {		                
+	                lemmaList.add(token.get(CoreAnnotations.LemmaAnnotation.class));  
+	            }
+	        }
+			
+			
+			/*
 			stream = new ByteArrayInputStream(sentenceString.getBytes(StandardCharsets.UTF_8));
 
 			baos = new ByteArrayOutputStream();
@@ -353,11 +367,12 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 					//}
 					//counter ++;
 				}
-
+				
 			}catch(IOException e){
 				logger.throwing(e);
 			}
-
+			*/
+				
 			String[] arrayResult = getStringArray(lemmaList);
 			return arrayResult;
 		}

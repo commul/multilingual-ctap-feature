@@ -15,8 +15,13 @@ Only words that are included in the frequency list are calculated. Words that do
 Token features take into consideration all word tokens, while type features calculate only unique tokens.
 
 This feature calculates lexical sophistication with the Google Books (2000 for German and 2012 for Italian) word frequency list (Google Books Word Informativeness Per Million Words) of functional words (FW). 
-Informativeness is the number of types with the same initial character trigram and of the same length as the given type:
-number of words with the same first 3 characters and of the same length as this word (this word included).
+Informativeness is the number of types with the same initial character trigram and of the same length as the given type.
+
+Formula:
+	for each functional word token:
+		WI = number of words with the same first 3 characters and of the same length as this word (this word included)
+	
+	sum of WIs / number of functional word tokens
 
 This feature is NOT available for English.
 

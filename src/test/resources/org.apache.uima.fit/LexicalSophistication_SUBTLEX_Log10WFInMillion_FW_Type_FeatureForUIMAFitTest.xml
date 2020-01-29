@@ -16,8 +16,13 @@ Token features take into consideration all word tokens, while type features calc
 
 This feature calculates lexical sophistication with the SUBTLEX word frequency list (Log10 word frequency measure per million words) of functional words (FW).
 
-Definition:
-	log10 ( FREQCOUNT + 1 ) - log10 ( total number of words  in the open subtitles corpus ( number of lines in the SUBTLEX-[lang].csv file ) / 1000 000 )
+Formula:
+	for each functional word type:
+		LF = log10 ( FREQCOUNT + 1 ) - log10 ( total number of words  in the open subtitles corpus ( number of lines in the SUBTLEX-[lang].csv file ) / 1000 000 )
+	
+	sum of LFs / number of functional word types
+
+This feature is NOT available for English.
 
 AAE dependency:
 	SentenceAnnotator.xml
