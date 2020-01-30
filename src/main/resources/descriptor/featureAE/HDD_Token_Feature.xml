@@ -9,6 +9,9 @@
 		<name>Lexical Richness: HDD Token</name>
 		<description>Calculates the HDD measure of lexical diversity.
 Was translated into Java by Nadezda Okinina from the Python implementation of John Frens: https://github.com/jfrens/lexical_diversity
+
+HDD is a more sophisticated measure of lexical diversity compared to TTR (type token ratio).
+TTR being highly text length dependent, more sophisticated formulas were invented to overcome this shortcoming, HDD being one of them. The efficiency of such new formulas is subject to debate.
  		
 If the text length is inferior to 50 tokens, gives the value -1.
  	
