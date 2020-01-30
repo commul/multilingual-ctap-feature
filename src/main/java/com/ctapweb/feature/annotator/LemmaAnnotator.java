@@ -7,13 +7,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.attribute.FileAttribute;
-import java.nio.file.attribute.PosixFilePermission;
-import java.nio.file.attribute.PosixFilePermissions;
+//import java.nio.charset.StandardCharsets;
+//import java.nio.file.FileSystems;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.attribute.FileAttribute;
+//import java.nio.file.attribute.PosixFilePermission;
+//import java.nio.file.attribute.PosixFilePermissions;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,8 +21,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.annolab.tt4j.TokenHandler;
-import org.annolab.tt4j.TreeTaggerWrapper;
+//import org.annolab.tt4j.TokenHandler;
+//import org.annolab.tt4j.TreeTaggerWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.uima.UimaContext;
@@ -44,29 +44,28 @@ import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
 import com.ctapweb.feature.type.Lemma;
 import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
-import com.ctapweb.feature.util.EnglishWordCategories;
-import com.ctapweb.feature.util.GermanWordCategories;
-import com.ctapweb.feature.util.ItalianWordCategories;
-import com.ctapweb.feature.util.TintReadableStringTransformer;
+//import com.ctapweb.feature.util.EnglishWordCategories;
+//import com.ctapweb.feature.util.GermanWordCategories;
+//import com.ctapweb.feature.util.ItalianWordCategories;
+//import com.ctapweb.feature.util.TintReadableStringTransformer;
 
 import is2.data.SentenceData09;
 import is2.lemmatizer.Lemmatizer;
 
-import org.annolab.tt4j.TokenHandler;
-import org.annolab.tt4j.TreeTaggerException;
-//import de.unihd.dbs.heideltime.standalone.components.impl.TreeTaggerWrapper;
-import org.annolab.tt4j.TreeTaggerWrapper;
+//import org.annolab.tt4j.TokenHandler;
+//import org.annolab.tt4j.TreeTaggerException;
+//import org.annolab.tt4j.TreeTaggerWrapper;
 
-import com.sun.jna.Library;
-import com.sun.jna.Native;
+//import com.sun.jna.Library;
+//import com.sun.jna.Native;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
-import edu.stanford.nlp.trees.LabeledScoredTreeNode;
+//import edu.stanford.nlp.trees.LabeledScoredTreeNode;
 import edu.stanford.nlp.util.CoreMap;
 import eu.fbk.dh.tint.runner.TintPipeline;
-import eu.fbk.dh.tint.runner.TintRunner;
+//import eu.fbk.dh.tint.runner.TintRunner;
 
 /**
  * Annotates text with lemmas for each word in the input text
@@ -341,37 +340,6 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	                lemmaList.add(token.get(CoreAnnotations.LemmaAnnotation.class));  
 	            }
 	        }
-			
-			
-			/*
-			stream = new ByteArrayInputStream(sentenceString.getBytes(StandardCharsets.UTF_8));
-
-			baos = new ByteArrayOutputStream();
-			//pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-			try{
-				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-				String annotation = baos.toString();
-				Pattern patternLemma = Pattern.compile("Lemma=(.+)?\\]\n");
-				Matcher matcher = patternLemma.matcher(annotation);
-				String lemma;
-				//int counter = 0;
-				// check all occurrences
-				while (matcher.find()) {
-					//text = matcher.group(1);
-					lemma = matcher.group(1);
-					//System.out.println(lemma);
-					//if(lemma.equals("[PUNCT]")){
-						//lemmaList.add(sentTokens.get(counter).getCoveredText());
-						//}else{
-						lemmaList.add(lemma);
-					//}
-					//counter ++;
-				}
-				
-			}catch(IOException e){
-				logger.throwing(e);
-			}
-			*/
 				
 			String[] arrayResult = getStringArray(lemmaList);
 			return arrayResult;
@@ -391,77 +359,4 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	    }
 	}
 	
-	/**
-	 * Wrapper for use of Tree Tagger lemmatizer
-	 * 
-	 * @author nokinina
-	 */
-	/*
-	private class TreeTaggerLemmatizer implements CTAPLemmatizer {		
-		private TreeTaggerWrapper tt;
-		private String utf8FilePath;
-		
-		public TreeTaggerLemmatizer(String treetaggerPath, String lCode) throws IOException {
-			String fileSep = File.separator;
-			String newFilePath = treetaggerPath + fileSep + "bin" + fileSep + "tree-tagger";
-			File fileObject = new File(newFilePath);				
-			// Change permission 
-			fileObject.setReadable(true);
-			fileObject.setWritable(false);
-			fileObject.setExecutable(true);
-
-			System.setProperty("treetagger.home", treetaggerPath);
-			
-			//System.out.println("treetaggerPath: " + treetaggerPath);
-			
-			if (lCode.equals("IT")){
-				utf8FilePath = treetaggerPath + fileSep + "lib" + fileSep + "italian-utf8.par:utf8";
-			}else if(lCode.equals("DE")){
-				utf8FilePath = treetaggerPath + fileSep + "lib" + fileSep + "german-utf8.par:utf8";
-			}
-			
-			//System.out.println("utf8FilePath: " + utf8FilePath);
-		}
-		
-		@Override
-		public String[] lemmatize(List<Token> sentTokens) {
-			ArrayList<String> ttResultArrayL = new ArrayList<String>();
-	        try {
-	        	tt = new TreeTaggerWrapper();
-	        	tt.setModel(utf8FilePath);
-	        	TokenHandler tokenHandler = new TokenHandler<String>() {
-	                public void token(String token, String pos, String lemma) {
-	                    ttResultArrayL.add(lemma);
-	                }
-	            };
-	            
-	            tt.setHandler(tokenHandler);
-	            String[] sentTokensToTreeTag = new String[sentTokens.size()];
-	            int tokNumber = 0;
-	            for (Token tok : sentTokens){
-	            	//logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "tok line 189: " + tok.getCoveredText()));
-	            	//System.out.println("tok line 189: " + tok.getCoveredText());
-	            	sentTokensToTreeTag[tokNumber] = tok.getCoveredText();
-	            	tokNumber += 1;
-	            }
-
-	            tt.process(asList(sentTokensToTreeTag));
-	            tt.destroy();
-	            
-	        }
-	        catch (TreeTaggerException e){
-	        	logger.throwing(e);
-	        }
-	        catch (IOException e){
-	        	logger.throwing(e);
-	        }
-	        
-	        String[] arrayResult = ttResultArrayL.toArray(new String[ttResultArrayL.size()]);
-	        
-	        return arrayResult;
-		}
-		
-		
-	}
-	*/
 }

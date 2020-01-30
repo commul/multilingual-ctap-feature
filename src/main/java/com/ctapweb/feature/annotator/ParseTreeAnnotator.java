@@ -44,16 +44,20 @@ import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
 import com.ctapweb.feature.util.SupportedLanguages;
 import com.ctapweb.feature.util.TintReadableStringTransformer;
-import com.google.protobuf.DescriptorProtos.GeneratedCodeInfo.Annotation;
+//import com.google.protobuf.DescriptorProtos.GeneratedCodeInfo.Annotation;
+import edu.stanford.nlp.pipeline.Annotation;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.ling.Word;
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.semgraph.SemanticGraph;
+import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
 import edu.stanford.nlp.trees.LabeledScoredTreeNode;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
+import edu.stanford.nlp.util.CoreMap;
 import eu.fbk.dh.tint.runner.TintPipeline;
 import eu.fbk.dh.tint.runner.TintRunner;
 import opennlp.tools.cmdline.parser.ParserTool;
@@ -382,6 +386,28 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 			//System.out.println(sb.toString());
 			String textItalian = sb.toString();
 			//treeStr = "(0 (root))";
+			Annotation annotationTint = pipelineTint.runRaw(textItalian);
+			StringBuilder sbSent = new StringBuilder();
+			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
+				SemanticGraph sentSemGraph = sentence.get(SemanticGraphCoreAnnotations.EnhancedPlusPlusDependenciesAnnotation.class);
+				sbSent.append(" root>" + sentSemGraph.toCompactString());
+			}
+			return sbSent.toString();
+			/*
+			CoreMap sentence = annotationTint.get(CoreAnnotations.SentencesAnnotation.class).get(0);
+			SemanticGraph sentSemGraph = sentence.get(SemanticGraphCoreAnnotations.EnhancedPlusPlusDependenciesAnnotation.class);
+			return " root>" + sentSemGraph.toCompactString();
+			*/
+			/*
+			Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+			// in case of failure:
+			if (tree == null) {
+				return getFlatPTBTree(tokens, new ArrayList<POS>(), "(ROOT", ")");
+			}
+			return tree.toString();
+			*/
+			
+			/*
 			treeStr = "";
 			try{			
 				stream = new ByteArrayInputStream(textItalian.getBytes(StandardCharsets.UTF_8));
@@ -425,6 +451,7 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 			}finally{
 				return treeStr;
 			}
+			*/
 		}
 
 		@Override
@@ -441,7 +468,32 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 			//System.out.println(sb.toString());
 			String textItalian = sb.toString();
 			//treeStr = "(0 (root))";
-			treeStr = "";
+			//treeStr = "";
+			
+			Annotation annotationTint = pipelineTint.runRaw(textItalian);
+			StringBuilder sbSent = new StringBuilder();
+			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
+				SemanticGraph sentSemGraph = sentence.get(SemanticGraphCoreAnnotations.EnhancedPlusPlusDependenciesAnnotation.class);
+				sbSent.append(" root>" + sentSemGraph.toCompactString());
+			}
+			return sbSent.toString();
+			
+			/*
+			CoreMap sentence = annotationTint.get(CoreAnnotations.SentencesAnnotation.class).get(0);
+			SemanticGraph sentSemGraph = sentence.get(SemanticGraphCoreAnnotations.EnhancedPlusPlusDependenciesAnnotation.class);
+			return " root>" + sentSemGraph.toCompactString();
+			*/
+			
+			/*
+			Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+			// in case of failure:
+			if (tree == null) {
+				return getFlatPTBTree(tokens, new ArrayList<POS>(), "(ROOT", ")");
+			}
+			return tree.toString();
+			*/
+			
+			/*
 			try{			
 				stream = new ByteArrayInputStream(textItalian.getBytes(StandardCharsets.UTF_8));
 				baos = new ByteArrayOutputStream();
@@ -485,6 +537,7 @@ public class ParseTreeAnnotator extends JCasAnnotator_ImplBase {
 			}finally{
 				return treeStr;
 			}
+			*/
 		}
 		
 	}

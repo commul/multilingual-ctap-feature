@@ -317,7 +317,8 @@ public class NSyntacticConstituentFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(23.0, annot.getValue(), 0.0000001);
+				//assertEquals(23.0, annot.getValue(), 0.0000001); // Old value when the output of Tint was READABLE format
+				assertEquals(23.0, annot.getValue(), 0.0000001); // For the new programmatic output of Tint
 			}
 		}
 	}
@@ -515,7 +516,8 @@ public class NSyntacticConstituentFeatureItTest {
 	
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 44442){
-				assertEquals(19.0, annot.getValue(), 0.0000001);
+				//assertEquals(19.0, annot.getValue(), 0.0000001); // Old value when the output of Tint was READABLE format
+				assertEquals(21.0, annot.getValue(), 0.0000001); // For the new programmatic output of Tint
 			}
 		}
 	}

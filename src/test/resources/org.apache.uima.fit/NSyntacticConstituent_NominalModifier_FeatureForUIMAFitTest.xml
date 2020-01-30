@@ -82,7 +82,7 @@ RS      Relative clauses
         <name>tregexPatternsIT</name>
         <value>
           <array>
-            <string>nmod</string>
+            <string>nmod(:[\p{L}\p{P}]+)?</string>
             </array>
         </value>
       </nameValuePair>

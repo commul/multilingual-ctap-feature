@@ -60,7 +60,7 @@ AAE dependency:
         <languagesSupported>
         	<language>EN</language>
 			<language>DE</language>
-           <language>IT</language>
+           <!--<language>IT</language>-->
         </languagesSupported>
       </capability>
     </capabilities>

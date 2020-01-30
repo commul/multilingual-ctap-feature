@@ -185,7 +185,8 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 			//initialize regex patterns
 			patternList = new ArrayList<>();
 			for(String pattern: tregexPatterns) {
-				patternList.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));	
+				//patternList.add(Pattern.compile("[\\(\\)\\: ]"+pattern.replace(":", "\\:")+"[\\(\\)\\: ]"));
+				patternList.add(Pattern.compile("[\\: ]"+pattern.replace(":", "\\:")+"[\\> ]"));
 			}
 		}
 
@@ -202,7 +203,9 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 				// Will contain all the subtrees in String format of this sentence's tree that matched patterns and the number of these subtrees' occurrences
 				HashMap <String, Integer> matchedStringsAndTheirOccurrencesInSentence = new HashMap<String, Integer>();
 				//Go through all the patterns and find matches in this tree				
-				ParseTree tree = (ParseTree) it.next();
+				ParseTree tree = (ParseTree) it.next();;
+				//logger.trace(LogMarker.UIMA_MARKER, "tree.toString(): " + tree.toString()); // debugging
+				//System.out.println("tree.toString(): " + tree.toString());
 				//Go through all the patterns and find matches in this tree
 				for(Pattern pattern: patternList) {
 					//logger.trace(LogMarker.UIMA_MARKER, "pattern: " , pattern); // debugging
@@ -217,12 +220,13 @@ public class NSyntacticConstituentAE extends JCasAnnotator_ImplBase {
 						int count = 0;
 						while (index != -1) {
 							count++;
+							//System.out.println("matched; count: " + count);
 							input = input.substring(index + 1);
 							index = input.indexOf(match);
 						}
 						
 						// Add the number of occurrences of the piece of tree matching the pattern to the HashMap.
-						// If another patter had already matched this piece of tree, it won't be added  to the HashMap again
+						// If another pattern had already matched this piece of tree, it won't be added  to the HashMap again
 						if (!matchedStringsAndTheirOccurrencesInSentence.containsKey(match)){
 							matchedStringsAndTheirOccurrencesInSentence.put(match, count);
 						}

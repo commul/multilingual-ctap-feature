@@ -110,7 +110,7 @@ public class ParseTreeAnnotatorItTest {
 	/*
 	 * Tests that 12 parse trees start with "(0 (root "
 	 */
-
+	/*
 	@Test
 	public void annotateParseTreeAllParseTreesStartWithZeroRootItalianTest() throws Exception {		
 		int n = 0;
@@ -126,5 +126,5 @@ public class ParseTreeAnnotatorItTest {
 
 		assertEquals(12, n); 
 	}
-	
+	*/
 }

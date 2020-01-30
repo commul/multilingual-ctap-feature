@@ -109,12 +109,14 @@ public class MeanParseTreeDepthAE extends JCasAnnotator_ImplBase {
 
 				} else {
 					numberOfTrees += 1;
+					sumOfDepths += tree.depth();
+					/*
 					if (lCode.equals("IT")){
 						sumOfDepths += tree.depth()-1;
 					}else{
 						sumOfDepths += tree.depth();
 					}
-
+					*/
 				}
 				treeReader.close();
 			} catch (IOException e) {

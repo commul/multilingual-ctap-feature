@@ -338,7 +338,7 @@ public class DescriptorModifier {
 	 * Returns a file object containing the new XML annotator descriptor
 	 */	
 	public static File readXMLAnnotatorDescriptorAddLanguageAddaeID (String filePath, String outputFilePath, String languageCode, String aeID) throws Exception {
-		System.out.println("in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID");
+		//System.out.println("in readXMLAnnotatorDescriptorAddLanguageAddUnitAddaeID");
 		//File fToReturn = new File(filePath);
 		File fXmlFile = new File(filePath);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

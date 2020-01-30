@@ -67,11 +67,11 @@ AAE dependency:
 			<description>A German token model to tokenizing text.</description>
 			<optional>false</optional>
 		</externalResourceDependency>
-		<externalResourceDependency>
+		<!-- <externalResourceDependency>
 			<key>TokenModelIT</key>
 			<description>A Italian token model to tokenizing text.</description>
 			<optional>false</optional>
-		</externalResourceDependency>
+		</externalResourceDependency> -->
 	</externalResourceDependencies>
 
 	<resourceManagerConfiguration>
@@ -90,13 +90,13 @@ AAE dependency:
 					<fileUrl>file:model/de_token.bin</fileUrl>
 				</fileResourceSpecifier>
 			</externalResource>
-			<externalResource>
+			<!-- <externalResource>
 				<name>itTokenModel</name>
 				<description>Italian token model.</description>
 				<fileResourceSpecifier>
 					<fileUrl>file:model/it-token.bin</fileUrl>
 				</fileResourceSpecifier>
-			</externalResource>
+			</externalResource> -->
 		</externalResources>
 
 		<externalResourceBindings>
@@ -108,10 +108,10 @@ AAE dependency:
 				<key>TokenModelDE</key>
 				<resourceName>deTokenModel</resourceName>
 			</externalResourceBinding>
-			<externalResourceBinding>
+			<!-- <externalResourceBinding>
 				<key>TokenModelIT</key>
 				<resourceName>itTokenModel</resourceName>
-			</externalResourceBinding>
+			</externalResourceBinding> -->
 		</externalResourceBindings>
 	</resourceManagerConfiguration>
 </analysisEngineDescription>

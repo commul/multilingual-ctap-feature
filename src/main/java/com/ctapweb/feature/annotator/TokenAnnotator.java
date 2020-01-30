@@ -37,20 +37,20 @@ import com.ctapweb.feature.logging.message.LoadLangModelMessage;
 import com.ctapweb.feature.logging.message.ProcessingDocumentMessage;
 import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
-import com.ctapweb.feature.util.SupportedLanguages;
+//import com.ctapweb.feature.util.SupportedLanguages;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.util.CoreMap;
 import eu.fbk.dh.tint.runner.TintPipeline;
-import eu.fbk.dh.tint.runner.TintRunner;
+//import eu.fbk.dh.tint.runner.TintRunner;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.InvalidFormatException;
 import opennlp.tools.util.Span;
-import edu.stanford.nlp.ling.CoreAnnotations;
-import edu.stanford.nlp.ling.CoreLabel;
+//import edu.stanford.nlp.ling.CoreAnnotations;
+//import edu.stanford.nlp.ling.CoreLabel;
 
 /**
  * Annotates text with tokens for each sentence in the input text
@@ -93,51 +93,42 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 			throw e;
 		} else {
 			lCode = ((String) aContext.getConfigParameterValue(PARAM_LANGUAGE_CODE)).toUpperCase();
-		}
-
-		String languageSpecificResourceKey = RESOURCE_KEY+lCode;
-		try {
-			modelFilePath = getContext().getResourceFilePath(languageSpecificResourceKey);
-
-			logger.trace(LogMarker.UIMA_MARKER, 
-					new LoadLangModelMessage(languageSpecificResourceKey, modelFilePath));
 			
-		switch (lCode) {
-		case "IT":
-			try{
+			switch (lCode) {
+			case "IT":
 				tokenizer = new TintTokenizer ();
-			}catch(Exception e){
-				logger.throwing(e);
-			}
-			break;
-		case "EN":
-			tokenizer = new OpenNLPTokenizer(modelFilePath);
-			break;
-		case "DE":
-			tokenizer = new OpenNLPTokenizer(modelFilePath);
-			break;
-		default:
-			break;
-		}
-			
-			//tokenizer = new OpenNLPTokenizer(modelFilePath);
-			// add switch statement here to allow for different instantiations; see example in ParseTreeAnnotator.java
+				break;
+			case "EN":
+			case "DE":
+			default:
+				String languageSpecificResourceKey = RESOURCE_KEY+lCode;
+				try {
+					modelFilePath = getContext().getResourceFilePath(languageSpecificResourceKey);
 
-		} catch (ResourceAccessException e) {
-			logger.throwing(e);
-			throw new ResourceInitializationException("could_not_access_data",
-					new Object[] {modelFilePath}, e);
-		} catch (InvalidFormatException e) {
-			logger.throwing(e);
-			throw new ResourceInitializationException(CTAPException.EXCEPTION_DIGEST, 
-					"incorrect_lang_model_format",
-					new Object[] {modelFilePath}, e);
-		} catch (IOException e) {
-			logger.throwing(e);
-			throw new ResourceInitializationException(CTAPException.EXCEPTION_DIGEST, 
-					"file_io_error",
-					new Object[] {modelFilePath}, e);
-		} 
+					logger.trace(LogMarker.UIMA_MARKER, 
+							new LoadLangModelMessage(languageSpecificResourceKey, modelFilePath));
+
+					tokenizer = new OpenNLPTokenizer(modelFilePath);
+
+				} catch (ResourceAccessException e) {
+					logger.throwing(e);
+					throw new ResourceInitializationException("could_not_access_data",
+							new Object[] {modelFilePath}, e);
+				} catch (InvalidFormatException e) {
+					logger.throwing(e);
+					throw new ResourceInitializationException(CTAPException.EXCEPTION_DIGEST, 
+							"incorrect_lang_model_format",
+							new Object[] {modelFilePath}, e);
+				} catch (IOException e) {
+					logger.throwing(e);
+					throw new ResourceInitializationException(CTAPException.EXCEPTION_DIGEST, 
+							"file_io_error",
+							new Object[] {modelFilePath}, e);
+				} 
+
+				break;
+			}
+		}
 
 		logger.trace(LogMarker.UIMA_MARKER, new InitializeAECompleteMessage(aeType, aeName));
 	}
@@ -168,7 +159,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 				annotation.setBegin(span.getStart() + sent.getBegin()); // the offset is absolute, so adds the sentence begin position.
 				annotation.setEnd(span.getEnd() + sent.getBegin());
 				annotation.addToIndexes();
-				//				//logger.info("token: " + annotation.getBegin() + ", " + annotation.getEnd() + " "  + annotation.getCoveredText());
+				//logger.info("token: " + annotation.getBegin() + ", " + annotation.getEnd() + " "  + annotation.getCoveredText());
 				//System.out.println(" token: " + annotation.getCoveredText());
 			}
 		}
@@ -226,7 +217,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		private InputStream stream;
 		private ByteArrayOutputStream baos;
 
-		public TintTokenizer() throws FileNotFoundException, IOException {
+		public TintTokenizer(){
 			pipelineTint = new TintPipeline();
 			// Load the default properties
 			// see https://github.com/dhfbk/tint/blob/master/tint-runner/src/main/resources/default-config.properties
@@ -246,46 +237,18 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		@Override
 		public Span[] tokenize(String sentenceString) {
 			//System.out.println(sentence);
-			
+
 			ArrayList<Span> spanList = new ArrayList();
 			Span span;
 			Annotation annotationTint = pipelineTint.runRaw(sentenceString);
 			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
-	            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
-	            	span = new Span(token.beginPosition(), token.endPosition());
+				for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
+					span = new Span(token.beginPosition(), token.endPosition());
 					spanList.add(span);
- 
-	            }
-	        }
-			/*
-			InputStream stream = new ByteArrayInputStream(sentence.getBytes(StandardCharsets.UTF_8));
-			
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			try{
-				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-				String annotation = baos.toString();
 
-				Pattern pattern = Pattern.compile("CharacterOffsetBegin=(\\d+)? CharacterOffsetEnd=(\\d+)");
-				Matcher matcher = pattern.matcher(annotation);
-				int start;
-				int end;
-				Span span;
-				
-				// check all occurrences
-				while (matcher.find()) {
-					//text = matcher.group(1);
-					start = Integer.parseInt(matcher.group(1));
-					end = Integer.parseInt(matcher.group(2));
-					//System.out.println("start: " + start);
-					//System.out.println("end: " + end);
-					span = new Span(start, end);
-					spanList.add(span);
 				}
-			}catch(IOException e){
-				logger.throwing(e);
 			}
-			*/
-			
+
 			Span[] arrayResult = getSpanArray(spanList);
 			return arrayResult;
 		}

@@ -44,7 +44,7 @@ CT      Complex T-unit
 CP      Coordinate Phrases
 CN      Complex nominal
 FC      Fragment Clauses
-FT      Frgment T-units
+FT      Fragment T-units
 NP      Noun phrases
 PP      Prepositional phrases
 CPP     Complex Prepoistional phrases
@@ -73,7 +73,7 @@ RS      Relative clauses
         <name>tregexPatternsIT</name>
         <value>
           <array>
-            <string>(poss)</string>
+            <string>poss</string>
             </array>
         </value>
       </nameValuePair>
