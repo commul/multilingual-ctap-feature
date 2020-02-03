@@ -35,6 +35,10 @@ import com.ctapweb.feature.type.POS;
 import com.ctapweb.feature.type.Sentence;
 import com.ctapweb.feature.type.Token;
 
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.util.CoreMap;
 import eu.fbk.dh.tint.runner.TintPipeline;
 import eu.fbk.dh.tint.runner.TintRunner;
 import opennlp.tools.postag.POSModel;
@@ -227,6 +231,7 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 	 * @author nokinina
 	 *
 	 */
+	@SuppressWarnings("unused")
 	private class TintPosTagger extends POSTagger {
 		private TintPipeline pipelineTint;
 		private InputStream stream;
@@ -262,26 +267,14 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 			}
 
 			String sentenceString = strB.toString();
-			stream = new ByteArrayInputStream(sentenceString.getBytes(StandardCharsets.UTF_8));
-
-			baos = new ByteArrayOutputStream();
-			//pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-			try{
-				pipelineTint.run(stream, baos, TintRunner.OutputFormat.READABLE);
-				String annotation = baos.toString();
-				Pattern patternLemma = Pattern.compile("PartOfSpeech=(.+)?\\]\n");
-				Matcher matcher = patternLemma.matcher(annotation);
-				String pos;
-				// check all occurrences
-				while (matcher.find()) {
-					pos = matcher.group(1);
-					posList.add(pos);
-				}
-
-			}catch(IOException e){
-				logger.throwing(e);
-			}
-
+			
+			Annotation annotationTint = pipelineTint.runRaw(sentenceString);
+			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
+	            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {		                
+	            	posList.add(token.get(CoreAnnotations.PartOfSpeechAnnotation.class));  
+	            }
+	        }
+				
 			String[] arrayResult = getStringArray(posList);
 			return arrayResult;
 		}
