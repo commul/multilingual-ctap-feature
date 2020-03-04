@@ -78,7 +78,7 @@ public class ConcretenessItTest {
 	
 	
 	/*
-	 * Checks that the number of lemmas in META-INF/cani.txt is 265.0.
+	 * Checks that the Concreteness of lemmas in META-INF/cani.txt is 5.958125000000001.
 	 */
 	
 	@Test
@@ -113,7 +113,7 @@ public class ConcretenessItTest {
 	}
 	
 	/*
-	 * Checks that the number of lemmas in META-INF/cani.txt is 265.0.
+	 * Checks that the Concreteness of lemmas in META-INF/cani.txt is 5.531818181818182.
 	 */
 	
 	@Test
