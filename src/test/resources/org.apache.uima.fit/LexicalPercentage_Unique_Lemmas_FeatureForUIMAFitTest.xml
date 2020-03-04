@@ -56,7 +56,7 @@ AAE dependency:
     	<nameValuePair><name>LanguageCode</name><value><string>IT</string></value></nameValuePair><nameValuePair><name>aeID</name><value><integer>9020</integer></value></nameValuePair></configurationParameterSettings>
 		<typeSystemDescription>
 			
-		<imports><import location="../../../../src/main/resources/descriptor/type_system/linguistic_type/LemmaType.xml"/></imports></typeSystemDescription>
+		<imports><import location="../../../../src/main/resources/descriptor/type_system/feature_type/LexicalPercentageType.xml"/></imports></typeSystemDescription>
 		<typePriorities/>
 		<fsIndexCollection/>
 		<capabilities>

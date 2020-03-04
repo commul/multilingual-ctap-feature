@@ -29,7 +29,7 @@ import com.ctapweb.feature.type.Token;
 
 /**
  * @author xiaobin
- * Counts the number of tokens.
+ * Counts the number of syllables.
  */
 public class NSyllableAE extends JCasAnnotator_ImplBase {
 

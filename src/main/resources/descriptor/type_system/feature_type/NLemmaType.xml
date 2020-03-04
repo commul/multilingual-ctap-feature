@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
-    <name>Number of Tokens</name>
+    <name>Number of Lemmas</name>
     <description>The number of lemmas feature type.
 Extends: ComplexityFeatureBase.
 Dependency: 
 	Feature types: none
-	Linguistic types: Token</description>
+	Linguistic types: Lemma</description>
     <version>1.0</version>
     <vendor>Xiaobin</vendor>
   <imports>
     <import location="ComplexityFeatureBaseType.xml"/>
     <import location="../linguistic_type/LemmaType.xml"/>
+    <import location="../linguistic_type/TokenType.xml"/>
   </imports>
   <types>
     <typeDescription>

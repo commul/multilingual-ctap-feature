@@ -337,7 +337,8 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			Annotation annotationTint = pipelineTint.runRaw(sentenceString);
 			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
 	            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {		                
-	                lemmaList.add(token.get(CoreAnnotations.LemmaAnnotation.class));  
+	                lemmaList.add(token.get(CoreAnnotations.LemmaAnnotation.class));
+	                //System.out.println(token.get(CoreAnnotations.LemmaAnnotation.class));  // debugging
 	            }
 	        }
 				

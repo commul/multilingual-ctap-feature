@@ -67,7 +67,7 @@ public class NLetterFeatureItTest {
 		XMLInputSource xmlInputSourceLetter = new XMLInputSource(fLetter);
 		AnalysisEngineDescription aedLetter = pars.parseAnalysisEngineDescription(xmlInputSourceLetter);
 		
-		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", testResourcesFolder+"NLetterFeatureForUIMAFitTest.xml", "IT", "777");
+		File f = DescriptorModifier.readXMLAnnotatorDescriptorAddLanguageAddaeID ("src/main/resources/descriptor/featureAE/NLetterFeature.xml", testResourcesFolder+"NLetterFeatureForUIMAFitTest.xml", "IT", "555");
 		XMLInputSource xmlInputSource = new XMLInputSource(f);
 		AnalysisEngineDescription aed = pars.parseAnalysisEngineDescription(xmlInputSource);
 		
@@ -84,7 +84,7 @@ public class NLetterFeatureItTest {
 	public void NLetterFeatureTest() throws Exception {
 
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
-			if(annot.getId() == 777){
+			if(annot.getId() == 555){
 				assertEquals(1317.0, annot.getValue(), 0.0000001);
 			}
 		}
