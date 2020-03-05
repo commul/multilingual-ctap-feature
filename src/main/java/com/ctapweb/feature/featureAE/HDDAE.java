@@ -168,8 +168,11 @@ public class HDDAE extends JCasAnnotator_ImplBase {
 		double hddValue = 0.0;
 		double contribution;
 		for (String type: typeCounts.keySet()){
+			double hg = hypergeometric((double)tokensArray.size(), sampleSize, typeCounts.get(type), 0.0);
 			contribution = (1.0 - hypergeometric((double)tokensArray.size(), sampleSize, typeCounts.get(type), 0.0)) / sampleSize;
-			hddValue += contribution;
+			if(!Double.isNaN(contribution)){
+				hddValue += contribution;
+			}
 		}
 		
 		return hddValue;
