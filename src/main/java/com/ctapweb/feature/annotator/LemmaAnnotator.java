@@ -15,6 +15,7 @@ import java.io.InputStream;
 //import java.nio.file.attribute.PosixFilePermission;
 //import java.nio.file.attribute.PosixFilePermissions;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -52,9 +53,9 @@ import com.ctapweb.feature.type.Token;
 import is2.data.SentenceData09;
 import is2.lemmatizer.Lemmatizer;
 
-//import org.annolab.tt4j.TokenHandler;
-//import org.annolab.tt4j.TreeTaggerException;
-//import org.annolab.tt4j.TreeTaggerWrapper;
+import org.annolab.tt4j.TokenHandler;
+import org.annolab.tt4j.TreeTaggerException;
+import org.annolab.tt4j.TreeTaggerWrapper;
 
 //import com.sun.jna.Library;
 //import com.sun.jna.Native;
@@ -81,6 +82,8 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 
 	//for pos tagger
 	private CTAPLemmatizer lemmatizer;
+	private CTAPLemmatizer lemmatizer2; // The second lemmatizer is needed for the processing of complex Italian texts where the first lemmatizer fails. This way there is more chance to get a lemma.
+	
 	public static String LEMMA_RESOURCE_KEY = "LemmaModel";
 
 	private static final String PARAM_LANGUAGE_CODE = "LanguageCode";
@@ -114,10 +117,12 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 
 				logger.trace(LogMarker.UIMA_MARKER, 
 					new LoadLangModelMessage(languageSpecificResourceKey, lemmaModelFilePath));
-
+				
+				// The second lemmatizer is needed for the processing of complex Italian texts where the first lemmatizer fails. This way there is more chance to get a lemma.
+				// But I also have to instantiate the second lemmatizer for German for code coherence
 				lemmatizer = new MateLemmatizer(lemmaModelFilePath);
-				// add switch statement here to allow for different instantiations; see example in ParseTreeAnnotator.java
-
+				lemmatizer2 = new MateLemmatizer(lemmaModelFilePath);
+				
 			} catch (ResourceAccessException e) {
 				logger.throwing(e);
 				throw new ResourceInitializationException("could_not_access_data",
@@ -130,12 +135,13 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			}
 			break;
 		case "IT":
-			try{
-				//String treetaggerPath = getContext().getResourceFilePath("treetagger");
-				//logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
-				//lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
-				
+			try{							
 				lemmatizer = new TintLemmatizer ();
+				
+				//The Tint lemmatizer fails sometimes. In such cases I use the TreeTagger lemmatizer. If it fails, too, I fill the lemmas with "NULL" strings.
+				String treetaggerPath = getContext().getResourceFilePath("treetagger");
+				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
+				lemmatizer2 = new TreeTaggerLemmatizer(treetaggerPath);
 				
 			}catch(Exception e){
 				logger.throwing(e);
@@ -146,42 +152,6 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			break;
 		}
 		
-		/*
-		if (lCode.equals("DE")){  // TODO this should be a switch statement (by zweiss)			
-			//init lemmatizer
-			String languageSpecificResourceKey = LEMMA_RESOURCE_KEY+lCode;
-			try {
-				lemmaModelFilePath = getContext().getResourceFilePath(languageSpecificResourceKey);
-
-				logger.trace(LogMarker.UIMA_MARKER, 
-					new LoadLangModelMessage(languageSpecificResourceKey, lemmaModelFilePath));
-
-				lemmatizer = new MateLemmatizer(lemmaModelFilePath);
-				// add switch statement here to allow for different instantiations; see example in ParseTreeAnnotator.java
-
-			} catch (ResourceAccessException e) {
-				logger.throwing(e);
-				throw new ResourceInitializationException("could_not_access_data",
-					new Object[] {lemmaModelFilePath}, e);
-			} catch (IOException e) {
-				logger.throwing(e);
-				throw new ResourceInitializationException(CTAPException.EXCEPTION_DIGEST, 
-					"file_io_error",
-					new Object[] {lemmaModelFilePath}, e);
-			}
-			
-		
-		}else if (lCode.equals("IT")){
-			try{
-				String treetaggerPath = getContext().getResourceFilePath("treetagger");
-				logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "treetaggerPath : " + treetaggerPath));
-				lemmatizer = new TreeTaggerLemmatizer(treetaggerPath, lCode);
-
-			}catch(Exception e){
-				logger.throwing(e);
-			}
-		}
-		*/
 		logger.trace(LogMarker.UIMA_MARKER, new InitializeAECompleteMessage(aeType, aeName));
 	}
 
@@ -199,10 +169,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 
 		//iterate through all sentences
 		Iterator sentIter = aJCas.getAnnotationIndex(Sentence.type).iterator();
-		while (sentIter.hasNext()) {
-			//logger.trace(LogMarker.UIMA_MARKER, "Sentence in lemma Annotator");  // debugging
-			//System.out.println("Sentence in lemma Annotator");  // debugging
-			
+		while (sentIter.hasNext()) {			
 			Sentence sent = (Sentence) sentIter.next();
 			int sentStart = sent.getBegin();
 			int sentEnd = sent.getEnd();
@@ -211,8 +178,6 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			//iterate through all tokens
 			Iterator tokenIter = aJCas.getAnnotationIndex(Token.type).iterator(false);
 			while(tokenIter.hasNext()) {
-				//logger.trace(LogMarker.UIMA_MARKER, "Token in lemma Annotator");  // debugging
-				//System.out.println("Token in lemma Annotator");  // debugging
 				Token token = (Token) tokenIter.next();
 				if(token.getBegin() >= sentStart && token.getEnd() <= sentEnd) {
 					sentTokens.add(token);
@@ -220,8 +185,17 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			}
 			
 			String[] lemmas = new String[sentTokens.size()];
-			lemmas = lemmatizer.lemmatize(sentTokens);
-			
+			//The Italian Tint lemmatizer fails sometimes. In such cases I use the TreeTagger lemmatizer. If it fails, too, I fill the lemmas with "NULL" strings.
+			try{
+				lemmas = lemmatizer.lemmatize(sentTokens);
+			}catch(Exception e){
+				try{
+					lemmas = lemmatizer2.lemmatize(sentTokens);
+				}catch(Exception ex){
+					Arrays.fill(lemmas, "NULL");
+				}
+			}
+						
 			//populate the CAS
 			for(int i = 0; i < lemmas.length; i++) {  
 				Token token = sentTokens.get(i);
@@ -253,6 +227,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	 */
 	interface CTAPLemmatizer {
 		abstract String[] lemmatize(List<Token> tokenizedSentence);
+		//abstract String[] lemmatizeString(String sentenceString);
 	}
 
 	/**
@@ -291,6 +266,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			SentenceData09 lemmatizedSentence = mateLemmatizer.apply(inputSentenceData);
 			return lemmatizedSentence.plemmas;
 		}
+		
 	}
 	
 	/**
@@ -320,6 +296,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			pipelineTint.load();
 		}
 		
+		
 		@Override
 		public String[] lemmatize(List<Token> sentTokens) {
 			ArrayList<String> lemmaList = new ArrayList();
@@ -333,6 +310,7 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 			}
 
 			String sentenceString = strB.toString();
+			//System.out.println(sentenceString);  // debugging
 			
 			Annotation annotationTint = pipelineTint.runRaw(sentenceString);
 			for (CoreMap sentence : annotationTint.get(CoreAnnotations.SentencesAnnotation.class)) {
@@ -358,6 +336,74 @@ public class LemmaAnnotator extends JCasAnnotator_ImplBase {
 	        }	  
 	        return str; 
 	    }
+	}
+	
+	/**
+	 * Wrapper for use of Tree Tagger lemmatizer
+	 * 
+	 * @author nokinina
+	 */
+	
+	private class TreeTaggerLemmatizer implements CTAPLemmatizer {
+
+		private TreeTaggerWrapper tt;
+
+		public TreeTaggerLemmatizer(String treetaggerPath) throws IOException {
+
+			String fileSep = File.separator;
+			String newFilePath = treetaggerPath + fileSep + "bin" + fileSep + "tree-tagger";
+			File fileObject = new File(newFilePath);				
+			// Change permission as below.
+			fileObject.setReadable(true);
+			fileObject.setWritable(false);
+			fileObject.setExecutable(true);
+
+			System.setProperty("treetagger.home", treetaggerPath);
+			tt = new TreeTaggerWrapper();
+
+			//String fileSep = File.separator;
+			String italianUtf8FilePath = treetaggerPath + fileSep + "italian-utf8.par:utf8";
+			tt.setModel(italianUtf8FilePath);
+
+
+		}
+
+		@Override
+		public String[] lemmatize(List<Token> sentTokens) {
+			ArrayList<String> ttResultArrayL = new ArrayList<String>();
+	        try {
+
+	        	TokenHandler tokenHandler = new TokenHandler<String>() {
+	                public void token(String token, String pos, String lemma) {
+	                    ttResultArrayL.add(lemma);
+	                }
+	            };
+
+	            tt.setHandler(tokenHandler);
+	            String[] sentTokensToTreeTag = new String[sentTokens.size()];
+	            int tokNumber = 0;
+	            for (Token tok : sentTokens){
+	            	//logger.trace(LogMarker.UIMA_MARKER, new LoadLangModelMessage("it", "tok line 189: " + tok.getCoveredText()));
+	            	//System.out.println("tok line 189: " + tok.getCoveredText());
+	            	sentTokensToTreeTag[tokNumber] = tok.getCoveredText();
+	            	tokNumber += 1;
+	            }
+
+	            tt.process(asList(sentTokensToTreeTag));
+	            tt.destroy();
+
+	        }
+	        catch (TreeTaggerException e){
+	        	logger.throwing(e);
+	        }
+	        catch (IOException e){
+	        	logger.throwing(e);
+	        }
+
+	        String[] arrayResult = ttResultArrayL.toArray(new String[ttResultArrayL.size()]);
+
+	        return arrayResult;
+		}
 	}
 	
 }
