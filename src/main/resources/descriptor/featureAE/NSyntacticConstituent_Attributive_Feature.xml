@@ -9,8 +9,9 @@ Gives an absolute number.
 
 An attributive is a complement of a copular verb such as "to be", "to seem", "to appear". Currently, the converter only recognizes WHNP complements.
 	
-benché Allende fosse già presidente attr(fosse, presidente) : Tint ha messo cop(fosse, presidente)
-"è la verità" attr(è, verità)
+Ex:
+	benché Allende fosse già presidente attr(fosse, presidente) : Tint ha messo cop(fosse, presidente)
+	"è la verità" attr(è, verità)
 
 This feature is NOT available for English, German.
 
@@ -19,7 +20,7 @@ AAE dependency:
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>
     <version>1.0</version>
-    <vendor>Xiaobin Chen</vendor>
+    <vendor>Nadezda Okinina</vendor>
     <configurationParameters>
       <configurationParameter>
         <name>aeID</name>

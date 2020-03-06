@@ -3,21 +3,28 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>Syntactic Complexity Feature: Coordinations per Sentence</name>
+    <name>Syntactic Complexity Feature: Adjectival Complements per Sentence</name>
     <description>Calculates the syntactic complexity of the text.
-Calculates the number of coordinations per sentence. 
+Calculates the number of adjectival complements per sentence. 
+
+An adjectival complement of a verb is an adjectival phrase which functions as the complement (like an object of the verb)
+	
+"Lo hanno dichiarato colpevole" acomp(dichiarato, colpevole) : Tint a dato 'amod' in questo caso.
+"Considero Maria simpatica" acomp(considero, simpatica) 
 
 Formula: 
-	number of coordinations / number of sentences
+	number of adjectival complements / number of sentences
+	
+This feature is not available for English, German.
 
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml
-	NSyntacticConstituent_Coordination_Feature.xml
+	NSyntacticConstituent_AdjectivalComplement_Feature.xml
 	NSyntacticConstituent_S_Feature.xml</description>
     <version>1.0</version>
-    <vendor>Zarah Weiss</vendor>
+    <vendor>Nadezda Okinina</vendor>
     <configurationParameters>
       <configurationParameter>
         <name>aeID</name>
@@ -55,8 +62,7 @@ AAE dependency:
         <description>options:
 	nC		number of clauses
 	nS		number of sentences
-	nT		number of T-units
-		</description>
+	nT		number of T-units</description>
         <type>String</type>
         <multiValued>false</multiValued>
         <mandatory>true</mandatory>
@@ -66,7 +72,7 @@ AAE dependency:
       <nameValuePair>
         <name>numerator</name>
         <value>
-          <string>ncc</string>
+          <string>nacomp</string>
         </value>
       </nameValuePair>
       <nameValuePair>
@@ -92,8 +98,6 @@ AAE dependency:
           <type allAnnotatorFeatures="true">com.ctapweb.feature.type.SyntacticComplexity</type>
         </outputs>
                 <languagesSupported>
-                    <language>EN</language>
-                    <language>DE</language>
                     <language>IT</language>
                     <!-- add new language here -->
                 </languagesSupported>

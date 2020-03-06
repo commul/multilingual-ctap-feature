@@ -9,9 +9,10 @@ Gives an absolute number.
 
 An appositional modifier of an NP is an NP immediately to the right of the first NP that serves to define or modify that NP. It includes parenthesized examples, as well as defining abbreviations in one of these structures.
 	
-"Marcello Pagliacci, direttore del centro" appos(Pagliacci, direttore)
-"il presidente Scalfaro" appos(Scalfaro, presidente)
-"piccole e medie imprese (PMI)" appos(imprese, PMI)
+Ex:
+	"Marcello Pagliacci, direttore del centro" appos(Pagliacci, direttore)
+	"il presidente Scalfaro" appos(Scalfaro, presidente)
+	"piccole e medie imprese (PMI)" appos(imprese, PMI)
 
 This feature is NOT available for English, German.
 
@@ -20,7 +21,7 @@ AAE dependency:
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>
     <version>1.0</version>
-    <vendor>Xiaobin Chen</vendor>
+    <vendor>Nadezda Okinina</vendor>
     <configurationParameters>
       <configurationParameter>
         <name>aeID</name>

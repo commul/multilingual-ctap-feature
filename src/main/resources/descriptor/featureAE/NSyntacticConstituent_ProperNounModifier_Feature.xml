@@ -7,8 +7,9 @@
     <description>Counts the number of proper noun modifiers in the text. 
 Gives an absolute number.
 
-"Woody Allen" nnp(Allen, Woody);
-"Mariateresa Di Lascia" nnp(Lascia, Mariateresa) nnp(Lascia, Di) 
+Ex:
+	"Woody Allen" nnp(Allen, Woody);
+	"Mariateresa Di Lascia" nnp(Lascia, Mariateresa) nnp(Lascia, Di) 
 
 Tint ha dato per "Mariateresa Di Lascia." :
 

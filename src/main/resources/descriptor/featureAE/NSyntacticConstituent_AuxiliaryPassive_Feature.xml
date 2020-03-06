@@ -9,8 +9,9 @@ Gives an absolute number.
 
 A passive auxiliary of a clause is a non-main verb of the clause which contains the passive information
 
-"Significa che sono state tagliate le vie nervose" auxpass(tagliate, state)
-"Le donne candidate vengono ritenute intelligenti" auxpass(ritenute, vengono) 
+Ex:
+	"Significa che sono state tagliate le vie nervose" auxpass(tagliate, state)
+	"Le donne candidate vengono ritenute intelligenti" auxpass(ritenute, vengono) 
 
 This feature is NOT available for English, German.
 

@@ -10,8 +10,9 @@ Gives an absolute number.
 An adjectival modifier of an NP is any adjectival phrase that serves to modify the meaning of the NP
 Used also for numbers, when they represent age. John Smith (33) ...
 	
-"nuovo record" amod(record, nuovo)
-"nell'ultima edizione della famosa maratona" amod(maratona, famosa) 
+Ex:
+	"nuovo record" amod(record, nuovo)
+	nell'ultima edizione della famosa maratona" amod(maratona, famosa) 
 
 This feature is not available for English, German.
 
@@ -20,7 +21,7 @@ AAE dependency:
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>
     <version>1.0</version>
-    <vendor>Xiaobin Chen</vendor>
+    <vendor>Nadezda Okinina</vendor>
     <configurationParameters>
       <configurationParameter>
         <name>aeID</name>

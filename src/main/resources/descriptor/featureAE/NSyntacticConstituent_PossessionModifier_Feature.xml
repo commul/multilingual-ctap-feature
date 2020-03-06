@@ -9,7 +9,8 @@ Gives an absolute number.
 
 The possession modifier relation holds between the head of an NP and its possessive determiner
 	
-"voce spese generali del suo studio" poss(studio, suo); Tint ha dato: det:poss(studio-6, suo-5)
+Ex:
+	"voce spese generali del suo studio" poss(studio, suo); Tint ha dato: det:poss(studio-6, suo-5)
 
 This feature is not available for English, German.
 

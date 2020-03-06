@@ -7,9 +7,9 @@
     <description>Counts the number of relative clause modifiers in the text. 
 Gives an absolute number.
 
-"I saw the man you love" rcmod(man, love); "I saw the book which you bought" rcmod(book,bought)
-
-"distinzioni che possono rendere difficile un confronto" rcmod(distinzioni, rendere)
+Ex:
+	"I saw the man you love" rcmod(man, love); "I saw the book which you bought" rcmod(book,bought)
+	"distinzioni che possono rendere difficile un confronto" rcmod(distinzioni, rendere)
  
 This feature is not available for English, German.
 

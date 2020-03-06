@@ -9,8 +9,9 @@ Gives an absolute number.
 
 An auxiliary of a clause is a non-main verb of the clause, e.g., a modal auxiliary, or a form of "be", "do" or "have" in a periphrastic tense
 
-"quella che ha fatto" aux(fatto, ha)
-"era convinto di dover vivere" aux(vivere, dover) 
+Ex:
+	"quella che ha fatto" aux(fatto, ha)
+	"era convinto di dover vivere" aux(vivere, dover) 
 
 This feature is NOT available for English, German.
 

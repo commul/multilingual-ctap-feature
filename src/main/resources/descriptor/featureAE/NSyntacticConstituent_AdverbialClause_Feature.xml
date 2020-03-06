@@ -9,8 +9,9 @@ Gives an absolute number.
 
 An adverbial clause modifier of a VP or S is a clause modifying the verb (temporal clause, consequence, conditional clause, purpose clause, etc.)
 
-"Quando venne coniato il termine, esso era applicato a un particolare fenomeno atmosferico" advcl(applicato, coniato)
-"Se non entrano in contatto con goccioline d'acqua, questi gas possono depositarsi sul suolo" advcl(depositarsi, entrano) 
+Ex:
+	"Quando venne coniato il termine, esso era applicato a un particolare fenomeno atmosferico" advcl(applicato, coniato)
+	"Se non entrano in contatto con goccioline d'acqua, questi gas possono depositarsi sul suolo" advcl(depositarsi, entrano) 
 
 This feature is NOT available for English, German.
 
@@ -19,7 +20,7 @@ AAE dependency:
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>
     <version>1.0</version>
-    <vendor>Xiaobin Chen</vendor>
+    <vendor>Nadezda Okinina</vendor>
     <configurationParameters>
       <configurationParameter>
         <name>aeID</name>

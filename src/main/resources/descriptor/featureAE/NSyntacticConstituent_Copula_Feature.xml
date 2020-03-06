@@ -8,6 +8,8 @@
 Gives an absolute number.
 
 A copula is the relation between the complement of a copular verb and the copular verb.
+	
+Ex:
 	"Giovanni è un uomo onesto" cop(uomo, è)
  
 This feature is NOT available for English, German.

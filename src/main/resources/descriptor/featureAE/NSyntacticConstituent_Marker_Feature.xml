@@ -9,8 +9,9 @@ Gives an absolute number.
 
 A marker is the word introducing a finite clause subordinate to another clause. For a complement clause, this will typically be "that" or "whether". For an adverbial clause, the marker is typically a preposition like "while" or "although". The mark is a dependent of the subordinate clause head.
 	
-"Quando sono stati investiti dalla violenza del fulmine" mark(investiti, quando);  Tint ha dato: 'advmod(investiti-4, Quando-1)'
-"Mentre leggono le notizie" mark(leggono, mentre)
+Ex:
+	"Quando sono stati investiti dalla violenza del fulmine" mark(investiti, quando);  Tint ha dato: 'advmod(investiti-4, Quando-1)'
+	"Mentre leggono le notizie" mark(leggono, mentre)
 
 This feature is NOT available for English, German.
 

@@ -3,11 +3,9 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  <annotatorImplementationName>com.ctapweb.feature.featureAE.SyntacticComplexityAE</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>Syntactic Complexity Feature: Dependent clauses per Sentence</name>
+    <name>Syntactic Complexity Feature: Dependent Clauses per Sentence</name>
     <description>Calculates the syntactic complexity of the text. 
-Calculates the dependent clause per sentence. 
- 
-This feature is NOT available for Italian.
+Calculates the dependent clause per sentence.
  
 Formula: 
 	number of dependent clauses / number of sentences
@@ -56,6 +54,7 @@ AAE dependency:
         <name>denominator</name>
         <description>options:
 	nC		number of clauses
+	nS		number of sentences
 	nT		number of T-units</description>
         <type>String</type>
         <multiValued>false</multiValued>

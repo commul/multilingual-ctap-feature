@@ -10,8 +10,9 @@ Gives an absolute number.
 
 The direct object of a VP is the noun phrase which is the (accusative) object of the verb
 
-"quando mi vede" dobj(vede, mi);
-"hanno vinto la lotteria" dobj(vinto, lotteria) 
+Ex:
+	"quando mi vede" dobj(vede, mi);
+	"hanno vinto la lotteria" dobj(vinto, lotteria) 
 
 This feature is NOT available for English, German.
 

@@ -9,8 +9,9 @@ Gives an absolute number.
 
 An adjectival complement of a verb is an adjectival phrase which functions as the complement (like an object of the verb)
 	
-"Lo hanno dichiarato colpevole" acomp(dichiarato, colpevole) : Tint a dato 'amod' in questo caso.
-"Considero Maria simpatica" acomp(considero, simpatica) 
+Ex:
+	"Lo hanno dichiarato colpevole" acomp(dichiarato, colpevole) : Tint a dato 'amod' in questo caso.
+	"Considero Maria simpatica" acomp(considero, simpatica) 
 
 This feature is not available for English, German.
 
@@ -19,7 +20,7 @@ AAE dependency:
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml</description>
     <version>1.0</version>
-    <vendor>Xiaobin Chen</vendor>
+    <vendor>Nadezda Okinina</vendor>
     <configurationParameters>
       <configurationParameter>
         <name>aeID</name>
