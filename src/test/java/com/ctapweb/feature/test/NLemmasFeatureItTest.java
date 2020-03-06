@@ -85,7 +85,7 @@ public class NLemmasFeatureItTest {
 
 		for(ComplexityFeatureBase annot : JCasUtil.select(jCas, ComplexityFeatureBase.class)){
 			if(annot.getId() == 9015){
-				assertEquals(265.0, annot.getValue(), 0.0000001);
+				assertEquals(163.0, annot.getValue(), 0.0000001);
 			}	
 		}
 	}

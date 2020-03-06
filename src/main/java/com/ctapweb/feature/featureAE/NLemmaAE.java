@@ -3,7 +3,9 @@
  */
 package com.ctapweb.feature.featureAE;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -82,14 +84,20 @@ public class NLemmaAE extends JCasAnnotator_ImplBase {
 		// count the number of lemmas
 		// get annotation indexes and iterator
 		Iterator it = aJCas.getAnnotationIndex(Lemma.type).iterator();
-
+		
+		//for storing unique lemmas
+		Set<String> uniqueLemmas = new HashSet<>();
+		
 		int occurrence = 0;
 		//count number of occurrences 
 		while(it.hasNext()) {
 			Lemma lemma = (Lemma) it.next();
-			if(excludePunct && lemma.getCoveredText().matches("\\p{Punct}")) {
+			String lemmaString = lemma.getLemma();
+			
+			if((excludePunct && lemma.getCoveredText().matches("\\p{Punct}")) || uniqueLemmas.contains(lemmaString)) {
 				continue;
 			} else {
+				uniqueLemmas.add(lemmaString);
 				occurrence++;
 			}
 		}
