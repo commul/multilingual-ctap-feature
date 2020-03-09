@@ -20,7 +20,7 @@ AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml
 	ParseTreeAnnotator.xml
-	NSyntacticConstituent_AdjectivalClauseMoodifier_Feature.xml
+	NSyntacticConstituent_AdjectivalClauseModifier_Feature.xml
 	NSyntacticConstituent_S_Feature.xml</description>
     <version>1.0</version>
     <vendor>Nadezda Okinina</vendor>
